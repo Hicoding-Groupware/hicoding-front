@@ -1,0 +1,138 @@
+
+
+
+/* --------------------- 민서가 만든 네비 부분  -----------------*/
+
+
+body{margin: 0;}  /* 이게 있어야지 모서리에 틈이 없어진다*/
+
+.navbar-div {
+    border-top: solid 1px rgba(0, 0, 0, 0.09);
+    border-bottom: solid 1px rgba(0, 0, 0, 0.15);
+    background-color: #5A38A8;
+
+
+}
+
+.nav-list-ul {
+    display: flex;
+    align-items: center;
+    /*justify-content: center;*/
+    flex-wrap: wrap;
+    min-width: 800px;
+    list-style:none;
+    padding-left:0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+
+.nav-list-ul li {
+    min-width: 150px;
+    height: auto;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}
+
+.logo-img{
+    width: 90px;
+    margin: 0px 70px 0px 50px;
+    cursor: pointer;
+}
+
+.user-name{
+    padding-left: 490px;
+}
+
+.logout-img{
+    width: 20px;
+    min-width: 0px  !important;
+    cursor: pointer;
+    position: absolute;
+    right: 30px;
+
+}
+
+.li-hover:hover{
+    color: rgba(2, 12, 19, 0.82);
+    cursor: pointer;
+}
+
+
+.dropDownMain{
+    justify-content: center;
+        flex-wrap: wrap;
+        list-style:none;
+        position: relative;
+        text-align: center;
+        padding-right: 70px;
+        color: white;
+        cursor: pointer;
+        display: flex;
+
+    &:hover{
+        color: rgba(26, 7, 49, 0.71);
+    }
+    }
+
+
+/* 네비 드롭다운 부분*/
+
+    .dropDown {
+        position: relative;
+
+    .dropDownMenu {
+        position: absolute;
+        top: 40px;
+        left: -55px;
+        width: 100%;
+        padding: 50px 0 30px;
+        background: linear-gradient( to bottom, rgba(0, 0, 0, 0.02) 10%, rgba(0, 0, 0, 0.06) 90%);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+
+    }
+
+
+}
+
+
+
+
+
+/* detail nav */
+
+.nav-detail{
+    justify-content: center;
+    display: flex;
+}
+
+.nav-detail-ul{
+    padding: 0px;
+
+}
+.nav-detail-ul > li {
+    display: flex;
+    list-style: none;
+}
+
+.nav-detail-ul > li > ul > li {
+    color: black;
+    min-width: 130px;
+    padding-bottom: 15px;
+
+}
+
+.nav-detail-ul > li > ul > li:hover {
+    color: rgb(41, 1, 115);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.nav-detail-ul > li > ul{
+    list-style: none; /* 목록 마커 제거 (선택적) */
+    padding: 0px;
+}
