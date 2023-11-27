@@ -122,7 +122,7 @@ body{margin: 0;}  /* 이게 있어야지 모서리에 틈이 없어진다*/
 .nav-detail-ul > li > ul > li {
     color: black;
     min-width: 130px;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
 
 }
 
