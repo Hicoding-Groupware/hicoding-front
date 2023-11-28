@@ -19,10 +19,10 @@ function App() {
                     <Route index element={<Main/>}/>
                     {/*<Route path="mypage" element={<MyPageLayout/>}>*/}
                     {/*<Route path="profile" element={<Profile/>}/>*/}
-                    {/*</Route>*/}
+                    {/*</Route>*/}n
                 </Route>
-                <Route path="/myLecture">
-                    <Route path="inProgress/:" element={ <MyLectureInProgressList/> }/>
+                <Route path="/mylecture">
+                    <Route path="inprogress" element={ <MyLectureInProgressList/> }/>
                 </Route>
             </Routes>
         </BrowserRouter>
