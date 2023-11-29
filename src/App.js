@@ -20,7 +20,7 @@ function App() {
                           {/*<Route path="mypage" element={<MyPageLayout/>}>*/}
                           {/*<Route path="profile" element={<Profile/>}/>*/}
                           {/*</Route>*/}
-                      </Route>
+                          </Route>
               </Routes>
           </BrowserRouter>
       </>

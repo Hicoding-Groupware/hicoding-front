@@ -4,7 +4,6 @@ function Layout(){
     return(
         <>
             <Navbar/>
-
         </>
 
     );
