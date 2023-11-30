@@ -7,6 +7,7 @@ import Login from "./pages/member/Login";
 import ProtectedRoute from "./components/router/ProtectedRoute";
 import MyPageLayout from "./layouts/MyPageLayout";
 import Profile from "./pages/member/Profile";
+import LectureList from "./pages/lecture/LectureList";
 
 function App() {
 
@@ -15,12 +16,13 @@ function App() {
           <BrowserRouter>
               <Routes>
                   {/*<Route path="/" element={<Login/>}/>*/}
-                      <Route path="mainpage" element={<Layout/>}>
+                      <Route path="/" element={<Layout/>}>
                           <Route index element={<Main/>}/>
                           {/*<Route path="mypage" element={<MyPageLayout/>}>*/}
                           {/*<Route path="profile" element={<Profile/>}/>*/}
                           {/*</Route>*/}
-                          </Route>
+                          <Route path="lecture" element={<LectureList/>}/>
+                      </Route>
               </Routes>
           </BrowserRouter>
       </>
