@@ -9,10 +9,6 @@ import './mainCss/main.css';
 import Login from "./pages/member/Login";
 import LectureMain from "./pages/lecture/LectureMain";
 import CourseMain from "./pages/course/CourseMain";
-import MyPageLayout from "./layouts/MyPageLayout";
-import Profile from "./pages/member/Profile";
-import LectureList from "./pages/lecture/LectureList";
-import MyLectureInProgressList from "./pages/course/MyLectureInProgressList";
 
 function App() {
 
@@ -28,6 +24,7 @@ function App() {
                           {/*</Route>*/}
                           <Route path="lecture" element={<LectureMain/>}/>
                           <Route path="course" element={<CourseMain/>}/>
+                          <Route path="mylecture" element={<MyCourseMain/>}/>
                       </Route>
               </Routes>
           </BrowserRouter>
