@@ -8,48 +8,59 @@ function StudentTable({data}) {
     return (
 
             <div>
+                <div className="student-table-tr">
+                <div className="student-th-no">NO.</div>
+                <div className="student-th-name">원생 이름</div>
+                <div className="student-th-birth">생년월일</div>
+                <div className="student-th-cosName">코스명</div>
+                <div className="student-th-teacher">강사</div>
+                <div className="student-th-cosPeriod">코스 기간</div>
+                <div className="student-th-phone">전화번호</div>
+                <div className="student-th-registedDate">등록일</div>
+                <div className="student-th-manage">관리</div>
+                </div>
                 {
-                    data.map(student => (
+                    data.map((student, index) => (
 
                             <div
-                            className="student-item"
-                            key={student.stdCode}>
-                                <div>No
-                                    <div>{student.stdCode}</div>
-                                </div>
-                                <div>이름
-                                    <div>{student.stdName}</div>
-                                </div>
-                                <div>과정명
-                                    {student.courseList.map((course, index) => {
-                                        if (index === 0)
-                                            return (
-                                                <div key={student.stdCode}>
-                                                    <div>{course.cosName}</div>
-                                                </div>
-                                            );
+                                className="student-item" key={student.stdCode || index}>
+                                    <div className="student-th-no">{student.stdCode}</div>
+                                    <div className="student-th-name">{student.stdName}</div>
+                                    <div className="student-th-birth">{student.stdBirth}</div>
+                                    {student.courseList.length > 0 ? (
+                                    <div>
+                                        <div className="student-th-cosName">{student.courseList[0].cosName}</div>
+                                    </div>
+                                    ) : (
+                                    <div>
+                                        <div className="student-th-cosName"></div>
+                                    </div>
+                                    )}
+                                    {student.courseList.length > 0 ? (
+                                    <div>
+                                        <div className="student-th-teacher">{student.courseList[0].teacher}</div>
+                                    </div>
+                                    ) : (
+                                    <div>
+                                        <div className="student-th-teacher"></div>
+                                    </div>
+                                    )}
+                                    {student.courseList.length > 0 ? (
+                                    <div>
+                                        <div className="student-th-cosPeriod">{student.courseList[0].cosSdt} ~ {student.courseList[0].cosEdt}</div>
+                                    </div>
+                                    ) : (
+                                    <div>
+                                        <div className="student-th-cosPeriod"></div>
+                                    </div>
+                                    )}
 
-                                    })}
-                                </div>
-                                <div>기간
-                                    {student.courseList.map((course, index) => {
-                                        if (index === 0)
-                                            return (
-                                                <div key={student.stdCode}>
-                                                    <div>{course.cosSdt} ~ {course.cosEdt}</div>
-                                                </div>
-                                            );
-
-                                    })}
-                                </div>
-                                <div>전화 번호
-                                    <div>{student.stdPhone}</div>
-                                </div>
-                                <div>등록일
-                                    <div>{formatDate(student.createdAt)}</div>
-                                </div>
-
-
+                                    <div className="student-th-phone">{student.stdPhone}</div>
+                                    <div className="student-th-registedDate">{formatDate(student.createdAt)}</div>
+                                    <div className="student-th-manage">
+                                    <button className="record">수강 이력</button>
+                                    <button className="student-modify">수정</button>
+                                    </div>
                         </div>
                     ))
                 }

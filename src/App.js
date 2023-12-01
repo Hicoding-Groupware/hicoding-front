@@ -11,6 +11,7 @@ import Profile from "./pages/member/Profile";
 import LectureList from "./pages/lecture/LectureList";
 import Student from "./pages/student/Student";
 
+
 function App() {
 
   return (
