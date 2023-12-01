@@ -7,26 +7,27 @@ import Login from "./pages/member/Login";
 import ProtectedRoute from "./components/router/ProtectedRoute";
 import MyPageLayout from "./layouts/MyPageLayout";
 import Profile from "./pages/member/Profile";
+import LectureList from "./pages/lecture/LectureList";
 import MyLectureInProgressList from "./pages/course/MyLectureInProgressList";
 
 function App() {
 
-    return (
-        <BrowserRouter>
-            <Routes>
-                {/*<Route path="/" element={<Login/>}/>*/}
-                <Route path="mainpage" element={<Layout/>}>
-                    <Route index element={<Main/>}/>
-                    {/*<Route path="mypage" element={<MyPageLayout/>}>*/}
-                    {/*<Route path="profile" element={<Profile/>}/>*/}
-                    {/*</Route>*/}n
-                </Route>
-                <Route path="/mylecture">
-                    <Route path="inprogress" element={ <MyLectureInProgressList/> }/>
-                </Route>
-            </Routes>
-        </BrowserRouter>
-    );
+  return (
+      <>
+          <BrowserRouter>
+              <Routes>
+                  {/*<Route path="/" element={<Login/>}/>*/}
+                      <Route path="/" element={<Layout/>}>
+                          <Route index element={<Main/>}/>
+                          {/*<Route path="mypage" element={<MyPageLayout/>}>*/}
+                          {/*<Route path="profile" element={<Profile/>}/>*/}
+                          {/*</Route>*/}
+                          <Route path="lecture" element={<LectureList/>}/>
+                      </Route>
+              </Routes>
+          </BrowserRouter>
+      </>
+  );
 }
 
 export default App;
