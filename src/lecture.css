@@ -1,3 +1,29 @@
+/*페이징 바*/
+.pagenation{
+    width: 100%;
+    margin: 0 auto;
+}
+.paging-ul {
+    text-align: center;
+    display: flex;
+    list-style-type : none;
+    margin-bottom: 30px;
+}
+
+.paging-btn{
+    margin: 5px;
+    border-radius: 12px;
+    background-color: white;
+    font-weight: bold;
+}
+
+.paging-btn:hover{
+    cursor: pointer;
+    background-color: burlywood;
+}
+
+
+
 .lecture-table{
     border: 1px solid black;
     width: 800px;
@@ -5,7 +31,69 @@
     margin: 0 auto;
     margin-top: 100px;
     text-align: center;
+}
+
+.courseListWrap{
+    border-top: 2px solid #e2e2e4;
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 1100px;
+    padding: 0;
+}
+.courseList{
+    list-style: none;
+    padding: 0;
+}
+
+.courseList>li{
+    width: 100%;
+    border-bottom: 1px solid #e2e2e4;
+}
+
+.content{
+    height: 270px;
+    padding: 7px 40px;
+}
+
+.content>p{
+    font-size: 20px;
+}
+
+.courseInfo{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 70px;
+    font-size: 13px;
+}
+.courseInfo>dl{
+    display: flex;
+    width: 50%;
+}
+.courseInfo dt{
+    border: 1px solid #d3d3d3;
+    border-radius: 12px;
+    min-width: 80px;
+    line-height: 25px;
+    padding: 0 8px;
+    text-align: center;
+}
+.courseInfo dd{
+    margin-left: 20px;
+    line-height: 25px;
 
 }
 
+.statusTag{
+    border-radius: 12px;
+    min-width: 80px;
+    line-height: 25px;
+    color: white;
+    padding: 3px 12px;
+    font-size: 13px;
+    margin-left: 12px;
+    margin-top: 3px;
+    vertical-align: top;
+}
 
+.courseTitle{
+}
