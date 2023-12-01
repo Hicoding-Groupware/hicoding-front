@@ -4,7 +4,7 @@ import {createActions, handleActions} from "redux-actions";
 
 const initialState = {};
 
-/* 액션 타입 */
+/* 액션 타입1 */
 const GET_COURSES = 'course/GET_COURSES';
 
 /* 액션 함수 */
