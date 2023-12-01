@@ -1,4 +1,6 @@
 
+
+
 /* --------------------- 민서가 만든 네비 부분  -----------------*/
 
 
@@ -8,7 +10,7 @@ body{margin: 0;}  /* 이게 있어야지 모서리에 틈이 없어진다*/
 .navbar-div {
     border-top: solid 1px rgba(0, 0, 0, 0.09);
     border-bottom: solid 1px rgba(0, 0, 0, 0.15);
-    background-color: #5a38a8;
+    background-color: #5A38A8;
 
 
 }

@@ -1,11 +1,5 @@
-
 import {NavLink} from "react-router-dom";
-
 function DetailNavBar(){
-
-    const onClickMemberCreation = () => {
-        navigate('member/creation');
-    }
 
     return(
         <div className="nav-detail">
@@ -13,9 +7,7 @@ function DetailNavBar(){
                 <li>
                     <ul>
                         <li>사원생성</li>
-
                         <li>사원관리</li>
-
                         <li>사원정보승인</li>
                     </ul>
                     <ul>
@@ -23,8 +15,8 @@ function DetailNavBar(){
                         <li>원생조회</li>
                     </ul>
                     <ul>
-                        <li>강의등록</li>
-                        <li>강의목록</li>
+                        <li><NavLink to="/lecture">강의관리</NavLink></li>
+                        <li><NavLink to="/course">과정관리</NavLink></li>
                     </ul>
                     <ul>
                         <li>학원일정</li>
