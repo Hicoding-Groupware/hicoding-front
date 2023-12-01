@@ -6,9 +6,11 @@ import './lecture.css';
 import './mainCss/navbar.css';
 import './mainCss/login.css';
 import './mainCss/main.css';
+import './course.css';
 import Login from "./pages/member/Login";
 import LectureMain from "./pages/lecture/LectureMain";
 import CourseMain from "./pages/course/CourseMain";
+import MyCourseMain from "./pages/course/MyCourseMain";
 
 function App() {
 

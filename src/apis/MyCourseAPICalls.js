@@ -6,7 +6,7 @@ export const callMyCourseListAPI = ({ currentPage }) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/my_lecture/in_progress?page=${currentPage}`,
+        const result = await authRequest.get(`/hc-app/v1/my_lecture/in_progress?page=${currentPage}`,
             {
                 headers : {
                     'Content-Type' : 'application/json'
