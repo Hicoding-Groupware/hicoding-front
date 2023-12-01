@@ -8,6 +8,8 @@ import './mainCss/login.css';
 import Login from "./pages/member/Login";
 import LectureMain from "./pages/lecture/LectureMain";
 import CourseMain from "./pages/course/CourseMain";
+import InProgressList from "./components/course/lists/InProgressList";
+import MyCourseMain from "./pages/course/MyCourseMain";
 
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
                           {/*</Route>*/}
                           <Route path="lecture" element={<LectureMain/>}/>
                           <Route path="course" element={<CourseMain/>}/>
+                          <Route path="mylecture" element={<MyCourseMain/>}/>
                       </Route>
               </Routes>
           </BrowserRouter>
