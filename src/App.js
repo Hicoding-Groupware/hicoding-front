@@ -5,12 +5,10 @@ import Main from "./pages/main/Main";
 import './lecture.css';
 import './mainCss/navbar.css';
 import './mainCss/login.css';
+import './mainCss/main.css';
 import Login from "./pages/member/Login";
 import LectureMain from "./pages/lecture/LectureMain";
 import CourseMain from "./pages/course/CourseMain";
-import InProgressList from "./components/course/lists/InProgressList";
-import MyCourseMain from "./pages/course/MyCourseMain";
-
 
 function App() {
 

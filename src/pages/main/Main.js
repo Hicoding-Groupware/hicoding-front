@@ -1,7 +1,11 @@
 function Main(){
     return(
         <>
-            <h3>메인페이지입니다</h3>
+            <div className="loader">
+                <div className="inner">
+                    <h1> EXAMPLE </h1>
+                </div>
+            </div>
         </>
     );
 }
