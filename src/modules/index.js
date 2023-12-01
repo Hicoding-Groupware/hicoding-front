@@ -1,8 +1,9 @@
 import {combineReducers} from "redux";
-import lectureReducer from "./LectureModule";
+import loginReducer from "./LoginModule";
+
 
 const rootReducer = combineReducers({
-    lectureReducer
+    loginReducer
 });
 
 export default rootReducer;
