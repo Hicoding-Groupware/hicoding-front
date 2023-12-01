@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import PagingBar from "../../components/common/PagingBar";
-import {callCourseListAPI} from "../../apis/CourseAPICalls";
+import {callCourseListAPI} from "../../apis/MyCourseAPICalls";
 import {ToastContainer} from "react-toastify";
-import LectureDetailInfoModal from "../../components/modal/LectureDetailInfoModal";
+import MyLectureDetailInfoModal from "../../components/modal/MyLectureDetailInfoModal";
 
 
-function MyLectureInProgressList() {
+function InProgress() {
 
     const [courseDetailInfoModal, setCourseDetailInfoModal] = useState(false)
     const [cosCode, setCosCode] = useState(0)
@@ -26,16 +26,17 @@ function MyLectureInProgressList() {
     // };
 
     /* 일일 출결 관리 페이지로 이동 */
-    // const onClickDayAttendanceHandler (cosCode) => {
-    //     set
-    // };
+    const onClickDayAttendanceHandler = (cosCode) => {
+        setCosCode(cosCode);
+        setCourseDetailInfoModal(true);
+    };
 
     return (
         <>
             <ToastContainer hideProgressBar={true} position="top-center"/>
             {
                 courseDetailInfoModal &&
-                <LectureDetailInfoModal
+                <MyLectureDetailInfoModal
                     cosCode={cosCode}
                     setCourseDetailInfoModal={setCourseDetailInfoModal}
                 />
@@ -76,10 +77,10 @@ function MyLectureInProgressList() {
                                     <td>{course.cosSdt} ~ {course.cosEdt}</td>
                                     <td>
                                         <button
-                                            // className=""
-                                            // onClick={() =>
-                                            //     onClickDayAttendanceHandler(course.cosCode)
-                                            // }
+                                            className=""
+                                            onClick={() =>
+                                                onClickDayAttendanceHandler(course.cosCode)
+                                            }
                                         >
                                             출석 관리
                                         </button>
@@ -97,4 +98,4 @@ function MyLectureInProgressList() {
     );
 }
 
-export default MyLectureInProgressList;
+export default InProgress;
