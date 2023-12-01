@@ -3,17 +3,20 @@ import {getAccessTokenHeader, getRefreshTokenHeader, saveToken} from "../utils/T
 
 const SERVER_IP = `${process.env.REACT_APP_RESTAPI_SERVER_IP}`;
 const SERVER_PORT = `${process.env.REACT_APP_RESTAPI_SERVER_PORT}`;
-const DEFAULT_URL = `http://${SERVER_IP}:${SERVER_PORT}/hc-app/v1`;
+const DEFAULT_URL = `http://${SERVER_IP}:${SERVER_PORT}`;
 
-export const request = async(method, url, data) =>{
+export const request = async(method, url, headers, data) =>{
     return await axios({
         method,
         url : `${DEFAULT_URL}${url}`,
+        headers,
+        data
 
     })
 
         .catch(error => console.log(error))
 }
+
 /* 인증이 필요한 기능을 요청할 때 사용 하는 객체 */
 export const authRequest = axios.create({
     baseURL : DEFAULT_URL
