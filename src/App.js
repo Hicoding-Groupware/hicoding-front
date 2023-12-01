@@ -8,7 +8,7 @@ import Login from "./pages/member/Login";
 import MyPageLayout from "./layouts/MyPageLayout";
 import Profile from "./pages/member/Profile";
 import LectureList from "./pages/lecture/LectureList";
-import MyLectureInProgressList from "./pages/course/MyLectureInProgressList";
+import InProgress from "./pages/course/InProgress";
 
 function App() {
 
