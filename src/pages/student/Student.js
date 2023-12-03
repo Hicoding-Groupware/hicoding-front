@@ -1,8 +1,9 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {callStudentListAPI} from "../../apis/StudentAPICalls";
+import {callStudentDateListAPI, callStudentListAPI} from "../../apis/StudentAPICalls";
 import StudentTable from "../../components/student/items/StudentTable";
 import StudentPagingBar from "../../components/student/pagingBar/StudentPagingBar";
+import StudentDateTable from "../../components/student/items/StudentDateTable";
 
 
 function Student() {
@@ -11,7 +12,9 @@ function Student() {
     const [currentPage, setCurrentPage] = useState(1);
     const [sort, setSort] = useState('desc');
     const [search, setSearch] = useState('');
-    const {students} = useSelector(state => state.studentReducer);
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+    const {students, studentsDate} = useSelector(state => state.studentReducer);
 
     const onSortChangeHandler = e => {
         setSort(e.target.value);
@@ -20,6 +23,17 @@ function Student() {
     const onSearchChangeHandler = e => {
         setSearch(e.target.value);
     }
+
+    const onStartDateChangeHandler = e => {
+        console.log(e.target.value);
+        setStartDate(e.target.value);
+    }
+
+    const onEndDateChangeHandler = e => {
+        console.log(e.target.value);
+        setEndDate(e.target.value);
+    }
+
     const onEnterKeyHandler = e => {
         if (e.key === 'Enter') {
 
@@ -30,27 +44,25 @@ function Student() {
         dispatch(callStudentListAPI({currentPage, sort}));
     }, [currentPage, sort]);
 
+    useEffect(() => {
+        dispatch(callStudentDateListAPI({startDate, endDate}));
+    }, [startDate, endDate]);
+
     return (
         <>
 
             <div className="student-title">원생 조회</div>
             <div className="student-th-condition">
             <div>
-            <select className="student-select" onChange={onSortChangeHandler}>등록순
+            <select className="student-select" onChange={ onSortChangeHandler }>등록순
                 <option className="student-select-item" value="desc">최근 등록순</option>
                 <option className="student-select-item" value="asc">오래된 등록순</option>
             </select>
             </div>
-            <div>
-                <input className="student-createdAt" type="date"/> ~ <input className="student-createdAt" type="date"/>
+            <div className="student-createdAt">
+                <input type="date" onChange={ onStartDateChangeHandler }/> ~ <input type="date" onChange={ onEndDateChangeHandler } />
             </div>
-            <div>
-            <select className="student-select">검색 종류
-                <option className="student-select-item">이름</option>
-                <option className="student-select-item">강의명</option>
-            </select>
-            </div>
-            <div>
+            <div className="student-stdName">
             <input
                 type="text"
                 placeholder="검색어를 입력하세요"
@@ -64,6 +76,13 @@ function Student() {
                 <div className="student-table">
                     <StudentTable data={students.data}/>
                     <StudentPagingBar pageInfo={students.pageInfo} setCurrentPage={setCurrentPage}/>
+                </div>
+            }
+            {
+                studentsDate &&
+                <div className="student-table">
+                    <StudentDateTable data={studentsDate.data}/>
+                    <StudentPagingBar pageInfo={studentsDate.pageInfo} setCurrentPage={setCurrentPage}/>
                 </div>
             }
         </>

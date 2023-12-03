@@ -11,8 +11,8 @@ function DetailNavBar(){
                         <li>사원정보승인</li>
                     </ul>
                     <ul>
-                        <li>원생등록</li>
-                        <li>원생조회</li>
+                        <li><NavLink to="/studentRegist">원생등록</NavLink></li>
+                        <li><NavLink to="/students">원생조회</NavLink></li>
                     </ul>
                     <ul>
                         <li><NavLink to="/lecture">강의관리</NavLink></li>

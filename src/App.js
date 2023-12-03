@@ -10,6 +10,7 @@ import MyPageLayout from "./layouts/MyPageLayout";
 import Profile from "./pages/member/Profile";
 import LectureList from "./pages/lecture/LectureList";
 import Student from "./pages/student/Student";
+import StudentRegist from "./pages/student/StudentRegist";
 
 
 function App() {
@@ -25,6 +26,12 @@ function App() {
                               path="students"
                               element={
                                 <Student/>
+                              }
+                          />
+                          <Route
+                              path="studentRegist"
+                              element={
+                                <StudentRegist/>
                               }
                           />
                       </Route>

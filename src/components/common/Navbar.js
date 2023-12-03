@@ -12,7 +12,7 @@ function Navbar() {
                     <ul className="dropDown">
                         <ul className="dropDownMain">
                             <li className="dropDownMain">직원관리</li>
-                            <li className="dropDownMain"><NavLink to="/students">원생관리</NavLink></li>
+                            <li className="dropDownMain">원생관리</li>
                             <li className="dropDownMain">과정관리</li>
                             <li className="dropDownMain">일정</li>
                             <li className="dropDownMain">게시판</li>
