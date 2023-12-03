@@ -1,3 +1,4 @@
+import {NavLink} from "react-router-dom";
 
 
 function DetailNavBar(){
@@ -7,7 +8,7 @@ function DetailNavBar(){
             <ul className="nav-detail-ul">
                 <li>
                     <ul>
-                        <li>내강의</li>
+                        <li><NavLink to="mylecture/inprogress">내강의</NavLink></li>
                         <li>출석부</li>
                     </ul>
                     <ul>

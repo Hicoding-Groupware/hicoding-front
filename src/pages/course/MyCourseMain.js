@@ -8,24 +8,23 @@ import PagingBar from "../../components/course/pagingbar/PagingBar";
 
 function MyCourseMain() {
 
-    // const dispatch = useDispatch();
-    // const [currentPage, setCurrentPage] = useState(1);
-    // const {course} = useSelector(state => state.myCourseReducer);
-    //
-    // useEffect(() => {
-    //     dispatch(callMyCourseListAPI({currentPage}));
-    // }, [currentPage]);
+    const dispatch = useDispatch();
+    const [currentPage, setCurrentPage] = useState(1);
+    const {course} = useSelector(state => state.myCourseReducer);
+
+    useEffect(() => {
+        dispatch(callMyCourseListAPI({currentPage}));
+    }, [currentPage]);
 
     return (
         <>
-            안녕하세요
-            {/*{*/}
-            {/*    course &&*/}
-            {/*    <>*/}
-            {/*        <InProgressList data={course}/>*/}
-            {/*        <PagingBar pageInfo={course.pageInfo} setCurrentPage={setCurrentPage}/>*/}
-            {/*    </>*/}
-            {/*}*/}
+            {
+                course &&
+                <>
+                    <InProgressList data={course.data}/>
+                    <PagingBar pageInfo={course.pageInfo} setCurrentPage={setCurrentPage}/>
+                </>
+            }
         </>
     );
 }
