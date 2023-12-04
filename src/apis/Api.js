@@ -1,4 +1,5 @@
 import axios from "axios";
+import {getAccessTokenHeader, getRefreshTokenHeader, saveToken} from "../utils/TokenUtils";
 
 const SERVER_IP = `${process.env.REACT_APP_RESTAPI_SERVER_IP}`;
 const SERVER_PORT = `${process.env.REACT_APP_RESTAPI_SERVER_PORT}`;
@@ -20,9 +21,10 @@ export const request = async (method, url, headers, data) => {
 
         .catch(error => console.log(error))
 }
+
 /* 인증이 필요한 기능을 요청할 때 사용 하는 객체 */
 export const authRequest = axios.create({
-    baseURL : DEFAULT_URL
+    baseURL  : DEFAULT_URL
 });
 
 authRequest.interceptors.request.use((config) => {
