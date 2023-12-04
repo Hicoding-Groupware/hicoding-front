@@ -1,18 +1,13 @@
 import {NavLink} from "react-router-dom";
-
-
-function DetailNavBar(){
-
-    const navigate = useNavigate();
+function ManagerDetailNavBar(){
 
     return(
         <div className="nav-detail">
             <ul className="nav-detail-ul">
                 <li>
                     <ul>
-                        <li><NavLink to={MEMBER_PATH + '/creation' }>사원생성</NavLink></li>
+                        <li>사원생성</li>
                         <li>사원관리</li>
-
                         <li>사원정보승인</li>
                     </ul>
                     <ul>
@@ -20,8 +15,8 @@ function DetailNavBar(){
                         <li>원생조회</li>
                     </ul>
                     <ul>
-                        <li>강의등록</li>
-                        <li>강의목록</li>
+                        <li><NavLink to="/lecture">강의관리</NavLink></li>
+                        <li><NavLink to="/course">과정관리</NavLink></li>
                     </ul>
                     <ul>
                         <li>학원일정</li>
@@ -42,4 +37,4 @@ function DetailNavBar(){
     );
 }
 
-export default DetailNavBar;
+export default ManagerDetailNavBar;
