@@ -1,10 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
 import DetailNavBar from "./DetailNavBar";
-import {NavLink, useNavigate} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 function Navbar() {
-
-    const navigate = useNavigate();
 
     return (
         <>

@@ -9,11 +9,11 @@ function DetailNavBar(){
                 <li>
                     <ul>
                         <li><NavLink to={MEMBER_PATH + '/creation' }>사원생성</NavLink></li>
-                        <li>사원관리</li>
+                        <li><NavLink to={MEMBER_PATH + '/detailsView' }>사원관리</NavLink></li>
                     </ul>
                     <ul>
-                        <li>원생등록</li>
-                        <li>원생조회</li>
+                        <li><NavLink to="/studentRegist">원생등록</NavLink></li>
+                        <li><NavLink to="/students">원생조회</NavLink></li>
                     </ul>
                     <ul>
                         <li>강의등록</li>
