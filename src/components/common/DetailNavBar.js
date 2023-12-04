@@ -1,19 +1,17 @@
-import {NavLink} from "react-router-dom";
-
+import {NavLink, useNavigate} from "react-router-dom";
+import {MEMBER_PATH} from "../../apis/MemberAPICalls";
 
 function DetailNavBar(){
 
-    const onClickMemberCreation = () => {
-        navigate('member/creation');
-    }
+    const navigate = useNavigate();
 
+    // 클릭 시 사원 생성 페이지 이동
     return(
         <div className="nav-detail">
             <ul className="nav-detail-ul">
                 <li>
                     <ul>
-                        <li>사원생성</li>
-
+                        <li><NavLink to={MEMBER_PATH + '/creation' }>사원생성</NavLink></li>
                         <li>사원관리</li>
 
                         <li>사원정보승인</li>
