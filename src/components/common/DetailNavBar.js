@@ -18,8 +18,12 @@ function DetailNavBar(){
                     <ul>
                         <li>강의등록</li>
                         <li>강의목록</li>
+                    </ul>
+                    <ul>
+                        <li><NavLink to="/mylecture/inprogress">진행중인 강의</NavLink></li>
+                        <li><NavLink to="/mylecture/scheduledcourse">예정 강의</NavLink></li>
+                        <li><NavLink to="/mylecture/lastcourse">지난 강의</NavLink></li>
 
-                        <li>내강의</li>
                         <li>출석부</li>
                     </ul>
                     <ul>

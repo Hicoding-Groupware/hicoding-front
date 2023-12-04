@@ -1,3 +1,65 @@
+/* 전체 정렬 */
 .main-container {
-    margin-top: 500px;
+    width: 70%;
+    margin: 3% 0 0 20%;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 가로 정렬 고정 */
+.table-row {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 테이블 모양 유지 */
+.table-cell {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+.header {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.teacher {
+    /* Additional styles for teacher column if needed */
+}
+
+.dayStatus {
+    /* Additional styles for dayStatus column if needed */
+}
+
+.timeStatus {
+    /* Additional styles for timeStatus column if needed */
+}
+
+.curCnt {
+    /* Additional styles for curCnt column if needed */
+}
+
+.roomName {
+    /* Additional styles for roomName column if needed */
+}
+
+.sdtEdt {
+    /* Additional styles for sdtEdt column if needed */
+}
+
+.attendButton {
+    padding: 8px;
+    border-radius: 5px;
+    /*border: 0px;*/
+    background-color: #5929d9;
+    color: #fff;
+    cursor: pointer;
+}
+
+.attendButton:hover {
+    background-color: #0056b3;
 }

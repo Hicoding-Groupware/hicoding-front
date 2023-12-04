@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import PagingBar from "../../common/PagingBar";
-import {callLastMyCourseListAPI, callMyCourseListAPI} from "../../../apis/MyCourseAPICalls";
+import {callScheduledMyCourseListAPI} from "../../../apis/MyCourseAPICalls";
 import MyLectureDetailInfoModal from "../../modal/MyLectureDetailInfoModal";
 
 
-function InProgressList() {
+function ScheduledCourseList() {
 
     const [courseDetailInfoModal, setCourseDetailInfoModal] = useState(false)
     const [cosCode, setCosCode] = useState(0)
@@ -15,21 +15,8 @@ function InProgressList() {
 
     useEffect(() => {
         /* 진행 중인 강의(과정)에 대한 정보 요청 */
-        dispatch(callMyCourseListAPI({currentPage}));
+        dispatch(callScheduledMyCourseListAPI({currentPage}));
     }, [currentPage]);
-
-
-    // useEffect(() => {
-    //     /* 진행 중인 강의(과정)에 대한 정보 요청 */
-    //     const apiURL = `/hc-app/v1/my_lecture/in_progress?page=${currentPage}`;
-    //     dispatch(callMyCourseListAPI(apiURL, {currentPage}));
-    // }, [currentPage]);
-    //
-    // useEffect(() => {
-    //     const apiURL = `/hc-app/v1/my_lecture/last_lecture?page=${currentPage}`;
-    //     dispatch(callLastMyCourseListAPI(apiURL, {currentPage}));
-    // }, [currentPage]);
-
 
     /* 강의 상세 조회 모달 */
     const onClickCourseDetailInfoHandler = (cosCode) => {
@@ -66,7 +53,7 @@ function InProgressList() {
                 courses &&
                 <>
                     <div className="main-container">
-                        <h1>진행중인 강의</h1>
+                        <h1>예정 강의</h1>
                         <div className="table-container">
                             <div className="table-row header">
                                 <div className="table-cell">강의명</div>
@@ -124,4 +111,4 @@ function InProgressList() {
     );
 }
 
-export default InProgressList;
+export default ScheduledCourseList;

@@ -15,7 +15,9 @@ import Creation from "./pages/member/Creation";
 import {MEMBER_PATH} from "./apis/MemberAPICalls";
 import LectureMain from "./pages/lecture/LectureMain";
 import CourseMain from "./pages/course/CourseMain";
-import MyCourseMain from "./pages/course/MyCourseMain";
+import InProgressList from "./components/course/lists/InProgressList";
+import LastCourseList from "./components/course/lists/LastCourseList";
+import ScheduledCourseList from "./components/course/lists/ScheduledCourseList";
 
 function App() {
 
@@ -30,8 +32,12 @@ function App() {
                         {/*<Route path="profile" element={<Profile/>}/>*/}
                         {/*</Route>*/}
                         <Route path="lecture" element={<LectureMain/>}/>
-                          <Route path="course" element={<CourseMain/>}/>
-                          <Route path="mylecture" element={<MyCourseMain/>}/>
+                        <Route path="course" element={<CourseMain/>}/>
+                        <Route path="mylecture">
+                            <Route path="inprogress" element={<InProgressList/>}/>
+                            <Route path="lastcourse" element={<LastCourseList/>}/>
+                            <Route path="scheduledcourse" element={<ScheduledCourseList/>}/>
+                        </Route>
                         <Route
                             path="students"
                             element={
@@ -52,31 +58,32 @@ function App() {
                 </Routes>
             </BrowserRouter>
         </>
-    );
-  return (
-      <>
-          <BrowserRouter>
-              <Routes>
-                  {/*<Route path="/" element={<Login/>}/>*/}
-                      <Route path="/" element={<Layout/>}>
-                          <Route index element={<Main/>}/>
-                          <Route
-                              path="students"
-                              element={
+    )
+        ;
+    return (
+        <>
+            <BrowserRouter>
+                <Routes>
+                    {/*<Route path="/" element={<Login/>}/>*/}
+                    <Route path="/" element={<Layout/>}>
+                        <Route index element={<Main/>}/>
+                        <Route
+                            path="students"
+                            element={
                                 <Student/>
-                              }
-                          />
-                          <Route
-                              path="studentRegist"
-                              element={
+                            }
+                        />
+                        <Route
+                            path="studentRegist"
+                            element={
                                 <StudentRegist/>
-                              }
-                          />
-                      </Route>
-              </Routes>
-          </BrowserRouter>
-      </>
-  );
+                            }
+                        />
+                    </Route>
+                </Routes>
+            </BrowserRouter>
+        </>
+    );
 }
 
 export default App;
