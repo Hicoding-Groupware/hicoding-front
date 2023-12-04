@@ -1,12 +1,26 @@
-
+import {NavLink} from "react-router-dom";
 
 function DetailNavBar(){
+
+
+    const navigate = useNavigate();
 
     return(
         <div className="nav-detail">
             <ul className="nav-detail-ul">
                 <li>
                     <ul>
+                        <li><NavLink to={MEMBER_PATH + '/creation' }>사원생성</NavLink></li>
+                        <li>사원관리</li>
+                    </ul>
+                    <ul>
+                        <li>원생등록</li>
+                        <li>원생조회</li>
+                    </ul>
+                    <ul>
+                        <li>강의등록</li>
+                        <li>강의목록</li>
+
                         <li>내강의</li>
                         <li>출석부</li>
                     </ul>
