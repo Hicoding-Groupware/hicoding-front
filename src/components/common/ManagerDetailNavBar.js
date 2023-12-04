@@ -1,14 +1,22 @@
-
-
-function DetailNavBar(){
+import {NavLink} from "react-router-dom";
+function ManagerDetailNavBar(){
 
     return(
         <div className="nav-detail">
             <ul className="nav-detail-ul">
                 <li>
                     <ul>
-                        <li>내강의</li>
-                        <li>출석부</li>
+                        <li>사원생성</li>
+                        <li>사원관리</li>
+                        <li>사원정보승인</li>
+                    </ul>
+                    <ul>
+                        <li>원생등록</li>
+                        <li>원생조회</li>
+                    </ul>
+                    <ul>
+                        <li><NavLink to="/lecture">강의관리</NavLink></li>
+                        <li><NavLink to="/course">과정관리</NavLink></li>
                     </ul>
                     <ul>
                         <li>학원일정</li>
@@ -19,7 +27,7 @@ function DetailNavBar(){
                         <li>공지사항</li>
                     </ul>
                     <ul>
-                        <li>쪽지 쓰기</li>
+                        <li>쪽지쓰기</li>
                         <li>받은 쪽지함</li>
                         <li>보낸 쪽지함</li>
                     </ul>
@@ -29,4 +37,4 @@ function DetailNavBar(){
     );
 }
 
-export default DetailNavBar;
+export default ManagerDetailNavBar;

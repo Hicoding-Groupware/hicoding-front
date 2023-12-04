@@ -1,9 +1,9 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
+import LectureList from "../../components/lecture/lists/LectureList";
 import {callLectureListAPI} from "../../apis/LectureAPICalls";
-import LectureListItem from "./LectureListItem";
 
-function LectureList({data}){
+function LectureMain(){
 
     const dispatch = useDispatch();
     const [currentPage, setCurrentPage] = useState(1);
@@ -11,16 +11,18 @@ function LectureList({data}){
 
     useEffect(() => {
         dispatch(callLectureListAPI({currentPage}));
-    }, []);
+    }, [currentPage]);
 
     return(
         <>
             {
-                data &&
-                data.map(lecture => <LectureListItem key={lecture.lecCode} lecture={lecture}/>)
+                lectures &&
+                <>
+                    <LectureList data={lectures.data}/>
+                </>
             }
         </>
     );
 }
 
-export default LectureList;
+export default LectureMain;

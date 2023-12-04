@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import PagingBar from "../../components/common/PagingBar";
-import {callCourseListAPI} from "../../apis/CourseAPICalls";
+import PagingBar from "../../common/PagingBar";
+import {callCourseListAPI, callMyCourseListAPI} from "../../../apis/MyCourseAPICalls";
 import {ToastContainer} from "react-toastify";
-import LectureDetailInfoModal from "../../components/modal/LectureDetailInfoModal";
+import MyLectureDetailInfoModal from "../../modal/MyLectureDetailInfoModal";
 
 
-function MyLectureInProgressList() {
+function InProgressList() {
 
     const [courseDetailInfoModal, setCourseDetailInfoModal] = useState(false)
     const [cosCode, setCosCode] = useState(0)
@@ -16,7 +16,7 @@ function MyLectureInProgressList() {
 
     useEffect(() => {
         /* 진행 중인 강의(과정)에 대한 정보 요청 */
-        dispatch(callCourseListAPI({currentPage}));
+        dispatch(callMyCourseListAPI({currentPage}));
     }, [currentPage]);
 
     /* 강의 상세 조회 모달 */
@@ -26,16 +26,17 @@ function MyLectureInProgressList() {
     // };
 
     /* 일일 출결 관리 페이지로 이동 */
-    // const onClickDayAttendanceHandler (cosCode) => {
-    //     set
-    // };
+    const onClickDayAttendanceHandler = (cosCode) => {
+        setCosCode(cosCode);
+        setCourseDetailInfoModal(true);
+    };
 
     return (
         <>
             <ToastContainer hideProgressBar={true} position="top-center"/>
             {
                 courseDetailInfoModal &&
-                <LectureDetailInfoModal
+                <MyLectureDetailInfoModal
                     cosCode={cosCode}
                     setCourseDetailInfoModal={setCourseDetailInfoModal}
                 />
@@ -43,7 +44,7 @@ function MyLectureInProgressList() {
             {
                 courses &&
                 <>
-                    <div className="">
+                    <div className="main-container">
                         <h1>진행중인 강의</h1>
                         <table className="">
                             <colgroup>
@@ -76,10 +77,10 @@ function MyLectureInProgressList() {
                                     <td>{course.cosSdt} ~ {course.cosEdt}</td>
                                     <td>
                                         <button
-                                            // className=""
-                                            // onClick={() =>
-                                            //     onClickDayAttendanceHandler(course.cosCode)
-                                            // }
+                                            className=""
+                                            onClick={() =>
+                                                onClickDayAttendanceHandler(course.cosCode)
+                                            }
                                         >
                                             출석 관리
                                         </button>
@@ -97,4 +98,4 @@ function MyLectureInProgressList() {
     );
 }
 
-export default MyLectureInProgressList;
+export default InProgressList;
