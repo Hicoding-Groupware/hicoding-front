@@ -40,7 +40,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "globals": {
+      "MEMBER_PATH": true
+    }
   },
   "browserslist": {
     "production": [
