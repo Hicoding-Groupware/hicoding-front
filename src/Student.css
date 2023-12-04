@@ -300,5 +300,22 @@
     background: white url("../public/img/searchIcon.svg") no-repeat;
     background-position: 20px, center;
 
+}
 
+/* 원생 등록 */
+
+.student-regist-table {
+    display: flex;
+}
+
+.student-regist-title {
+    color: #3C4248;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Subtitle2 */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
 }

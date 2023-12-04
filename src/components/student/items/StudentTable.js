@@ -1,9 +1,20 @@
+import {useNavigate} from "react-router-dom";
+
 function StudentTable({data}) {
+
+    const navigate = useNavigate();
 
     const formatDate = (dateString) => {
         const options = {year: 'numeric', month: '2-digit', day: '2-digit'};
         return new Date(dateString).toLocaleDateString('ko-KR', options).replace(/\.\s?/g, '-').replace(/-$/, '');
     };
+
+    const onClickStudentRecord = () => {
+        navigate('/student-record');
+    }
+    const onClickStudentModify = () => {
+        navigate('/student-modify');
+    }
 
     return (
 
@@ -58,8 +69,8 @@ function StudentTable({data}) {
                                     <div className="student-th-phone">{student.stdPhone}</div>
                                     <div className="student-th-registedDate">{formatDate(student.createdAt)}</div>
                                     <div className="student-th-manage">
-                                    <button className="record">수강 이력</button>
-                                    <button className="student-modify">수정</button>
+                                    <button className="record" onClick={ onClickStudentRecord }>수강 이력</button>
+                                    <button className="student-modify" onClick={ onClickStudentModify }>수정</button>
                                     </div>
                         </div>
                     ))
