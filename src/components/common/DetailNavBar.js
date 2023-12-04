@@ -1,9 +1,7 @@
 import {NavLink} from "react-router-dom";
+import {MEMBER_PATH} from "../../apis/MemberAPICalls";
 
 function DetailNavBar(){
-
-
-    const navigate = useNavigate();
 
     return(
         <div className="nav-detail">

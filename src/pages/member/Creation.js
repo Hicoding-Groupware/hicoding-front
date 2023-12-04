@@ -1,16 +1,27 @@
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {callMemberCreationAPI} from "../../apis/MemberAPICalls";
 import CreationInfoList from "../../components/lists/CreationInfoList";
 
 function Creation(){
 
-    const dispatch = useDispatch();
-    const { memberInfos } = useSelector(state => state.memberReducer);
-    const [form, setForm] = useState({memberName: '홍길동', memberRole: 'ADMIN', cnt: 1});
+    const dispatch = useDispatch()
+    const { memberInfos } = useSelector(state => state.memberReducer)
+    const [form, setForm] = useState(() => sendInitialMemberForm())
+    const inputRef = useRef(null)
 
     useEffect(() => {
-    }, [memberInfos]);
+        inputRef.current.focus();
+        setForm(sendInitialMemberForm());
+    }, [memberInfos])
+
+    function sendInitialMemberForm() {
+        return {
+            memberName: '',
+            memberRole: 'NONE',
+            cnt: 0
+        }
+    }
 
     const onChangeHandler = e => {
         setForm({
@@ -20,9 +31,9 @@ function Creation(){
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
-        dispatch(callMemberCreationAPI({creationRequest : form}));
+        dispatch(callMemberCreationAPI({creationRequest : form}))
     };
 
     return(
@@ -38,6 +49,7 @@ function Creation(){
                             value={form.memberName}
                             placeholder='이름을 입력해 주세요.'
                             onChange={onChangeHandler}
+                            ref={inputRef}
                         />
                     </label>
 
@@ -48,9 +60,10 @@ function Creation(){
                             value={form.memberRole}
                             onChange={onChangeHandler}
                         >
-                            <option value="ADMIN">관리자</option>
-                            <option value="STAFF">행정</option>
-                            <option value="TEACHER">강사</option>
+                            <option value='NONE'>NONE</option>
+                            <option value='ADMIN'>관리자</option>
+                            <option value='STAFF'>행정</option>
+                            <option value='TEACHER'>강사</option>
                         </select>
                     </label>
 
@@ -70,8 +83,7 @@ function Creation(){
             </div>
 
             <div>
-                <h1>발급란</h1>
-                {
+                <h1>발급란</h1> {
                     memberInfos &&
                     <CreationInfoList infos={ memberInfos }/>
                 }
@@ -81,4 +93,4 @@ function Creation(){
 
 }
 
-export default Creation;
+export default Creation
