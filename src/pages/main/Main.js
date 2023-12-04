@@ -1,7 +1,11 @@
 function Main(){
     return(
         <>
-            메인 테스트
+            <div className="loader">
+                <div className="inner">
+                    <h1> EXAMPLE </h1>
+                </div>
+            </div>
         </>
     );
 }
