@@ -1,9 +1,8 @@
 import {NavLink} from "react-router-dom";
+import {MEMBER_PATH} from "../../apis/MemberAPICalls";
 
 
 function DetailNavBar(){
-
-    const navigate = useNavigate();
 
     return(
         <div className="nav-detail">
@@ -11,9 +10,7 @@ function DetailNavBar(){
                 <li>
                     <ul>
                         <li><NavLink to={MEMBER_PATH + '/creation' }>사원생성</NavLink></li>
-                        <li>사원관리</li>
-
-                        <li>사원정보승인</li>
+                        <li><NavLink to={MEMBER_PATH + '/detailsView' }>사원관리</NavLink></li>
                     </ul>
                     <ul>
                         <li>원생등록</li>
