@@ -1,8 +1,9 @@
 import axios from "axios";
+import {getAccessTokenHeader, getRefreshTokenHeader, saveToken} from "../utils/TokenUtils";
 
 const SERVER_IP = `${process.env.REACT_APP_RESTAPI_SERVER_IP}`;
 const SERVER_PORT = `${process.env.REACT_APP_RESTAPI_SERVER_PORT}`;
-const DEFAULT_URL = `http://${SERVER_IP}:${SERVER_PORT}`;
+const DEFAULT_URL = `http://${SERVER_IP}:${SERVER_PORT}/hc-app/v1`;
 
 export const request = async (method, url, headers, data) => {
 
@@ -11,7 +12,6 @@ export const request = async (method, url, headers, data) => {
     console.log('request 인자', headers)
     console.log('request 인자', data)
 
-export const request = async(method, url, headers, data) =>{
     return await axios({
         method,
         url : `${DEFAULT_URL}${url}`,

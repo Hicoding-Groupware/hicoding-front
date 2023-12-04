@@ -1,4 +1,3 @@
-import {useNavigate} from "react-router-dom";
 
 function CourseList({data}){
     console.log(data);

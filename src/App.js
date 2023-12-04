@@ -9,10 +9,6 @@ import './mainCss/main.css';
 import './course.css';
 import Login from "./pages/member/Login";
 
-import MyPageLayout from "./layouts/MyPageLayout";
-import Profile from "./pages/member/Profile";
-import LectureList from "./pages/lecture/LectureList";
-import MyLectureInProgressList from "./pages/course/MyLectureInProgressList";
 import Creation from "./pages/member/Creation";
 import {MEMBER_PATH} from "./apis/MemberAPICalls";
 import LectureMain from "./pages/lecture/LectureMain";

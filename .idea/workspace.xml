@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c756325b-e896-40b1-a1e0-b5b3d636f0ca" name="Changes" comment="feat/#09/member-creation&#10;&#10;css 제외 모두 작업 완료" />
+    <list default="true" id="c756325b-e896-40b1-a1e0-b5b3d636f0ca" name="Changes" comment="feat/#09/member-creation&#10;&#10;css 제외 모두 작업 완료">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/Api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/LoginAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/LoginAPICalls.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/DetailNavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/DetailNavBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/course/lists/CourseList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/course/lists/CourseList.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +51,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/hyeok/hicoding-back&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/hyeok/hicoding-front&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -76,6 +85,7 @@
       <workItem from="1701407106406" duration="466000" />
       <workItem from="1701407600033" duration="29535000" />
       <workItem from="1701648971004" duration="2195000" />
+      <workItem from="1701665372835" duration="711000" />
     </task>
     <task id="LOCAL-00001" summary="feat/#09/member-creation&#10;&#10;first commit">
       <option name="closed" value="true" />
