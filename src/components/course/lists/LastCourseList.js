@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import PagingBar from "../../common/PagingBar";
 import {callLastMyCourseListAPI} from "../../../apis/MyCourseAPICalls";
-import MyLectureDetailInfoModal from "../../modal/MyLectureDetailInfoModal";
+import MyLectureDetailInfoModal from "../../modal/MyLectureDetailInfo";
 
 
 function LastCourseList() {

@@ -1,22 +1,20 @@
 import React, {useState} from "react";
-import {useDispatch} from "react-redux";
-import MyLectureDetailInfoModal from "../../modal/MyLectureDetailInfoModal";
+import MyLectureDetailInfoModal from "../../modal/MyLectureDetailInfo";
 import {useNavigate, useParams} from "react-router-dom";
 
 
-function InProgressList({data, course}) {
+function InProgressList({data}) {
 
     const [courseDetailInfoModal, setCourseDetailInfoModal] = useState(false) // 모달
     const [cosCode, setCosCode] = useState(0);
-    const dispatch = useDispatch(); // api
-    // const navigate = useNavigate();
-
+    const navigate = useNavigate();
 
 
     /* 강의 상세 조회 모달 버튼 이벤트 */
-    const onClickCourseDetailInfoHandler = (cosCode) => {
-       setCosCode(cosCode);
-       setCourseDetailInfoModal(true);
+    const onClickCourseDetailInfoHandler = (course) => {
+        // setCosCode(course.cosCode);
+        // setCourseDetailInfoModal(true);
+        navigate(`/mylecture/detailinfo/${course.cosCode}`);
     };
 
     /* 일일 출결 관리 페이지로 이동 */
@@ -64,7 +62,7 @@ function InProgressList({data, course}) {
                                     <div className="table-row" key={course.cosCode || index}>
                                         <div className="table-cell"
                                              onClick={() =>
-                                                 onClickCourseDetailInfoHandler(course.cosCode)
+                                                 onClickCourseDetailInfoHandler(course)
                                              }
                                         >
                                             {course.cosName}

@@ -3,25 +3,20 @@ import {useEffect} from "react";
 import {callCourseDetailAPI} from "../../apis/MyCourseAPICalls";
 import {useParams} from "react-router-dom";
 
-function MyLectureDetailInfoModal({ setCourseDetailInfoModal }) {
+function MyLectureDetailInfo() {
 
-
-    // const { cosCode } = useParams(); // 동적
     const dispatch = useDispatch();
-    const { course } = useSelector(state => state.myCourseReducer);
     const { cosCode } = useParams();
-    console.log({ cosCode });
-
+    const { course } = useSelector(state => state.myCourseReducer);
 
     useEffect(() => {
-        dispatch(callCourseDetailAPI({ cosCode }));
+        dispatch(callCourseDetailAPI({cosCode}));
     }, [cosCode]);
 
     return(
         <>
             {
-                course
-                &&
+                course &&
                 <div className="detail-container">
                     <h2>과정 상세 정보</h2>
                     <div>
@@ -61,4 +56,4 @@ function MyLectureDetailInfoModal({ setCourseDetailInfoModal }) {
     );
 }
 
-export default MyLectureDetailInfoModal;
+export default MyLectureDetailInfo;

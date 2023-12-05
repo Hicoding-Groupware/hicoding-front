@@ -11,7 +11,7 @@ const GET_DETAIL_COURSE = 'course/GET_DETAIL_COURSE';
 /* 액션 함수 */
 export const { course  : { getCourses, getDetailCourse } } = createActions({
     [GET_COURSES] : result => ({ courses : result.data }),
-    [GET_DETAIL_COURSE] : result => ({ courses : result.data})
+    [GET_DETAIL_COURSE] : result => ({ course : result.data })
 });
 
 /* 리듀서 */

@@ -16,10 +16,10 @@ import {MEMBER_PATH} from "./apis/MemberAPICalls";
 import LectureMain from "./pages/lecture/LectureMain";
 import CourseMain from "./pages/course/CourseMain";
 import InProgressList from "./components/course/lists/InProgressList";
+import MyCourseMain from "./components/course/lists/MyCourseMain";
+import MyLectureDetailInfo from "./components/modal/MyLectureDetailInfo";
 import LastCourseList from "./components/course/lists/LastCourseList";
 import ScheduledCourseList from "./components/course/lists/ScheduledCourseList";
-import MyLectureDetailInfoModal from "./components/modal/MyLectureDetailInfoModal";
-import MyCourseMain from "./components/course/lists/MyCourseMain";
 
 function App() {
 
@@ -37,9 +37,11 @@ function App() {
                         <Route path="course" element={<CourseMain/>}/>
                         <Route path="mylecture" element={<MyCourseMain/>}>
                             <Route path="inprogress" element={<InProgressList/>}/>
-                            {/*<Route path="lastcourse" element={<LastCourseList/>}/>*/}
-                            {/*<Route path="scheduledcourse" element={<ScheduledCourseList/>}/>*/}
-                            <Route path="detailinfo/:cosCode" element={<MyLectureDetailInfoModal/>}/>
+                        </Route>
+                        <Route path="mylecture">
+                            <Route path="lastcourse" element={<LastCourseList/>}/>
+                            <Route path="scheduledcourse" element={<ScheduledCourseList/>}/>
+                            <Route path="detailinfo/:cosCode" element={<MyLectureDetailInfo/>}/>
                         </Route>
                         <Route
                             path="students"
@@ -62,31 +64,6 @@ function App() {
             </BrowserRouter>
         </>
     )
-        ;
-    return (
-        <>
-            <BrowserRouter>
-                <Routes>
-                    {/*<Route path="/" element={<Login/>}/>*/}
-                    <Route path="/" element={<Layout/>}>
-                        <Route index element={<Main/>}/>
-                        <Route
-                            path="students"
-                            element={
-                                <Student/>
-                            }
-                        />
-                        <Route
-                            path="studentRegist"
-                            element={
-                                <StudentRegist/>
-                            }
-                        />
-                    </Route>
-                </Routes>
-            </BrowserRouter>
-        </>
-    );
-}
+};
 
 export default App;

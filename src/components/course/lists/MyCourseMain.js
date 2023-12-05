@@ -16,6 +16,7 @@ function MyCourseMain() {
         dispatch(callMyCourseListAPI({currentPage, cosCode}));
     }, [currentPage, cosCode]);
 
+
     return(
         <>
             {

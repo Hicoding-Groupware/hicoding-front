@@ -67,24 +67,16 @@ export const callScheduledMyCourseListAPI = ({ currentPage }) => {
     }
 }
 
+// 상세 조회 cosCode 1개 조회
 export const callCourseDetailAPI = ({ cosCode }) =>  {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/hc-app/v1/my_lecture/detail_info/${cosCode}`,
-            {
-                headers : {
-                    'Content-Type' : 'application/json'
-                }
-            }).catch(e => {
-                console.log(e);
-        });
-
+        const result = await request('GET',`/hc-app/v1/my_lecture/detail_info/${cosCode}`);
         console.log('callCourseDetailAPI result : ', result);
 
         if(result?.status === 200) {
             dispatch(getDetailCourse(result));
         }
     }
-
 }
