@@ -18,6 +18,8 @@ import CourseMain from "./pages/course/CourseMain";
 import InProgressList from "./components/course/lists/InProgressList";
 import LastCourseList from "./components/course/lists/LastCourseList";
 import ScheduledCourseList from "./components/course/lists/ScheduledCourseList";
+import MyLectureDetailInfoModal from "./components/modal/MyLectureDetailInfoModal";
+import MyCourseMain from "./components/course/lists/MyCourseMain";
 
 function App() {
 
@@ -33,10 +35,11 @@ function App() {
                         {/*</Route>*/}
                         <Route path="lecture" element={<LectureMain/>}/>
                         <Route path="course" element={<CourseMain/>}/>
-                        <Route path="mylecture">
+                        <Route path="mylecture" element={<MyCourseMain/>}>
                             <Route path="inprogress" element={<InProgressList/>}/>
-                            <Route path="lastcourse" element={<LastCourseList/>}/>
-                            <Route path="scheduledcourse" element={<ScheduledCourseList/>}/>
+                            {/*<Route path="lastcourse" element={<LastCourseList/>}/>*/}
+                            {/*<Route path="scheduledcourse" element={<ScheduledCourseList/>}/>*/}
+                            <Route path="detailinfo/:cosCode" element={<MyLectureDetailInfoModal/>}/>
                         </Route>
                         <Route
                             path="students"
