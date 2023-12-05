@@ -53,30 +53,7 @@ function App() {
             </BrowserRouter>
         </>
     );
-  return (
-      <>
-          <BrowserRouter>
-              <Routes>
-                  {/*<Route path="/" element={<Login/>}/>*/}
-                      <Route path="/" element={<Layout/>}>
-                          <Route index element={<Main/>}/>
-                          <Route
-                              path="students"
-                              element={
-                                <Student/>
-                              }
-                          />
-                          <Route
-                              path="studentRegist"
-                              element={
-                                <StudentRegist/>
-                              }
-                          />
-                      </Route>
-              </Routes>
-          </BrowserRouter>
-      </>
-  );
+
 }
 
 export default App;
