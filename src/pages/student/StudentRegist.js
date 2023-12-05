@@ -1,38 +1,170 @@
+import DaumPostcode from "react-daum-postcode";
+import React, {useState} from "react";
+import Modal from "react-modal";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import {useDispatch} from "react-redux";
+import {callStudentRegistAPI} from "../../apis/StudentAPICalls";
+import { ko } from "date-fns/esm/locale";
 function StudentRegist() {
+
+    const dispatch = useDispatch();
+    const [isOpen, setIsOpen] = useState(false);
+    const [postNo, setPostNo] = useState('');
+    const [address, setAddress] = useState('');
+    const [form, setForm] = useState({});
+    const [birthDate, setBirthDate] = useState('');
+
+    const completeHandler = data => {
+        console.log(data.address);
+        console.log(data.zonecode);
+        setPostNo(data.zonecode);
+        setAddress(data.address);
+        setIsOpen(false);
+    }
+
+    const onChangeHandler = e => {
+        setForm({
+            ...form,
+            [e.target.name] : e.target.value
+        })
+    }
+
+    const onRequestCloseHandler = () => {
+        setIsOpen(false);
+    };
+
+
+    const searchAddress = () => {
+        setIsOpen(!isOpen);
+    }
+
+    const customStyles = {
+        overlay: {
+            backgroundColor: "rgba(0,0,0,0.5)",
+        },
+        content: {
+            left: "0",
+            margin: "auto",
+            width: "500px",
+            height: "600px",
+            padding: "0",
+            overflow: "hidden",
+        },
+    };
+
+
+
+    const onClickStudentRegist = () => {
+        const formData = new FormData();
+        form.stdDate = birthDate;
+        formData.append("studentRequest", new Blob([JSON.stringify(form)], { type : 'application/json' }));
+        dispatch(callStudentRegistAPI({registRequest : formData }));
+    }
 
     return (
         <>
-
-            <div className="student-title">원생 등록</div>
+            <Modal isOpen={isOpen} ariaHideApp={false} style={customStyles} onRequestClose={ onRequestCloseHandler }>
+                <DaumPostcode onComplete={ completeHandler } height="100%"/>
+            </Modal>
+            <div className="student-regist-title">원생 등록</div>
             <div className="student-regist-table">
-                <div>
-                    <div className="student-regist-title">원생 이름(필수)</div>
-                    <input type="text" placeholder="원생 이름을 입력해 주세요."/>
-                    <div className="student-regist-title">성별(필수)</div>
-                    <input type="radio"/>남성 <input type="radio"/>여성
-                    <div className="student-regist-title">생년월일(필수)</div>
-                    <input type="date" placeholder="YYYY/MM/DD"/>
-                    <div className="student-regist-title">전화 번호(필수)</div>
-                    <input type="tel" placeholder="전화번호를 입력해 주세요."/>
-                    <div className="student-regist-title">이메일</div>
-                    <input type="text" placeholder="email@gmail.com"/>
+                <div className="student-regist-input-first">
+                    <div className="student-regist-sub">원생 이름(필수)</div>
+                    <input
+                        className="student-regist-input-name"
+                        type="text"
+                        placeholder="원생 이름을 입력해 주세요."
+                        name='stdName'
+                        onChange={ onChangeHandler }
+                    />
+                    <div className="student-regist-sub">성별(필수)</div>
+                    <input
+                        className="student-regist-input-gender"
+                        type="radio"
+                        name="stdGender"
+                        id="radio1"
+                        onChange={ onChangeHandler }
+                    />
+                    <label className="radio-label1" htmlFor="radio1">남성</label>
+                    <input
+                        className="student-regist-input-gender"
+                        type="radio"
+                        name="stdGender"
+                        id="radio2"
+                        onChange={ onChangeHandler }
+                    />
+                    <label className="radio-label2" htmlFor="radio2">여성</label>
+                    <div className="student-regist-sub">생년월일(필수)</div>
+                    <DatePicker
+                        locale={ko}
+                        selected={ birthDate }
+                        onChange={ date => setBirthDate(date) }
+                        dateFormat="yyyy/MM/dd"
+                        placeholderText="YYYY/MM/DD"
+                        className="student-regist-input-birth"
+                        showYearDropdown
+
+                    />
+                    <div className="student-regist-sub">전화 번호(필수)</div>
+                    <input
+                        className="student-regist-input-phone"
+                        type="tel"
+                        placeholder="전화번호를 입력해 주세요."
+                        name='stdPhone'
+                        onChange={ onChangeHandler }
+                    />
+                    <div className="student-regist-sub">이메일</div>
+                    <input
+                        className="student-regist-input-email"
+                        type="text"
+                        placeholder="email@gmail.com"
+                        name='stdEmail'
+                        onChange={ onChangeHandler }
+                    />
                 </div>
-                <div>
-                    <div className="student-regist-title">주소</div>
-                    <div>
-                        <input type="text" placeholder="우편번호"/>
-                        <button>주소지 검색</button>
+                <div className="student-regist-input-second">
+                    <div className="student-regist-sub">주소</div>
+                    <div className="regist-postNo">
+                        <input
+                            className="student-regist-input-postNo"
+                            type="text"
+                            readOnly placeholder="우편번호"
+                            value={ postNo }
+                            name='postNo'
+                            onChange={ onChangeHandler }
+                        />
+                        <button className="search-postNo" onClick={ searchAddress }>주소지 검색</button>
+
                     </div>
                     <div>
-                        <input type="text" placeholder="주소를 입력해 주세요"/>
+                        <input
+                            className="student-regist-input-address"
+                            type="text"
+                            readOnly placeholder="주소를 입력해 주세요"
+                            value={ address }
+                            name='address'
+                            onChange={ onChangeHandler }
+                        />
                     </div>
                     <div>
-                        <input type="text" placeholder="상세 주소"/>
+                        <input
+                            className="student-regist-input-detailAddress"
+                            type="text"
+                            placeholder="상세 주소"
+                            name='detailAddress'
+                            onChange={ onChangeHandler }/>
                     </div>
-                    <div className="student-regist-title">메모</div>
+                    <div className="student-regist-sub">메모</div>
                     <div>
-                        <input type="text" placeholder="메모를 입력해 주세요."/>
+                        <textarea
+                            className="student-regist-input-memo"
+                            placeholder="메모를 입력해 주세요."
+                            name='stdMemo'
+                            onChange={ onChangeHandler }
+                        />
                     </div>
+                    <button className="regist-cancel">취소</button><button className="regist" onClick={ onClickStudentRegist }>등록</button>
                 </div>
             </div>
         </>
