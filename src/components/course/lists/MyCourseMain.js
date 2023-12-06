@@ -1,8 +1,10 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {callMyCourseListAPI} from "../../../apis/MyCourseAPICalls";
 import InProgressList from "./InProgressList";
 import {useParams} from "react-router-dom";
+import PagingBar from "../../common/PagingBar";
+import MyCourseSidebar from "../../common/MyCourseSidebar";
 
 function MyCourseMain() {
 
@@ -16,13 +18,14 @@ function MyCourseMain() {
         dispatch(callMyCourseListAPI({currentPage, cosCode}));
     }, [currentPage, cosCode]);
 
-
     return(
         <>
+            <MyCourseSidebar/>
             {
                 courses &&
                 <div className="course-main">
                     <InProgressList course={courses} data={courses.data}/>
+                    <PagingBar pageInfo={courses.pageInfo} setCurrentPage={setCurrentPage}/>
                 </div>
             }
         </>

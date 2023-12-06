@@ -1,30 +1,30 @@
 import React, {useState} from "react";
 import MyLectureDetailInfoModal from "../../modal/MyLectureDetailInfo";
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 
 function InProgressList({data}) {
 
     const [courseDetailInfoModal, setCourseDetailInfoModal] = useState(false) // 모달
-    const [cosCode, setCosCode] = useState(0);
+    const [course, setCourse] = useState({});
     const navigate = useNavigate();
 
 
     /* 강의 상세 조회 모달 버튼 이벤트 */
     const onClickCourseDetailInfoHandler = (course) => {
-        // setCosCode(course.cosCode);
-        // setCourseDetailInfoModal(true);
-        navigate(`/mylecture/detailinfo/${course.cosCode}`);
+        setCourse(course);
+        setCourseDetailInfoModal(true);
     };
 
     /* 일일 출결 관리 페이지로 이동 */
-    // const onClickDayAttendanceHandler = (cosCode) => {
-    // };
+    const onClickDailyAttendanceHandler = (course) => {
+         navigate(`/mylecture/day/${course.cosCode}`);
+    };
 
     const getFormattedDayStatus = (status) => {
         if (status === "WEEKDAY") return "평일반";
         if (status === "WEEKEND") return "주말반";
-        return status;
+
     };
 
     const getFormattedTimeStats = (status) => {
@@ -38,55 +38,56 @@ function InProgressList({data}) {
             {
                 courseDetailInfoModal &&
                 <MyLectureDetailInfoModal
-                    cosCode={cosCode}
+                    course={course}
                     setCourseDetailInfoModal={setCourseDetailInfoModal}
                 />
             }
             <>
                 <div className="main-container">
-                    <h1>진행중인 강의</h1>
+                    <h2>진행중인 강의</h2>
+                    <div className="course-name-description">과정명을 누르면 세부 사항을 확인할 수 있습니다.</div>
                     <div className="table-container">
-                        <div className="table-row header">
-                            <div className="table-cell">강의명</div>
-                            <div className="table-cell">담당 강사</div>
-                            <div className="table-cell">요일</div>
-                            <div className="table-cell">시간대</div>
-                            <div className="table-cell">수강 인원</div>
-                            <div className="table-cell">강의실</div>
-                            <div className="table-cell">기간</div>
-                            <div className="table-cell"></div>
+                        <div className="table-row course-header">
+                            <div className="table-cell thead">과정명</div>
+                            <div className="table-cell thead">담당 강사</div>
+                            <div className="table-cell thead">요일</div>
+                            <div className="table-cell thead">시간대</div>
+                            <div className="table-cell thead">수강 인원</div>
+                            <div className="table-cell thead">강의실</div>
+                            <div className="table-cell thead">기간</div>
+                            <div className="table-cell thead"></div>
                         </div>
-                        <div>
+                        <div className="course-info-cell">
                             {
                                 data.map((course, index) => (
                                     <div className="table-row" key={course.cosCode || index}>
-                                        <div className="table-cell"
+                                        <div className="table-cell tinfo cosName"
                                              onClick={() =>
                                                  onClickCourseDetailInfoHandler(course)
                                              }
                                         >
                                             {course.cosName}
                                         </div>
-                                        <div className="table-cell teacher">
+                                        <div className="table-cell tinfo teacher">
                                             {course.teacherMemberName}
                                         </div>
-                                        <div className="table-cell dayStatus">
+                                        <div className="table-cell tinfo dayStatus">
                                             {getFormattedDayStatus(course.dayStatus)}
                                         </div>
-                                        <div className="table-cell timeStatus">
+                                        <div className="table-cell tinfo timeStatus">
                                             {getFormattedTimeStats(course.timeStatus)}
                                         </div>
-                                        <div className="table-cell curCnt">{course.curCnt}명</div>
-                                        <div className="table-cell roomName">{course.roomName}</div>
-                                        <div className="table-cell sdtEdt">
-                                            {course.cosSdt} ~ {course.cosEdt}
+                                        <div className="table-cell tinfo curCnt">{course.curCnt}명</div>
+                                        <div className="table-cell tinfo roomName">{course.roomName}</div>
+                                        <div className="table-cell tinfo sdtEdt">
+                                            {course.cosSdt}<br/> ~ {course.cosEdt}
                                         </div>
                                         <div className="table-cell">
                                             <button
                                                 className="attendButton"
-                                                // onClick={() =>
-                                                //     onClickDayAttendanceHandler(course.cosCode)
-                                                // }
+                                                onClick={() =>
+                                                    onClickDailyAttendanceHandler(course.cosCode)
+                                                }
                                             >
                                                 출석 관리
                                             </button>
@@ -96,7 +97,6 @@ function InProgressList({data}) {
                             }
                         </div>
                     </div>
-                    {/*<PagingBar pageInfo={courses.pageInfo} setCurrentPage={setCurrentPage}/>*/}
                 </div>
             </>
             {/*}*/}

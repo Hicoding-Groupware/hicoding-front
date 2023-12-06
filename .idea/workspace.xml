@@ -5,13 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c756325b-e896-40b1-a1e0-b5b3d636f0ca" name="Changes" comment="feat/#19/내 강의 페이지 구현">
-      <change afterPath="$PROJECT_DIR$/src/components/course/lists/MyCourseMain.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/common/MyCourseSidebar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/course/lists/DailyAttendance.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/apis/MyCourseAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/MyCourseAPICalls.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/course/lists/InProgressList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/course/lists/InProgressList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/MyLectureDetailInfoModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/MyLectureDetailInfoModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/course/lists/LastCourseList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/course/lists/LastCourseList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/course/lists/MyCourseMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/course/lists/MyCourseMain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/course/lists/ScheduledCourseList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/course/lists/ScheduledCourseList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/MyLectureDetailInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/MyLectureDetailInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/course.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/course.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/MyCourseModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/MyCourseModule.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +57,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "feat/#19/my__lecture",
-    "last_opened_file_path": "C:/Lecture/final/hicoding-front",
+    "last_opened_file_path": "C:/Lecture/13_restapi/lecture-source/chap03-comprehensice-react",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -92,7 +96,8 @@
       <workItem from="1701407600033" duration="29535000" />
       <workItem from="1701648971004" duration="2195000" />
       <workItem from="1701665372835" duration="711000" />
-      <workItem from="1701732686938" duration="14686000" />
+      <workItem from="1701732686938" duration="15335000" />
+      <workItem from="1701819007378" duration="33045000" />
     </task>
     <task id="LOCAL-00001" summary="feat/#09/member-creation&#10;&#10;first commit">
       <option name="closed" value="true" />
@@ -126,7 +131,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701687289041</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat/#19/내 강의 페이지 구현">
+      <option name="closed" value="true" />
+      <created>1701754525556</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701754525556</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

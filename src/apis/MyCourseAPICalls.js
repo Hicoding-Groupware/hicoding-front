@@ -1,12 +1,13 @@
-import {authRequest, request} from "./Api";
+import {authRequest} from "./Api";
 import {getCourses, getDetailCourse} from "../modules/MyCourseModule";
+
 
 
 export const callMyCourseListAPI = ({currentPage }) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/hc-app/v1/my_lecture/in_progress?page=${currentPage}`,
+        const result = await authRequest.get(`/hc-app/v1/lecture/progress?page=${currentPage}`,
             {
                 headers : {
                     'Content-Type' : 'application/json'
@@ -28,7 +29,7 @@ export const callLastMyCourseListAPI = ({currentPage }) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/hc-app/v1/my_lecture/last_lecture?page=${currentPage}`,
+        const result = await authRequest.get(`/hc-app/v1/lecture/last?page=${currentPage}`,
             {
                 headers : {
                     'Content-Type' : 'application/json'
@@ -50,7 +51,7 @@ export const callScheduledMyCourseListAPI = ({ currentPage }) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/hc-app/v1/my_lecture/scheduled_lecture?page=${currentPage}`,
+        const result = await authRequest.get(`/hc-app/v1/lecture/scheduled?page=${currentPage}`,
             {
                 headers : {
                     'Content-Type' : 'application/json'
@@ -67,16 +68,15 @@ export const callScheduledMyCourseListAPI = ({ currentPage }) => {
     }
 }
 
-// 상세 조회 cosCode 1개 조회
-export const callCourseDetailAPI = ({ cosCode }) =>  {
+
+export const callDailyAttendanceAPI = ({ cosCode }) => {
 
     return async (dispatch, getState) => {
 
-        const result = await request('GET',`/hc-app/v1/my_lecture/detail_info/${cosCode}`);
-        console.log('callCourseDetailAPI result : ', result);
+        const result = await authRequest.get(`/hc-app/v1/attendance/day/${cosCode}`);
 
         if(result?.status === 200) {
-            dispatch(getDetailCourse(result));
+            dispatch(getDetailCourse(result)); // 임시
         }
     }
 }

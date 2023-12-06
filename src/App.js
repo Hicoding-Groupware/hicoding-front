@@ -20,6 +20,7 @@ import MyCourseMain from "./components/course/lists/MyCourseMain";
 import MyLectureDetailInfo from "./components/modal/MyLectureDetailInfo";
 import LastCourseList from "./components/course/lists/LastCourseList";
 import ScheduledCourseList from "./components/course/lists/ScheduledCourseList";
+import DailyAttendance from "./components/course/lists/DailyAttendance";
 
 function App() {
 
@@ -30,18 +31,18 @@ function App() {
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/" element={<Layout/>}>
                         <Route index element={<Main/>}/>
-                        {/*<Route path="mypage" element={<MyPageLayout/>}>*/}
-                        {/*<Route path="profile" element={<Profile/>}/>*/}
-                        {/*</Route>*/}
                         <Route path="lecture" element={<LectureMain/>}/>
                         <Route path="course" element={<CourseMain/>}/>
                         <Route path="mylecture" element={<MyCourseMain/>}>
                             <Route path="inprogress" element={<InProgressList/>}/>
+                            <Route path=":cosCode" element={<MyLectureDetailInfo/>}/>
                         </Route>
                         <Route path="mylecture">
                             <Route path="lastcourse" element={<LastCourseList/>}/>
                             <Route path="scheduledcourse" element={<ScheduledCourseList/>}/>
-                            <Route path="detailinfo/:cosCode" element={<MyLectureDetailInfo/>}/>
+                        </Route>
+                        <Route path="attendance">
+                            <Route path="day/:cosCode" element={<DailyAttendance/>}/>
                         </Route>
                         <Route
                             path="students"
