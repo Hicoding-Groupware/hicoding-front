@@ -5,25 +5,25 @@ import CreationInfoList from "../../components/lists/CreationInfoList";
 
 function Creation(){
 
-    const dispatch = useDispatch();
-    const { memberInfos } = useSelector(state => state.memberReducer);
-    const [form, setForm] = useState({memberName: '홍길동', memberRole: 'ADMIN', cnt: 1});
+    const dispatch = useDispatch()
+    const { creationInfos } = useSelector(state => state.memberReducer)
+    const [form, setForm] = useState({memberName: '홍길동', memberRole: 'ADMIN', cnt: 1})
 
     useEffect(() => {
-    }, [memberInfos]);
+    }, [creationInfos])
 
     const onChangeHandler = e => {
         setForm({
             ...form,
             [e.target.name] : e.target.value
-        });
+        })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         dispatch(callMemberCreationAPI({creationRequest : form}));
-    };
+    }
 
     return(
         <>
@@ -72,12 +72,12 @@ function Creation(){
             <div>
                 <h1>발급란</h1>
                 {
-                    memberInfos &&
-                    <CreationInfoList infos={ memberInfos }/>
+                    creationInfos &&
+                    <CreationInfoList infos={ creationInfos }/>
                 }
             </div>
         </>
-    );
+    )
 
 }
 

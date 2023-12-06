@@ -5,6 +5,7 @@ export const callLectureListAPI = ({currentPage = 1}) => {
 
     return async (dispatch, getState) => {
 
+
         const result = await request('GET', `/lectures?page=${currentPage}`);
         console.log(result);
 
