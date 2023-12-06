@@ -3,7 +3,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {callStudentListAPI} from "../../apis/StudentAPICalls";
 import StudentTable from "../../components/student/items/StudentTable";
 import StudentPagingBar from "../../components/student/pagingBar/StudentPagingBar";
-
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Student() {
@@ -37,8 +38,8 @@ function Student() {
 
 
     useEffect(() => {
-        dispatch(callStudentListAPI({sort, stdName, startDate, endDate}));
-    }, [sort, stdName, startDate, endDate]);
+        dispatch(callStudentListAPI({currentPage, sort, stdName, startDate, endDate}));
+    }, [currentPage, sort, stdName, startDate, endDate]);
 
 
     return (
@@ -67,6 +68,7 @@ function Student() {
             {
                 students &&
                 <div className="student-table">
+                    <ToastContainer hideProgressBar={true} position="top-center"/>
                     <StudentTable data={students.data}/>
                     <StudentPagingBar pageInfo={students.pageInfo} setCurrentPage={setCurrentPage}/>
                 </div>

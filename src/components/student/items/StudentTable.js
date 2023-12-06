@@ -12,8 +12,8 @@ function StudentTable({data}) {
     const onClickStudentRecord = () => {
         navigate('/student-record');
     }
-    const onClickStudentModify = () => {
-        navigate('/student-modify');
+    const onClickStudentModify = (stdCode) => {
+        navigate(`/student-modify/${stdCode}`);
     }
 
     return (
@@ -70,7 +70,7 @@ function StudentTable({data}) {
                                     <div className="student-th-registedDate">{formatDate(student.createdAt)}</div>
                                     <div className="student-th-manage">
                                     <button className="record" onClick={ onClickStudentRecord }>수강 이력</button>
-                                    <button className="student-modify" onClick={ onClickStudentModify }>수정</button>
+                                    <button className="student-modify" onClick={ () => onClickStudentModify(student.stdCode) }>수정</button>
                                     </div>
                         </div>
                     ))
