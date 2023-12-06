@@ -16,6 +16,7 @@ import {MEMBER_PATH} from "./apis/MemberAPICalls";
 import LectureMain from "./pages/lecture/LectureMain";
 import CourseMain from "./pages/course/CourseMain";
 import MyCourseMain from "./pages/course/MyCourseMain";
+import DetailsView from "./pages/member/DetailsView";
 import ProtectedRoute from "./components/router/ProtectedRoute";
 import StudentModify from "./pages/student/StudentModify";
 import CourseDetail from "./pages/course/CourseDetail";
@@ -70,6 +71,7 @@ function App() {
                         />
                         <Route path={MEMBER_PATH}>
                             <Route path='creation' element={<Creation/>}/>
+                            <Route path='detailsView' element={<DetailsView/>}/>
                         </Route>
 
                     </Route>
