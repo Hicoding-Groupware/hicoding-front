@@ -17,8 +17,16 @@ import LectureMain from "./pages/lecture/LectureMain";
 import CourseMain from "./pages/course/CourseMain";
 import MyCourseMain from "./pages/course/MyCourseMain";
 import ProtectedRoute from "./components/router/ProtectedRoute";
+import StudentModify from "./pages/student/StudentModify";
+import CourseDetail from "./pages/course/CourseDetail";
+import AcademyCalendar from "./components/Schedule/AcademyCalendar";
+import AcademySchedule from "./pages/schedule/AcademySchedule";
+import ClassroomSchedule from "./pages/schedule/ClassroomSchedule";
+import CourseSchedule from "./pages/schedule/CourseSchedule";
+import CourseRegist from "./pages/course/CourseRegist";
 
 function App() {
+
     return (
         <>
             <BrowserRouter>
@@ -31,9 +39,17 @@ function App() {
                         {/*<Route path="profile" element={<Profile/>}/>*/}
                         {/*</Route>*/}
                         <Route path="lecture" element={<LectureMain/>}/>
-                          <Route path="course" element={<CourseMain/>}/>
-                          <Route path="mylecture" element={<MyCourseMain/>}/>
-
+                        <Route path="courses">
+                            <Route path="" element={<CourseMain/>}/>
+                            <Route path=":cosCode" element={ <CourseDetail/> }/>
+                        </Route>
+                        <Route path="course-regist" element={<CourseRegist/>}/>
+                        <Route path="schedule">
+                            <Route path="academy" element={<AcademySchedule/>}/>
+                            <Route path="course" element={<CourseSchedule/>}/>
+                            <Route path="classroom" element={ <ClassroomSchedule/> }/>
+                        </Route>
+                        <Route path="mylecture" element={<MyCourseMain/>}/>
                         <Route
                             path="students"
                             element={
@@ -46,6 +62,12 @@ function App() {
                                 <StudentRegist/>
                             }
                         />
+                        <Route
+                            path="student-modify/:stdCode"
+                            element={
+                                <StudentModify/>
+                            }
+                        />
                         <Route path={MEMBER_PATH}>
                             <Route path='creation' element={<Creation/>}/>
                         </Route>
@@ -55,30 +77,7 @@ function App() {
             </BrowserRouter>
         </>
     );
-  return (
-      <>
-          <BrowserRouter>
-              <Routes>
-                  {/*<Route path="/" element={<Login/>}/>*/}
-                      <Route path="/" element={<Layout/>}>
-                          <Route index element={<Main/>}/>
-                          <Route
-                              path="students"
-                              element={
-                                <Student/>
-                              }
-                          />
-                          <Route
-                              path="studentRegist"
-                              element={
-                                <StudentRegist/>
-                              }
-                          />
-                      </Route>
-              </Routes>
-          </BrowserRouter>
-      </>
-  );
+
 }
 
 export default App;

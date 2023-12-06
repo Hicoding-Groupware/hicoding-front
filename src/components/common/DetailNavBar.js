@@ -1,5 +1,6 @@
 import {NavLink} from "react-router-dom";
 import {MEMBER_PATH} from "../../apis/MemberAPICalls";
+import React from "react";
 
 function DetailNavBar(){
 

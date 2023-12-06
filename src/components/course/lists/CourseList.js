@@ -1,6 +1,11 @@
+import {useNavigate} from "react-router-dom";
 
 function CourseList({data}){
-    console.log(data);
+
+    const navigate = useNavigate();
+    const onClickCourseHandler = (cosCode) => {
+        navigate(`/courses/${cosCode}`)
+    }
     return(
 
         <div className="courseListWrap">
@@ -8,7 +13,8 @@ function CourseList({data}){
                 {data.map(course => (
                <li key={course.cosCode}>
                    <div className="content">
-                       <p className="courseTitle">
+                       <p className="courseTitle"
+                          onClick={()=>onClickCourseHandler(course.cosCode)}>
                            {course.cosName}
                            <span className="statusTag"
                                  style={course.curCnt == course.capacity ? {background: '#666666'} : {background: '#6260F4'}}>
