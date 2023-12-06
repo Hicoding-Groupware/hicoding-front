@@ -4,6 +4,8 @@ import React from "react";
 
 function DetailNavBar(){
 
+
+
     return(
         <div className="nav-detail">
             <ul className="nav-detail-ul">
@@ -17,15 +19,17 @@ function DetailNavBar(){
                         <li><NavLink to="/students">원생조회</NavLink></li>
                     </ul>
                     <ul>
-                        <li>강의등록</li>
-                        <li>강의목록</li>
+                        <NavLink to="/lecture"><li>강의관리</li></NavLink>
+                        <NavLink to="/course"><li>과정관리</li></NavLink>
+                        {<NavLink to="/course-regist"><li>과정등록</li></NavLink>}
 
                         <li>내강의</li>
                         <li>출석부</li>
                     </ul>
                     <ul>
-                        <li>학원일정</li>
-                        <li>강의실 일정</li>
+                        <NavLink to="/schedule/academy"><li>학원일정</li></NavLink>
+                        <NavLink to="/schedule/course"><li>과정일정</li></NavLink>
+                        <NavLink to="/schedule/classroom"> <li>강의실 일정</li></NavLink>
                     </ul>
                     <ul>
                         <li>자료실</li>
