@@ -11,11 +11,11 @@ function PagingBar({ pageInfo, setCurrentPage }) {
 
 
     return (
-        <div className="pagenation">
-        <ul className="paging-ul">
+        <div className="pagenationD">
+        <ul className="pagingD-ul">
             <li>
                 <button
-                    className="paging-btn"
+                    className="pagingD-btn"
                     onClick={ () => setCurrentPage(pageInfo.currentPage - 1) }
                     disabled={ pageInfo.currentPage <= 1 }
                 >
@@ -26,7 +26,7 @@ function PagingBar({ pageInfo, setCurrentPage }) {
                 pageNumber.map(num => (
                     <li key={num}>
                         <button
-                            className="paging-btn"
+                            className="pagingD-btn"
                             style={ pageInfo.currentPage === num ? { borderBottom : '3px solid #6260F4' ,color : '#6260F4'} : null }
                             onClick={ () => setCurrentPage(num) }
                             disabled={ pageInfo.currentPage === num }
@@ -38,7 +38,7 @@ function PagingBar({ pageInfo, setCurrentPage }) {
             }
             <li>
                 <button
-                    className="paging-btn"
+                    className="pagingD-btn"
                     onClick={ () => setCurrentPage(pageInfo.currentPage + 1) }
                     disabled={ pageInfo.currentPage >= pageInfo.maxPage }
                 >

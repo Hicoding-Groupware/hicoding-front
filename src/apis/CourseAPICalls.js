@@ -1,5 +1,5 @@
 import {authRequest, request} from "./Api";
-import {getCourse, getCourses} from "../modules/CourseModule";
+import {getCourse, getCourses, getMembers} from "../modules/CourseModule";
 
 export const callCourseListAPI = ({currentPage = 1}) => {
 
@@ -27,6 +27,7 @@ export const callCourseDetailAPI = ({cosCode}) => {
 
     }
 };
+
 
 // export const callCourseRegistAPI =({ registRequest }) => {
 //
