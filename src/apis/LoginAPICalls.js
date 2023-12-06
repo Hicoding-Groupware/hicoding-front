@@ -1,4 +1,4 @@
-import {loginFailure, loginSuccess, postInfo} from "../modules/LoginModule";
+import {loginFailure, loginSuccess, postInfo, putSuccess} from "../modules/LoginModule";
 import {request} from "./Api";
 import {saveToken} from "../utils/TokenUtils";
 
@@ -60,6 +60,11 @@ export const InfoUpdateAPI =({InfoUpdateRequest}) => {
         );
 
         console.log("response",response);
+        if (response.status === 201){
+           dispatch(putSuccess());
+        }
+
+
 
     }
 

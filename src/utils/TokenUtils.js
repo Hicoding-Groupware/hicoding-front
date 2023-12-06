@@ -30,5 +30,7 @@ export const isLogin = () => {
 }
 
 export const isAdmin = () => {
-    return isLogin() && (getDecodeAccessToken().memberRole === 'ROLE_ADMIN');
+    const role = getDecodeAccessToken().memberRole;
+    console.log(role);
+    return isLogin() && (role === 'ROLE_ADMIN' || role === 'ROLE_STAFF');
 }

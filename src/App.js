@@ -16,6 +16,7 @@ import {MEMBER_PATH} from "./apis/MemberAPICalls";
 import LectureMain from "./pages/lecture/LectureMain";
 import CourseMain from "./pages/course/CourseMain";
 import MyCourseMain from "./pages/course/MyCourseMain";
+import ProtectedRoute from "./components/router/ProtectedRoute";
 import StudentModify from "./pages/student/StudentModify";
 import CourseDetail from "./pages/course/CourseDetail";
 import AcademyCalendar from "./components/Schedule/AcademyCalendar";
@@ -30,8 +31,9 @@ function App() {
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/login" element={<Login/>}/>
-                    <Route path="/" element={<Layout/>}>
+
+                    <Route path="/login" element={<ProtectedRoute loginCheck={false}><Login/></ProtectedRoute>}/>
+                    <Route path="/" element={<ProtectedRoute loginCheck={true}><Layout/></ProtectedRoute>}>
                         <Route index element={<Main/>}/>
                         {/*<Route path="mypage" element={<MyPageLayout/>}>*/}
                         {/*<Route path="profile" element={<Profile/>}/>*/}
