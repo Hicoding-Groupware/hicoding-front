@@ -1,4 +1,4 @@
-import {loginFailure, loginSuccess, postInfo} from "../modules/LoginModule";
+import {loginFailure, loginSuccess, postInfo, putSuccess} from "../modules/LoginModule";
 import {request} from "./Api";
 import {saveToken} from "../utils/TokenUtils";
 
@@ -9,7 +9,7 @@ export const callLoginAPI = ({loginRequest}) => {
 
         const response = await request(
             'POST',
-            '/pre/login',
+            '/member/pre/login',
             {'Content-Type': 'application/json'},  //자바 문자이기때문에
             JSON.stringify(loginRequest)  //json 문자열로 바꿔준다
 
@@ -53,13 +53,18 @@ export const InfoUpdateAPI =({InfoUpdateRequest}) => {
 
         const response = await request(
             'PUT',
-            '/member',
+            '/member/memberInfo',
             {'Content-Type': 'application/json'},  //자바 문자이기때문에
             JSON.stringify(InfoUpdateRequest)  //json 문자열로 바꿔준다
 
         );
 
         console.log("response",response);
+        if (response.status === 201){
+           dispatch(putSuccess());
+        }
+
+
 
     }
 
