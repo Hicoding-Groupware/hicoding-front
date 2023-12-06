@@ -5,6 +5,7 @@ import {callLectureListAPI} from "../../apis/LectureAPICalls";
 import {callCourseListAPI} from "../../apis/CourseAPICalls";
 import CourseList from "../../components/course/lists/CourseList";
 import PagingBar from "../../components/course/pagingbar/PagingBar";
+import CourseFilter from "../../components/course/filter/CourseFilter";
 
 function CourseMain(){
 
@@ -21,6 +22,7 @@ function CourseMain(){
             {
                 courses &&
                 <>
+                    <CourseFilter/>
                     <CourseList data={courses.data}/>
                     <PagingBar pageInfo={courses.pageInfo} setCurrentPage={setCurrentPage}/>
                 </>

@@ -8,7 +8,7 @@ export const callLectureListAPI = ({currentPage = 1}) => {
         const result = await request('GET', `/lectures?page=${currentPage}`);
         console.log(result);
 
-        if(result.status == 200){
+        if(result.status === 200){
             dispatch(getLectures(result));
         }
     }

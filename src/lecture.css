@@ -1,42 +1,52 @@
-/*페이징 바*/
+/*Paging*/
 .pagenation{
-    width: 100%;
+    width: 1100px;
     margin: 0 auto;
 }
+
 .paging-ul {
-    text-align: center;
     display: flex;
+    justify-content: center;
     list-style-type : none;
     margin-bottom: 30px;
 }
 
 .paging-btn{
     margin: 5px;
-    border-radius: 12px;
     background-color: white;
-    font-weight: bold;
-}
-
-.paging-btn:hover{
+    border: none;
     cursor: pointer;
-    background-color: burlywood;
+    color: #333333;
+    font-size: 14px;
 }
 
-
-
+/*강의 테이블*/
 .lecture-table{
-    border: 1px solid black;
-    width: 800px;
-    height: 600px;
+    width: 1100px;
     margin: 0 auto;
     margin-top: 100px;
+    margin-bottom: 100px;
     text-align: center;
+    border-collapse: collapse;
+    font-size: 14px;
 }
+
+td{
+    border: 1px solid  #f0f0f2;
+    padding: 10px;
+    height: 40px;
+}
+
+tbody>tr:hover{background: #3a74d614}
+
+thead{background: #f0f0f2}
+tbody{border-top: 2px solid #727476;}
+
+
 
 .courseListWrap{
     border-top: 2px solid #e2e2e4;
     margin: 0 auto;
-    margin-top: 100px;
     width: 1100px;
     padding: 0;
 }
@@ -56,20 +66,26 @@
 }
 
 .content>p{
-    font-size: 20px;
+    cursor: pointer;
+}
+.content>p:hover{
+    text-decoration: underline;
 }
 
 .courseInfo{
     display: flex;
     flex-wrap: wrap;
     margin-top: 70px;
+    margin-bottom: 70px;
     font-size: 13px;
 }
-.courseInfo>dl{
+
+dl{
     display: flex;
     width: 50%;
 }
-.courseInfo dt{
+
+dt{
     border: 1px solid #d3d3d3;
     border-radius: 12px;
     min-width: 80px;
@@ -77,7 +93,8 @@
     padding: 0 8px;
     text-align: center;
 }
-.courseInfo dd{
+
+dd{
     margin-left: 20px;
     line-height: 25px;
 
@@ -96,4 +113,37 @@
 }
 
 .courseTitle{
+    font-size: 20px;
 }
+
+.courseFilterWrap{
+    width: 1100px;
+    margin: 0 auto;
+    margin-top: 100px;
+
+}
+
+.courseDetailWrap{
+    width: 1100px;
+    border: 3px solid #e2e2e4;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 30px;
+}
+
+.titleBox{
+    border-bottom: 1px solid #e2e2e4 ;
+    padding-bottom: 30px;
+}
+
+.notice{
+    border-top: 1px solid #e2e2e4;
+}
+
+.calendarContainer{
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 1100px;
+}
+
+.fc-toolbar-chunk button{border: none;}
