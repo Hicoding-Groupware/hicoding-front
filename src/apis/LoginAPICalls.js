@@ -9,7 +9,7 @@ export const callLoginAPI = ({loginRequest}) => {
 
         const response = await request(
             'POST',
-            '/pre/login',
+            '/member/pre/login',
             {'Content-Type': 'application/json'},  //자바 문자이기때문에
             JSON.stringify(loginRequest)  //json 문자열로 바꿔준다
 
@@ -53,7 +53,7 @@ export const InfoUpdateAPI =({InfoUpdateRequest}) => {
 
         const response = await request(
             'PUT',
-            '/member',
+            '/member/memberInfo',
             {'Content-Type': 'application/json'},  //자바 문자이기때문에
             JSON.stringify(InfoUpdateRequest)  //json 문자열로 바꿔준다
 
