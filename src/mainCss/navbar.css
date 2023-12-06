@@ -37,9 +37,9 @@ body{margin: 0;}  /* 이게 있어야지 모서리에 틈이 없어진다*/
     min-width: 120px;
     height: auto;
     text-align: center;
-    color: white;
     font-size: 18px;
     left: 200px;
+    padding-bottom: 20px;
 
 
 }
@@ -110,9 +110,6 @@ body{margin: 0;}  /* 이게 있어야지 모서리에 틈이 없어진다*/
 
 
 }
-
-
-
 
 
 /* detail nav */
