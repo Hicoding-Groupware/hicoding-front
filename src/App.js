@@ -2,6 +2,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Layout from "./layouts/Layout";
 import React from "react";
 import Main from "./pages/main/Main";
+import './Student.css';
 import './lecture.css';
 import './mainCss/navbar.css';
 import './mainCss/login.css';
@@ -36,7 +37,7 @@ function App() {
                         {/*<Route path="profile" element={<Profile/>}/>*/}
                         {/*</Route>*/}
                         <Route path="lecture" element={<LectureMain/>}/>
-                        <Route path="course">
+                        <Route path="courses">
                             <Route path="" element={<CourseMain/>}/>
                             <Route path=":cosCode" element={ <CourseDetail/> }/>
                         </Route>

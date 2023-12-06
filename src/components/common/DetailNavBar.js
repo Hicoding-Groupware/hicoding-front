@@ -20,7 +20,7 @@ function DetailNavBar(){
                     </ul>
                     <ul>
                         <NavLink to="/lecture"><li>강의관리</li></NavLink>
-                        <NavLink to="/course"><li>과정관리</li></NavLink>
+                        <NavLink to="/courses"><li>과정관리</li></NavLink>
                         {<NavLink to="/course-regist"><li>과정등록</li></NavLink>}
 
                         <li>내강의</li>

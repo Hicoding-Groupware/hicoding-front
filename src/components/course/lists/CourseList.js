@@ -1,9 +1,10 @@
+import {useNavigate} from "react-router-dom";
 
 function CourseList({data}){
 
     const navigate = useNavigate();
     const onClickCourseHandler = (cosCode) => {
-        navigate(`/course/${cosCode}`)
+        navigate(`/courses/${cosCode}`)
     }
     return(
 
