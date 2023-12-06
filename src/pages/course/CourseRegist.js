@@ -30,14 +30,14 @@ function CourseRegist(){
                     </dl>
                     <dl>
                         <dt>요일</dt>
-                        <dd><label><input type='radio' value='WEEKDAY'/>주중</label>
-                            <label><input type='radio' value='WEEKEND'/>주말</label></dd>
+                        <dd><label><input type='radio' name='classday' value='WEEKDAY'/>주중</label>
+                            <label><input type='radio' name='classday' value='WEEKEND'/>주말</label></dd>
                     </dl>
                     <dl>
                         <dt>시간</dt>
-                        <dd><label><input type='radio' value='MORNING'/>오전</label>
-                            <label><input type='radio' value='AFTERNOON'/>오후</label>
-                            <label><input type='radio' value='ALLDAY'/>종일</label></dd>
+                        <dd><label><input type='radio' name='classtime' value='MORNING'/>오전</label>
+                            <label><input type='radio' name='classtime' value='AFTERNOON'/>오후</label>
+                            <label><input type='radio' name='classtime' value='ALLDAY'/>종일</label></dd>
                     </dl>
                     <dl>
                         <dt>강의실</dt>
@@ -64,7 +64,9 @@ function CourseRegist(){
                 <div className="notice">
                     <p className="courseTitle">안내사항</p>
                 </div>
-                <button>등록</button>
+            </div>
+            <div className='btnArea'>
+                <button className='regist'>등록</button>
             </div>
         </>
     );

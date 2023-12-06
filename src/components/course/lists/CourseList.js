@@ -1,4 +1,5 @@
 import {useNavigate} from "react-router-dom";
+import {isAdmin} from "../../../utils/TokenUtils";
 
 function CourseList({data}){
 
@@ -42,7 +43,6 @@ function CourseList({data}){
                                <dt>강의</dt>
                                <dd>{course.lecCode}</dd>
                            </dl>
-
                        </div>
                    </div>
                </li>
