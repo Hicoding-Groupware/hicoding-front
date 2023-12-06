@@ -1,4 +1,6 @@
 import {NavLink} from "react-router-dom";
+import {MEMBER_PATH} from "../../apis/MemberAPICalls";
+import React from "react";
 
 function DetailNavBar(){
 
@@ -9,20 +11,20 @@ function DetailNavBar(){
             <ul className="nav-detail-ul">
                 <li>
                     <ul>
-                        <li>사원생성</li>
-
-                        <li>사원관리</li>
-
-                        <li>사원정보승인</li>
+                        <li><NavLink to={MEMBER_PATH + '/creation' }>사원생성</NavLink></li>
+                        <li><NavLink to={MEMBER_PATH + '/detailsView' }>사원관리</NavLink></li>
                     </ul>
                     <ul>
-                        <li>원생등록</li>
-                        <li>원생조회</li>
+                        <li><NavLink to="/studentRegist">원생등록</NavLink></li>
+                        <li><NavLink to="/students">원생조회</NavLink></li>
                     </ul>
                     <ul>
                         <NavLink to="/lecture"><li>강의관리</li></NavLink>
                         <NavLink to="/course"><li>과정관리</li></NavLink>
                         {<NavLink to="/course-regist"><li>과정등록</li></NavLink>}
+
+                        <li>내강의</li>
+                        <li>출석부</li>
                     </ul>
                     <ul>
                         <NavLink to="/schedule/academy"><li>학원일정</li></NavLink>
@@ -34,7 +36,7 @@ function DetailNavBar(){
                         <li>공지사항</li>
                     </ul>
                     <ul>
-                        <li>쪽지쓰기</li>
+                        <li>쪽지 쓰기</li>
                         <li>받은 쪽지함</li>
                         <li>보낸 쪽지함</li>
                     </ul>

@@ -13,8 +13,8 @@ export const { course  : { getCourses } } = createActions({
 });
 
 /* 리듀서 */
-const courseReducer = handleActions({
+const myCourseReducer = handleActions({
     [GET_COURSES] : (state, { payload }) => payload
 }, initialState);
 
-export default courseReducer;
+export default myCourseReducer;
