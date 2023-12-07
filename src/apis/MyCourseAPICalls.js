@@ -67,16 +67,3 @@ export const callScheduledMyCourseListAPI = ({ currentPage }) => {
         }
     }
 }
-
-
-export const callDailyAttendanceAPI = ({ cosCode }) => {
-
-    return async (dispatch, getState) => {
-
-        const result = await authRequest.get(`/attendance/day/${cosCode}`);
-
-        if(result?.status === 200) {
-            dispatch(getDetailCourse(result)); // 임시
-        }
-    }
-}

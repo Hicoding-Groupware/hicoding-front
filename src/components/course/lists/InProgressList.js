@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {callMyCourseListAPI} from "../../../apis/MyCourseAPICalls";
-import PagingBar from "../../common/PagingBar";
 import MyCourseListItem from "../../items/MyCourseListItem";
 
 

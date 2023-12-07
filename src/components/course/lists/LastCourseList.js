@@ -19,7 +19,7 @@ function LastCourseList() {
     return (
         <>
             <MyCourseListItem title="지난 강의" listType="LastCourseList"
-                              courses={courses} setCurrentPage={setCurrentPage}/>
+                              courses={courses} setCurrentParge={setCurrentPage}/>
         </>
     );
 }
