@@ -1,9 +1,17 @@
 /* ================= my lecture ================ */
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
 
 /* 전체 정렬 */
 .main-container {
     width: 70%;
     margin: 4% 0 0 20%;
+    font-family: 'Pretendard-Regular', serif;
 }
 
 .table-container {
@@ -19,7 +27,6 @@
     border-radius: 10px;
     margin-top: 1%;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-
 }
 
 .course-info-cell .table-cell {
@@ -40,7 +47,7 @@
 
 .thead {
     font-weight: bolder;
-    font-size: 14px;
+    font-size: 15px;
     color: #484848;
 }
 
@@ -50,7 +57,7 @@
 }
 
 .tinfo {
-    font-size: 13px;
+    font-size: 14px;
     padding-left: 2%;
 }
 
@@ -206,8 +213,34 @@
 
 /* ================= 내 강의 사이드 바 ================= */
 
-.my-course-side-bar {
-    font-size: 15px;
-    font-weight: bolder;
+.my-course-side-bar-box {
+    font-family: 'Pretendard-Regular', serif;
+    position: fixed;
+    padding-top: 6%;
 
+}
+
+.my-course-bar {
+    position: fixed;
+    padding-left: 11.5%;
+    font-size: 16px;
+    color: #333333;
+}
+
+.in-progress {
+    padding-top: 1%;
+
+}
+
+.scheduled {
+     padding-top: 2.7%;
+ }
+
+.last {
+    padding-top: 4.5%;
+}
+
+a {
+    text-decoration: none;
+    color: #333333;
 }
