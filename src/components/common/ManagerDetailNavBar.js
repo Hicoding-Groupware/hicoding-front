@@ -15,7 +15,7 @@ function ManagerDetailNavBar(){
                         <li><NavLink to="/studentRegist">원생등록</NavLink></li>
                         <li><NavLink to="/students">원생조회</NavLink></li>
                     </ul>
-                    <ul>
+                    <ul style={{paddingLeft : 13}}>
                         <li><NavLink to="/lecture">강의관리</NavLink></li>
                         <li><NavLink to="/courses">과정관리</NavLink></li>
                         <li><NavLink to="/course-regist">과정등록</NavLink></li>
