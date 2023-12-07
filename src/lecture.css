@@ -31,16 +31,16 @@
     font-size: 14px;
 }
 
-td{
-    border: 1px solid  #f0f0f2;
-    padding: 10px;
-    height: 40px;
-}
+/*td{*/
+/*    border: 1px solid  #f0f0f2;*/
+/*    padding: 10px;*/
+/*    height: 40px;*/
+/*}*/
 
-tbody>tr:hover{background: #3a74d614}
+/*tbody>tr:hover{background: #3a74d614}*/
 
-thead{background: #f0f0f2}
-tbody{border-top: 2px solid #727476;}
+/*thead{background: #f0f0f2}*/
+/*tbody{border-top: 2px solid #727476;}*/
 
 
 

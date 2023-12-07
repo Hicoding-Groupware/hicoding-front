@@ -6,7 +6,7 @@ function ManagerDetailNavBar(){
         <div className="nav-detail">
             <ul className="nav-detail-ul">
                 <li>
-                    <ul>
+                    <ul style={{paddingLeft : 30}}>
                         <li><NavLink to={MEMBER_PATH + '/creation' }>사원생성</NavLink></li>
                         <li><NavLink to={MEMBER_PATH + '/detailsView' }>사원관리</NavLink></li>
                         <li>사원정보승인</li>
@@ -16,14 +16,14 @@ function ManagerDetailNavBar(){
                         <li><NavLink to="/students">원생조회</NavLink></li>
                     </ul>
                     <ul>
-                        <NavLink to="/lecture"><li>강의관리</li></NavLink>
-                        <NavLink to="/courses"><li>과정관리</li></NavLink>
-                        {<NavLink to="/course-regist"><li>과정등록</li></NavLink>}
+                        <li><NavLink to="/lecture">강의관리</NavLink></li>
+                        <li><NavLink to="/courses">과정관리</NavLink></li>
+                        <li><NavLink to="/course-regist">과정등록</NavLink></li>
                     </ul>
                     <ul>
-                        <NavLink to="/schedule/academy"><li>학원일정</li></NavLink>
-                        <NavLink to="/schedule/course"><li>과정일정</li></NavLink>
-                        <NavLink to="/schedule/classroom"> <li>강의실 일정</li></NavLink>
+                        <li><NavLink to="/schedule/academy">학원일정</NavLink></li>
+                        <li><NavLink to="/schedule/course">과정일정</NavLink></li>
+                        <li><NavLink to="/schedule/classroom"> 강의실 일정</NavLink></li>
                     </ul>
                     <ul>
                         <li>자료실</li>
