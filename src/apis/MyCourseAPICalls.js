@@ -7,7 +7,7 @@ export const callMyCourseListAPI = ({currentPage }) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/hc-app/v1/lecture/progress?page=${currentPage}`,
+        const result = await authRequest.get(`/lecture/progress?page=${currentPage}`,
             {
                 headers : {
                     'Content-Type' : 'application/json'
@@ -29,7 +29,7 @@ export const callLastMyCourseListAPI = ({currentPage }) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/hc-app/v1/lecture/last?page=${currentPage}`,
+        const result = await authRequest.get(`/lecture/last?page=${currentPage}`,
             {
                 headers : {
                     'Content-Type' : 'application/json'
@@ -51,7 +51,7 @@ export const callScheduledMyCourseListAPI = ({ currentPage }) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/hc-app/v1/lecture/scheduled?page=${currentPage}`,
+        const result = await authRequest.get(`/lecture/scheduled?page=${currentPage}`,
             {
                 headers : {
                     'Content-Type' : 'application/json'
@@ -73,7 +73,7 @@ export const callDailyAttendanceAPI = ({ cosCode }) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/hc-app/v1/attendance/day/${cosCode}`);
+        const result = await authRequest.get(`/attendance/day/${cosCode}`);
 
         if(result?.status === 200) {
             dispatch(getDetailCourse(result)); // 임시
