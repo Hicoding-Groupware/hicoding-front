@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import PagingBar from "../../common/PagingBar";
 import {callScheduledMyCourseListAPI} from "../../../apis/MyCourseAPICalls";
 import MyCourseListItem from "../../items/MyCourseListItem";
 
@@ -18,7 +17,8 @@ function ScheduledCourseList() {
 
     return (
         <>
-            <MyCourseListItem title="예정 강의" listType="ScheduledCourseList" courses={courses}/>
+            <MyCourseListItem title="예정 강의" listType="ScheduledCourseList"
+                              courses={courses} setCurrentPage={setCurrentPage}/>
         </>
     );
 }

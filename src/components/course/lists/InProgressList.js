@@ -18,7 +18,9 @@ function InProgressList() {
 
     return (
         <>
-            <MyCourseListItem title="진행중인 강의" listType="InProgressList" courses={courses}/>
+            <MyCourseListItem title="진행중인 강의" listType="InProgressList"
+                              courses={courses} setCurrentPage={setCurrentPage}/>
+
         </>
     );
 }

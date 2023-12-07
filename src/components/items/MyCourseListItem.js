@@ -1,9 +1,8 @@
 import MyCourseSidebar from "../common/MyCourseSidebar";
 import MyLectureDetailInfoModal from "../modal/MyLectureDetailInfo";
 import React, {useState} from "react";
-import {useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import PagingBar from "../common/PagingBar";
+import PagingBar from "../course/pagingbar/PagingBar";
 
 function MyCourseListItem({title, courses, setCurrentPage}){
 

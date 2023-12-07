@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import PagingBar from "../../common/PagingBar";
 import {callLastMyCourseListAPI} from "../../../apis/MyCourseAPICalls";
 import MyCourseListItem from "../../items/MyCourseListItem";
 
@@ -19,7 +18,8 @@ function LastCourseList() {
 
     return (
         <>
-            <MyCourseListItem title="지난 강의" listType="LastCourseList" courses={courses}/>
+            <MyCourseListItem title="지난 강의" listType="LastCourseList"
+                              courses={courses} setCurrentPage={setCurrentPage}/>
         </>
     );
 }
