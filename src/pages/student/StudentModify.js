@@ -1,59 +1,45 @@
-import DaumPostcode from "react-daum-postcode";
+import {useNavigate, useParams} from "react-router-dom";
 import React, {useEffect, useState} from "react";
-import Modal from "react-modal";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import {useDispatch, useSelector} from "react-redux";
-import {callStudentRegistAPI} from "../../apis/StudentAPICalls";
-import { ko } from "date-fns/esm/locale";
-import {useNavigate} from "react-router-dom";
+import {callStudentDetailAPI, callStudentModifyAPI} from "../../apis/StudentAPICalls";
+import Modal from "react-modal";
+import DaumPostcode from "react-daum-postcode";
+import DatePicker from "react-datepicker";
+import {ko} from "date-fns/esm/locale";
 
-function StudentRegist() {
+
+function StudentModify() {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const { stdCode } = useParams();
     const [isOpen, setIsOpen] = useState(false);
-    const [postNo, setPostNo] = useState('');
-    const [address, setAddress] = useState('');
     const [form, setForm] = useState({});
-    const [birthDate, setBirthDate] = useState('');
-    const { postSuccess } = useSelector(state => state.studentReducer);
-
-    useEffect(() => {
-        if(postSuccess === true) {
-           navigate('/students', { replace : true });
-        }
-    }, [postSuccess]);
+    const [birthDate, setBirthDate] = useState(new Date());
+    const { studentDetail, putSuccess } = useSelector(state => state.studentReducer);
 
     console.log(birthDate);
 
-    const completeHandler = data => {
-        // console.log(data.address);
-        // console.log(data.zonecode);
-        // setPostNo(data.zonecode);
-        // setAddress(data.address);
-        setForm({
-            ...form,
-            postNo : data.zonecode,
-            address : data.address
-        });
-        setIsOpen(false);
-    }
+    useEffect(() => {
+        dispatch(callStudentDetailAPI({stdCode}));
+    }, []);
+
+    useEffect(() => {
+        setForm({...studentDetail});
+        setBirthDate(new Date(studentDetail?.stdBirth));
+    }, [studentDetail]);
+
+    useEffect(() => {
+        if(putSuccess === true) {
+            navigate('/students', { replace : true })
+        }
+    }, [putSuccess]);
 
     const onChangeHandler = e => {
         setForm({
             ...form,
             [e.target.name] : e.target.value
         })
-    }
-
-    const onRequestCloseHandler = () => {
-        setIsOpen(false);
-    };
-
-
-    const searchAddress = () => {
-        setIsOpen(!isOpen);
     }
 
     const customStyles = {
@@ -70,11 +56,28 @@ function StudentRegist() {
         },
     };
 
+    const onRequestCloseHandler = () => {
+        setIsOpen(false);
+    };
 
+    const completeHandler = data => {
+        setForm({
+            ...form,
+            postNo: data.zonecode,
+            address : data.address
+        });
+        setIsOpen(false);
+    }
 
-    const onClickStudentRegist = () => {
+    const searchAddress = () => {
+        setIsOpen(!isOpen);
+    }
+
+    const onClickStudentUpdate = () => {
         form.stdBirth = birthDate;
-        dispatch(callStudentRegistAPI({registRequest : form }));
+        console.log(form.stdBirth);
+        dispatch(callStudentModifyAPI({ stdCode, modifyRequest : form }))
+
     }
 
     return (
@@ -82,7 +85,8 @@ function StudentRegist() {
             <Modal isOpen={isOpen} ariaHideApp={false} style={customStyles} onRequestClose={ onRequestCloseHandler }>
                 <DaumPostcode onComplete={ completeHandler } height="100%"/>
             </Modal>
-            <div className="student-regist-title">원생 등록</div>
+            <div className="student-regist-title">원생 수정</div>
+            { studentDetail && form.stdName &&
             <div className="student-regist-table">
                 <div className="student-regist-input-first">
                     <div className="student-regist-sub">원생 이름(필수)</div>
@@ -91,6 +95,7 @@ function StudentRegist() {
                         type="text"
                         placeholder="원생 이름을 입력해 주세요."
                         name='stdName'
+                        value={ form.stdName }
                         onChange={ onChangeHandler }
                     />
                     <div className="student-regist-sub">성별(필수)</div>
@@ -100,6 +105,7 @@ function StudentRegist() {
                         name="stdGender"
                         id="radio1"
                         value='남자'
+                        checked={ form.stdGender === '남자' }
                         onChange={ onChangeHandler }
                     />
                     <label className="radio-label1" htmlFor="radio1">남성</label>
@@ -109,6 +115,7 @@ function StudentRegist() {
                         name="stdGender"
                         id="radio2"
                         value='여자'
+                        checked={ form.stdGender === '여자'}
                         onChange={ onChangeHandler }
                     />
                     <label className="radio-label2" htmlFor="radio2">여성</label>
@@ -130,6 +137,7 @@ function StudentRegist() {
                         placeholder="전화번호를 입력해 주세요."
                         name='stdPhone'
                         onChange={ onChangeHandler }
+                        value={ form.stdPhone }
                     />
                     <div className="student-regist-sub">이메일</div>
                     <input
@@ -138,6 +146,7 @@ function StudentRegist() {
                         placeholder="email@gmail.com"
                         name='stdEmail'
                         onChange={ onChangeHandler }
+                        value={ form.stdEmail }
                     />
                 </div>
                 <div className="student-regist-input-second">
@@ -170,7 +179,9 @@ function StudentRegist() {
                             type="text"
                             placeholder="상세 주소"
                             name='detailAddress'
-                            onChange={ onChangeHandler }/>
+                            onChange={ onChangeHandler }
+                            value={ form.detailAddress }
+                        />
                     </div>
                     <div className="student-regist-sub">메모</div>
                     <div>
@@ -179,13 +190,16 @@ function StudentRegist() {
                             placeholder="메모를 입력해 주세요."
                             name='stdMemo'
                             onChange={ onChangeHandler }
+                            value={ form.stdMemo }
                         />
                     </div>
-                    <button className="regist-cancel" onClick={ () => navigate(-1) }>취소</button><button className="regist" onClick={ onClickStudentRegist }>등록</button>
+                    <button className="regist-cancel" onClick={ () => navigate(-1) }>취소</button><button className="regist" onClick={ onClickStudentUpdate }>수정</button>
                 </div>
             </div>
+            }
         </>
     );
+
 }
 
-export default StudentRegist;
+export default StudentModify;

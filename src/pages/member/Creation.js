@@ -6,14 +6,14 @@ import CreationInfoList from "../../components/lists/CreationInfoList";
 function Creation(){
 
     const dispatch = useDispatch()
-    const { memberInfos } = useSelector(state => state.memberReducer)
+    const { creationInfos } = useSelector(state => state.memberReducer)
     const [form, setForm] = useState(() => sendInitialMemberForm())
     const inputRef = useRef(null)
 
     useEffect(() => {
         inputRef.current.focus();
         setForm(sendInitialMemberForm());
-    }, [memberInfos])
+    }, [creationInfos])
 
     function sendInitialMemberForm() {
         return {
@@ -27,14 +27,14 @@ function Creation(){
         setForm({
             ...form,
             [e.target.name] : e.target.value
-        });
+        })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
         dispatch(callMemberCreationAPI({creationRequest : form}))
-    };
+    }
 
     return(
         <>
@@ -83,13 +83,14 @@ function Creation(){
             </div>
 
             <div>
-                <h1>발급란</h1> {
-                    memberInfos &&
-                    <CreationInfoList infos={ memberInfos }/>
+                <h1>발급란</h1>
+                {
+                    creationInfos &&
+                    <CreationInfoList infos={ creationInfos }/>
                 }
             </div>
         </>
-    );
+    )
 
 }
 

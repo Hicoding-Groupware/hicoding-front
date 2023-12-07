@@ -7,7 +7,7 @@ function CreationInfoList({infos}) {
         <div>
             {
                 infos &&
-                infos.map((info, index) => (
+                infos.map( (info, index) => (
                     <CreationInfoListItem key={index} index={index} info={info}/>
                 ))}
         </div>

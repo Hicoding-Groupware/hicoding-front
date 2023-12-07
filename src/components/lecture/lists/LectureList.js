@@ -1,13 +1,15 @@
-import LectureListItem from "../items/LectureListItem";
 
-function LectureList({data}){
+function LectureList({data}, {course}){
+
+    console.log(course)
+
     return(
         <table className="lecture-table">
             <thead>
                 <tr>
-                    <th>강의명</th>
-                    <th>교재</th>
-                    <th>기술스택</th>
+                    <td>강의명</td>
+                    <td>교재</td>
+                    <td>기술스택</td>
                 </tr>
             </thead>
             <tbody>

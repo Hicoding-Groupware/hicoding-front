@@ -15,6 +15,14 @@ import Creation from "./pages/member/Creation";
 import {MEMBER_PATH} from "./apis/MemberAPICalls";
 import LectureMain from "./pages/lecture/LectureMain";
 import CourseMain from "./pages/course/CourseMain";
+import DetailsView from "./pages/member/DetailsView";
+import ProtectedRoute from "./components/router/ProtectedRoute";
+import StudentModify from "./pages/student/StudentModify";
+import CourseDetail from "./pages/course/CourseDetail";
+import AcademySchedule from "./pages/schedule/AcademySchedule";
+import ClassroomSchedule from "./pages/schedule/ClassroomSchedule";
+import CourseSchedule from "./pages/schedule/CourseSchedule";
+import CourseRegist from "./pages/course/CourseRegist";
 import InProgressList from "./components/course/lists/InProgressList";
 import MyLectureDetailInfo from "./components/modal/MyLectureDetailInfo";
 import LastCourseList from "./components/course/lists/LastCourseList";
@@ -27,11 +35,24 @@ function App() {
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/login" element={<Login/>}/>
-                    <Route path="/" element={<Layout/>}>
+
+                    <Route path="/login" element={<ProtectedRoute loginCheck={false}><Login/></ProtectedRoute>}/>
+                    <Route path="/" element={<ProtectedRoute loginCheck={true}><Layout/></ProtectedRoute>}>
                         <Route index element={<Main/>}/>
+                        {/*<Route path="mypage" element={<MyPageLayout/>}>*/}
+                        {/*<Route path="profile" element={<Profile/>}/>*/}
+                        {/*</Route>*/}
                         <Route path="lecture" element={<LectureMain/>}/>
-                        <Route path="course" element={<CourseMain/>}/>
+                        <Route path="courses">
+                            <Route path="" element={<CourseMain/>}/>
+                            <Route path=":cosCode" element={<CourseDetail/>}/>
+                        </Route>
+                        <Route path="course-regist" element={<CourseRegist/>}/>
+                        <Route path="schedule">
+                            <Route path="academy" element={<AcademySchedule/>}/>
+                            <Route path="course" element={<CourseSchedule/>}/>
+                            <Route path="classroom" element={<ClassroomSchedule/>}/>
+                        </Route>
                         <Route path="mylecture">
                             <Route path="inprogress" element={<InProgressList/>}/>
                             <Route path="lastcourse" element={<LastCourseList/>}/>
@@ -56,15 +77,22 @@ function App() {
                                 <StudentRegist/>
                             }
                         />
+                        <Route
+                            path="student-modify/:stdCode"
+                            element={
+                                <StudentModify/>
+                            }
+                        />
                         <Route path={MEMBER_PATH}>
                             <Route path='creation' element={<Creation/>}/>
+                            <Route path='detailsView' element={<DetailsView/>}/>
                         </Route>
 
                     </Route>
                 </Routes>
             </BrowserRouter>
         </>
-    )
+    );
 };
 
 export default App;
