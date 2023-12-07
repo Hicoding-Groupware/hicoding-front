@@ -14,7 +14,7 @@ body{margin: 0;}  /* 이게 있어야지 모서리에 틈이 없어진다*/
 
 
 }
-.nav-list-ul:hover .dropDownMenu{
+.dropDown:hover .dropDownMenu{
     display: block;
     transition: 2s;
 }
@@ -29,24 +29,21 @@ body{margin: 0;}  /* 이게 있어야지 모서리에 틈이 없어진다*/
     margin-top: 25px;
     margin-bottom: 10px;
     position: relative;
-
+    left: 250px;
 }
 
 
 .nav-list-ul li {
     min-width: 120px;
-    height: auto;
-    text-align: center;
     font-size: 18px;
     left: 200px;
-    padding-bottom: 20px;
 
 
 }
 
 .logo-img{
     width: 90px;
-    margin: 10px 0px 0px 50px;
+    margin: 15px 0px 0px 50px;
     cursor: pointer;
     position: absolute;
     display: flex;
@@ -60,9 +57,8 @@ body{margin: 0;}  /* 이게 있어야지 모서리에 틈이 없어진다*/
     width: 20px;
     min-width: 0px  !important;
     cursor: pointer;
-    position: absolute;
-    right: 30px;
-
+    left: 1850px;
+    top: -38px;
 }
 
 .li-hover:hover{
@@ -75,12 +71,12 @@ body{margin: 0;}  /* 이게 있어야지 모서리에 틈이 없어진다*/
     justify-content: center;
     flex-wrap: wrap;
     list-style:none;
-    position: relative;
     text-align: center;
     color: white;
     cursor: pointer;
     display: flex;
     padding-left: 0px;
+    height: 30px;
 
     &:hover{
         color: rgba(26, 7, 49, 0.71);
@@ -95,14 +91,13 @@ body{margin: 0;}  /* 이게 있어야지 모서리에 틈이 없어진다*/
     padding-left: 0px;
 
     .dropDownMenu {
+        left: -35px;
         position: absolute;
         top: 20px;
-        left: 300px;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         justify-content: center;
         margin: 0px;
-        /*background-color: rgba(255, 0, 0, 0);*/
         padding-left: 0px;
         padding-top: 35px;
 
@@ -152,6 +147,7 @@ body{margin: 0;}  /* 이게 있어야지 모서리에 틈이 없어진다*/
     .nav-detail-ul > li > ul{
         list-style: none; /* 목록 마커 제거 (선택적) */
     padding: 20px;
+        text-align: center;
 }
 
 a {
