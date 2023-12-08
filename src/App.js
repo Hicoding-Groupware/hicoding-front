@@ -28,6 +28,7 @@ import MyLectureDetailInfo from "./components/modal/MyLectureDetailInfo";
 import LastCourseList from "./components/course/lists/LastCourseList";
 import ScheduledCourseList from "./components/course/lists/ScheduledCourseList";
 import DailyAttendance from "./components/course/lists/DailyAttendance";
+import Profile from "./pages/member/Profile";
 
 function App() {
 
@@ -39,9 +40,8 @@ function App() {
                     <Route path="/login" element={<ProtectedRoute loginCheck={false}><Login/></ProtectedRoute>}/>
                     <Route path="/" element={<ProtectedRoute loginCheck={true}><Layout/></ProtectedRoute>}>
                         <Route index element={<Main/>}/>
-                        {/*<Route path="mypage" element={<MyPageLayout/>}>*/}
-                        {/*<Route path="profile" element={<Profile/>}/>*/}
-                        {/*</Route>*/}
+                        <Route path="profile" element={<Profile/>}/>
+
                         <Route path="lecture" element={<LectureMain/>}/>
                         <Route path="courses">
                             <Route path="" element={<CourseMain/>}/>

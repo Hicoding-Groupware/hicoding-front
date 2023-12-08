@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import PagingBar from "../course/pagingbar/PagingBar";
 
-function MyCourseListItem({title, courses, setCurrentPage}){
+function MyCourseListItem({title, courses, setCurrentPage}) {
 
     const [courseDetailInfoModal, setCourseDetailInfoModal] = useState(false) // 모달
     const [course, setCourse] = useState({});
