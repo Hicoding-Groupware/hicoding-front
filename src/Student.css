@@ -170,6 +170,10 @@
     cursor: pointer;
 }
 
+.record-end {
+
+}
+
 .student-modify {
     margin-left: 23px;
     border-radius: var(--4, 4px);
@@ -704,6 +708,8 @@
     text-align: center;
     line-height: 40px;
     border-bottom: 1px solid #DEE2E6;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .record-teacher {
@@ -720,6 +726,15 @@
     text-align: center;
     line-height: 40px;
     border-bottom: 1px solid #DEE2E6;
+
+}
+
+.record-capacity {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #DEE2E6;
 }
 
 .record-manage {
@@ -732,8 +747,20 @@
 
 .record-status-normal {
     display: flex;
+
+}
+
+.record-status {
+    margin-top: 16px;
+    margin-left: 32px;
+    width: 815px;
+    height: 120px;
+    border-radius: var(--borderRadius, 4px);
+    border: 1px solid #CED4DA;
+    overflow-y: auto;
 }
 
 .currentCourseList {
     display: flex;
 }
+

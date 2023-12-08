@@ -114,6 +114,8 @@ export const callRecordRegistAPI = ({registRequest}) => {
         if(result.status === 201) {
             dispatch(postRecordSuccess());
             toast.info("등록이 완료 되었습니다.");
+        } else {
+            toast.error("수강 등록에 실패 하였습니다.");
         }
 
     }
@@ -134,7 +136,7 @@ export const callRecordModifyAPI = ({recCode}) => {
 
         if(result.status === 201) {
             dispatch(putRecordSuccess());
-            toast.info("수강철회가 완료 되었습니다.");
+            toast.success("수강철회가 완료 되었습니다.");
         }
     }
 
