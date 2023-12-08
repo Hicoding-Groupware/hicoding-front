@@ -34,7 +34,7 @@ function CourseTable({ data, stdCode, cosList }) {
                 </div>
                 {
                     data.map(course => (
-                        <div key={course.cosCode} className="courseList">
+                        <div key={course.cosCode} className="student-courseList">
                             <div className="record-cosName">
                                 {course.cosName}
                             </div>
