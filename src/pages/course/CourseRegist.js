@@ -1,10 +1,16 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {callMemberListAPI} from "../../apis/CourseAPICalls";
+import {callCourseRegistAPI, callMemberListAPI} from "../../apis/CourseAPICalls";
+import {postSuccess} from "../../modules/CourseModule";
+import {useNavigate} from "react-router-dom";
 
 function CourseRegist(){
 
     const [form, setForm] = useState({});
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
+    const { postSuccess } = useSelector(state => state.courseReducer);
+
     const onChangeHandler = e => {
         setForm({
             ...form,
@@ -12,13 +18,32 @@ function CourseRegist(){
         })
     }
 
+    useEffect(() => {
+        if(postSuccess === true) {
+            navigate('/courses', { replace : true });
+        }
+    }, [postSuccess]);
+
+    const onClickCourseRegistrationHandler = () => {
+
+        dispatch(callCourseRegistAPI({registRequest : form }));
+
+    }
+    console.log(form)
     return(
         <>
-            <div className="courseDetailWrap">
+            <div className="menuTitleWrap">
+                <h3>신규 과정 등록</h3>
+            </div>
+            <div className="courseRegistWrap">
                 <div className="titleBox">
                     <p className="courseTitle">
                         <input
+                            name='cosName'
+                            className='courseTitleInput'
+                            type='text'
                             placeholder="과정명"
+                            onChange={onChangeHandler}
                         />
                         <span className="statusTag"></span>
                     </p>
@@ -26,47 +51,79 @@ function CourseRegist(){
                 <div className="courseInfo">
                     <dl>
                         <dt>기간</dt>
-                        <dd><input type='date'/>~<input type='date'/></dd>
+                        <dd><input
+                            name='cosSdt'
+                            className='cosDateInput'
+                            type='date'
+                            onChange={onChangeHandler}
+                        /> ~ <input
+                            name='cosEdt'
+                            className='cosDateInput'
+                            type='date'
+                            onChange={onChangeHandler}
+                        /></dd>
                     </dl>
                     <dl>
                         <dt>요일</dt>
-                        <dd><label><input type='radio' name='classday' value='WEEKDAY'/>주중</label>
-                            <label><input type='radio' name='classday' value='WEEKEND'/>주말</label></dd>
+                        <dd><label><input type='radio' name='dayStatus' value='WEEKDAY' onChange={onChangeHandler}/>주중</label>
+                            <label><input type='radio' name='dayStatus' value='WEEKEND' onChange={onChangeHandler}/>주말</label></dd>
                     </dl>
                     <dl>
                         <dt>시간</dt>
-                        <dd><label><input type='radio' name='classtime' value='MORNING'/>오전</label>
-                            <label><input type='radio' name='classtime' value='AFTERNOON'/>오후</label>
-                            <label><input type='radio' name='classtime' value='ALLDAY'/>종일</label></dd>
+                        <dd><label><input type='radio' name='timeStatus' value='MORNING' onChange={onChangeHandler}/>오전(09~13)</label>
+                            <label><input type='radio' name='timeStatus' value='AFTERNOON' onChange={onChangeHandler}/>오후(14~18)</label>
+                            <label><input type='radio' name='timeStatus' value='ALLDAY' onChange={onChangeHandler}/>종일(09~18)</label></dd>
+                    </dl>
+                    <dl>
+                        <dt>강의</dt>
+                        <dd><select name='lecCode' onChange={onChangeHandler}>
+                            <option>선택</option>
+                            <option value={1}>강의1</option>
+
+                        </select></dd>
                     </dl>
                     <dl>
                         <dt>강의실</dt>
-                        <dd><select>
-                            <option value={1}>qwer</option>
-                            <option value={1}>qwer</option>
+                        <dd><select name='roomCode' onChange={onChangeHandler}>
+                            <option>선택</option>
+                            <option value={1}>1강의장</option>
+                            <option value={2}>2강의장</option>
+                            <option value={3}>3강의장</option>
+                            <option value={4}>4강의장</option>
+                            <option value={5}>5강의장</option>
                         </select></dd>
                     </dl>
                     <dl>
                         <dt>모집정원</dt>
                         <dd><input
+                            name='capacity'
+                            className='capacityInput'
                             type='number'
-                        /></dd>
+                            onChange={onChangeHandler}
+                        /> 명</dd>
                     </dl>
                     <dl>
                         <dt>강사</dt>
-                        <dd><select></select></dd>
+                        <dd><select name='teacher' onChange={onChangeHandler}>
+                            <option>선택</option>
+                            <option value={1}>박미림</option>
+                        </select></dd>
                     </dl>
                     <dl>
                         <dt>담당자</dt>
-                        <dd><select></select></dd>
+                        <dd><select name='staff' onChange={onChangeHandler}>
+                            <option>선택</option>
+                            <option value={1}>박미림</option>
+                        </select></dd>
                     </dl>
                 </div>
                 <div className="notice">
                     <p className="courseTitle">안내사항</p>
+                    <textarea className='courseNotice' name='cosNotice' onChange={onChangeHandler}></textarea>
                 </div>
             </div>
-            <div className='btnArea'>
-                <button className='regist'>등록</button>
+            <div className='registBtnArea'>
+                <button className='buttonD' onClick={onClickCourseRegistrationHandler}>등록</button>
             </div>
         </>
     );

@@ -1,7 +1,7 @@
 
-function LectureList({data}, {course}){
+function LectureList({data,course}){
 
-    console.log(course)
+
 
     return(
         <table className="lecture-table">
@@ -14,7 +14,9 @@ function LectureList({data}, {course}){
             </thead>
             <tbody>
             {data.map(lecture => (
-                <tr key={lecture.lecCode}>
+                <tr key={lecture.lecCode}
+                    style={lecture.lecCode === course ? {background : '#3a74d614'} : null}
+                >
                     <td>{lecture.lecName}</td>
                     <td>{lecture.textbook}</td>
                     <td>{lecture.techStack}</td>
