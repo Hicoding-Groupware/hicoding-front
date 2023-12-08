@@ -7,6 +7,8 @@ function CourseList({data}){
     const onClickCourseHandler = (cosCode) => {
         navigate(`/courses/${cosCode}`)
     }
+
+
     return(
         <div className="courseListWrap">
             <ul className="courseList">

@@ -8,6 +8,10 @@ function CourseItem({course}){
     const {cosCode} = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const onClickCourseHandler = (cosCode) => {
+        navigate(`/course-modify/${cosCode}`)
+    }
     const onClickCourseDeleteHandler = () => {
         if(!window.confirm('해당 과정을 삭제하시겠습니까?')){
             alert('취소되었습니다.')
@@ -23,10 +27,9 @@ function CourseItem({course}){
 
         {isAdmin()&&
             <div className="btnArea">
-
                     <div>
                 <button className='buttonD' onClick={()=> navigate(-1)}>목록</button>
-                <button className='buttonD'>수정</button>
+                <button className='buttonD' onClick={()=>onClickCourseHandler(course.cosCode)}>수정</button>
                 <button className='buttonD' onClick={onClickCourseDeleteHandler}>삭제</button>
                         <p>최근수정일:{course.modifiedAt}</p>
                     </div>

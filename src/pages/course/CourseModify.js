@@ -1,10 +1,9 @@
+import {callCourseRegistAPI} from "../../apis/CourseAPICalls";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {callCourseRegistAPI} from "../../apis/CourseAPICalls";
-import {postSuccess} from "../../modules/CourseModule";
 import {useNavigate} from "react-router-dom";
 
-function CourseRegist(){
+function CourseModify(){
 
     const [form, setForm] = useState({});
     const dispatch = useDispatch();
@@ -33,7 +32,13 @@ function CourseRegist(){
     return(
         <>
             <div className="menuTitleWrap">
-                <h3>신규 과정 등록</h3>
+                <h3>과정 수정</h3>
+            </div>
+            <div className="btnArea">
+                <div>
+                    <button className='buttonD' onClick={()=> navigate(-1)}>목록</button>
+                    <p>최근수정일:1111</p>
+                </div>
             </div>
             <div className="courseRegistWrap">
                 <div className="titleBox">
@@ -84,7 +89,7 @@ function CourseRegist(){
                     </dl>
                     <dl>
                         <dt>강의실</dt>
-                        <dd><select name='roomCode' onChange={onChangeHandler}>
+                        <dd><select name='roomCode' value={1} onChange={onChangeHandler}>
                             <option>선택</option>
                             <option value={1}>1강의장</option>
                             <option value={2}>2강의장</option>
@@ -129,4 +134,4 @@ function CourseRegist(){
     );
 }
 
-export default CourseRegist
+export default CourseModify;
