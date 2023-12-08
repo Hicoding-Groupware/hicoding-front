@@ -13,8 +13,6 @@ function StudentRegist() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
-    const [postNo, setPostNo] = useState('');
-    const [address, setAddress] = useState('');
     const [form, setForm] = useState({});
     const [birthDate, setBirthDate] = useState('');
     const { postSuccess } = useSelector(state => state.studentReducer);
@@ -25,13 +23,8 @@ function StudentRegist() {
         }
     }, [postSuccess]);
 
-    console.log(birthDate);
-
     const completeHandler = data => {
-        // console.log(data.address);
-        // console.log(data.zonecode);
-        // setPostNo(data.zonecode);
-        // setAddress(data.address);
+
         setForm({
             ...form,
             postNo : data.zonecode,
@@ -69,8 +62,6 @@ function StudentRegist() {
             overflow: "hidden",
         },
     };
-
-
 
     const onClickStudentRegist = () => {
         form.stdBirth = birthDate;

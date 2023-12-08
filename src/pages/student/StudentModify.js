@@ -18,8 +18,6 @@ function StudentModify() {
     const [birthDate, setBirthDate] = useState(new Date());
     const { studentDetail, putSuccess } = useSelector(state => state.studentReducer);
 
-    console.log(birthDate);
-
     useEffect(() => {
         dispatch(callStudentDetailAPI({stdCode}));
     }, []);
