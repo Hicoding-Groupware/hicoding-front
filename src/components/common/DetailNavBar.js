@@ -1,4 +1,5 @@
 import {NavLink} from "react-router-dom";
+import {MEMBER_PATH} from "../../apis/MemberAPICalls";
 import React from "react";
 
 function DetailNavBar(){
@@ -14,12 +15,13 @@ function DetailNavBar(){
                         <li><NavLink to="/mylecture/lastcourse">지난 강의</NavLink></li>
                     </ul>
                     <ul style={{paddingLeft : '45px'}}>
-                        <li><NavLink to="/lecture">강의관리</NavLink></li>
-                        <li><NavLink to="/course">과정관리</NavLink></li>
+                    <li><NavLink to="/lecture">강의관리</NavLink></li>
+                    <li><NavLink to="/courses">과정관리</NavLink></li>
                     </ul>
                     <ul style={{paddingLeft : '40px'}}>
-                        <li>학원일정</li>
-                        <li>강의실 일정</li>
+                        <NavLink to="/schedule/academy"><li>학원일정</li></NavLink>
+                        <NavLink to="/schedule/course"><li>과정일정</li></NavLink>
+                        <NavLink to="/schedule/classroom"> <li>강의실 일정</li></NavLink>
                     </ul>
 
                     <ul style={{paddingLeft : '40px'}}>

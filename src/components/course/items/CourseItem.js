@@ -1,11 +1,42 @@
+import {useNavigate, useParams} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {callCourseRemoveAPI} from "../../../apis/CourseAPICalls";
+import {isAdmin} from "../../../utils/TokenUtils";
+
 function CourseItem({course}){
+
+    const {cosCode} = useParams();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const onClickCourseDeleteHandler = () => {
+        if(!window.confirm('해당 과정을 삭제하시겠습니까?')){
+            alert('취소되었습니다.')
+            return false;
+        }else {
+            dispatch(callCourseRemoveAPI({cosCode}))
+        }
+    }
+
 
     return(
         <>
+
+        {isAdmin()&&
+            <div className="btnArea">
+
+                    <div>
+                <button className='buttonD' onClick={()=> navigate(-1)}>목록</button>
+                <button className='buttonD'>수정</button>
+                <button className='buttonD' onClick={onClickCourseDeleteHandler}>삭제</button>
+                        <p>최근수정일:{course.modifiedAt}</p>
+                    </div>
+            </div>
+        }
+            <div className="courseDetailWrap">
             <div className="titleBox">
                 <p className="courseTitle">{course.cosName}
-                    <span className="statusTag" style={course.curCnt == course.capacity ? {background: '#666666'} : {background: '#6260F4'}}>
-                        {course.curCnt == course.capacity ? '모집마감' : '모집중'}
+                    <span className="statusTag" style={course.curCnt === course.capacity ? {background: '#666666'} : {background: '#6260F4'}}>
+                        {course.curCnt === course.capacity ? '모집마감' : '모집중'}
                     </span>
                 </p>
             </div>
@@ -58,6 +89,8 @@ function CourseItem({course}){
                 </div>
             <div className="notice">
                 <p className="courseTitle">안내사항</p>
+                <p>{course.cosNotice}</p>
+            </div>
             </div>
         </>
     );

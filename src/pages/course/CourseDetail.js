@@ -20,16 +20,16 @@ function CourseDetail (){
         dispatch(callLectureListAPI({currentPage}));
         }, []);
 
-
     return(
         <>
+            <div className="menuTitleWrap">
+                <h3>과정관리</h3>
+            </div>
             {course &&
                 lectures&&
                 <>
-                <div className="courseDetailWrap">
                     <CourseItem course = {course}/>
-                </div>
-                    <LectureList data={lectures.data} course = {course}/>
+                    <LectureList data={lectures.data} course = {course.lecCode}/>
                 </>
             }
         </>

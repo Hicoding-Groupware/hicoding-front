@@ -17,6 +17,9 @@ function CourseMain(){
 
     return(
         <>
+            <div className="menuTitleWrap">
+                <h3>강의관리</h3>
+            </div>
             {
                 courses &&
                 <>
