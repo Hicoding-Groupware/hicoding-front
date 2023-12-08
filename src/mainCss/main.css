@@ -37,3 +37,92 @@ body {
         background-position: left 1500px bottom 20px;
     }
 }
+
+/*----------------------------------------- 프로필 -----------------------------------------------*/
+
+.profile-main{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    border: 1px ;
+    background-color: #f5f5f5;
+    border-radius: 15px;
+    width: 1850px;
+    left: 40px;
+    top: 35px;
+    z-index: 0;
+    height: 750px;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+.profile-img{
+    border: 1px;
+    max-width: 150px;
+    text-align: center;
+    margin-left: 50px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.profile-password{
+    border-radius: 6px;
+    border: 1px;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    box-shadow: 1px 3px 0 rgb(0,0,0,0.5);
+    background-color: #583ea2;
+    color: white;
+}
+
+.profile-password:active{
+    box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+.profile-submain{
+    border: 1px;
+    background-color: white;
+    border-radius: 15px;
+    max-width: 1000px;
+    position: relative;
+    left: 450px;
+    bottom: 240px;
+
+
+}
+
+.profile-submain > tbody> tr> td> p{
+    margin-bottom: 35px;
+    font-size: 18px;
+
+}
+
+.profile-submain > tbody> tr> td{
+    min-width: 5px;
+}
+
+.sub-td{
+    display: flex;
+    position: relative;
+    right: 250px;
+}
+
+.info-fix{
+    border-radius: 6px;
+    border: 1px;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    box-shadow: 1px 3px 0 rgb(0,0,0,0.5);
+    background-color: #583ea2;
+    color: white;
+    position: relative;
+    left: 850px;
+    bottom: 90px;
+}
+
+.info-fix:active{
+    box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+}

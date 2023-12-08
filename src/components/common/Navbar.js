@@ -1,6 +1,9 @@
 import DetailNavBar from "./DetailNavBar";
 import {NavLink} from "react-router-dom";
 import {removeToken} from "../../utils/TokenUtils";
+import {useDispatch, useSelector} from "react-redux";
+import React, {useEffect} from "react";
+import {callMemberProfileAPI} from "../../apis/MemberAPICalls";
 
 function Navbar() {
 
@@ -8,6 +11,13 @@ function Navbar() {
         removeToken();
         window.location.replace("/login");
     }
+
+    const dispatch = useDispatch();
+    const {profileInfo} = useSelector(state => state.memberReducer);
+
+    useEffect(() => {
+        dispatch(callMemberProfileAPI());
+    }, []);
 
     return (
         <>
@@ -27,6 +37,12 @@ function Navbar() {
                         </ul>
                     </ul>
                 </ul>
+                {
+                    profileInfo &&
+                    <p
+                        style={{display : "flex", maxWidth : "42px", position : "relative", left : 1760, top: -40, color : "white"}}
+                    >{profileInfo.memberName}</p>
+                }
                 <img className="logout-img" alt="logout" src="/img/logout.png" onClick={onClickLogoutHandler}
                           style={{display : "flex", position : "relative", }}/>
             </div>
