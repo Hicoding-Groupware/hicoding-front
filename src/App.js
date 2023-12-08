@@ -15,16 +15,19 @@ import Creation from "./pages/member/Creation";
 import {MEMBER_PATH} from "./apis/MemberAPICalls";
 import LectureMain from "./pages/lecture/LectureMain";
 import CourseMain from "./pages/course/CourseMain";
-import MyCourseMain from "./pages/course/MyCourseMain";
 import DetailsView from "./pages/member/DetailsView";
 import ProtectedRoute from "./components/router/ProtectedRoute";
 import StudentModify from "./pages/student/StudentModify";
 import CourseDetail from "./pages/course/CourseDetail";
-import AcademyCalendar from "./components/Schedule/AcademyCalendar";
 import AcademySchedule from "./pages/schedule/AcademySchedule";
 import ClassroomSchedule from "./pages/schedule/ClassroomSchedule";
 import CourseSchedule from "./pages/schedule/CourseSchedule";
 import CourseRegist from "./pages/course/CourseRegist";
+import InProgressList from "./components/course/lists/InProgressList";
+import MyLectureDetailInfo from "./components/modal/MyLectureDetailInfo";
+import LastCourseList from "./components/course/lists/LastCourseList";
+import ScheduledCourseList from "./components/course/lists/ScheduledCourseList";
+import DailyAttendance from "./components/course/lists/DailyAttendance";
 
 function App() {
 
@@ -42,15 +45,26 @@ function App() {
                         <Route path="lecture" element={<LectureMain/>}/>
                         <Route path="courses">
                             <Route path="" element={<CourseMain/>}/>
-                            <Route path=":cosCode" element={ <CourseDetail/> }/>
+                            <Route path=":cosCode" element={<CourseDetail/>}/>
                         </Route>
                         <Route path="course-regist" element={<CourseRegist/>}/>
                         <Route path="schedule">
                             <Route path="academy" element={<AcademySchedule/>}/>
                             <Route path="course" element={<CourseSchedule/>}/>
-                            <Route path="classroom" element={ <ClassroomSchedule/> }/>
+                            <Route path="classroom" element={<ClassroomSchedule/>}/>
                         </Route>
-                        <Route path="mylecture" element={<MyCourseMain/>}/>
+                        <Route path="mylecture">
+                            <Route path="inprogress" element={<InProgressList/>}/>
+                            <Route path="lastcourse" element={<LastCourseList/>}/>
+                            <Route path="scheduledcourse" element={<ScheduledCourseList/>}/>
+                            <Route path=":cosCode" element={<MyLectureDetailInfo/>}/>
+                        </Route>
+                        <Route path="mylecture">
+
+                        </Route>
+                        <Route path="attendance">
+                            <Route path="day/:cosCode" element={<DailyAttendance/>}/>
+                        </Route>
                         <Route
                             path="students"
                             element={
@@ -79,7 +93,6 @@ function App() {
             </BrowserRouter>
         </>
     );
-
-}
+};
 
 export default App;
