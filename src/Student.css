@@ -170,6 +170,10 @@
     cursor: pointer;
 }
 
+.record-end {
+
+}
+
 .student-modify {
     margin-left: 23px;
     border-radius: var(--4, 4px);
@@ -209,8 +213,12 @@
 }
 /* 페이징바 */
 
+.modal-paging {
+    margin: auto;
+}
+
 .student-paging {
-    margin-left: 1650px;
+    margin-left: 1550px;
 }
 
 .paging-ul {
@@ -622,3 +630,137 @@
 
     cursor: pointer;
 }
+
+/* 수강 이력 modal 창 */
+.course-table {
+    margin-top: 16px;
+    margin-left: 32px;
+    width: 815px;
+    height: 240px;
+    border-radius: var(--borderRadius, 4px);
+    border: 1px solid #CED4DA;
+}
+
+.student-courseList {
+    display: flex;
+}
+
+.cosName {
+    margin-top: auto;
+    margin-left: 32px;
+}
+
+.cosName input {
+    display: flex;
+    width: 150px;
+    height: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding-left: 44px;
+
+    color: #868E96;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Body2 */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+
+    border-radius: 8px;
+    border: 1px solid #CED4DA;
+
+    appearance: none;
+    background: white url("../public/img/searchIcon.svg") no-repeat;
+    background-position: 20px, center;
+
+}
+
+.record-th-cosName {
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #DEE2E6;
+}
+
+.record-th-teacher {
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #DEE2E6;
+}
+
+.record-th-cosPeriod{
+    width: 240px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #DEE2E6;
+}
+
+.record-cosName {
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #DEE2E6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.record-teacher {
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #DEE2E6;
+}
+
+.record-cosPeriod {
+    width: 240px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #DEE2E6;
+
+}
+
+.record-capacity {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #DEE2E6;
+}
+
+.record-manage {
+    width: 192px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #DEE2E6;
+}
+
+.record-status-normal {
+    display: flex;
+
+}
+
+.record-status {
+    margin-top: 16px;
+    margin-left: 32px;
+    width: 815px;
+    height: 120px;
+    border-radius: var(--borderRadius, 4px);
+    border: 1px solid #CED4DA;
+    overflow-y: auto;
+}
+
+.currentCourseList {
+    display: flex;
+}
+

@@ -1,4 +1,11 @@
-import {getStudentDetail, getStudents, postSuccess, putSuccess} from "../modules/StudentModule";
+import {
+    getStudentCourse,
+    getStudentCourseDetail,
+    getStudentDetail,
+    getStudents, postRecordSuccess,
+    postSuccess, putRecordSuccess,
+    putSuccess
+} from "../modules/StudentModule";
 import {authRequest, request} from "./Api";
 import {toast} from "react-toastify";
 
@@ -71,6 +78,65 @@ export const callStudentModifyAPI = ({stdCode, modifyRequest}) => {
         if(result.status === 201) {
             dispatch(putSuccess());
             toast.info("수정이 완료 되었습니다.");
+        }
+    }
+
+}
+
+/* 강의 정보 조회 */
+export const callStudentCourseAPI = ({currentPage, cosName}) => {
+
+    return async (dispatch, getState) => {
+
+        const result
+            = await authRequest.get(`/students/searchCosName?page=${currentPage}&cosName=${cosName}`);
+        console.log('callStudentCourseAPI result : ', result);
+
+        if(result.status === 200) {
+            dispatch(getStudentCourse(result));
+        }
+    }
+
+};
+
+/* 수강 등록 api */
+export const callRecordRegistAPI = ({registRequest}) => {
+
+    return async (dispatch, getState) => {
+
+        const result = await authRequest.post('/students/record', JSON.stringify(registRequest), {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        console.log('callRecordRegistAPI result : ', result);
+
+        if(result.status === 201) {
+            dispatch(postRecordSuccess());
+            toast.info("등록이 완료 되었습니다.");
+        } else {
+            toast.error("수강 등록에 실패 하였습니다.");
+        }
+
+    }
+
+}
+
+/* 수강 정보 수정 */
+export const callRecordModifyAPI = ({recCode}) => {
+
+    return async (dispatch, getState) => {
+
+        const result = await authRequest.put(`/students/record/${recCode}`, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        console.log('callRecordModifyAPI result : ', result);
+
+        if(result.status === 201) {
+            dispatch(putRecordSuccess());
+            toast.success("수강철회가 완료 되었습니다.");
         }
     }
 

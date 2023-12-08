@@ -1,7 +1,17 @@
+/*상단메뉴이름*/
+.menuTitleWrap{
+    width: 1166px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+
 /*Paging*/
 .pagenationD{
     width: 1100px;
     margin: 0 auto;
+    margin-top: 30px;
 }
 
 .pagingD-ul {
@@ -24,7 +34,6 @@
 .lecture-table{
     width: 1100px;
     margin: 0 auto;
-    margin-top: 100px;
     margin-bottom: 100px;
     text-align: center;
     border-collapse: collapse;
@@ -36,8 +45,6 @@
     padding: 10px;
     height: 40px;
 }
-
-.lecture-table>tbody>tr:hover{background: #3a74d614}
 
 .lecture-table>thead{background: #f0f0f2}
 .lecture-table>tbody{border-top: 2px solid #727476;}
@@ -116,18 +123,11 @@ dd{
     font-size: 20px;
 }
 
-.courseFilterWrap{
-    width: 1100px;
-    margin: 0 auto;
-    margin-top: 100px;
-
-}
-
 .courseDetailWrap{
     width: 1100px;
     border: 3px solid #e2e2e4;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-bottom: 100px;
     padding: 30px;
 }
 
@@ -140,6 +140,92 @@ dd{
     border-top: 1px solid #e2e2e4;
 }
 
+/*regist*/
+.btnArea{
+    width: 1150px;
+    height: 50px;
+    margin: 0 auto;
+    text-align: right;
+}
+.btnArea p{
+    margin-top: 0;
+    font-size: 14px;
+}
+
+.registBtnArea{
+    width: 1150px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: right;
+}
+.buttonD{
+    margin-left: 6px;
+    background: #FFFFFF;
+    border: 1px solid #d3d3d3;
+    padding: 0 8px;
+    line-height: 25px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+.courseRegistWrap{
+    width: 1100px;
+    border: 3px solid #e2e2e4;
+    margin: 0 auto;
+    margin-top: 60px;
+    padding: 30px;
+}
+
+.courseRegistWrap select, textarea{
+    border: 1px solid #d3d3d3;
+    border-radius: 12px;
+    line-height: 25px;
+    padding: 0 8px;
+}
+.courseTitleInput{
+    line-height: 40px;
+    width: 600px;
+    border: 1px solid #86868b;
+    border-radius: 12px;
+    padding: 0 8px;
+    font-size: 20px;
+}
+.capacityInput{
+    line-height: 25px;
+    width: 80px;
+    border: 1px solid #86868b;
+    border-radius: 12px;
+    padding: 0 8px;
+}
+.cosDateInput{
+    line-height: 25px;
+    border: 1px solid #86868b;
+    border-radius: 12px;
+    padding: 0 8px;
+}
+
+.courseRegistWrap input:focus, select:focus, textarea:focus{
+    outline: none;
+    border: 1px solid #0071e3;
+}
+.courseRegistWrap input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.courseNotice{
+    width: 1060px;
+    height: 180px;
+    font-size: 18px;
+    resize: none;
+    padding: 15px;
+}
+
+
+
+/*캘린더*/
 .calendarContainer{
     margin: 0 auto;
     margin-top: 100px;
