@@ -1,11 +1,11 @@
 import {authRequest, request} from "./Api";
-import {getCourses} from "../modules/CourseModule";
+import {getCourse, getCourses, getMembers} from "../modules/CourseModule";
 
 export const callCourseListAPI = ({currentPage = 1}) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/courses?page=${currentPage}`);
+        const result =  await authRequest.get(`/courses?page=${currentPage}`);
         console.log(result);
 
         if(result.status === 200){
@@ -13,3 +13,30 @@ export const callCourseListAPI = ({currentPage = 1}) => {
         }
     }
 };
+
+export const callCourseDetailAPI = ({cosCode}) => {
+
+    return async (dispatch, getState) => {
+
+        const result = await authRequest.get(`/courses/${cosCode}`);
+        console.log('callProductDetailAPI result : ', result);
+
+        if(result.status === 200) {
+            dispatch(getCourse(result));
+        }
+
+    }
+};
+
+
+// export const callCourseRegistAPI =({ registRequest }) => {
+//
+//     return async (dispatch, getState) => {
+//
+//         const result = await authRequest.post('/api/v1/products', registRequest);
+//
+//         if (result.status === 201) {
+//             dispatch(postSuccess());
+//         }
+//     }
+// }
