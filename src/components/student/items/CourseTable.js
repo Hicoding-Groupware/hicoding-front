@@ -1,10 +1,10 @@
-import React, {useState} from "react";
-import {useDispatch} from "react-redux";
-import {callRecordRegistAPI} from "../../../apis/StudentAPICalls";
+import React, {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {callRecordRegistAPI, callStudentCourseAPI} from "../../../apis/StudentAPICalls";
 import {toast} from "react-toastify";
 
 
-function CourseTable({ data, stdCode, cosList }) {
+function CourseTable({ data, stdCode, cosList, currentPage, cosName }) {
 
     const [form, setForm] = useState({});
     const dispatch = useDispatch();
@@ -18,7 +18,8 @@ function CourseTable({ data, stdCode, cosList }) {
        } else {
            form.stdCode = stdCode;
            form.cosCode = cosCode;
-       dispatch(callRecordRegistAPI({registRequest : form}));
+           dispatch(callRecordRegistAPI({registRequest : form}));
+
        }
     }
 

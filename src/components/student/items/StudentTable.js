@@ -5,8 +5,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {callRecordModifyAPI, callStudentCourseAPI} from "../../../apis/StudentAPICalls";
 import CourseTable from "./CourseTable";
 import ModalPagingBar from "../pagingBar/ModalPagingBar";
-import courseList from "../../course/lists/CourseList";
-import {toast} from "react-toastify";
+import {ToastContainer} from "react-toastify";
+
 
 
 function StudentTable({data}) {
@@ -17,7 +17,7 @@ function StudentTable({data}) {
     const [cosName, setCosName] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const dispatch = useDispatch();
-    const {studentCourse} = useSelector(state => state.studentReducer);
+    const {studentCourse, putRecordSuccess, postRecordSuccess} = useSelector(state => state.studentReducer);
     const [currentCourseList, setCurrentCourseList] = useState([]);
     const [pastCourseList, setPastCourseList] = useState([]);
     const [cosList, setCosList] = useState([]);
@@ -26,6 +26,16 @@ function StudentTable({data}) {
     useEffect(() => {
         dispatch(callStudentCourseAPI({currentPage, cosName}));
     }, [currentPage, cosName]);
+
+    useEffect(() => {
+        if(putRecordSuccess === true) {
+            setIsOpen(false);
+            navigate('/students', { replace : true });
+        } else if(postRecordSuccess === true) {
+            setIsOpen(false);
+            navigate('/students', { replace : true });
+        }
+    }, [putRecordSuccess, postRecordSuccess]);
 
     const formatDate = (dateString) => {
         const options = {year: 'numeric', month: '2-digit', day: '2-digit'};
@@ -78,7 +88,6 @@ function StudentTable({data}) {
     const onClickWithDraw = (recCode) => {
         if(window.confirm("한번 철회하면 번복불가합니다. 정말 수강철회 하시겠습니까?")){
             dispatch(callRecordModifyAPI({recCode}));
-            setIsOpen(true);
         } else {
             alert("취소하셨습니다.")
         }
@@ -100,7 +109,11 @@ function StudentTable({data}) {
             >
                 <div className="currentCourseList">
                     <div className="currentCourseList-item">수강중인 강의</div>
-                    <div>수강 상태</div>
+                    <div className="record-th-cosName">코스명</div>
+                    <div className="record-th-teacher">강사</div>
+                    <div className="record-th-cosPeriod">코스 기간</div>
+                    <div className="student-th-manage">수강인원</div>
+                    <div className="student-th-manage">수강신청</div>
                 </div>
                 <div className="record-status">
                     {currentCourseList.map((course, index) => (
@@ -116,7 +129,7 @@ function StudentTable({data}) {
                     ))}
                 </div>
 
-                <div>수강 내역</div>
+                <div className="record-List">수강 내역</div>
                 <div className="record-status">
                     {pastCourseList.map((course, index) => (
                         <div key={index} className="record-status-normal">
@@ -127,7 +140,7 @@ function StudentTable({data}) {
                         </div>
                     ))}
                 </div>
-
+                <div className="record-regist">수강 등록</div>
                 <div className="cosName">
                     <input
                         type="text"
@@ -137,7 +150,8 @@ function StudentTable({data}) {
                 </div>
                 {studentCourse &&
                     <div>
-                        <CourseTable data={studentCourse.data} stdCode={stdCode} cosList={cosList}/>
+                        <ToastContainer hideProgressBar={true} position="top-center"/>
+                        <CourseTable data={studentCourse.data} stdCode={stdCode} cosList={cosList} currentPage={currentPage} cosName={cosName}/>
                         <ModalPagingBar pageInfo={studentCourse.pageInfo} setCurrentPage={setCurrentPage}/>
                     </div>
                 }

@@ -31,9 +31,9 @@ const studentReducer = handleActions({
     [GET_STUDENTS] : (state, { payload }) => ({...state, ...payload}),
     [GET_STUDENT_COURSE] : (state, { payload }) => ({...state, ...payload}),
     [POST_RECORD_SUCCESS] : (state, { payload }) => ({...state, ...payload}),
+    [PUT_RECORD_SUCCESS] : (state, { payload }) => ({...state, ...payload}),
     [GET_STUDENT_DETAIL] : (state, { payload }) => payload,
     [POST_SUCCESS] : (state, { payload }) => payload,
-    [POST_RECORD_SUCCESS] : (state, { payload }) => payload,
     [PUT_SUCCESS] : (state, { payload }) => payload,
 
 }, initialState);
