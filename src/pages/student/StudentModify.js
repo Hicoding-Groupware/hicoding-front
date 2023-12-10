@@ -73,7 +73,6 @@ function StudentModify() {
 
     const onClickStudentUpdate = () => {
         form.stdBirth = birthDate;
-        console.log(form.stdBirth);
         dispatch(callStudentModifyAPI({ stdCode, modifyRequest : form }))
 
     }

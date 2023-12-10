@@ -2,11 +2,10 @@ import {useNavigate} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import Modal from "react-modal";
 import {useDispatch, useSelector} from "react-redux";
-import {callRecordModifyAPI, callStudentCourseAPI} from "../../../apis/StudentAPICalls";
+import {callRecordModifyAPI, callStudentCourseAPI, callStudentListAPI} from "../../../apis/StudentAPICalls";
 import CourseTable from "./CourseTable";
 import ModalPagingBar from "../pagingBar/ModalPagingBar";
 import {ToastContainer} from "react-toastify";
-
 
 
 function StudentTable({data}) {
@@ -28,14 +27,16 @@ function StudentTable({data}) {
     }, [currentPage, cosName]);
 
     useEffect(() => {
-        if(putRecordSuccess === true) {
+        if (putRecordSuccess === true) {
             setIsOpen(false);
-            navigate('/students', { replace : true });
-        } else if(postRecordSuccess === true) {
+            navigate('/students', {replace: true});
+        } else if (postRecordSuccess === true) {
             setIsOpen(false);
-            navigate('/students', { replace : true });
+            navigate('/students', {replace: true});
         }
     }, [putRecordSuccess, postRecordSuccess]);
+
+
 
     const formatDate = (dateString) => {
         const options = {year: 'numeric', month: '2-digit', day: '2-digit'};
@@ -86,7 +87,7 @@ function StudentTable({data}) {
     }
 
     const onClickWithDraw = (recCode) => {
-        if(window.confirm("한번 철회하면 번복불가합니다. 정말 수강철회 하시겠습니까?")){
+        if (window.confirm("한번 철회하면 번복불가합니다. 정말 수강철회 하시겠습니까?")) {
             dispatch(callRecordModifyAPI({recCode}));
         } else {
             alert("취소하셨습니다.")
@@ -97,6 +98,10 @@ function StudentTable({data}) {
 
          setIsOpen(false);
      }*/
+
+    const modalExitHandler = () => {
+        setIsOpen(false);
+    }
 
     return (
 
@@ -109,21 +114,18 @@ function StudentTable({data}) {
             >
                 <div className="currentCourseList">
                     <div className="currentCourseList-item">수강중인 강의</div>
-                    <div className="record-th-cosName">코스명</div>
-                    <div className="record-th-teacher">강사</div>
-                    <div className="record-th-cosPeriod">코스 기간</div>
-                    <div className="student-th-manage">수강인원</div>
-                    <div className="student-th-manage">수강신청</div>
+                    <div className="modal-exit"><button className="record" onClick={ modalExitHandler }>닫기</button></div>
+
                 </div>
                 <div className="record-status">
-                    {currentCourseList.map((course, index) => (
 
+                    {currentCourseList.map((course, index) => (
                         <div key={index} className="record-status-normal">
                             <div className="record-cosName">{course.cosName}</div>
                             <div className="record-teacher">{course.teacher}</div>
                             <div className="record-cosPeriod"> {course.cosSdt} ~ {course.cosEdt}</div>
                             <div className="record-manage">{course.status.replace("normal", "정상")}
-                                <button className="record" onClick={() => onClickWithDraw(course.recCode)}>수강철회</button>
+                                <button className="record-withdraw" onClick={() => onClickWithDraw(course.recCode)}>수강철회</button>
                             </div>
                         </div>
                     ))}
@@ -136,11 +138,12 @@ function StudentTable({data}) {
                             <div className="record-cosName">{course.cosName}</div>
                             <div className="record-teacher">{course.teacher}</div>
                             <div className="record-cosPeriod">{course.cosSdt} ~ {course.cosEdt}</div>
-                            <div className="record-manage">{course.status.replace("normal", "수료").replace("withdraw", "수강철회")}</div>
+                            <div
+                                className="record-manage">{course.status.replace("normal", "수료").replace("withdraw", "수강철회")}</div>
                         </div>
                     ))}
                 </div>
-                <div className="record-regist">수강 등록</div>
+                <div className="record-List">수강 등록</div>
                 <div className="cosName">
                     <input
                         type="text"
@@ -151,7 +154,8 @@ function StudentTable({data}) {
                 {studentCourse &&
                     <div>
                         <ToastContainer hideProgressBar={true} position="top-center"/>
-                        <CourseTable data={studentCourse.data} stdCode={stdCode} cosList={cosList} currentPage={currentPage} cosName={cosName}/>
+                        <CourseTable data={studentCourse.data} stdCode={stdCode} cosList={cosList}
+                                     currentPage={currentPage} cosName={cosName}/>
                         <ModalPagingBar pageInfo={studentCourse.pageInfo} setCurrentPage={setCurrentPage}/>
                     </div>
                 }

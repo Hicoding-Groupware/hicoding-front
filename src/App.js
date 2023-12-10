@@ -65,24 +65,25 @@ function App() {
                         <Route path="attendance">
                             <Route path="day/:cosCode" element={<DailyAttendance/>}/>
                         </Route>
-                        <Route
-                            path="students"
-                            element={
-                                <Student/>
+                        <Route path="students" element={
+                            <ProtectedRoute authCheck={true}>
+                            <Student/>
+                            </ProtectedRoute>
+                        }
+                        />
+                        <Route path="studentRegist" element={
+                            <ProtectedRoute authCheck={true}>
+                            <StudentRegist/>
+                            </ProtectedRoute>
                             }
                         />
-                        <Route
-                            path="studentRegist"
-                            element={
-                                <StudentRegist/>
-                            }
+                        <Route path="student-modify/:stdCode" element={
+                            <ProtectedRoute authCheck={true}>
+                            <StudentModify/>
+                            </ProtectedRoute>
+                        }
                         />
-                        <Route
-                            path="student-modify/:stdCode"
-                            element={
-                                <StudentModify/>
-                            }
-                        />
+
                         <Route path={MEMBER_PATH}>
                             <Route path='creation' element={<Creation/>}/>
                             <Route path='detailsView' element={<DetailsView/>}/>
