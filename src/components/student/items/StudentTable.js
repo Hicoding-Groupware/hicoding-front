@@ -6,6 +6,7 @@ import {callRecordModifyAPI, callStudentCourseAPI, callStudentListAPI} from "../
 import CourseTable from "./CourseTable";
 import ModalPagingBar from "../pagingBar/ModalPagingBar";
 import {ToastContainer} from "react-toastify";
+import {resetSuccess} from "../../../modules/StudentModule";
 
 
 function StudentTable({data}) {
@@ -30,9 +31,11 @@ function StudentTable({data}) {
         if (putRecordSuccess === true) {
             setIsOpen(false);
             navigate('/students', {replace: true});
+            dispatch(resetSuccess('putRecordSuccess'));
         } else if (postRecordSuccess === true) {
             setIsOpen(false);
             navigate('/students', {replace: true});
+            dispatch(resetSuccess('postRecordSuccess'));
         }
     }, [putRecordSuccess, postRecordSuccess]);
 

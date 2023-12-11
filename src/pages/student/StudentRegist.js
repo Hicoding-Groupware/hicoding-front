@@ -9,6 +9,7 @@ import { ko } from "date-fns/esm/locale";
 import {useNavigate} from "react-router-dom";
 import {validateEmail, validateName} from "../../utils/Validation";
 import {toast, ToastContainer} from "react-toastify";
+import {resetSuccess} from "../../modules/StudentModule";
 
 function StudentRegist() {
 
@@ -25,15 +26,12 @@ function StudentRegist() {
     useEffect(() => {
         if(postSuccess === true) {
            navigate('/students', { replace : true });
+           dispatch(resetSuccess('postSuccess'));
+            //window.location.replace("/students");
         }
     }, [postSuccess]);
 
-    /*useEffect(() => {
-        setErrorMessage(
-            validateEmail(form.stdEmail) ? "" : "이메일 형식을 다시 확인해주세요."
-        );
-    }, []);
-*/
+
     const completeHandler = data => {
 
         setForm({
@@ -48,26 +46,28 @@ function StudentRegist() {
     const onChangeHandler = e => {
         setForm({
             ...form,
-            [e.target.name] : e.target.value
+            [e.target.name]: e.target.value
         })
 
-        if(e.target.name === 'stdName') {
+        if (e.target.name === 'stdName') {
             setNameErrorMessage(
                 validateName(e.target.value) ? "" : "이름 형식을 다시 확인해주세요."
             );
         }
 
-        if(e.target.name === 'stdEmail') {
+        if (e.target.name === 'stdEmail') {
             setEmailErrorMessage(
                 validateEmail(e.target.value) ? "" : "이메일 형식을 다시 확인해주세요."
             );
         }
-        const input = e.target.value.replace(/[^\d]/g, ''); // 숫자 이외의 문자 제거
+        if (e.target.name === 'stdPhone') {
+        const input = e.target.value.replace(/[^\d]/g, '');
         if (input.length <= 11) {
             setPhoneNumber(
                 input.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3')
             );
         }
+    }
 
 
     }
