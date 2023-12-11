@@ -4,13 +4,12 @@ import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import PagingBar from "../course/pagingbar/PagingBar";
 
-function MyCourseListItem({title, courses}){
+function MyCourseListItem({title,courses}){
 
     const [courseDetailInfoModal, setCourseDetailInfoModal] = useState(false) // 모달
     const [course, setCourse] = useState({});
     const navigate = useNavigate();
     const [currentPage, setCurrentPage] = useState(1)
-
 
     /* 강의 상세 조회 모달 버튼 이벤트 */
     const onClickCourseDetailInfoHandler = (course) => {
@@ -19,10 +18,9 @@ function MyCourseListItem({title, courses}){
     };
 
     /* 일일 출결 관리 페이지로 이동 */
-    const onClickDailyAttendanceHandler = (course) => {
-        // setCourse(course);
-        // setCurrentPage(currentPage);
-        navigate(`/attendance/day/${course.cosCode}`);
+    const onClickDailyAttendanceHandler = (cosCode) => {
+        console.log("cosCode : ", cosCode);
+        navigate(`/attendance/day/${cosCode}`);
     };
 
     const getFormattedDayStatus = (status) => {
@@ -71,7 +69,7 @@ function MyCourseListItem({title, courses}){
                                         <div className="table-row" key={course.cosCode || index}>
                                             <div className="table-cell tinfo cosName"
                                                  onClick={() =>
-                                                     onClickCourseDetailInfoHandler(course)
+                                                     onClickCourseDetailInfoHandler(course.cosCode)
                                                  }
                                             >
                                                 {course.cosName}
@@ -93,7 +91,7 @@ function MyCourseListItem({title, courses}){
                                             <div className="table-cell">
                                                 <button
                                                     className="attendButton"
-                                                    onClick={ onClickDailyAttendanceHandler }
+                                                    onClick={ () => onClickDailyAttendanceHandler(course.cosCode) }
                                                 >
                                                     출석 관리
                                                 </button>

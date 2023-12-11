@@ -13,13 +13,15 @@ function LastCourseList() {
     useEffect(() => {
         /* 지난 강의(과정)에 대한 정보 요청 */
         dispatch(callLastMyCourseListAPI({currentPage}));
+
     }, [currentPage]);
 
 
     return (
         <>
             <MyCourseListItem title="지난 강의" listType="LastCourseList"
-                              courses={courses} setCurrentParge={setCurrentPage}/>
+                              courses={courses} setCurrentParge={setCurrentPage}
+            />
         </>
     );
 }

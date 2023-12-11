@@ -60,7 +60,7 @@ function App() {
                             <Route path=":cosCode" element={<MyLectureDetailInfo/>}/>
                         </Route>
                         <Route path="attendance">
-                            <Route path="day/:course" element={<DailyAttendanceList/>}/>
+                            <Route path="day/:cosCode" element={<DailyAttendanceList/>}/>
                         </Route>
                         <Route
                             path="students"

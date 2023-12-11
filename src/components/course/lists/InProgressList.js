@@ -13,6 +13,7 @@ function InProgressList() {
     useEffect(() => {
         /* 진행 중인 강의(과정)에 대한 정보 요청 */
         dispatch(callMyCourseListAPI({currentPage}));
+
     }, [currentPage]);
 
     return (

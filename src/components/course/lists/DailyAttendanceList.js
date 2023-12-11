@@ -2,22 +2,26 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {callMyCourseStudentListAPI} from "../../../apis/AttendanceAPICalls";
 import MyCourseStudentListItem from "./MyCourseStudentListItem";
+import {useParams} from "react-router-dom";
 
 
-function DailyAttendanceList({course}) {
+function DailyAttendanceList() { // 이 부분 체크!!
 
     const {students} = useSelector(state => state.attendanceReducer);
     const [currentPage, setCurrentPage] = useState(1);
     const dispatch = useDispatch();
+    const {cosCode} = useParams();
 
     useEffect(() => {
         /* 해당 강의 일별 출석부 - 학생 정보 리스트 조회 */
-        dispatch(callMyCourseStudentListAPI({currentPage}));
-    }, [currentPage]);
+        dispatch(callMyCourseStudentListAPI({cosCode}));
+
+    }, []);
+
 
     return(
         <>
-            <MyCourseStudentListItem course={course}
+            <MyCourseStudentListItem title={cosCode.cosName}
                  students={students} setCurrentPage={setCurrentPage}/>
         </>
     );

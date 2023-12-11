@@ -244,3 +244,66 @@ a {
     text-decoration: none;
     color: #333333;
 }
+
+
+/* 일별 출석부 */
+
+.daily-attendance-main-container {
+    font-family: 'Pretendard-Regular', serif;
+    font-size: 15px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.month-attend-select-button {
+    margin: 0 0 0 85%;
+
+}
+.attend-regist-button {
+    margin: 0 0 0 95%;
+}
+
+.daily-attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.daily-attendance-table th,
+.daily-attendance-table td {
+    border: 1px solid #DEE2E6;
+    padding: 10px;
+    text-align: center;
+}
+
+.daily-attendance-table th {
+    background-color: #f0f0f2;
+}
+
+.daily-attendance-table tbody tr:hover {
+    background-color: #f0f0f2;
+}
+
+/* Select Box Styling */
+.daily-attendance-table select {
+    width: 50%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid rgba(115, 0, 255, 0.73);
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: rgba(0, 0, 0, 0.73);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="rgba(0, 0, 0, 0.73)" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" /></svg>');
+    background-repeat: no-repeat;
+    background-position: right 2px center;
+    text-align-last: center;
+    text-align: center;
+}
+
+.daily-attendance-table select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(98, 0, 255, 0.7);
+}

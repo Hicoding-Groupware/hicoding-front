@@ -1,9 +1,9 @@
 import {authRequest} from "./Api";
-import {getCourses, getDetailCourse} from "../modules/MyCourseModule";
+import {getCourses} from "../modules/MyCourseModule";
 
 
 
-export const callMyCourseListAPI = ({currentPage }) => {
+export const callMyCourseListAPI = ({ currentPage }) => {
 
     return async (dispatch, getState) => {
 
