@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {callMyCourseStudentListAPI} from "../../../apis/AttendanceAPICalls";
-import MyCourseStudentListItem from "./MyCourseStudentListItem";
+import MyCourseStudentListItem from "../../items/MyCourseStudentListItem";
 import {useParams} from "react-router-dom";
 
 
@@ -21,7 +21,7 @@ function DailyAttendanceList() { // 이 부분 체크!!
 
     return(
         <>
-            <MyCourseStudentListItem title={cosCode.cosName}
+            <MyCourseStudentListItem cosCode={cosCode}
                  students={students} setCurrentPage={setCurrentPage}/>
         </>
     );

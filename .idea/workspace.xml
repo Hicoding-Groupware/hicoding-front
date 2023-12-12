@@ -6,16 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="a006daa3-9f32-4019-904b-6e299e76732c" name="변경" comment="feat/#41/ 일별 출석부 구현중">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/Api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/apis/AttendanceAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AttendanceAPICalls.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/apis/MyCourseAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/MyCourseAPICalls.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/course/lists/DailyAttendanceList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/course/lists/DailyAttendanceList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/course/lists/InProgressList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/course/lists/InProgressList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/course/lists/LastCourseList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/course/lists/LastCourseList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/course/lists/MyCourseStudentListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/course/lists/MyCourseStudentListItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/course/lists/MyCourseStudentListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/items/MyCourseStudentListItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/items/MyCourseListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/items/MyCourseListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/course.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/course.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/AttendanceModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/AttendanceModule.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/MyCourseModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/MyCourseModule.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,26 +45,31 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feat/#41/dailyAttendance",
-    "last_opened_file_path": "C:/Lecture/final/hicoding-front",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/#41/dailyAttendance&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Lecture/final/hicoding-front&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Lecture\final\hicoding-front\src\components\items" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -98,9 +101,18 @@
       <workItem from="1701991019032" duration="128000" />
       <workItem from="1701993755313" duration="2656000" />
       <workItem from="1702251470070" duration="4035000" />
-      <workItem from="1702257875648" duration="26870000" />
+      <workItem from="1702257875648" duration="26884000" />
+      <workItem from="1702362480783" duration="10892000" />
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat/#41/ 일별 출석부 구현중">
+      <option name="closed" value="true" />
+      <created>1702289507720</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1702289507720</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

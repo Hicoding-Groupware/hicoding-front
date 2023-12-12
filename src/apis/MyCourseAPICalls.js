@@ -7,14 +7,7 @@ export const callMyCourseListAPI = ({ currentPage }) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/lecture/progress?page=${currentPage}`,
-            {
-                headers : {
-                    'Content-Type' : 'application/json'
-                }
-            }).catch(e => {
-            console.log(e);
-        });
+        const result = await authRequest.get(`/lecture/progress?page=${currentPage}`);
 
         console.log('callMyCourseListAPI result : ', result);
 
@@ -29,14 +22,7 @@ export const callLastMyCourseListAPI = ({currentPage }) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/lecture/last?page=${currentPage}`,
-            {
-                headers : {
-                    'Content-Type' : 'application/json'
-                }
-            }).catch(e => {
-            console.log(e);
-        });
+        const result = await authRequest.get(`/lecture/last?page=${currentPage}`);
 
         console.log('callLastMyCourseListAPI result : ', result);
 
@@ -51,14 +37,7 @@ export const callScheduledMyCourseListAPI = ({ currentPage }) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/lecture/scheduled?page=${currentPage}`,
-            {
-                headers : {
-                    'Content-Type' : 'application/json'
-                }
-            }).catch(e => {
-            console.log(e);
-        });
+        const result = await authRequest.get(`/lecture/scheduled?page=${currentPage}`);
 
         console.log('callScheduledMyCourseListAPI result : ', result);
 

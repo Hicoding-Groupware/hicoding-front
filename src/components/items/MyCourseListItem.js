@@ -15,6 +15,8 @@ function MyCourseListItem({title,courses}){
     const onClickCourseDetailInfoHandler = (course) => {
         setCourse(course);
         setCourseDetailInfoModal(true);
+        console.log("courses : ", course);
+        console.log("course 2 :", course.cosName);
     };
 
     /* 일일 출결 관리 페이지로 이동 */
@@ -69,7 +71,7 @@ function MyCourseListItem({title,courses}){
                                         <div className="table-row" key={course.cosCode || index}>
                                             <div className="table-cell tinfo cosName"
                                                  onClick={() =>
-                                                     onClickCourseDetailInfoHandler(course.cosCode)
+                                                     onClickCourseDetailInfoHandler(course)
                                                  }
                                             >
                                                 {course.cosName}

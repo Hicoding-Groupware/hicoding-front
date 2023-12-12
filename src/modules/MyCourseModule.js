@@ -8,7 +8,7 @@ const initialState = {};
 const GET_COURSES = 'course/GET_COURSES';
 
 /* 액션 함수 */
-export const { course  : { getCourses, getDetailCourse } } = createActions({
+export const { course  : { getCourses } } = createActions({
     [GET_COURSES] : result => ({ courses : result.data }),
 });
 
