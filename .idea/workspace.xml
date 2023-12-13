@@ -4,23 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70cf84a3-7d2b-443c-8536-f18727d2ec7d" name="변경" comment="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째">
-      <change afterPath="$PROJECT_DIR$/src/components/modal/ImageModify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/modal/ImageUpload.js" afterDir="false" />
+    <list default="true" id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/apis/BoardAPICalls.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/board/Notice.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/LoginAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/LoginAPICalls.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/apis/MemberAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/MemberAPICalls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/DetailNavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/DetailNavBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/ManagerNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/ManagerNavbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/form/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/FirstLoginModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/FirstLoginModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/InformationUpdateModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/InformationUpdateModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/PasswordUpdateModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/PasswordUpdateModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainCss/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainCss/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainCss/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainCss/navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/LoginModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/LoginModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/member/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/member/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/ManagerDetailNavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/ManagerDetailNavBar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,58 +27,43 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/#28-memberUpdate" />
+        <entry key="$PROJECT_DIR$" value="feature/board" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;gongryongyi&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="1be93fd8-106c-46dc-8095-4c09b153e1d3" />
-        <option name="url" value="https://github.com/Hicoding-Groupware/hicoding-front.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/components/modal/InformationUpdateModal.js" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
-}</component>
-  <component name="ProjectId" id="2ZEk9WOxU5Ftch3bnM7qKI2xzWJ" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2ZULKg7sbK6eydRY4HyWHnB8wxL" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/#47-InfoUpdate&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Lecture/hicoding-front&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feat/#50/boardPage",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/hyeok/hicoding-front",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.npmStart.executor": "Run",
+    "npm.run.executor": "Run",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
-    <configuration name="run start" type="js.build_tools.npm">
+    <configuration name="npmStart" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
@@ -99,50 +74,26 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-18.0.2-corretto-18.0.2-3183f394aec4-38982a12" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL-00001" summary="2023-12-07 #1 네비바 구현&#10;네비바 폰트 수정">
-      <option name="closed" value="true" />
-      <created>1701928764234</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1701928764234</updated>
-    </task>
-    <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="70cf84a3-7d2b-443c-8536-f18727d2ec7d" name="변경" comment="2023-12-07 #1 네비바 구현&#10;네비바 폰트 수정" />
-      <created>1701994474651</created>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="" />
+      <created>1702471648740</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1701994474651</updated>
-      <workItem from="1701994476047" duration="26173000" />
-      <workItem from="1702104361765" duration="12107000" />
-      <workItem from="1702129527961" duration="9315000" />
-      <workItem from="1702189840683" duration="6301000" />
-      <workItem from="1702216231060" duration="798000" />
-      <workItem from="1702253459865" duration="25877000" />
-      <workItem from="1702300865105" duration="4549000" />
-      <workItem from="1702339809314" duration="16202000" />
-      <workItem from="1702381942003" duration="6534000" />
+      <updated>1702471648740</updated>
+      <workItem from="1702471649973" duration="3131000" />
     </task>
-    <task id="LOCAL-00002" summary="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째">
-      <option name="closed" value="true" />
-      <created>1702014846443</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1702014846443</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="2023-12-07 #1 네비바 구현&#10;네비바 수정 및 구현 완료" />
-    <MESSAGE value="2023-12-07 #1 네비바 구현&#10;네비바 폰트 수정" />
-    <MESSAGE value="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째" />
-    <option name="LAST_COMMIT_MESSAGE" value="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째" />
   </component>
 </project>

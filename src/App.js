@@ -29,6 +29,8 @@ import LastCourseList from "./components/course/lists/LastCourseList";
 import ScheduledCourseList from "./components/course/lists/ScheduledCourseList";
 import DailyAttendance from "./components/course/lists/DailyAttendance";
 import Profile from "./pages/member/Profile";
+import {BOARD_PATH} from "./apis/BoardAPICalls";
+import Notice from "./pages/board/Notice";
 
 function App() {
 
@@ -86,6 +88,9 @@ function App() {
                         <Route path={MEMBER_PATH}>
                             <Route path='creation' element={<Creation/>}/>
                             <Route path='detailsView' element={<DetailsView/>}/>
+                        </Route>
+                        <Route path={BOARD_PATH}>
+                            <Route path='notice' element={<Notice/>}/>
                         </Route>
 
                     </Route>
