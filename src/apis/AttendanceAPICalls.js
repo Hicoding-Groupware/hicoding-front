@@ -24,8 +24,7 @@ export const callAttendanceRegistAPI = ({ registRequest }) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.post(`/attendance/day`,
-            JSON.stringify(registRequest= []),
+        const result = await authRequest.post(`/attendance/day`, registRequest,
             {
                 headers: {
                     'Content-Type': 'application/json'
@@ -37,7 +36,7 @@ export const callAttendanceRegistAPI = ({ registRequest }) => {
                 toast.error("이미 출석이 완료 되었습니다.");
             }
         }); // 나중에 다시 체크해야 함--------------------- 에러코드
-
+        console.log("registRequest : ", registRequest);
         console.log('callAttendanceRegistAPI result : ', result);
 
         if(result?.status === 201) {
