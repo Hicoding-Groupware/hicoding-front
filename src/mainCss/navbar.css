@@ -58,7 +58,7 @@ body{margin: 0;}  /* 이게 있어야지 모서리에 틈이 없어진다*/
     min-width: 0px  !important;
     cursor: pointer;
     left: 1850px;
-    top: -75px;
+    top: -131px;
 }
 
 .li-hover:hover{

@@ -1,5 +1,10 @@
-import {loginFailure, loginSuccess, postInfo, PutFailure, putSuccess} from "../modules/LoginModule";
-import {request} from "./Api";
+import {
+    loginFailure,
+    loginSuccess,
+    postInfo, putFailure,
+    putSuccess
+} from "../modules/LoginModule";
+import {authRequest, request} from "./Api";
 import {saveToken} from "../utils/TokenUtils";
 
 
@@ -50,6 +55,10 @@ export const callLoginAPI = ({loginRequest}) => {
 
 }
 
+
+
+
+
 export const InfoUpdateAPI =({InfoUpdateRequest}) => {
     return async (dispatch, getState) => {
 
@@ -64,8 +73,11 @@ export const InfoUpdateAPI =({InfoUpdateRequest}) => {
         console.log("response",response);
         if (response.status === 201){
            dispatch(putSuccess());
+            console.log("됐지렁");
+
         }else {
-            dispatch(PutFailure());
+            dispatch(putFailure());
+            console.log("실패지렁");
         }
 
 
@@ -73,3 +85,34 @@ export const InfoUpdateAPI =({InfoUpdateRequest}) => {
     }
 
 }
+
+
+export const InfoUpdateWithoutPasswordAPI =({InfoUpdateWithoutPasswordRequest}) => {
+    return async (dispatch, getState) => {
+
+        const response = await request(
+            'PUT',
+            '/member/memberInfowithoutPassword',
+            {'Content-Type': 'application/json'},  //자바 문자이기때문에
+            JSON.stringify(InfoUpdateWithoutPasswordRequest)  //json 문자열로 바꿔준다
+
+        );
+
+        console.log("response",response);
+        if (response.status === 201){
+            dispatch(putSuccess());
+            console.log("됐지렁");
+        }else {
+            dispatch(putFailure());
+            console.log("실패지렁");
+        }
+
+
+
+    }
+
+}
+
+
+
+

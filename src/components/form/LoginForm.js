@@ -68,7 +68,7 @@ function LoginForm(){
                         onChange={onChangeHandler}
                         onKeyPress={handleOnKeyPress}
                     />
-                    <button onClick={onClickLoginHandler}>Sign In</button>
+                    <button style={{cursor : "pointer"}} onClick={onClickLoginHandler}>Sign In</button>
                     <p className="forgot">Forgot password?</p>
                 </>
             )}

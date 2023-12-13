@@ -3,6 +3,7 @@ import {creationSuccess, creationFailure, inquirySuccess, inquiryFailure, getPro
 import {authRequest, request} from "./Api";
 import {toast} from "react-toastify";
 import async from "async";
+import {postSuccess, putSuccess} from "../modules/LoginModule";
 
 export const MEMBER_PATH = '/member'
 
@@ -66,5 +67,45 @@ export const callMemberProfileAPI = () => {
             dispatch(getProfile(result));
         }
 
+    }
+}
+
+export const InfoUpdateProfileAPI = ({registRequest}) => {
+
+    return async (dispatch, getState) => {
+
+        const result = await authRequest.post('/member/img', registRequest);
+        console.log('InfoUpdateProfileAPI result : ', result);
+
+        if(result.status === 201) {
+            dispatch(postSuccess());
+            console.log("나왔따");
+
+        }
+
+    }
+}
+
+export const callMemberProfileModifyAPI = ({registRequest}) => {
+    return async (dispatch, getState) => {
+        const result = await authRequest.put('/member/memberProfile', registRequest);
+        console.log('callMemberProfileModifyAPI result : ', result);
+
+        if (result.status === 201){
+            dispatch(putSuccess());
+            console.log("앗싸 수정 완료");
+        }
+    }
+}
+
+export const callMemberProfileRemoveAPI = () => {
+    return async (dispatch, getState) => {
+        const result = await authRequest.delete("/member/deleteProfile");
+        console.log('callMemberProfileRemoveAPI : ', result);
+
+        if (result.status ===204){
+            alert("기본이미지로 변경 되었습니다.");
+            window.location.replace("/profile");
+        }
     }
 }
