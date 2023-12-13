@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/apis/BoardAPICalls.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/board/Notice.js" afterDir="false" />
+    <list default="true" id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째">
+      <change afterPath="$PROJECT_DIR$/src/board.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/MemberAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/MemberAPICalls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/ManagerDetailNavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/ManagerDetailNavBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/board/Notice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/board/Notice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,9 +33,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2ZULKg7sbK6eydRY4HyWHnB8wxL" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -49,9 +47,9 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feat/#50/boardPage",
+    "git-widget-placeholder": "feat/#50/notice-board",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/hyeok/hicoding-front",
+    "last_opened_file_path": "C:/hyeok/hicoding-front/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,6 +60,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\hyeok\hicoding-front\src" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="npmStart" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -95,5 +98,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째" />
+    <option name="LAST_COMMIT_MESSAGE" value="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째" />
   </component>
 </project>
