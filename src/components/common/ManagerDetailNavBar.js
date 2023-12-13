@@ -1,5 +1,6 @@
 import {NavLink} from "react-router-dom";
 import {MEMBER_PATH} from "../../apis/MemberAPICalls";
+import {BOARD_PATH} from "../../apis/BoardAPICalls";
 function ManagerDetailNavBar(){
 
     return(
@@ -26,8 +27,7 @@ function ManagerDetailNavBar(){
                         <li><NavLink to="/schedule/classroom"> 강의실 일정</NavLink></li>
                     </ul>
                     <ul>
-                        <li>자료실</li>
-                        <li>공지사항</li>
+                        <li><NavLink to={BOARD_PATH + '/notice'}>공지사항</NavLink></li>
                     </ul>
                     <ul>
                         <li>쪽지쓰기</li>
