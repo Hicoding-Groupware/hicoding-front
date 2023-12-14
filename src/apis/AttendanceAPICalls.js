@@ -1,22 +1,30 @@
 import {authRequest} from "./Api";
-import {getStudents, postSuccess} from "../modules/AttendanceModule";
+import {getStudents, getStudentsInfo, postSuccess} from "../modules/AttendanceModule";
 import {toast} from "react-toastify";
 
 
 /* 일별 조회 */
-export const callMyCourseStudentListAPI = ({cosCode}) => {
+
+export const callMyCourseStudentListAPI = ({cosCode, atdDate}) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/attendance/day/${cosCode}`);
+        let url = `/attendance/day/${cosCode}`;
+
+        if(atdDate) {
+            url += `?atdDate=${atdDate}`;
+        }
+
+        const result = await authRequest.get(url);
 
         console.log("result : ", result);
 
         if (result?.status === 200) {
-            dispatch(getStudents(result));
+            dispatch(getStudentsInfo(result));
         }
     }
 }
+
 
 
 /* 출석 등록 */

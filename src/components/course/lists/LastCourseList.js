@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {callLastMyCourseListAPI} from "../../../apis/MyCourseAPICalls";
-import MyCourseListItem from "../../items/MyCourseListItem";
+import MyCourseListItem from "../items/MyCourseListItem";
 
 
 function LastCourseList() {

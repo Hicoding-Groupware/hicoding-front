@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {callMyCourseStudentListAPI} from "../../../apis/AttendanceAPICalls";
-import MyCourseStudentListItem from "../../items/MyCourseStudentListItem";
+import MyCourseStudentListItem from "../items/MyCourseStudentListItem";
 import {useParams} from "react-router-dom";
 
 

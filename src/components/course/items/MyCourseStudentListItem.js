@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {callAttendanceRegistAPI, callMyCourseStudentListAPI} from "../../apis/AttendanceAPICalls";
+import {callAttendanceRegistAPI, callMyCourseStudentListAPI} from "../../../apis/AttendanceAPICalls";
 import {ToastContainer} from "react-toastify";
 import {useNavigate} from "react-router-dom";
 import DatePicker from 'react-datepicker';
@@ -52,8 +52,6 @@ function MyCourseStudentListItem({cosCode, students}) {
     };
 
     /* 셀렉트 박스 */
-    const today = new Date
-
     const SelectBox = (props) => {
         const handleChange = (e) => {
             const selectedValue = e.target.value;
@@ -76,24 +74,6 @@ function MyCourseStudentListItem({cosCode, students}) {
 
 
     const [selectedDate, setSelectedDate] = useState(new Date()); // 선택된 날짜 상태 추가
-    const [attendanceData, setAttendanceData] = useState(null); // 조회할 출석 데이터를 저장할 상태 추가
-
-    // /* 날짜 변경 시 조회 API 호출 */
-    // useEffect(() => {
-    //     const fetchAttendanceData = async () => {
-    //
-    //         try {
-    //             const response = await fetch(`attendance/day?atdDate=${selectedDate}.toISOString()`);
-    //             const data = await response.json();
-    //             setAttendanceData(data);
-    //         } catch (error) {
-    //             console.log("왜 에러 남?", error)
-    //         }
-    //         dispatch(callMyCourseStudentListAPI)
-    //     };
-    //
-    //     fetchAttendanceData();
-    // }, [selectedDate]);
 
 
     /* 이전 날짜로 이동 */
@@ -101,6 +81,7 @@ function MyCourseStudentListItem({cosCode, students}) {
         const prevDay = new Date(selectedDate);
         prevDay.setDate(prevDay.getDate() - 1);
         setSelectedDate(prevDay);
+        console.log("prevDay : ", prevDay);
 
         const formattedDate = formatDate(prevDay); // 날짜 포맷팅 함수 사용
         dispatch(callMyCourseStudentListAPI({cosCode, atdDate : formattedDate}));
@@ -111,6 +92,7 @@ function MyCourseStudentListItem({cosCode, students}) {
         const nextDay = new Date(selectedDate);
         nextDay.setDate(nextDay.getDate() + 1);
         setSelectedDate(nextDay);
+        console.log("nextDay : ", nextDay);
 
         const formattedDate = formatDate(nextDay);
         dispatch(callMyCourseStudentListAPI({cosCode, atdDate : formattedDate}));

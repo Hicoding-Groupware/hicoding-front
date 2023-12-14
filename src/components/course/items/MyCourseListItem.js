@@ -1,8 +1,8 @@
-import MyCourseSidebar from "../common/MyCourseSidebar";
-import MyLectureDetailInfoModal from "../modal/MyLectureDetailInfo";
+import MyCourseSidebar from "../../common/MyCourseSidebar";
+import MyLectureDetailInfoModal from "../../modal/MyLectureDetailInfo";
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import PagingBar from "../course/pagingbar/PagingBar";
+import PagingBar from "../pagingbar/PagingBar";
 
 function MyCourseListItem({title,courses}){
 
