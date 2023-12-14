@@ -4,11 +4,12 @@ import {callAttendanceRegistAPI, callMyCourseStudentListAPI} from "../../../apis
 import {ToastContainer} from "react-toastify";
 import {useNavigate} from "react-router-dom";
 import DatePicker from 'react-datepicker';
+import axios from "axios";
 
 function MyCourseStudentListItem({cosCode, students}) {
 
     const [buttonText, setButtonText] = useState("저장하기");
-    const [status, setStatus] = useState([]);
+    const [status, setStatus] = useState({});
     const dispatch = useDispatch();
 
     const {postSuccess} = useSelector(state => state.attendanceReducer);
@@ -43,16 +44,18 @@ function MyCourseStudentListItem({cosCode, students}) {
         {value: "leave_early", name: "조퇴"},
     ];
 
-    /* 셀렉트 박스 */
+    /* 셀렉트 박스 - 셀렉트 박스 클릭했을 때 stdCode, selectedValue 잘 나옴 */
     const handleSelectChange = (stdCode, selectedValue) => {
+        console.log("stdCode", stdCode);
+        console.log("selectedValue", selectedValue);
         setStatus((prev) => ({
             ...prev,
             [stdCode]: selectedValue,
         }));
     };
 
-    /* 셀렉트 박스 */
     const SelectBox = (props) => {
+        console.log(props.options);
         const handleChange = (e) => {
             const selectedValue = e.target.value;
             props.onChange(selectedValue);
@@ -70,7 +73,39 @@ function MyCourseStudentListItem({cosCode, students}) {
                 ))}
             </select>
         );
+    }
+
+
+
+
+    // MyCourseStudentListItem 컴포넌트가 마운트되거나 students 배열이 변경될 때 status 초기값 설정
+    useEffect(() => {
+        if (students) {
+            const initialStatus = {};
+            students.forEach(student => {
+                initialStatus[student.stdCode] = student.attendanceStatus || getDefaultStatus(student.result);
+            });
+            setStatus(initialStatus);
+        }
+    }, [students]);
+
+    // 각 학생의 상태 옵션 추출
+    const statusOptions = Array.from(new Set(students && students.map(student => student.attendanceStatus || getDefaultStatus(student.result))));
+
+    const getDefaultStatus = (result) => {
+        switch (result) {
+            case "결석" :
+                return "absence";
+            case "지각" :
+                return "tardiness";
+            case "조퇴" :
+                return "leave_early";
+            default :
+                return "attendance";
+        }
     };
+
+
 
 
     const [selectedDate, setSelectedDate] = useState(new Date()); // 선택된 날짜 상태 추가
@@ -160,9 +195,16 @@ function MyCourseStudentListItem({cosCode, students}) {
                                             <td>{student.stdBirth}</td>
                                             <td>{student.stdPhone}</td>
                                             <td>
+                                                {/*<SelectBox*/}
+                                                {/*    options={OPTIONS}*/}
+                                                {/*    value={status[student.stdCode]}*/}
+                                                {/*    onChange={(status) => handleSelectChange(student.stdCode, status)}*/}
+                                                {/*    className="attend-button"*/}
+                                                {/*/>*/}
+
                                                 <SelectBox
-                                                    options={OPTIONS}
-                                                    value={status[student.stdCode] || "attendance"}
+                                                    options={statusOptions.map(status => ({ value: status, name: status }))}
+                                                    value={status[student.stdCode] || (student.attendanceStatus || getDefaultStatus(student.result))}
                                                     onChange={(status) => handleSelectChange(student.stdCode, status)}
                                                     className="attend-button"
                                                 />
