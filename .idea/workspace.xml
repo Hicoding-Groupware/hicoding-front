@@ -1,44 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
-  <component name="ChangeListManager">
-    <list default="true" id="a006daa3-9f32-4019-904b-6e299e76732c" name="변경" comment="feat/#41/ 일별 출석부 구현중">
-      <change afterPath="$PROJECT_DIR$/src/components/course/lists/inseon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AttendanceAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AttendanceAPICalls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/course/lists/DailyAttendanceList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/course/lists/DailyAttendanceList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/items/MyCourseStudentListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/items/MyCourseStudentListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/course.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/course.css" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
-  <component name="ProjectId" id="2ZEd8Vx45XEzL9F9zS4nxnHMh53" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>

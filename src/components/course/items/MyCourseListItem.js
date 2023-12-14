@@ -4,7 +4,8 @@ import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import PagingBar from "../pagingbar/PagingBar";
 
-function MyCourseListItem({title,courses}){
+
+function MyCourseListItem({title, courses}){
 
     const [courseDetailInfoModal, setCourseDetailInfoModal] = useState(false) // 모달
     const [course, setCourse] = useState({});
@@ -16,13 +17,14 @@ function MyCourseListItem({title,courses}){
         setCourse(course);
         setCourseDetailInfoModal(true);
         console.log("courses : ", course);
-        console.log("course 2 :", course.cosName);
+        console.log("cosName :", course.cosName);
     };
 
     /* 일일 출결 관리 페이지로 이동 */
-    const onClickDailyAttendanceHandler = (cosCode) => {
+    const onClickDailyAttendanceHandler = (cosCode, course) => {
         console.log("cosCode : ", cosCode);
-        navigate(`/attendance/day/${cosCode}`);
+        console.log("cosSdt : ", course.cosSdt);
+        navigate(`/attendance/day/${cosCode}`, { state : { course }});
     };
 
     const getFormattedDayStatus = (status) => {
@@ -93,7 +95,7 @@ function MyCourseListItem({title,courses}){
                                             <div className="table-cell">
                                                 <button
                                                     className="attendButton"
-                                                    onClick={ () => onClickDailyAttendanceHandler(course.cosCode) }
+                                                    onClick={ () => onClickDailyAttendanceHandler(course.cosCode, course) }
                                                 >
                                                     출석 관리
                                                 </button>
