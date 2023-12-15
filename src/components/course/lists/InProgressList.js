@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {callMyCourseListAPI} from "../../../apis/MyCourseAPICalls";
-import PagingBar from "../../common/PagingBar";
-import MyCourseListItem from "../../items/MyCourseListItem";
+import MyCourseListItem from "../items/MyCourseListItem";
 
 
 function InProgressList() {
@@ -14,6 +13,7 @@ function InProgressList() {
     useEffect(() => {
         /* 진행 중인 강의(과정)에 대한 정보 요청 */
         dispatch(callMyCourseListAPI({currentPage}));
+
     }, [currentPage]);
 
     return (

@@ -1,6 +1,7 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Layout from "./layouts/Layout";
 import React from "react";
+import Main from "./pages/main/Main";
 import './Student.css';
 import './lecture.css';
 import './mainCss/navbar.css';
@@ -27,12 +28,11 @@ import InProgressList from "./components/course/lists/InProgressList";
 import MyLectureDetailInfo from "./components/modal/MyLectureDetailInfo";
 import LastCourseList from "./components/course/lists/LastCourseList";
 import ScheduledCourseList from "./components/course/lists/ScheduledCourseList";
-import DailyAttendance from "./components/course/lists/DailyAttendance";
+import DailyAttendanceList from "./components/course/lists/DailyAttendanceList";
 import Profile from "./pages/member/Profile";
 import MainLayout from "./layouts/MainLayout";
 import {BOARD_PATH} from "./apis/BoardAPICalls";
 import Notice from "./pages/board/Notice";
-
 function App() {
 
     return (
@@ -62,11 +62,8 @@ function App() {
                             <Route path="scheduledcourse" element={<ScheduledCourseList/>}/>
                             <Route path=":cosCode" element={<MyLectureDetailInfo/>}/>
                         </Route>
-                        <Route path="mylecture">
-
-                        </Route>
                         <Route path="attendance">
-                            <Route path="day/:cosCode" element={<DailyAttendance/>}/>
+                            <Route path="day/:cosCode" element={<DailyAttendanceList/>}/>
                         </Route>
                         <Route
                             path="students"

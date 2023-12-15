@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {callLastMyCourseListAPI} from "../../../apis/MyCourseAPICalls";
-import MyCourseListItem from "../../items/MyCourseListItem";
+import MyCourseListItem from "../items/MyCourseListItem";
 
 
 function LastCourseList() {
@@ -13,13 +13,15 @@ function LastCourseList() {
     useEffect(() => {
         /* 지난 강의(과정)에 대한 정보 요청 */
         dispatch(callLastMyCourseListAPI({currentPage}));
+
     }, [currentPage]);
 
 
     return (
         <>
             <MyCourseListItem title="지난 강의" listType="LastCourseList"
-                              courses={courses} setCurrentPage={setCurrentPage}/>
+                              courses={courses} setCurrentParge={setCurrentPage}
+            />
         </>
     );
 }
