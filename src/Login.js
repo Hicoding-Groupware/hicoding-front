@@ -1,6 +1,4 @@
-import LoginForm from "../../components/form/LoginForm";
-import {useSelector} from "react-redux";
-import React, {useEffect} from "react";
+import LoginForm from "./components/form/LoginForm";
 import {toast, ToastContainer} from "react-toastify";
 
 
@@ -11,11 +9,12 @@ function Login(){
         <>
             <ToastContainer hideProgressBar={true} position="top-center"/>
             <div className="background-div">
-                <img className="logo2" style={{width : 300, height : 820}}
-                     src="img/logo2.png"/>
+                <div className="circle"></div>
+                <p className="logo2">Hi</p>
                 <h3 className="logoname">Coding</h3>
-                <img className="logback-img" style={{width : 940, height : 850}}
-                     src="img/backround.png"/>
+                <div className="logback-img"/>
+                <div className="logback-img2"/>
+                <div className="logback-img3"/>
                 <div className="login-div">
                     <LoginForm/>
                 </div>
