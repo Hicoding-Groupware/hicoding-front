@@ -30,7 +30,7 @@ function DailyAttendanceList() { // 이 부분 체크!!
                 // cosEdt={course.cosEdt}
                 dayStatus={course.dayStatus}
                 attendanceStatus={course.attendanceStatus}
-                 students={students} setCurrentPage={setCurrentPage}/>
+                students={students} setCurrentPage={setCurrentPage}/>
         </>
     );
 }
