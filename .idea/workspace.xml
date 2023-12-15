@@ -4,54 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a006daa3-9f32-4019-904b-6e299e76732c" name="변경" comment="feat/#41/ 일별 출석부 구현중">
+    <list default="true" id="0d8d73fb-a37a-4be2-a8c0-bb879a287e57" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AttendanceAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AttendanceAPICalls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/course/items/MyCourseStudentListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/course/items/MyCourseStudentListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/course/lists/DailyAttendanceList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/course/lists/DailyAttendanceList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/AttendanceModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/AttendanceModule.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;HI-SAYA&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="bf1cee98-68de-4611-9872-eeb2f17d40a9" />
-        <option name="url" value="https://github.com/Hicoding-Groupware/hicoding-front.git" />
-      </UrlAndAccount>
-    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
-  <component name="ProjectId" id="2ZEd8Vx45XEzL9F9zS4nxnHMh53" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2ZZbqMoKVKF6v9tSxBMNq5VsoZ2" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
@@ -61,25 +31,15 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "feat/#41/dailyAttendance",
-    "last_opened_file_path": "C:/Lecture/final/hicoding-back",
+    "last_opened_file_path": "C:/Lecture/final/hi-coding-front-22",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
-    ]
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Lecture\final\hicoding-front\src\components\course\items" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -95,38 +55,27 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="a006daa3-9f32-4019-904b-6e299e76732c" name="변경" comment="feat/#41/ 일별 출석부 구현중" />
-      <created>1702537909496</created>
+      <changelist id="0d8d73fb-a37a-4be2-a8c0-bb879a287e57" name="변경" comment="" />
+      <created>1702632738431</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1702537909496</updated>
-      <workItem from="1702537910543" duration="4121000" />
-      <workItem from="1702597285575" duration="10846000" />
+      <updated>1702632738431</updated>
+      <workItem from="1702632739492" duration="447000" />
     </task>
-    <task id="LOCAL-00001" summary="feat/#41/ 일별 출석부 구현중">
-      <option name="closed" value="true" />
-      <created>1702541355918</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1702541355918</updated>
-    </task>
-    <task id="LOCAL-00002" summary="feat/#41/ 일별 출석부 구현중">
-      <option name="closed" value="true" />
-      <created>1702544160919</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1702544160919</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat/#41/ 일별 출석부 구현중" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat/#41/ 일별 출석부 구현중" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
