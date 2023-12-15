@@ -1,0 +1,56 @@
+.board-container {
+    display: flex;
+    height: 1000px;
+}
+
+.board-sidebar {
+    width: 15%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+.board-memberInfo {
+    background-color: lightslategray;
+}
+
+.board-sideWriting {
+    background-color: chocolate;
+}
+
+.board-sideSearch {
+    background-color: mediumturquoise;
+}
+
+.board-category {
+    background-color: darkgoldenrod;
+}
+
+.board-main {
+    flex: 1;
+    background-color: cornflowerblue;
+    padding: 20px;
+}
+
+.board-title {
+    background-color: #3C4248;
+}
+
+.board-tool {
+    background-color: blueviolet;
+}
+
+.board-posts {
+    background-color: lightslategrey;
+}
+
+.board-bottomWriting {
+    background-color: salmon;
+}
+
+.board-paging {
+    background-color: sienna;
+}
+
+.board-bottomSearch {
+    background-color: lightseagreen;
+}

@@ -51,37 +51,80 @@
     color: white;
 }
 
-.logo2{
 
+
+    .logo2 {
+        position: relative;
+        top: 1000px;
+        z-index: 3;
+        font-weight: bolder;
+        font-size: 300px;
+        left: 150px;
+        color: white;
+        text-shadow: -1px 0 #7333ff, 0 10px rgba(126, 0, 255, 0.1), 1px 0 #7333ff, 0 -1px #7333ff;
+        margin: 0;
+    }
+
+.circle{
     position: relative;
-    top: 850px;
-    z-index: 3;
-    width: 300px;
-    height: 800%;
-    left: 150px;
+    z-index: 4;
+    margin: 0;
+    width: 0px;
+    left: 392px;
+    border-radius: 50%;
+    top: 1155px;
+    border: 30px solid rgb(88, 62, 162);
+
+
 }
 
 .logoname{
     position: relative;
-    top: 580px;
     z-index: 4;
     width: 300px;
     height: 800%;
-    left: 450px;
+    left: 470px;
     font-size: 100px;
     color: #5a38a8;
+    margin: 0px;
+    top: 820px;
     font-weight: bolder;
-
 }
 
 .logback-img{
     position: relative;
-    bottom: 80px;
-    z-index: 2;
-    width: 940px;
-    height: 800%;
-    left: 840px;
+    top: 300px;
+    z-index: 3;
+    left: 1090px;
+    border: 270px solid rgb(119, 97, 170);
+    border-radius: 100%;
+    width: 110px;
+    transform: rotate(30deg);
+
 }
+
+.logback-img2{
+    position: relative;
+    bottom: 110px;
+    z-index: 2;
+    left: 950px;
+    border: 250px solid rgb(228, 223, 238);
+    border-radius: 100%;
+    width: 70px;
+    transform: rotate(110deg);
+}
+
+.logback-img3{
+    position: relative;
+    bottom: 400px;
+    z-index: 2;
+    left: 1000px;
+    border: 200px solid rgb(217, 217, 217);
+    border-radius: 100%;
+    width: 70px;
+    transform: rotate(30deg);
+}
+
 
 /*---------- text 넣는곳 구현 ----------------------------------------------*/
 

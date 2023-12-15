@@ -1,7 +1,9 @@
 import {useDispatch, useSelector} from "react-redux";
-import { useState} from "react";
+import React, {useEffect, useState} from "react";
 import {callLoginAPI} from "../../apis/LoginAPICalls";
 import FirstLoginModal from "../modal/FirstLoginModal";
+import {toast, ToastContainer} from "react-toastify";
+
 
 
 
@@ -9,9 +11,19 @@ import FirstLoginModal from "../modal/FirstLoginModal";
 
 function LoginForm(){
     const [form, setForm] = useState({});
-    const {logins} = useSelector(state => state.loginReducer);
+    const loginReducer = useSelector(state => state.loginReducer);
     const dispatch = useDispatch();
+    const {logins} = useSelector(state => state.loginReducer);
 
+    useEffect(() => {
+        if(loginReducer?.loginSuccess === true) {
+
+            window.location.replace("/");
+        } else if(loginReducer?.loginSuccess === false) {
+            toast.dismiss();
+            toast.warning('로그인에 실패하였습니다. 아이디와 비밀번호를 확인해주세요.');
+        }
+    }, [loginReducer]);
 
     const onChangeHandler = e => {
         setForm({
@@ -21,12 +33,23 @@ function LoginForm(){
     }
 
     const onClickLoginHandler = () => {
+        if (!form.memberId || !form.memberPwd) {
+            toast.warning('아이디와 비밀번호를 모두 입력해주세요.');
+            return;
+        }
         dispatch(callLoginAPI({loginRequest : form}));
     }
 
+    const handleOnKeyPress = e => {
+        if (e.key === 'Enter') {
+            onClickLoginHandler();
+        }
+    };
+
     return(
         <>
-            {logins ? (
+
+            {loginReducer?.logins ? (
                 <FirstLoginModal />
             ) : (
                 <>
@@ -44,8 +67,9 @@ function LoginForm(){
                         name="memberPwd"
                         placeholder="Password"
                         onChange={onChangeHandler}
+                        onKeyPress={handleOnKeyPress}
                     />
-                    <button onClick={onClickLoginHandler}>Sign In</button>
+                    <button style={{cursor : "pointer"}} onClick={onClickLoginHandler}>Sign In</button>
                     <p className="forgot">Forgot password?</p>
                 </>
             )}

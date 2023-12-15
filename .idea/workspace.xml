@@ -4,24 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d8d73fb-a37a-4be2-a8c0-bb879a287e57" name="변경" comment="">
+    <list default="true" id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째">
+      <change afterPath="$PROJECT_DIR$/src/board.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/board/Notice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/board/Notice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/board" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
-  <component name="ProjectId" id="2ZZbqMoKVKF6v9tSxBMNq5VsoZ2" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2ZULKg7sbK6eydRY4HyWHnB8wxL" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
@@ -29,19 +47,26 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feat/#41/dailyAttendance",
-    "last_opened_file_path": "C:/Lecture/final/hi-coding-front-22",
+    "git-widget-placeholder": "feat/#50/notice-board",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/hyeok/hicoding-front/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "npm.npmStart.executor": "Run",
+    "npm.run.executor": "Run",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\hyeok\hicoding-front\src" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+    <configuration name="npmStart" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
@@ -52,30 +77,30 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-18.0.2-corretto-18.0.2-3183f394aec4-38982a12" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="0d8d73fb-a37a-4be2-a8c0-bb879a287e57" name="변경" comment="" />
-      <created>1702632738431</created>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="" />
+      <created>1702471648740</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1702632738431</updated>
-      <workItem from="1702632739492" duration="447000" />
+      <updated>1702471648740</updated>
+      <workItem from="1702471649973" duration="3131000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째" />
+    <option name="LAST_COMMIT_MESSAGE" value="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째" />
   </component>
 </project>

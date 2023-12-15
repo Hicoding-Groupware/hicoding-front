@@ -8,7 +8,8 @@ import './mainCss/navbar.css';
 import './mainCss/login.css';
 import './mainCss/main.css';
 import './course.css';
-import Login from "./pages/member/Login";
+import './board.css';
+import Login from "./Login";
 import Student from "./pages/student/Student";
 import StudentRegist from "./pages/student/StudentRegist";
 import Creation from "./pages/member/Creation";
@@ -28,7 +29,10 @@ import MyLectureDetailInfo from "./components/modal/MyLectureDetailInfo";
 import LastCourseList from "./components/course/lists/LastCourseList";
 import ScheduledCourseList from "./components/course/lists/ScheduledCourseList";
 import DailyAttendanceList from "./components/course/lists/DailyAttendanceList";
-
+import Profile from "./pages/member/Profile";
+import MainLayout from "./layouts/MainLayout";
+import {BOARD_PATH} from "./apis/BoardAPICalls";
+import Notice from "./pages/board/Notice";
 function App() {
 
     return (
@@ -38,10 +42,9 @@ function App() {
 
                     <Route path="/login" element={<ProtectedRoute loginCheck={false}><Login/></ProtectedRoute>}/>
                     <Route path="/" element={<ProtectedRoute loginCheck={true}><Layout/></ProtectedRoute>}>
-                        <Route index element={<Main/>}/>
-                        {/*<Route path="mypage" element={<MyPageLayout/>}>*/}
-                        {/*<Route path="profile" element={<Profile/>}/>*/}
-                        {/*</Route>*/}
+                        <Route index element={<MainLayout/>}/>
+                        <Route path="profile" element={<Profile/>}/>
+
                         <Route path="lecture" element={<LectureMain/>}/>
                         <Route path="courses">
                             <Route path="" element={<CourseMain/>}/>
@@ -83,6 +86,9 @@ function App() {
                         <Route path={MEMBER_PATH}>
                             <Route path='creation' element={<Creation/>}/>
                             <Route path='detailsView' element={<DetailsView/>}/>
+                        </Route>
+                        <Route path={BOARD_PATH}>
+                            <Route path='notice' element={<Notice/>}/>
                         </Route>
 
                     </Route>
