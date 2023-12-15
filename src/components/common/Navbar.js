@@ -63,9 +63,9 @@ function Navbar() {
                             )
                         }
 
-                    <p
-                        style={{display : "flex", maxWidth : "42px", position : "relative", left : 1760, top: -40, color : "white"}}
-                    >{profileInfo.memberName}</p>
+                        <p
+                            style={{display : "flex", maxWidth : "42px", position : "relative", left : 1760, top: -95, color : "white"}}
+                        >{profileInfo.memberName}</p>
                     </>
                 }
                 <img className="logout-img" alt="logout" src="/img/logout.png" onClick={onClickLogoutHandler}
