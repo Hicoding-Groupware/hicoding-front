@@ -1,7 +1,6 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Layout from "./layouts/Layout";
 import React from "react";
-import Main from "./pages/main/Main";
 import './Student.css';
 import './lecture.css';
 import './mainCss/navbar.css';
@@ -30,6 +29,7 @@ import LastCourseList from "./components/course/lists/LastCourseList";
 import ScheduledCourseList from "./components/course/lists/ScheduledCourseList";
 import DailyAttendance from "./components/course/lists/DailyAttendance";
 import Profile from "./pages/member/Profile";
+import MainLayout from "./layouts/MainLayout";
 import {BOARD_PATH} from "./apis/BoardAPICalls";
 import Notice from "./pages/board/Notice";
 
@@ -42,7 +42,7 @@ function App() {
 
                     <Route path="/login" element={<ProtectedRoute loginCheck={false}><Login/></ProtectedRoute>}/>
                     <Route path="/" element={<ProtectedRoute loginCheck={true}><Layout/></ProtectedRoute>}>
-                        <Route index element={<Main/>}/>
+                        <Route index element={<MainLayout/>}/>
                         <Route path="profile" element={<Profile/>}/>
 
                         <Route path="lecture" element={<LectureMain/>}/>

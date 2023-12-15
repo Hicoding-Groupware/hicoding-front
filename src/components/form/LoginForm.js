@@ -13,10 +13,11 @@ function LoginForm(){
     const [form, setForm] = useState({});
     const loginReducer = useSelector(state => state.loginReducer);
     const dispatch = useDispatch();
-
+    const {logins} = useSelector(state => state.loginReducer);
 
     useEffect(() => {
         if(loginReducer?.loginSuccess === true) {
+
             window.location.replace("/");
         } else if(loginReducer?.loginSuccess === false) {
             toast.dismiss();

@@ -3,6 +3,7 @@ import MyLectureDetailInfoModal from "../modal/MyLectureDetailInfo";
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import PagingBar from "../course/pagingbar/PagingBar";
+import MainMyCourseListItem from "../../pages/main/mainCourse/MainMyCourseListItem";
 
 function MyCourseListItem({title, courses, setCurrentPage}) {
 
@@ -37,6 +38,7 @@ function MyCourseListItem({title, courses, setCurrentPage}) {
 
     return (
         <>
+
             <MyCourseSidebar/>
             {
                 courseDetailInfoModal &&
