@@ -8,7 +8,7 @@ import './mainCss/login.css';
 import './mainCss/main.css';
 import './course.css';
 import './board.css';
-import Login from "./pages/member/Login";
+import Login from "./Login";
 import Student from "./pages/student/Student";
 import StudentRegist from "./pages/student/StudentRegist";
 import Creation from "./pages/member/Creation";
