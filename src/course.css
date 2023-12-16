@@ -252,7 +252,8 @@ a {
     font-family: 'Pretendard-Regular', serif;
     font-size: 15px;
     width: 80%;
-    margin: 0 auto;
+    padding-top: 5%;
+
     /* 텍스트 입력 시 깜빡임 제거 */
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -330,7 +331,6 @@ a {
     padding-right: 1.5%;
     font-size: 22px;
     cursor: pointer;
-
 }
 
 .right-button {
@@ -338,4 +338,56 @@ a {
     padding-left: 1.5%;
     font-size: 22px;
     cursor: pointer;
+}
+
+.daily-attendance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.daily-attendance-title {
+    flex: 1;
+    text-align: left;
+}
+
+.date-picker-container {
+    flex: 2;
+    text-align: center;
+}
+
+.buttons-container {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row; /* 가로 방향으로 요소들을 배열 */
+}
+
+.month-attend-select-button,
+.attend-regist-button {
+    margin-left: 10px; /* 버튼 사이 간격 */
+    padding: 10px 20px; /* 버튼 내부 여백 */
+    font-size: 14px; /* 폰트 크기 */
+    color: #000000; /* 글자 색상 */
+    background-color: #ffffff; /* 배경 색상 */
+    border: solid 1px #8030ff;
+    border-radius: 5px; /* 모서리 둥글게 */
+    cursor: pointer; /* 마우스 오버시 커서 변경 */
+    transition: background-color 0.3s, box-shadow 0.3s; /* 부드러운 전환 효과 */
+}
+.month-attend-select-button:hover,
+.attend-regist-button:hover {
+    background-color: #ffffff; /* 호버시 배경 색상 변경 */
+    color: #8030ff;
+}
+
+/* 기존 CSS 스타일링을 유지하면서 클래스 이름 변경 */
+.daily-attendance-main-container {
+    font-family: 'Pretendard-Regular', serif;
+    font-size: 15px;
+    width: 80%;
+    margin: 0 auto;
 }

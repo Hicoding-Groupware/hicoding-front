@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째">
-      <change afterPath="$PROJECT_DIR$/src/board.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/board/Notice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/board/Notice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/course/items/MyCourseStudentListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/course/items/MyCourseStudentListItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/course.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/course.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/board" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -47,9 +46,10 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feat/#50/notice-board",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "feat/#57/monthAttendance",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/hyeok/hicoding-front/src",
+    "last_opened_file_path": "C:/project/final/front",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -93,6 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1702471648740</updated>
       <workItem from="1702471649973" duration="3131000" />
+      <workItem from="1702713597903" duration="8322000" />
     </task>
     <servers />
   </component>

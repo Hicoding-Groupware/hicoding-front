@@ -5,11 +5,12 @@ import {
     callAttendanceUpdateAPI,
     callMyCourseStudentListAPI
 } from "../../../apis/AttendanceAPICalls";
-import {toast, ToastContainer} from "react-toastify";
-import {useNavigate, useParams} from "react-router-dom";
+import {ToastContainer} from "react-toastify";
 import DatePicker from 'react-datepicker';
 import 'react-toastify/dist/ReactToastify.css';
-import student from "../../../pages/student/Student";
+// import { isWeekday, isWeekend, findPrevWeekday, findPrevWeekend } from "../../../utils/DateUtils";
+
+
 
 
 function MyCourseStudentListItem({cosCode, students, cosSdt, dayStatus}) {
@@ -20,6 +21,8 @@ function MyCourseStudentListItem({cosCode, students, cosSdt, dayStatus}) {
     const {postSuccess, putSuccess} = useSelector(state => state.attendanceReducer);
     const [selectedDate, setSelectedDate] = useState(new Date()); // 선택된 날짜 상태 추가
 
+
+    /* ============== 등록 & 수정 api ============== */
 
     /* 등록 성공시 == 완 */
     useEffect(() => {
@@ -65,12 +68,19 @@ function MyCourseStudentListItem({cosCode, students, cosSdt, dayStatus}) {
     };
 
 
+
+    /* ============== 셀렉트 박스 =============  */
+
     /* 셀렉트 박스 - 셀렉트 박스 클릭했을 때 stdCode, selectedValue 잘 나옴 */
     const handleSelectChange = (stdCode, selectedValue) => {
-        setStatus((prev) => ({
-            ...prev,
-            [stdCode]: selectedValue,
-        }));
+        setStatus(prev => {
+            const updatedStatus = { ...prev, [stdCode]: selectedValue };
+
+            // 콘솔 로그로 상태 업데이트 확인
+            console.log("Updated Status: ", updatedStatus);
+
+            return updatedStatus;
+        });
     };
 
     const SelectBox = (props) => {
@@ -112,12 +122,15 @@ function MyCourseStudentListItem({cosCode, students, cosSdt, dayStatus}) {
         if (students) {
             const initialStatus = {};
             students.forEach(student => {
-                initialStatus[student.stdCode] = student.attendanceStatus || getDefaultStatus(student.result);
+                initialStatus[student.stdCode] = getDefaultStatus(student.result);
             });
             setStatus(initialStatus);
         }
     }, [students]);
 
+
+
+    /* ============== 평일 & 주말 관리 =============  */
 
     /* 평일 여부 판별 함수 */
     const isWeekday = (date) => {
@@ -191,6 +204,51 @@ function MyCourseStudentListItem({cosCode, students, cosSdt, dayStatus}) {
     };
 
 
+    // 이전 평일을 찾는 함수
+    const findPrevWeekday = (date) => {
+        let day = date.getDay();
+        if (day === 0) { // 일요일이면 금요일로 이동
+            date.setDate(date.getDate() - 2);
+        } else if (day === 6) { // 토요일이면 금요일로 이동
+            date.setDate(date.getDate() - 1);
+        }
+        return date;
+    }
+
+    // 이전 주말을 찾는 함수
+    const findPrevWeekend = (date) => {
+        let day = date.getDay();
+        if (day >= 1 && day <= 5) { // 평일이면 이전 주 토요일로 이동
+            date.setDate(date.getDate() - (day + 1));
+        }
+        return date;
+    }
+
+    const adjustDate = (date) => {
+        const dayOfWeek = date.getDay();
+
+        if (dayStatus === "WEEKDAY" && (dayOfWeek === 0 || dayOfWeek === 6)) {
+            alert("평일 과정은 평일만 관리 할 수 있습니다. 이전 평일로 이동합니다.");
+            return findPrevWeekday(new Date(date));
+        } else if (dayStatus === "WEEKEND" && (dayOfWeek >= 1 && dayOfWeek <= 5)) {
+            alert("주말 과정은 주말만 관리 할 수 있습니다. 이전 주말로 이동합니다.");
+            return findPrevWeekend(new Date(date));
+        } else {
+            return date;
+        }
+    };
+
+    // useEffect로 컴포넌트 마운트 및 selectedDate 변경 감지
+    useEffect(() => {
+        const adjustedDate = adjustDate(selectedDate);
+        if (adjustedDate !== selectedDate) {
+            setSelectedDate(adjustedDate);
+        }
+    }, [selectedDate]);
+
+
+    /* ============== 데이트 피커 ============== */
+
     /* 데이트 피커로 날짜 지정시 해당 날짜 조회 */
     const handleDateChange = (date) => {
         setSelectedDate(date);
@@ -220,7 +278,10 @@ function MyCourseStudentListItem({cosCode, students, cosSdt, dayStatus}) {
         return `${year}-${month}-${day}`;
     };
 
-    /* 저장하기 버튼 */
+
+
+    /* ============== 저장하기 & 다시 저장하기 버튼 ============== */
+
     // status가 모두 null인지 체크하는 함수
     const isAllStatusNull = () => {
         return students && students.every(student => student.attendanceStatus === null);
@@ -234,7 +295,7 @@ function MyCourseStudentListItem({cosCode, students, cosSdt, dayStatus}) {
         if (students) {
             const initialStatus = {};
             students.forEach(student => {
-                initialStatus[student.stdCode] = student.attendanceStatus ? getDefaultStatus(student.attendanceStatus) : "attendance";
+                initialStatus[student.stdCode] = student.attendanceStatus;
             });
             setStatus(initialStatus);
         }
@@ -251,38 +312,29 @@ function MyCourseStudentListItem({cosCode, students, cosSdt, dayStatus}) {
                 (
                     <>
                         <div className="daily-attendance-main-container">
-                            <h2>{students[0]?.cosName}</h2>
-                            <span
-                                className="left-button"
-                                onClick={handlePrevDayClick}
-                            > ◀
-                            </span>
-                            <DatePicker
-                                calssName="attendDatePicker"
-                                dateFormat='yyyy-MM-dd'
-                                name="selectedDate"
-                                selected={selectedDate}
-                                onChange={(date) => handleDateChange(date)}
-                                filterDate={isSelectableDate}
-                                minDate={new Date(cosSdt)}
-                                maxDate={new Date()}
-                                // maxDate는 오늘날짜까지만 보이도록 하기
-                            />
-                            <span className="right-button"
-                                  onClick={handleNextDayClick}
-                            > ▶
-                            </span>
-
-                            <button className="month-attend-select-button">
-                                월별 출석부 조회
-                            </button>
-                            <button
-                                className="attend-regist-button"
-                                onClick={buttonOnClick}
-                            >
-                                {buttonLabel}
-                                {/*다시 고민해보기 */}
-                            </button>
+                            <div className="daily-attendance-header">
+                                <div className="daily-attendance-title">
+                                    <h2>{students[0]?.cosName}</h2>
+                                </div>
+                                <div className="date-picker-container">
+                                    <span className="left-button" onClick={handlePrevDayClick}>◀</span>
+                                    <DatePicker
+                                        className="attendDatePicker"
+                                        dateFormat='yyyy-MM-dd'
+                                        name="selectedDate"
+                                        selected={selectedDate}
+                                        onChange={(date) => handleDateChange(date)}
+                                        filterDate={isSelectableDate}
+                                        minDate={new Date(cosSdt)}
+                                        maxDate={new Date()}
+                                    />
+                                    <span className="right-button" onClick={handleNextDayClick}>▶</span>
+                                </div>
+                                <div className="buttons-container">
+                                    <button className="month-attend-select-button">월별 출석부 조회</button>
+                                    <button className="attend-regist-button" onClick={buttonOnClick}>{buttonLabel}</button>
+                                </div>
+                            </div>
 
                             <div className="daily-attendance-container">
                                 <table className="daily-attendance-table">
@@ -308,17 +360,9 @@ function MyCourseStudentListItem({cosCode, students, cosSdt, dayStatus}) {
                                                         {value: "attendance", name: "출석"},
                                                         {value: "absence", name: "결석"},
                                                         {value: "tardiness", name: "지각"},
-                                                        ...(student.attendanceStatus !== null ? [{
-                                                            value: "leave_early", name: "조퇴"
-                                                        }] : [])
+                                                        ...(student.attendanceStatus !== null ? [{ value: "leave_early", name: "조퇴" }] : []),
                                                     ]}
-                                                    value={
-                                                        student.attendanceStatus !== null
-                                                            ? student.attendanceStatus // 만약 attendanceStatus가 null이 아니면 해당 상태를 선택
-                                                            : status[student.stdCode] !== undefined
-                                                                ? status[student.stdCode]
-                                                                : "attendance" // 그렇지 않으면 기본으로 "출석" 선택
-                                                    }
+                                                    value={status[student.stdCode]}
                                                     onChange={(status) => handleSelectChange(student.stdCode, status)}
                                                     className="attend-button"
                                                 />
