@@ -2,7 +2,6 @@ import {useEffect, useRef, useState} from "react";
 import {callMemberProfileAPI, callMemberProfileModifyAPI, InfoUpdateProfileAPI} from "../../apis/MemberAPICalls";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import login from "../../pages/member/Login";
 import {toast} from "react-toastify";
 
 function ImageModify ({profile, setOpenModify}) {

@@ -20,7 +20,7 @@ function FirstLoginModal() {
     useEffect(() => {
         const updateAndNavigate = async () => {
             if (putSuccess === true) {
-                toast.warning('개인정보 업데이트를 완료했습니다.');
+                alert('개인정보 업데이트를 완료했습니다.');
                 await navigate('/login', { replace: true });  // await를 사용하여 navigate가 완료될 때까지 기다림
             }
         };

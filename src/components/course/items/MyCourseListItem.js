@@ -1,25 +1,30 @@
-import MyCourseSidebar from "../common/MyCourseSidebar";
-import MyLectureDetailInfoModal from "../modal/MyLectureDetailInfo";
+import MyCourseSidebar from "../../common/MyCourseSidebar";
+import MyLectureDetailInfoModal from "../../modal/MyLectureDetailInfo";
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import PagingBar from "../course/pagingbar/PagingBar";
+import PagingBar from "../pagingbar/PagingBar";
 
-function MyCourseListItem({title, courses, setCurrentPage}) {
+
+function MyCourseListItem({title, courses}){
 
     const [courseDetailInfoModal, setCourseDetailInfoModal] = useState(false) // 모달
     const [course, setCourse] = useState({});
     const navigate = useNavigate();
-
+    const [currentPage, setCurrentPage] = useState(1)
 
     /* 강의 상세 조회 모달 버튼 이벤트 */
     const onClickCourseDetailInfoHandler = (course) => {
         setCourse(course);
         setCourseDetailInfoModal(true);
+        console.log("courses : ", course);
+        console.log("cosName :", course.cosName);
     };
 
     /* 일일 출결 관리 페이지로 이동 */
-    const onClickDailyAttendanceHandler = (course) => {
-        navigate(`/mylecture/day/${course.cosCode}`);
+    const onClickDailyAttendanceHandler = (cosCode, course) => {
+        console.log("cosCode : ", cosCode);
+        console.log("cosSdt : ", course.cosSdt);
+        navigate(`/attendance/day/${cosCode}`, { state : { course }});
     };
 
     const getFormattedDayStatus = (status) => {
@@ -90,9 +95,7 @@ function MyCourseListItem({title, courses, setCurrentPage}) {
                                             <div className="table-cell">
                                                 <button
                                                     className="attendButton"
-                                                    onClick={() =>
-                                                        onClickDailyAttendanceHandler(course.cosCode)
-                                                    }
+                                                    onClick={ () => onClickDailyAttendanceHandler(course.cosCode, course) }
                                                 >
                                                     출석 관리
                                                 </button>

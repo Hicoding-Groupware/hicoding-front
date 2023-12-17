@@ -111,7 +111,7 @@ function Profile() {
                                                     height: "100%",
                                                     borderRadius: 100
                                                 }}
-                                                src="https://github.com/Hicoding-Groupware/hicoding-front/assets/138549261/98298a80-33e9-4918-9e77-09ebd8bfc335"/>
+                                                src="img/noUser.png"/>
 
                                         ) : (
                                             <img style={{
@@ -147,7 +147,7 @@ function Profile() {
                                             height: "15px",
                                             borderRadius: 5
                                         }}
-                                             src="https://github.com/Hicoding-Groupware/hicoding-front/assets/138549261/bf45537f-2944-494d-b388-d84cfc23c413"
+                                             src="img/camera.png"
                                              onClick={onClickChoose}/>
                                     </div>
                                 </td>

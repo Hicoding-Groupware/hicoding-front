@@ -18,9 +18,9 @@ function DetailNavBar(){
                     <li><NavLink to="/courses">과정관리</NavLink></li>
                     </ul>
                     <ul style={{paddingLeft : '40px'}}>
-                        <NavLink to="/schedule/academy"><li>학원일정</li></NavLink>
-                        <NavLink to="/schedule/course"><li>과정일정</li></NavLink>
-                        <NavLink to="/schedule/classroom"> <li>강의실 일정</li></NavLink>
+                        <li><NavLink to="/schedule/academy">학원일정</NavLink></li>
+                    <li><NavLink to="/schedule/course">과정일정</NavLink></li>
+                <li><NavLink to="/schedule/classroom"> 강의실 일정</NavLink></li>
                     </ul>
 
                     <ul style={{paddingLeft : '40px'}}>

@@ -6,11 +6,14 @@ import courseReducer from "./CourseModule";
 import loginReducer from "./LoginModule";
 import myCourseReducer from "./MyCourseModule";
 import noticeReducer, {boardReducer, commentReducer} from "./NoticeModule";
+import messageReducer from "./MessageModule";
+import attendanceReducer from "./AttendanceModule";
 
 const rootReducer = combineReducers({
     lectureReducer, courseReducer, myCourseReducer,
     loginReducer, memberReducer, boardReducer,
-    commentReducer, studentReducer
+    commentReducer, studentReducer, attendanceReducer, 
+    messageReducer
 });
 
 export default rootReducer;

@@ -8,8 +8,9 @@ import './mainCss/navbar.css';
 import './mainCss/login.css';
 import './mainCss/main.css';
 import './course.css';
-import './notice.css';
 import Login from "./pages/member/Login";
+import './board.css';
+import Login from "./Login";
 import Student from "./pages/student/Student";
 import StudentRegist from "./pages/student/StudentRegist";
 import Creation from "./pages/member/Creation";
@@ -28,13 +29,13 @@ import InProgressList from "./components/course/lists/InProgressList";
 import MyLectureDetailInfo from "./components/modal/MyLectureDetailInfo";
 import LastCourseList from "./components/course/lists/LastCourseList";
 import ScheduledCourseList from "./components/course/lists/ScheduledCourseList";
-import DailyAttendance from "./components/course/lists/DailyAttendance";
+import DailyAttendanceList from "./components/course/lists/DailyAttendanceList";
 import Profile from "./pages/member/Profile";
 import {BOARD_PATH} from "./apis/NoticeAPICalls";
 import NoticeLayout from "./layouts/NoticeLayout";
 import NoticeBoard from "./pages/notice/NoticeBoard";
 import NoticePost from "./pages/notice/NoticePost";
-
+import MainLayout from "./layouts/MainLayout";
 function App() {
 
     return (
@@ -44,7 +45,7 @@ function App() {
 
                     <Route path="/login" element={<ProtectedRoute loginCheck={false}><Login/></ProtectedRoute>}/>
                     <Route path="/" element={<ProtectedRoute loginCheck={true}><Layout/></ProtectedRoute>}>
-                        <Route index element={<Main/>}/>
+                        <Route index element={<MainLayout/>}/>
                         <Route path="profile" element={<Profile/>}/>
 
                         <Route path="lecture" element={<LectureMain/>}/>
@@ -64,11 +65,8 @@ function App() {
                             <Route path="scheduledcourse" element={<ScheduledCourseList/>}/>
                             <Route path=":cosCode" element={<MyLectureDetailInfo/>}/>
                         </Route>
-                        <Route path="mylecture">
-
-                        </Route>
                         <Route path="attendance">
-                            <Route path="day/:cosCode" element={<DailyAttendance/>}/>
+                            <Route path="day/:cosCode" element={<DailyAttendanceList/>}/>
                         </Route>
                         <Route
                             path="students"
