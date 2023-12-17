@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째">
+    <list default="true" id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="feat/#57/ 수정">
+      <change afterPath="$PROJECT_DIR$/src/components/course/items/MyCourseStudentListMonthItem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/course/lists/MonthAttendanceList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/AttendanceAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AttendanceAPICalls.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/course/items/MyCourseStudentListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/course/items/MyCourseStudentListItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/course/lists/DailyAttendanceList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/course/lists/DailyAttendanceList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/course/lists/inseon.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/course.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/course.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/AttendanceModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/AttendanceModule.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,8 +100,19 @@
       <option name="presentableId" value="Default" />
       <updated>1702471648740</updated>
       <workItem from="1702471649973" duration="3131000" />
-      <workItem from="1702713597903" duration="8322000" />
+      <workItem from="1702713597903" duration="10079000" />
+      <workItem from="1702779961640" duration="5621000" />
+      <workItem from="1702811434045" duration="10216000" />
     </task>
+    <task id="LOCAL-00001" summary="feat/#57/ 수정">
+      <option name="closed" value="true" />
+      <created>1702728018814</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702728018814</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,6 +120,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째" />
-    <option name="LAST_COMMIT_MESSAGE" value="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째" />
+    <MESSAGE value="feat/#57/ 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat/#57/ 수정" />
   </component>
 </project>

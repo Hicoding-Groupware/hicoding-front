@@ -363,24 +363,24 @@ a {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    flex-direction: row; /* 가로 방향으로 요소들을 배열 */
+    flex-direction: row;
 }
 
 .month-attend-select-button,
 .attend-regist-button {
-    margin-left: 10px; /* 버튼 사이 간격 */
-    padding: 10px 20px; /* 버튼 내부 여백 */
-    font-size: 14px; /* 폰트 크기 */
-    color: #000000; /* 글자 색상 */
-    background-color: #ffffff; /* 배경 색상 */
+    margin-left: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #000000;
+    background-color: #ffffff;
     border: solid 1px #8030ff;
-    border-radius: 5px; /* 모서리 둥글게 */
-    cursor: pointer; /* 마우스 오버시 커서 변경 */
-    transition: background-color 0.3s, box-shadow 0.3s; /* 부드러운 전환 효과 */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 .month-attend-select-button:hover,
 .attend-regist-button:hover {
-    background-color: #ffffff; /* 호버시 배경 색상 변경 */
+    background-color: #ffffff;
     color: #8030ff;
 }
 
@@ -390,4 +390,77 @@ a {
     font-size: 15px;
     width: 80%;
     margin: 0 auto;
+}
+
+
+
+/* 월별 출석부 */
+
+.month-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.month-table th, .month-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.calendarHeader th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.month-td {
+    white-space: nowrap;
+}
+
+/* 출석 상태별 스타일 */
+.status-attendance {
+    color: #000000;
+}
+
+.status-absence {
+    color: #000000;
+}
+
+.status-tardiness {
+    color: #000000;
+}
+
+.status-leave_early {
+    color: #000000;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 600px) {
+    .month-table, .month-table thead, .month-table tbody, .month-table th, .month-table td, .month-table tr {
+        display: block;
+    }
+
+    .calendarHeader th {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .month-td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .month-td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    .month-table td:nth-of-type(1):before { content: "No"; }
+    .month-table td:nth-of-type(2):before { content: "원생명"; }
+    /* 'nth-of-type'를 사용하여 각 날짜에 대한 라벨을 추가 */
 }

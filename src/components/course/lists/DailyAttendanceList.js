@@ -18,13 +18,13 @@ function DailyAttendanceList() { // 이 부분 체크!!
     useEffect((course) => {
         /* 해당 강의 일별 출석부 - 학생 정보 리스트 조회 */
         dispatch(callMyCourseStudentListAPI({cosCode}));
-
     }, []);
 
 
     return(
         <>
             <MyCourseStudentListItem
+                course={course}
                 cosCode={cosCode}
                 cosSdt={course.cosSdt}
                 // cosEdt={course.cosEdt}

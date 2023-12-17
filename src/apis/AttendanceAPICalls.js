@@ -1,5 +1,11 @@
 import {authRequest} from "./Api";
-import {getStudentsInfo, getTeacherAttendance, postSuccess, putSuccess} from "../modules/AttendanceModule";
+import {
+    getMonthStudentsInfo,
+    getStudentsInfo,
+    getTeacherAttendance,
+    postSuccess,
+    putSuccess
+} from "../modules/AttendanceModule";
 import {toast} from "react-toastify";
 import {post} from "axios";
 
@@ -21,6 +27,27 @@ export const callMyCourseStudentListAPI = ({cosCode, atdDate}) => {
 
         if (result?.status === 200) {
             dispatch(getStudentsInfo(result));
+        }
+    }
+}
+
+/* 월별 조회 */
+export const callMyCourseStudentMonthListAPI = ({cosCode, atdDate}) => {
+
+    return async (dispatch, getState) => {
+
+        let url = `attendance/month/${cosCode}`;
+
+        if (atdDate) {
+            url += `?atdDate=${atdDate}`;
+        }
+
+        const result = await authRequest.get(url);
+
+        console.log("result : ", result);
+
+        if (result?.status === 200) {
+            dispatch(getMonthStudentsInfo(result));
         }
     }
 }
@@ -80,3 +107,5 @@ export const callAttendanceUpdateAPI = ({updateRequest, atdDate}) => {
         }
     }
 }
+
+

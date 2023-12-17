@@ -7,12 +7,15 @@ const GET_STUDENTS_INFO = 'student/GET_STUDENTS_INFO';
 const POST_SUCCESS = 'student/POST_SUCCESS';
 const GET_TEACHER_ATTENDANCE = 'student/GET_TEACHER_ATTENDANCE';
 const PUT_SUCCESS = 'student/PUT_SUCCESS';
+const GET_MONTH_STUDENTS_INFO = 'student/GET_MONTH_STUDENTS_INFO';
 
-export const { student : { getStudentsInfo, postSuccess, getTeacherAttendance, putSuccess } } = createActions({
+export const { student : { getStudentsInfo, postSuccess, getTeacherAttendance,
+    putSuccess, getMonthStudentsInfo } } = createActions({
     [GET_STUDENTS_INFO] : result => ({ students : result.data }),
     [POST_SUCCESS] : () => ({ postSuccess: true }),
     [GET_TEACHER_ATTENDANCE] : result => ({ teacherAttendance : result.date }),
     [PUT_SUCCESS] : () => ({ putSuccess: true}),
+    [GET_MONTH_STUDENTS_INFO] : result => ({ monthStudents : result.data}),
 });
 
 const attendanceReducer = handleActions({
@@ -20,6 +23,7 @@ const attendanceReducer = handleActions({
     [POST_SUCCESS] : (state, { payload }) => payload,
     [GET_TEACHER_ATTENDANCE] : (state, { payload }) => payload,
     [PUT_SUCCESS] : (state, { payload }) => payload,
+    [GET_MONTH_STUDENTS_INFO] : (state, { payload }) => payload,
 }, initialState);
 
 export default attendanceReducer;

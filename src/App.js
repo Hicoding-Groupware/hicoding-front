@@ -33,6 +33,7 @@ import Profile from "./pages/member/Profile";
 import MainLayout from "./layouts/MainLayout";
 import {BOARD_PATH} from "./apis/BoardAPICalls";
 import Notice from "./pages/board/Notice";
+import MonthAttendanceList from "./components/course/lists/MonthAttendanceList";
 function App() {
 
     return (
@@ -64,6 +65,7 @@ function App() {
                         </Route>
                         <Route path="attendance">
                             <Route path="day/:cosCode" element={<DailyAttendanceList/>}/>
+                            <Route path="month/:cosCode" element={<MonthAttendanceList/>}/>
                         </Route>
                         <Route
                             path="students"

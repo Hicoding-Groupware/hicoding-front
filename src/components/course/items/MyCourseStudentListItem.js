@@ -8,18 +8,28 @@ import {
 import {ToastContainer} from "react-toastify";
 import DatePicker from 'react-datepicker';
 import 'react-toastify/dist/ReactToastify.css';
-// import { isWeekday, isWeekend, findPrevWeekday, findPrevWeekend } from "../../../utils/DateUtils";
+import {useNavigate} from "react-router-dom";
 
 
 
 
-function MyCourseStudentListItem({cosCode, students, cosSdt, dayStatus}) {
+function MyCourseStudentListItem({course, cosCode, students, cosSdt, dayStatus}) {
 
     const [status, setStatus] = useState({});
     const dispatch = useDispatch();
 
     const {postSuccess, putSuccess} = useSelector(state => state.attendanceReducer);
     const [selectedDate, setSelectedDate] = useState(new Date()); // 선택된 날짜 상태 추가
+    const navigate = useNavigate();
+
+
+
+    /* ============== 월별 출석부로 이동 ============= */
+    const handleMonthAttendanceSelect = (cosCode) => {
+
+        const cosName = course.cosName;
+        navigate(`/attendance/month/${cosCode}`, { state : {cosName, students}});
+    }
 
 
     /* ============== 등록 & 수정 api ============== */
@@ -69,7 +79,7 @@ function MyCourseStudentListItem({cosCode, students, cosSdt, dayStatus}) {
 
 
 
-    /* ============== 셀렉트 박스 =============  */
+    /* ============== 셀렉트 박스 ============= */
 
     /* 셀렉트 박스 - 셀렉트 박스 클릭했을 때 stdCode, selectedValue 잘 나옴 */
     const handleSelectChange = (stdCode, selectedValue) => {
@@ -91,7 +101,7 @@ function MyCourseStudentListItem({cosCode, students, cosSdt, dayStatus}) {
         };
 
         return (
-            <select onChange={handleChange} value={props.value}>
+            <select onChange={handleChange} value={props.value || ''}>
                 {props.options.map((option) => (
                     <option
                         key={option.value}
@@ -238,13 +248,18 @@ function MyCourseStudentListItem({cosCode, students, cosSdt, dayStatus}) {
         }
     };
 
-    // useEffect로 컴포넌트 마운트 및 selectedDate 변경 감지
-    useEffect(() => {
-        const adjustedDate = adjustDate(selectedDate);
-        if (adjustedDate !== selectedDate) {
-            setSelectedDate(adjustedDate);
-        }
-    }, [selectedDate]);
+    // useEffect로 컴포넌트 마운트 및 selectedDate 변경 감지 ?????????????
+    // useEffect(() => {
+    //     const adjustedDate = adjustDate(selectedDate);
+    //     if (adjustedDate !== selectedDate) {
+    //         setSelectedDate(adjustedDate);
+    //     }
+    // }, [selectedDate]);
+    // ===================================================
+    // ===================================================
+    // 주말 이전 평일로 돌아가서 수정했을 경우 오늘 날짜로 등록되는 현상 있음 수정해야함
+    // ===================================================
+    // ===================================================
 
 
     /* ============== 데이트 피커 ============== */
@@ -331,7 +346,8 @@ function MyCourseStudentListItem({cosCode, students, cosSdt, dayStatus}) {
                                     <span className="right-button" onClick={handleNextDayClick}>▶</span>
                                 </div>
                                 <div className="buttons-container">
-                                    <button className="month-attend-select-button">월별 출석부 조회</button>
+                                    <button className="month-attend-select-button"
+                                    onClick={() => handleMonthAttendanceSelect(cosCode, students)}>월별 출석부 조회</button>
                                     <button className="attend-regist-button" onClick={buttonOnClick}>{buttonLabel}</button>
                                 </div>
                             </div>
