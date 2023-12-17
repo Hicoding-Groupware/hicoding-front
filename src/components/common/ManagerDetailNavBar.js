@@ -30,8 +30,7 @@ function ManagerDetailNavBar(){
                         <li>공지사항</li>
                     </ul>
                     <ul>
-                        <li><NavLink to="/message">받은 쪽지함</NavLink></li>
-                        <li>보낸 쪽지함</li>
+                        <li><NavLink to="/message">쪽지함</NavLink></li>
                     </ul>
                 </li>
             </ul>

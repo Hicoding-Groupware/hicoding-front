@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
-import {callMessageFileAPI, callReceiveDetailAPI} from "../../../apis/MessageAPICalls";
+import {callMessageFileAPI, callMessageSendAPI, callReceiveDetailAPI} from "../../../apis/MessageAPICalls";
 import Modal from "react-modal";
-import {useState} from "react";
+import {useRef, useState} from "react";
 
 function MessageReceive({data}) {
 
@@ -9,6 +9,13 @@ function MessageReceive({data}) {
     const [isOpen, setIsOpen] = useState(false);
     const [msgNo, setMsgNo] = useState(0);
     const {receiveDetail} = useSelector(state => state.messageReducer);
+    const [reply, setReply] = useState(false);
+    const [memberNo, setMemberNo] = useState([]);
+    const [message, setMessage] = useState('');
+    const replyfileInput = useRef();
+    const [fileUrl, setFileUrl] = useState('');
+    const [fileName, setFileName] = useState('');
+    const [form, setForm] = useState({});
 
     const formatDate = (dateString) => {
         if (!dateString) return ''; // null 값 처리
@@ -53,6 +60,70 @@ function MessageReceive({data}) {
         setIsOpen(false);
     }
 
+    /* 답장하기 모달창 띄우기 */
+    const onClickReply = (memberNo) => {
+        setReply(true);
+        setIsOpen(false);
+        setMemberNo(memberNo);
+        console.log(memberNo);
+    }
+
+    /* 답장하기 모달창 닫기 */
+    const onReplyCloseHandler = () => {
+        setReply(false);
+    }
+
+    /* 답장 모달창 메세지내용 */
+    const onChangeHandler = e => {
+        setMessage(e.target.value);
+
+    }
+
+    /* 파일 다운 */
+    const onClickFileUpload = () => {
+        replyfileInput.current.click();
+    }
+
+    /* 파일 */
+    const onChangeReplyFileUpload = () => {
+        const selectedFile = replyfileInput.current.files[0];
+
+        // 파일이 선택되었는지 확인
+        if (selectedFile) {
+
+            const fileName = selectedFile.name;
+
+            setFileName(`${fileName}`);
+
+            const fileReader = new FileReader();
+            fileReader.onload = (e) => {
+                const {result} = e.target;
+                if (result) setFileUrl(result);
+            };
+            fileReader.readAsDataURL(selectedFile);
+        } else {
+            // 파일이 선택되지 않은 경우에 대한 처리
+            console.warn("파일이 선택되지 않았습니다.");
+            // 아래는 선택되지 않은 경우에 대한 예외 처리 코드입니다.
+            // 선택되지 않은 경우에 할 작업이 없다면 이 블록은 생략 가능합니다.
+        }
+    }
+
+    /* 쪽지 답장하기 */
+    const onClickMessageRegist = () => {
+
+        form.msgContent = message;
+
+        console.log(memberNo);
+        form.receivers = [memberNo];
+
+        const formData = new FormData();
+        formData.append("msgFile", replyfileInput.current.files[0]);
+        formData.append("messageRequest", new Blob([JSON.stringify(form)], {type: 'application/json'}));
+        dispatch(callMessageSendAPI({registRequest: formData}));
+
+    }
+
     return (
         <div>
             <Modal
@@ -84,10 +155,62 @@ function MessageReceive({data}) {
                         <div className="message-buttons">
                         <div className="message-reset">삭제</div>
                         <div className="message-back">목록으로</div>
-                        <div className="write-button">답장하기</div>
+                        <div className="detail-write-button" onClick={() => onClickReply(receiveDetail.memberNo)}>답장하기</div>
                         </div>
                     </>
                 )}
+            </Modal>
+            <Modal
+                isOpen={reply}
+                ariaHideApp={false}
+                style={customStyles}
+                onRequestClose={onReplyCloseHandler}
+            >
+                <>
+
+                <div className="message-write-title">쪽지쓰기</div>
+                <div className="message-write-sub">
+                    <div className="message-receiver">받는 사람</div>
+                    <div className="message-receiverList">
+                        { receiveDetail &&
+                            <>
+                            {receiveDetail.sender}({receiveDetail.memberId})
+                            </>
+                        }
+                    </div>
+
+                </div>
+
+                <div>
+                    <textarea
+                        className="write-content"
+                        placeholder="쪽지를 입력해 주세요."
+                        name="msgContent"
+                        onChange={onChangeHandler}
+                    />
+                </div>
+                <div className="message-upload">
+                    <label
+                        htmlFor="message-fileUpload"
+                        onClick={onClickFileUpload}
+                    >
+                        첨부하기
+                    </label>
+                    <input
+                        className="message-fileUpload"
+                        type="file"
+                        ref={replyfileInput}
+                        name="msgFile"
+                        onChange={onChangeReplyFileUpload}
+                    />
+                    <input className="upload-name" value={fileName} placeholder="Sample 명단.pdf"/>
+                </div>
+                <div className="message-buttons">
+                    <button className="message-reset" >삭제</button>
+                    <button className="message-back" >목록으로</button>
+                    <button className="write-button" onClick={onClickMessageRegist}>쪽지쓰기</button>
+                </div>
+</>
             </Modal>
             <div className="message-table-tr">
                 <div className="message-th-no"><input type="checkbox" className="message-checkbox"/><span

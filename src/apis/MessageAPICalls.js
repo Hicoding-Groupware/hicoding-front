@@ -3,7 +3,7 @@ import {
     getFile,
     getMember,
     getReceiveDetail,
-    getReceiveMessage,
+    getReceiveMessage, getSendDetail,
     getSendMessage,
     postMessageSuccess
 } from "../modules/MessageModule";
@@ -132,6 +132,22 @@ export const callReceiveDetailAPI = ({msgNo}) => {
 
         if(result.status === 200) {
             dispatch(getReceiveDetail(result));
+        }
+    }
+
+};
+
+/* 보낸 쪽지 상세 조회 */
+export const callSendDetailAPI = ({msgNo}) => {
+
+    return async (dispatch, getState) => {
+
+        const result
+            = await authRequest.get(`/msgs/sender/${msgNo}`);
+        console.log('callReceiveDetailAPI result : ', result);
+
+        if(result.status === 200) {
+            dispatch(getSendDetail(result));
         }
     }
 

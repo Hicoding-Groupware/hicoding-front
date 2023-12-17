@@ -381,7 +381,7 @@
 
 .message-th-file {
     display: flex;
-    width: 200px;
+    width: 150px;
     height: 40px;
     padding: 0px 16px 0px 12px;
     flex-direction: column;
@@ -536,7 +536,7 @@
 
 .message-fileName {
 
-    width: 200px;
+    width: 150px;
     height: 40px;
     padding: 0px 16px 0px 12px;
     flex-direction: column;
@@ -705,6 +705,9 @@
     border-radius: 8px;
     border: 1px solid #CED4DA;
     resize: none;
+    overflow: auto; /* 스크롤 추가 */
+    white-space: pre-wrap; /* 줄바꿈 처리 */
+    word-wrap: break-word; /* 긴 단어의 줄바꿈 처리 */
 
     color: #868E96;
     font-feature-settings: 'clig' off, 'liga' off;
@@ -1184,4 +1187,85 @@
     font-style: normal;
     font-weight: 400;
     line-height: 20px; /* 142.857% */
+}
+
+.detail-write-button {
+    margin-left: 8px;
+    margin-top: 24px;
+
+    height: 20px;
+    padding: var(--Spacing8, 8px) var(--Spacing16, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--Spacing4, 4px);
+
+    border-radius: var(--8, 8px);
+    border: 1px solid var(--violet-500, #6260F4);
+    background: var(--violet-500, #6260F4);
+
+    color: var(--default-white, #FFF);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Subtitle2 */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+
+    cursor: pointer;
+}
+
+.detail-write-button:hover{
+    margin-left: 8px;
+    margin-top: 24px;
+    height: 20px;
+    padding: var(--Spacing8, 8px) var(--Spacing16, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--Spacing4, 4px);
+
+    border-radius: var(--8, 8px);
+    border: 1px solid var(--violet-500, #6260F4);
+    background: var(--default-white, #FFF);
+
+    color: var(--violet-500, #6260F4);
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Caption */
+    /* Subtitle2 */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+
+    cursor: pointer;
+}
+
+.message-send-back {
+    margin-left: 340px;
+    margin-top: 16px;
+    display: flex;
+    background-color: white;
+    border: 1px solid white;
+    height: 40px;
+    padding: var(--Spacing8, 8px) var(--Spacing16, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--Spacing4, 4px);
+
+    color: Gray/700;
+    text-align: right;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Subtitle2 */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+
+    cursor: pointer;
 }
