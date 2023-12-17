@@ -5,11 +5,12 @@ import memberReducer from "./MemberModule";
 import courseReducer from "./CourseModule";
 import loginReducer from "./LoginModule";
 import myCourseReducer from "./MyCourseModule";
+import noticeReducer, {boardReducer, commentReducer} from "./NoticeModule";
 
 const rootReducer = combineReducers({
     lectureReducer, courseReducer, myCourseReducer,
-    loginReducer, memberReducer,
-    studentReducer
+    loginReducer, memberReducer, boardReducer,
+    commentReducer, studentReducer
 });
 
 export default rootReducer;

@@ -1,16 +1,16 @@
 function PagingBar({ pageInfo, setCurrentPage }) {
 
-    // const pageNumber = [...Array(pageInfo.endPage - pageInfo.startPage + 1).keys()]
-    //                                 .map(key => key + pageInfo.startPage);
+    const pageNumber =
+        [...Array(pageInfo.endPage - pageInfo.startPage + 1).keys()]
+                                    .map(key => key + pageInfo.startPage);
 
-    const pageNumber = [];
-
-    for(let i = pageInfo.startPage; i <= pageInfo.endPage; i++) {
-        pageNumber.push(i);
-    }
+    // const pageNumber = [];
+    // for(let i = pageInfo.startPage; i <= pageInfo.endPage; i++) {
+    //     pageNumber.push(i);
+    // }
 
     return (
-        <ul className="paging-ul">
+        <ul className="notice-boardPaging">
             <li>
                 <button
                     className="paging-btn"

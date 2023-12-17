@@ -8,7 +8,7 @@ import './mainCss/navbar.css';
 import './mainCss/login.css';
 import './mainCss/main.css';
 import './course.css';
-import './board.css';
+import './notice.css';
 import Login from "./pages/member/Login";
 import Student from "./pages/student/Student";
 import StudentRegist from "./pages/student/StudentRegist";
@@ -30,8 +30,10 @@ import LastCourseList from "./components/course/lists/LastCourseList";
 import ScheduledCourseList from "./components/course/lists/ScheduledCourseList";
 import DailyAttendance from "./components/course/lists/DailyAttendance";
 import Profile from "./pages/member/Profile";
-import {BOARD_PATH} from "./apis/BoardAPICalls";
-import Notice from "./pages/board/Notice";
+import {BOARD_PATH} from "./apis/NoticeAPICalls";
+import NoticeLayout from "./layouts/NoticeLayout";
+import NoticeBoard from "./pages/notice/NoticeBoard";
+import NoticePost from "./pages/notice/NoticePost";
 
 function App() {
 
@@ -90,8 +92,10 @@ function App() {
                             <Route path='creation' element={<Creation/>}/>
                             <Route path='detailsView' element={<DetailsView/>}/>
                         </Route>
-                        <Route path={BOARD_PATH}>
-                            <Route path='notice' element={<Notice/>}/>
+                        <Route path={BOARD_PATH} element={<NoticeLayout/>}>
+                            <Route path="board"/>
+                            <Route path=":title/:role" element={<NoticeBoard/>}/>
+                            <Route path=":title/:role/:postNo/:recordType/:memberNo" element={<NoticePost/>}/>
                         </Route>
 
                     </Route>
