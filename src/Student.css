@@ -619,7 +619,7 @@
     cursor: pointer;
 }
 
-.regist:hover {
+. regist:hover {
     height: 40px;
     padding: var(--Spacing8, 8px) var(--Spacing16, 16px);
     justify-content: center;
@@ -653,8 +653,9 @@
     border: 1px solid #CED4DA;
 }
 
+
 .student-courseList {
-    display: flex;
+ display: flex;
 }
 
 .cosName {

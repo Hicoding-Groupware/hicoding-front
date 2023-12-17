@@ -8,6 +8,7 @@ import './mainCss/navbar.css';
 import './mainCss/login.css';
 import './mainCss/main.css';
 import './course.css';
+import './Message.css';
 import Login from "./pages/member/Login";
 import Student from "./pages/student/Student";
 import StudentRegist from "./pages/student/StudentRegist";
@@ -29,6 +30,7 @@ import LastCourseList from "./components/course/lists/LastCourseList";
 import ScheduledCourseList from "./components/course/lists/ScheduledCourseList";
 import DailyAttendance from "./components/course/lists/DailyAttendance";
 import Profile from "./pages/member/Profile";
+import Message from "./pages/message/Message";
 
 function App() {
 
@@ -83,6 +85,9 @@ function App() {
                             </ProtectedRoute>
                         }
                         />
+                        <Route path="message">
+                            <Route path="" element={<Message/>}/>
+                        </Route>
 
                         <Route path={MEMBER_PATH}>
                             <Route path='creation' element={<Creation/>}/>

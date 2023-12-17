@@ -121,6 +121,7 @@ function StudentRegist() {
             </Modal>
             <div className="student-regist-title">원생 등록</div>
             <div className="student-regist-table">
+
                 <div className="student-regist-input-first">
                     <div className="student-regist-sub">원생 이름(필수)</div>
                     <input
