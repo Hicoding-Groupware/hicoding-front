@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째">
+    <list default="true" id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="feat/#50/notice-board&#10;&#10;* merge 후 css 작업 파일 사라짐 잠깐 커밋">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
@@ -103,13 +103,34 @@
       <workItem from="1702788573361" duration="81000" />
       <workItem from="1702788924201" duration="32967000" />
     </task>
+    <task id="LOCAL-00001" summary="feat/#50/notice-board&#10;&#10;* merge 후 css 작업 파일 사라짐 잠깐 커밋">
+      <option name="closed" value="true" />
+      <created>1702830606550</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702830606551</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째" />
-    <option name="LAST_COMMIT_MESSAGE" value="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째" />
+    <MESSAGE value="feat/#50/notice-board&#10;&#10;* merge 후 css 작업 파일 사라짐 잠깐 커밋" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat/#50/notice-board&#10;&#10;* merge 후 css 작업 파일 사라짐 잠깐 커밋" />
   </component>
 </project>

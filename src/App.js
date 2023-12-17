@@ -8,6 +8,7 @@ import './mainCss/navbar.css';
 import './mainCss/login.css';
 import './mainCss/main.css';
 import './course.css';
+import './notice.css';
 import Student from "./pages/student/Student";
 import StudentRegist from "./pages/student/StudentRegist";
 import Creation from "./pages/member/Creation";
