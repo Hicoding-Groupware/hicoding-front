@@ -5,29 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째">
-      <change afterPath="$PROJECT_DIR$/src/components/algorithm/NoticeAlgorithms.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/notice/items/BoardPostListItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/notice/items/CommentListItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/notice/list/BoardPostList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/notice/list/CommentList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/notice/pagingBar/PagingBar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/layouts/NoticeLayout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/NoticeModule.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/notice/NoticeBoard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/notice/NoticeCategory.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/notice/NoticePost.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/notice/NoticeProfile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/notice/NoticeSidebar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/BoardAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/NoticeAPICalls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/MemberAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/MemberAPICalls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/board.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/notice.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/ManagerDetailNavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/ManagerDetailNavBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/PagingBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/PagingBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/MemberModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/MemberModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/board/Notice.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="feat/#50/notice-board" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -62,26 +41,26 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feat/#50/notice-board&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/hyeok/hicoding-front/src/components/notice/pagingBar&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.npmStart.executor&quot;: &quot;Run&quot;,
-    &quot;npm.run.executor&quot;: &quot;Run&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/hyeok/hicoding-front/src/components/notice/pagingBar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.npmStart.executor": "Run",
+    "npm.run.executor": "Run",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\hyeok\hicoding-front\src\components\notice\pagingBar" />

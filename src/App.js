@@ -1,16 +1,13 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Layout from "./layouts/Layout";
 import React from "react";
-import Main from "./pages/main/Main";
 import './Student.css';
 import './lecture.css';
 import './mainCss/navbar.css';
 import './mainCss/login.css';
 import './mainCss/main.css';
 import './course.css';
-import Login from "./pages/member/Login";
-import './board.css';
-import Login from "./Login";
+import './notice.css';
 import Student from "./pages/student/Student";
 import StudentRegist from "./pages/student/StudentRegist";
 import Creation from "./pages/member/Creation";
@@ -36,6 +33,7 @@ import NoticeLayout from "./layouts/NoticeLayout";
 import NoticeBoard from "./pages/notice/NoticeBoard";
 import NoticePost from "./pages/notice/NoticePost";
 import MainLayout from "./layouts/MainLayout";
+import Login from "./Login";
 function App() {
 
     return (
