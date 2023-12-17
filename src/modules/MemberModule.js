@@ -1,7 +1,6 @@
 
 /* 초기값 */
 import {createActions, handleActions} from "redux-actions";
-import {callMemberInquiryAPI} from "../apis/MemberAPICalls";
 
 const initialState = {};
 
