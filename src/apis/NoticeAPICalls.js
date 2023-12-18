@@ -11,7 +11,6 @@ import {
 export const BOARD_PATH = '/board'
 export const COMMENT_PATH = '/comment'
 
-// NoticeAPICalls.js
 export const callPostAPI = ({role, postNo, recordType, memberNo}) => {
     const reqParam = `/${role}/${postNo}/${recordType}/${memberNo}`;
 

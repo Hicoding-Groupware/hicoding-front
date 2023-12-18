@@ -2,7 +2,7 @@ import React from "react";
 import {useDispatch} from "react-redux";
 import {callCreationToCommentAPI, callDeleteToCommentAPI, callEditToCommentAPI} from "../../../apis/NoticeAPICalls";
 
-function CommentListItem({item, level}) {
+function CommentListItem({item}) {
 
     const dispatch = useDispatch()
 
@@ -47,13 +47,13 @@ function CommentListItem({item, level}) {
                 <button onClick={handleClick("modification")}>수정</button>
                 <button onClick={handleClick("delete")}>삭제</button>
             </div>
-            <div className="notice-commentTitle" style={renderIndentation(level)}>
+            <div className="notice-commentTitle" style={renderIndentation(item.depthLevel)}>
                 내용: {item.content}
             </div>
 
             {item.childrenList &&
                 item.childrenList.map((child) => (
-                    <CommentListItem key={child.no} item={child} level={level + 1}/>
+                    <CommentListItem key={child.no} item={child}/>
                 ))}
         </>
     )

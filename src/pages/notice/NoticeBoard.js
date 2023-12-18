@@ -4,7 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {callMemberProfileAPI} from "../../apis/MemberAPICalls";
 import BoardPostList from "../../components/notice/list/BoardPostList";
 import PagingBar from "../../components/notice/pagingBar/PagingBar";
-import {callCreationToCommentAPI, callCreationToPostAPI, callPostListAPI} from "../../apis/NoticeAPICalls";
+import {callCreationToPostAPI, callPostListAPI} from "../../apis/NoticeAPICalls";
+import {setBoardAccessStatus} from "../../modules/NoticeModule";
 
 function NoticeBoard() {
 
@@ -12,19 +13,24 @@ function NoticeBoard() {
     const {title, role} = useParams()
     const [currPage, setCurrPage] = useState(1)
     const {profileInfo} = useSelector(state => state.memberReducer);
-    const {boardPosts, isPostAccessGranted, isPostCreationSuccessfully} = useSelector(state => state.boardReducer)
+    const {
+        boardPosts,
+        isBoardAccessGranted,
+        isPostAccessGranted,
+        isPostCreationSuccessfully
+    } = useSelector(state => state.boardReducer)
 
     useEffect(() => {
+        setCurrPage(1)
         dispatch(callMemberProfileAPI());
         dispatch(callPostListAPI({role, currPage}))
-
-    }, []);
+    }, [title, role]);
 
     useEffect(() => {
-        if (isPostAccessGranted === true || isPostCreationSuccessfully === true) {
+        if (currPage || isPostAccessGranted === true || isPostCreationSuccessfully === true) {
             dispatch(callPostListAPI({role, currPage}))
         }
-    }, [isPostAccessGranted, isPostCreationSuccessfully]);
+    }, [currPage, isPostAccessGranted, isPostCreationSuccessfully]);
 
     const handleClick = (action) => (e) => {
         switch (action) {
@@ -42,7 +48,6 @@ function NoticeBoard() {
                 }))
                 break;
         }
-
     }
 
     return (

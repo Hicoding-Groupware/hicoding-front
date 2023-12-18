@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {callAccessToPostAPI} from "../../../apis/NoticeAPICalls";
 
-function BoardPostListItem({node, role, memberNo, level}) {
+function BoardPostListItem({node, role, memberNo}) {
 
     const dispatch = useDispatch()
     const navigate = useNavigate();
@@ -40,7 +40,7 @@ function BoardPostListItem({node, role, memberNo, level}) {
                     <td>{node.no}</td>
                     <td
                         onClick={handleClick("views")}
-                        className="notice-postTitle" style={renderIndentation(level)}
+                        className="notice-postTitle" style={renderIndentation(node.depthLevel)}
                     >
                         {node.title}</td>
                     <td>{node.writer.memberName}</td>
@@ -55,8 +55,7 @@ function BoardPostListItem({node, role, memberNo, level}) {
 
             {node.childrenList &&
                 node.childrenList.map((child) => (
-                    <BoardPostListItem key={child.no} node={child} role={role} memberNo={memberNo}
-                                       level={level + 1}/>
+                    <BoardPostListItem key={child.no} node={child} role={role} memberNo={memberNo}/>
                 ))}
         </>
     )
