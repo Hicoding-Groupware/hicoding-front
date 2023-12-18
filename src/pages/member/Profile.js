@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {callMemberProfileAPI, callMemberProfileRemoveAPI} from "../../apis/MemberAPICalls";
 import InformationUpdateModal from "../../components/modal/InformationUpdateModal";
 import {ToastContainer} from "react-toastify";
@@ -7,6 +7,8 @@ import PasswordUpdateModal from "../../components/modal/PasswordUpdateModal";
 import ImageUpload from "../../components/modal/ImageUpload";
 import {tr} from "date-fns/locale";
 import ImageModify from "../../components/modal/ImageModify";
+import {ko} from "date-fns/esm/locale";
+import DatePicker from "react-datepicker";
 
 function Profile() {
     const [informationUpdateModal, setInformationUpdateModal] = useState(false);
@@ -221,7 +223,8 @@ function Profile() {
 
                                 </td>
                                 <td className="sub-td">
-                                    <p>{profileInfo.joinedAt}</p>
+                                    <p>{profileInfo.joinedAt.replace('T', '').substring(0, 10)}</p>
+
                                 </td>
                             </tr>
 

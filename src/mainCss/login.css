@@ -29,17 +29,16 @@
     position: absolute;
 }
 
-.login-div input {
+.login-input{
     margin-top: 5px;
     margin-bottom: 5px;
-    height: 55px;
     width: 300px;
     border-radius: 10px;
     border-color: #f0f0f0;
     text-indent: 10px;
 }
 
-.login-div button {
+.modal-button {
     margin-top: 50px;
     margin-bottom: 5px;
     height: 55px;
@@ -130,8 +129,13 @@
 
 .input-user {
 
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 55px;
+    width: 300px;
+    border-radius: 10px;
+    text-indent: 10px;
     border: 1px solid #ccc;
-    width: 120px;
 }
 
 .input-user::-webkit-input-placeholder{
@@ -147,8 +151,15 @@
 
 .input-lock {
 
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 55px;
+    width: 300px;
     border: 1px solid #ccc;
-    width: 120px;
+    text-indent: 10px;
+    border-radius: 10px;
+
+
 }
 
 .input-lock::-webkit-input-placeholder{
@@ -160,6 +171,18 @@
     text-indent: 45px;
 
 
+}
+
+.login-form-button{
+    margin-top: 50px;
+    margin-bottom: 5px;
+    height: 55px;
+    width: 300px;
+    border-radius: 10px;
+    border-color: #5929d9;
+    background-color: #5929d9;
+    font-weight: bold;
+    color: white;
 }
 
 .forgot{
