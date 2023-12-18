@@ -1,16 +1,16 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useLocation, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {callMyCourseStudentMonthListAPI} from "../../../apis/AttendanceAPICalls";
 import MyCourseStudentListMonthItem from "../items/MyCourseStudentListMonthItem";
+import {callMyCourseStudentMonthListAPI} from "../../../apis/AttendanceAPICalls";
 
 function MonthAttendanceList() {
 
     const dispatch = useDispatch();
-    const { monthStudents } = useSelector(state => state.attendanceReducer);
+    const { monthStudentsInfo } = useSelector(state => state.attendanceReducer);
     const { cosCode } = useParams();
     const location = useLocation();
-    const { cosName } = location.state || {};
+    const { cosName, dayStatus, cosSdt } = location.state || {};
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -26,14 +26,6 @@ function MonthAttendanceList() {
             });
     }, [dispatch, cosCode]);
 
-
-    //
-    // useEffect(() => {
-    //     /* 해당 강의 월별 출석부 - 학생 정보, 출석 정보 리스트 조회 */
-    //     dispatch(callMyCourseStudentMonthListAPI({cosCode}));
-    // }, []);
-
-
     if (isLoading) {
         return <div>loading...</div>
     }
@@ -41,8 +33,11 @@ function MonthAttendanceList() {
     return(
         <>
             <MyCourseStudentListMonthItem
+                cosCode={cosCode}
                 title={cosName}
-                monthStudents={monthStudents}
+                monthStudents={monthStudentsInfo || []}
+                dayStatus={dayStatus}
+                cosSdt={cosSdt}
             />
         </>
     )

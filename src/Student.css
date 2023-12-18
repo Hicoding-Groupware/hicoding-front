@@ -394,20 +394,20 @@
     background: url("../public/img/RadioButtons.svg") no-repeat center;
 }
 
-.student-regist-input-birth {
-    margin-top: 8px;
-    display: flex;
-    width: 416px;
-    height: 40px;
-    padding-left: 16px;
-    align-items: center;
-    gap: 8px;
-    flex: 1 0 0;
-    align-self: stretch;
-    border-radius: 8px;
-    border: 1px solid #CED4DA;
+/*.student-regist-input-birth {*/
+/*    margin-top: 8px;*/
+/*    display: flex;*/
+/*    width: 416px;*/
+/*    height: 40px;*/
+/*    padding-left: 16px;*/
+/*    align-items: center;*/
+/*    gap: 8px;*/
+/*    flex: 1 0 0;*/
+/*    align-self: stretch;*/
+/*    border-radius: 8px;*/
+/*    border: 1px solid #CED4DA;*/
 
-}
+/*}*/
 
 .student-regist-input-phone {
     margin-top: 8px;

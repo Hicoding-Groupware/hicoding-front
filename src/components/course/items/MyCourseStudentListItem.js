@@ -5,10 +5,10 @@ import {
     callAttendanceUpdateAPI,
     callMyCourseStudentListAPI
 } from "../../../apis/AttendanceAPICalls";
-import {ToastContainer} from "react-toastify";
 import DatePicker from 'react-datepicker';
 import 'react-toastify/dist/ReactToastify.css';
 import {useNavigate} from "react-router-dom";
+import styled from "styled-components";
 
 
 
@@ -26,9 +26,8 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, dayStatus})
 
     /* ============== 월별 출석부로 이동 ============= */
     const handleMonthAttendanceSelect = (cosCode) => {
-
         const cosName = course.cosName;
-        navigate(`/attendance/month/${cosCode}`, { state : {cosName, students}});
+        navigate(`/attendance/month/${cosCode}`, { state : {cosCode, cosName, students, dayStatus, cosSdt}});
     }
 
 
@@ -63,6 +62,7 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, dayStatus})
         dispatch(callAttendanceRegistAPI({registRequest: attendanceList}));
     };
 
+    console.log("cosSdt!!!!!!!!!!232 : ", cosSdt);
 
     /* 수정 api updateRequest */
     const onClickAttendanceUpdateHandler = () => {
@@ -317,10 +317,19 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, dayStatus})
     }, [students]);
 
 
+    const CustomDatePicker = styled(DatePicker)`
+      border: none;
+      outline: none; /* 선택 시 외곽선 제거 (선택 사항) */
+      font-weight: bolder;
+      font-size: 22px;
+      cursor: pointer;
+      caret-color: transparent;
+      width: 133px;
+    `;
+
+
     return (
         <>
-            {/* toast 쓸건가욤? */}
-            <ToastContainer hideProgressBar={true} position="top-center"/>
             {
                 students
                 &&
@@ -333,8 +342,7 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, dayStatus})
                                 </div>
                                 <div className="date-picker-container">
                                     <span className="left-button" onClick={handlePrevDayClick}>◀</span>
-                                    <DatePicker
-                                        className="attendDatePicker"
+                                    <CustomDatePicker
                                         dateFormat='yyyy-MM-dd'
                                         name="selectedDate"
                                         selected={selectedDate}
@@ -347,7 +355,7 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, dayStatus})
                                 </div>
                                 <div className="buttons-container">
                                     <button className="month-attend-select-button"
-                                    onClick={() => handleMonthAttendanceSelect(cosCode, students)}>월별 출석부 조회</button>
+                                    onClick={() => handleMonthAttendanceSelect(cosCode, students, dayStatus, cosSdt)}>월별 출석부 조회</button>
                                     <button className="attend-regist-button" onClick={buttonOnClick}>{buttonLabel}</button>
                                 </div>
                             </div>

@@ -15,7 +15,7 @@ export const { student : { getStudentsInfo, postSuccess, getTeacherAttendance,
     [POST_SUCCESS] : () => ({ postSuccess: true }),
     [GET_TEACHER_ATTENDANCE] : result => ({ teacherAttendance : result.date }),
     [PUT_SUCCESS] : () => ({ putSuccess: true}),
-    [GET_MONTH_STUDENTS_INFO] : result => ({ monthStudents : result.data}),
+    [GET_MONTH_STUDENTS_INFO] : result => ({ monthStudentsInfo : result.data}),
 });
 
 const attendanceReducer = handleActions({
