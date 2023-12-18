@@ -6,7 +6,6 @@ import {callMemberRoleToNumberAPI} from "../../apis/MemberAPICalls";
 function NoticeCategory() {
 
     const dispatch = useDispatch()
-    const {profileInfo} = useSelector(state => state.memberReducer);
     const {convertedMemberRole} = useSelector(state => state.memberRoleReducer);
 
     useEffect(() => {
@@ -22,7 +21,7 @@ function NoticeCategory() {
 
                 <p>전사게시판</p>
                 <ul className="">
-                    <li><NavLink to="/board/전체글보기/01">전사공지</NavLink></li>
+                    <li><NavLink to="/board/전사공지/01">전사공지</NavLink></li>
                 </ul>
 
                 <p>부서게시판</p>

@@ -40,16 +40,20 @@ function CommentListItem({item}) {
 
     return (
         <>
-            <div style={{display: "flex", whiteSpace: "nowrap"}}>
-                <div>작성자: {item.writer.memberName}</div>
-                <div>등록일: {item.modifiedAt}</div>
-                <button onClick={handleClick("reply")}>댓글달기</button>
-                <button onClick={handleClick("modification")}>수정</button>
-                <button onClick={handleClick("delete")}>삭제</button>
-            </div>
-            <div className="notice-commentTitle" style={renderIndentation(item.depthLevel)}>
-                내용: {item.content}
-            </div>
+            {item.status === 'USABLE' && (
+                <>
+                    <div style={{display: "flex", whiteSpace: "nowrap"}}>
+                        <div>작성자: {item.writer.memberName}</div>
+                        <div>등록일: {item.createdAt}</div>
+                        <button onClick={handleClick("reply")}>댓글달기</button>
+                        <button onClick={handleClick("modification")}>수정</button>
+                        <button onClick={handleClick("delete")}>삭제</button>
+                    </div>
+                    <div className="notice-commentTitle" style={renderIndentation(item.depthLevel)}>
+                        내용: {item.content}
+                    </div>
+                </>
+            )}
 
             {item.childrenList &&
                 item.childrenList.map((child) => (

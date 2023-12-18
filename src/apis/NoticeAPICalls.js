@@ -87,9 +87,29 @@ export const callCreationToPostAPI = ({role, postCreationReq}) => {
 
         if (result?.status === 201) {
             console.log('callCreationToPostAPI result : ', result)
-            dispatch(setPostCreationStatus(true))
+            dispatch(getPost(result.data))
         } else {
             console.log("callCreationToPostAPI Call Fail")
+        }
+    }
+}
+
+export const callCreationToPostAPIStatus = ({role, postCreationReq}) => {
+    const reqParam = `/${role}`;
+
+    return async (dispatch, getState) => {
+        const result = await request(
+            'POST',
+            `${BOARD_PATH}${reqParam}`,
+            {'Content-Type': 'application/json'},
+            JSON.stringify(postCreationReq)
+        );
+
+        if (result?.status === 201) {
+            console.log('callCreationToPostAPIStatus result : ', result)
+            dispatch(setPostCreationStatus(true))
+        } else {
+            console.log("callCreationToPostAPIStatus Call Fail")
             dispatch(setPostCreationStatus(false))
         }
     }

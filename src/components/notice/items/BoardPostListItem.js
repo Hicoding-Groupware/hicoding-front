@@ -19,8 +19,8 @@ function BoardPostListItem({node, role, memberNo}) {
                 navigate(`${node.no}/${recordType}/${memberNo}`);
                 break;
             case "likes":
-                dispatch(callAccessToPostAPI({role, postNo: node.no, recordType, memberNo}))
-                console.log("CCCCCCCCCCCCCCCCCCCCCCCCCCCCC")
+                // dispatch(callAccessToPostAPI({role, postNo: node.no, recordType, memberNo}))
+                // console.log("CCCCCCCCCCCCCCCCCCCCCCCCCCCCC")
                 break;
         }
     };
@@ -34,9 +34,9 @@ function BoardPostListItem({node, role, memberNo}) {
 
     return (
         <>
-            {
+            {node.status === 'USABLE' && (
                 <tr key={node.no}>
-                    <td>[]</td>
+                    <td><input type="checkbox"/></td>
                     <td>{node.no}</td>
                     <td
                         onClick={handleClick("views")}
@@ -51,7 +51,7 @@ function BoardPostListItem({node, role, memberNo}) {
                     >
                         {node.likesCnt}</td>
                 </tr>
-            }
+            )}
 
             {node.childrenList &&
                 node.childrenList.map((child) => (

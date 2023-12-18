@@ -7,7 +7,7 @@ import {
     callPostAPI,
     callCommentListAPI,
     callCreationToCommentAPI,
-    callCreationPostReplyAndMoveAPI, callDeletionToPostAPI, callEditToPostAPI
+    callCreationPostReplyAndMoveAPI, callDeletionToPostAPI, callEditToPostAPI, callAccessToPostAPI
 } from "../../apis/NoticeAPICalls";
 
 function NoticePost() {
@@ -18,6 +18,7 @@ function NoticePost() {
 
     const {
         boardPost,
+        isPostAccessGranted,
         newPostingReplyNo,
         isPostEditSuccessfully,
         isPostDeletionSuccessfully,
@@ -35,14 +36,15 @@ function NoticePost() {
         path: '/board/:title/:role/:postNo/:recordType/:memberNo',
     });
 
-    const [currPage, setCurrPage] = useState(1)
-
     const {
+        title: title,
         role: role,
         postNo: postNo,
         recordType: recordType,
         memberNo: memberNo
     } = match?.params || {};
+
+    const [currPage, setCurrPage] = useState(1)
 
     // 초기화
     useEffect(() => {
@@ -69,11 +71,11 @@ function NoticePost() {
 
     // 게시글 수정 시 갱신
     useEffect(() => {
-        if (isPostEditSuccessfully === true) {
+        if (isPostEditSuccessfully === true || isPostAccessGranted === true) {
             dispatch(callPostAPI({role, postNo, recordType, memberNo}));
             dispatch(callCommentListAPI({postNo, currPage}));
         }
-    }, [isPostEditSuccessfully]);
+    }, [isPostEditSuccessfully, isPostAccessGranted]);
 
     // 게시글 삭제 시 목록으로 이동
     useEffect(() => {
@@ -84,18 +86,11 @@ function NoticePost() {
 
     const handleClick = (action) => (e) => {
         switch (action) {
+            case "likes":
+                dispatch(callAccessToPostAPI({ role, postNo, recordType: "likes", memberNo }));
+                break;
             case "postingReply":
-                dispatch(callCreationPostReplyAndMoveAPI({
-                    role: role,
-                    postCreationReq: {
-                        title: "작성된 게시글입니다.",
-                        content: "내용은 이렇습니다.",
-                        isPublic: true,
-                        isNoticePost: false,
-                        writerNo: memberNo,
-                        parentNo: postNo,
-                    }
-                }))
+                navigate(`/board/${title}/${role}/${memberNo}/${postNo}`)
                 break;
             case "edit":
                 dispatch(callEditToPostAPI({
@@ -132,24 +127,18 @@ function NoticePost() {
     return (
         (boardPost && postCommentList) ? (
             <>
-                <div>
-                    <button onClick={handleClick("postingReply")}>답글</button>
+                <div class="notice-post-page-tool">
+                    <button onClick={handleClick("postingReply")}>답글쓰기</button>
                     <button onClick={handleClick("edit")}>수정</button>
                     <button onClick={handleClick("deletion")}>삭제</button>
                     <button onClick={handleClick("postListMove")}>목록</button>
                 </div>
 
-                <br/><br/>
-
                 <div>제목: {boardPost.title}</div>
-                <div>내용: {boardPost.content}</div>
-                <div>공개여부: {boardPost.public}</div>
-                <div>공지사항: {boardPost.noticePost}</div>
-                <div>상태: {boardPost.status}</div>
+                <button onClick={handleClick("likes")}>좋아요</button>
+                <div>작성자: {boardPost.writer.memberName}</div>
                 <div>등록일자: {boardPost.createdAt}</div>
-                <div>부모 정보: {boardPost.writer.name}</div>
-
-                <br/><br/>
+                <div>내용: {boardPost.content}</div>
 
                 <div style={{display: "flex", whiteSpace: "nowrap"}}>
                     <div>총 댓글 수: {0}</div>
@@ -163,7 +152,7 @@ function NoticePost() {
             </>
         ) : (
             <div>
-                <div>Loading...</div>
+            <div>Loading...</div>
             </div>
         )
     );
