@@ -1,20 +1,13 @@
 import {authRequest} from "./Api";
-import {getCourses, getDetailCourse} from "../modules/MyCourseModule";
+import {getCourses} from "../modules/MyCourseModule";
 
 
-
-export const callMyCourseListAPI = ({currentPage }) => {
+/* 진행중인 강의 */
+export const callMyCourseListAPI = ({ currentPage }) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/lecture/progress?page=${currentPage}`,
-            {
-                headers : {
-                    'Content-Type' : 'application/json'
-                }
-            }).catch(e => {
-            console.log(e);
-        });
+        const result = await authRequest.get(`/lecture/progress?page=${currentPage}`);
 
         console.log('callMyCourseListAPI result : ', result);
 
@@ -24,19 +17,12 @@ export const callMyCourseListAPI = ({currentPage }) => {
     }
 }
 
-
+/* 지난 강의 */
 export const callLastMyCourseListAPI = ({currentPage }) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/lecture/last?page=${currentPage}`,
-            {
-                headers : {
-                    'Content-Type' : 'application/json'
-                }
-            }).catch(e => {
-            console.log(e);
-        });
+        const result = await authRequest.get(`/lecture/last?page=${currentPage}`);
 
         console.log('callLastMyCourseListAPI result : ', result);
 
@@ -46,19 +32,12 @@ export const callLastMyCourseListAPI = ({currentPage }) => {
     }
 }
 
-
+/* 예정 강의 */
 export const callScheduledMyCourseListAPI = ({ currentPage }) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/lecture/scheduled?page=${currentPage}`,
-            {
-                headers : {
-                    'Content-Type' : 'application/json'
-                }
-            }).catch(e => {
-            console.log(e);
-        });
+        const result = await authRequest.get(`/lecture/scheduled?page=${currentPage}`);
 
         console.log('callScheduledMyCourseListAPI result : ', result);
 
@@ -69,14 +48,24 @@ export const callScheduledMyCourseListAPI = ({ currentPage }) => {
 }
 
 
-export const callDailyAttendanceAPI = ({ cosCode }) => {
+/* 메인에서 가져올 진행중인 강의 */
+export const callToMainMyCourseListAPI = ({currentPage }) => {
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/attendance/day/${cosCode}`);
+        const result = await authRequest.get(`/lecture/mainProgress?page=${currentPage}`,
+            {
+                headers : {
+                    'Content-Type' : 'application/json'
+                }
+            }).catch(e => {
+            console.log(e);
+        });
+
+        console.log('callToMainMyCourseListAPI result : ', result);
 
         if(result?.status === 200) {
-            dispatch(getDetailCourse(result)); // 임시
+            dispatch(getCourses(result));
         }
     }
 }

@@ -1,13 +1,13 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Layout from "./layouts/Layout";
 import React from "react";
-import Main from "./pages/main/Main";
 import './Student.css';
 import './lecture.css';
 import './mainCss/navbar.css';
 import './mainCss/login.css';
 import './mainCss/main.css';
 import './course.css';
+import './notice.css';
 import './Message.css';
 import Login from "./pages/member/Login";
 import Student from "./pages/student/Student";
@@ -28,8 +28,16 @@ import InProgressList from "./components/course/lists/InProgressList";
 import MyLectureDetailInfo from "./components/modal/MyLectureDetailInfo";
 import LastCourseList from "./components/course/lists/LastCourseList";
 import ScheduledCourseList from "./components/course/lists/ScheduledCourseList";
-import DailyAttendance from "./components/course/lists/DailyAttendance";
+import DailyAttendanceList from "./components/course/lists/DailyAttendanceList";
 import Profile from "./pages/member/Profile";
+import {BOARD_PATH} from "./apis/NoticeAPICalls";
+import NoticeLayout from "./layouts/NoticeLayout";
+import NoticeBoard from "./pages/notice/NoticeBoard";
+import NoticePost from "./pages/notice/NoticePost";
+import MainLayout from "./layouts/MainLayout";
+import Login from "./Login";
+import CourseMainProceeding from "./pages/course/CourseMainProceeding";
+import CourseMainExpected from "./pages/course/CourseMainExpected";
 import Message from "./pages/message/Message";
 
 function App() {
@@ -41,18 +49,18 @@ function App() {
 
                     <Route path="/login" element={<ProtectedRoute loginCheck={false}><Login/></ProtectedRoute>}/>
                     <Route path="/" element={<ProtectedRoute loginCheck={true}><Layout/></ProtectedRoute>}>
-                        <Route index element={<Main/>}/>
+                        <Route index element={<MainLayout/>}/>
                         <Route path="profile" element={<Profile/>}/>
 
                         <Route path="lecture" element={<LectureMain/>}/>
                         <Route path="courses">
-                            <Route path="" element={<CourseMain/>}/>
+                            <Route path="proceeding" element={<CourseMainProceeding/>}/>
+                            <Route path="expected" element={<CourseMainExpected/>}/>
                             <Route path=":cosCode" element={<CourseDetail/>}/>
                         </Route>
                         <Route path="course-regist" element={<CourseRegist/>}/>
                         <Route path="schedule">
                             <Route path="academy" element={<AcademySchedule/>}/>
-                            <Route path="course" element={<CourseSchedule/>}/>
                             <Route path="classroom" element={<ClassroomSchedule/>}/>
                         </Route>
                         <Route path="mylecture">
@@ -61,11 +69,8 @@ function App() {
                             <Route path="scheduledcourse" element={<ScheduledCourseList/>}/>
                             <Route path=":cosCode" element={<MyLectureDetailInfo/>}/>
                         </Route>
-                        <Route path="mylecture">
-
-                        </Route>
                         <Route path="attendance">
-                            <Route path="day/:cosCode" element={<DailyAttendance/>}/>
+                            <Route path="day/:cosCode" element={<DailyAttendanceList/>}/>
                         </Route>
                         <Route path="students" element={
                             <ProtectedRoute authCheck={true}>
@@ -92,6 +97,11 @@ function App() {
                         <Route path={MEMBER_PATH}>
                             <Route path='creation' element={<Creation/>}/>
                             <Route path='detailsView' element={<DetailsView/>}/>
+                        </Route>
+                        <Route path={BOARD_PATH} element={<NoticeLayout/>}>
+                            <Route path="board"/>
+                            <Route path=":title/:role" element={<NoticeBoard/>}/>
+                            <Route path=":title/:role/:postNo/:recordType/:memberNo" element={<NoticePost/>}/>
                         </Route>
 
                     </Route>

@@ -1,6 +1,5 @@
 import axios from "axios";
 import {getAccessTokenHeader, getRefreshTokenHeader, saveToken} from "../utils/TokenUtils";
-import {MEMBER_PATH} from "./MemberAPICalls";
 
 const SERVER_IP = `${process.env.REACT_APP_RESTAPI_SERVER_IP}`;
 const SERVER_PORT = `${process.env.REACT_APP_RESTAPI_SERVER_PORT}`;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import ManagerDetailNavBar from "./ManagerDetailNavBar";
 import {removeToken} from "../../utils/TokenUtils";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import DetailNavBar from "./DetailNavBar";
 import {useDispatch, useSelector} from "react-redux";
 import {callMemberProfileAPI} from "../../apis/MemberAPICalls";
@@ -15,10 +15,15 @@ function Navbar() {
 
     const dispatch = useDispatch();
     const {profileInfo} = useSelector(state => state.memberReducer);
+    const navigate = useNavigate();
 
     useEffect(() => {
         dispatch(callMemberProfileAPI());
     }, []);
+
+    const onClickImageHandler = () => {
+        navigate('/profile')
+    }
 
     return (
         <>
@@ -41,9 +46,30 @@ function Navbar() {
                 </ul>
                 {
                     profileInfo &&
+                    <>
+                        {profileInfo.memberProfile === null ?
+                            (
+                                <div style={{height : 40, width : 40, borderRadius : 100, position : "relative"
+                                    , display : "inline-flex", border : "1px solid rgba(7, 7, 7, 0.16)", left : 1710, top : -48
+                                }}>
+                                    <img onClick={onClickImageHandler} style={{position : "absolute", top : 0, left : 0, width : "100%", height : "100%", borderRadius : 100, cursor : "pointer"}}
+                                         src="https://github.com/Hicoding-Groupware/hicoding-front/assets/138549261/98298a80-33e9-4918-9e77-09ebd8bfc335"
+                                    />
+                                </div>
+                            ) : (
+                                <div style={{height : 40, width : 40, borderRadius : 100, position : "relative"
+                                    , display : "inline-flex", border : "1px solid rgba(7, 7, 7, 0.16)", left : 1710, top : -48
+                                }}>
+                                    <img onClick={onClickImageHandler} style={{position : "absolute", top : 0, left : 0, width : "100%", height : "100%", borderRadius : 100, cursor : "pointer"}} src={profileInfo.memberProfile}/>
+                                </div>
+                            )
+                        }
+
+
                     <p
-                        style={{display : "flex", maxWidth : "42px", position : "relative", left : 1760, top: -40, color : "white"}}
+                        style={{display : "flex", maxWidth : "42px", position : "relative", left : 1760, top: -95, color : "white"}}
                     >{profileInfo.memberName}</p>
+                    </>
                 }
                 <img className="logout-img" alt="logout" src="/img/logout.png" onClick={onClickLogoutHandler}
                      style={{display : "flex", position : "relative", }}/>

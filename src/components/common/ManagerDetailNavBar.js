@@ -1,5 +1,7 @@
 import {NavLink} from "react-router-dom";
 import {MEMBER_PATH} from "../../apis/MemberAPICalls";
+import {BOARD_PATH} from "../../apis/NoticeAPICalls";
+
 function ManagerDetailNavBar(){
 
     return(
@@ -17,17 +19,15 @@ function ManagerDetailNavBar(){
                     </ul>
                     <ul style={{paddingLeft : 13}}>
                         <li><NavLink to="/lecture">강의관리</NavLink></li>
-                        <li><NavLink to="/courses">과정관리</NavLink></li>
+                        <li><NavLink to="/courses/proceeding">과정관리</NavLink></li>
                         <li><NavLink to="/course-regist">과정등록</NavLink></li>
                     </ul>
                     <ul>
-                        <li><NavLink to="/schedule/academy">학원일정</NavLink></li>
-                        <li><NavLink to="/schedule/course">과정일정</NavLink></li>
-                        <li><NavLink to="/schedule/classroom"> 강의실 일정</NavLink></li>
+                        <li><NavLink to="/schedule/academy">과정일정</NavLink></li>
+                        <li><NavLink to="/schedule/classroom"> 강의실일정</NavLink></li>
                     </ul>
                     <ul>
-                        <li>자료실</li>
-                        <li>공지사항</li>
+                        <li><NavLink to={BOARD_PATH}>공지사항</NavLink></li>
                     </ul>
                     <ul>
                         <li><NavLink to="/message">쪽지함</NavLink></li>

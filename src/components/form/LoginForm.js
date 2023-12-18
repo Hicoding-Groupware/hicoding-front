@@ -13,10 +13,11 @@ function LoginForm(){
     const [form, setForm] = useState({});
     const loginReducer = useSelector(state => state.loginReducer);
     const dispatch = useDispatch();
-
+    const {logins} = useSelector(state => state.loginReducer);
 
     useEffect(() => {
         if(loginReducer?.loginSuccess === true) {
+
             window.location.replace("/");
         } else if(loginReducer?.loginSuccess === false) {
             toast.dismiss();
@@ -68,7 +69,7 @@ function LoginForm(){
                         onChange={onChangeHandler}
                         onKeyPress={handleOnKeyPress}
                     />
-                    <button onClick={onClickLoginHandler}>Sign In</button>
+                    <button style={{cursor : "pointer"}} onClick={onClickLoginHandler}>Sign In</button>
                     <p className="forgot">Forgot password?</p>
                 </>
             )}

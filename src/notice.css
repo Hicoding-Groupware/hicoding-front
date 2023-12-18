@@ -1,0 +1,78 @@
+
+.notice-container {
+    display: flex;
+    justify-content: center;
+    width: 1200px;
+    height: 100vh;
+    background-color: white;
+    margin: auto; /* 부모 가로 가운데 정렬을 위해 추가 */
+}
+
+.notice-sidebar {
+    width: 10%;
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+
+.notice-board {
+    background-color: white;
+    flex: 1;
+    padding: 20px;
+    width: 1000px;
+}
+
+.notice-postTable {
+    background-color: #5a38a8;
+    width: 100%;
+}
+
+.notice-postTableBody {
+    text-align: center;
+}
+
+.notice-memberInfo {
+    background-color: lightslategray;
+}
+
+.notice-sideWriting {
+    background-color: chocolate;
+}
+
+.notice-sideSearch {
+    background-color: mediumturquoise;
+}
+
+.notice-category {
+    background-color: darkgoldenrod;
+}
+
+.notice-title {
+    background-color: #3C4248;
+}
+
+.notice-tool {
+    background-color: blueviolet;
+}
+
+.notice-posts {
+    background-color: lightslategrey;
+}
+
+.notice-bottomWriting {
+    background-color: salmon;
+}
+
+.notice-boardPaging {
+    background-color: sienna;
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    list-style-type: none;
+    margin-bottom: 30px;
+     /* 세로 전체 높이로 설정하면 수직 가운데 정렬이 더 잘 보일 수 있습니다. */
+
+}
+
+.notice-bottomSearch {
+    background-color: lightseagreen;
+}

@@ -10,7 +10,7 @@ import {putSuccess} from "../../modules/LoginModule";
 
 function FirstLoginModal() {
 
-    const {logins, putSuccess, PutFailure} = useSelector(state => state.loginReducer);
+    const {logins, putSuccess} = useSelector(state => state.loginReducer);
     const dispatch = useDispatch();
     const [info, setInfo] = useState({});
     const navigate = useNavigate();
@@ -20,12 +20,11 @@ function FirstLoginModal() {
     useEffect(() => {
         const updateAndNavigate = async () => {
             if (putSuccess === true) {
-                toast.warning('개인정보 업데이트를 완료했습니다.');
+                alert('개인정보 업데이트를 완료했습니다.');
                 await navigate('/login', { replace: true });  // await를 사용하여 navigate가 완료될 때까지 기다림
             }
         };
 
-        updateAndNavigate();
     }, [putSuccess, navigate]);
 
 
@@ -135,7 +134,8 @@ function FirstLoginModal() {
                                 onChange={onChangeHandler}
                                 readOnly
                             />
-                            <button style={{width : '130px', borderColor : 'rgba(117, 100, 166, 0.18)', height : '40px', margin : '0px 0px 0px 15px'}} onClick={searchAddress}>찾기</button>
+                            <button style={{width : '130px', borderColor : 'rgba(117, 100, 166, 0.18)', height : '40px', margin : '0px 0px 0px 10px',
+                            cursor : "pointer"}} onClick={searchAddress}>찾기</button>
                         </td>
                     </tr>
                     <tr>
@@ -232,7 +232,7 @@ function FirstLoginModal() {
 
                             <button className="modal-button"
                                     onClick={ onClickInfoUpdateHandler }
-                                    style={{width : '150px', margin : '10px 10px 40px 0px', height : '45px'}}
+                                    style={{width : '150px', margin : '10px 10px 40px 0px', height : '45px', cursor : "pointer"}}
 
                             >
                                 확인
@@ -241,7 +241,7 @@ function FirstLoginModal() {
 
                             <button className="modal-button"
                                     onClick={ onClickCancelHandler }
-                                    style={{width : '150px', margin : '10px 0px 40px 0px',  height : '45px'}}
+                                    style={{width : '150px', margin : '10px 0px 40px 0px',  height : '45px', cursor : "pointer"}}
                             >
                                 취소
                            </button>

@@ -9,7 +9,6 @@ function PagingBar({ pageInfo, setCurrentPage }) {
         pageNumber.push(i);
     }
 
-
     return (
         <ul className="paging-ul">
             <li>

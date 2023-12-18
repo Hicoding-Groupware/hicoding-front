@@ -5,7 +5,7 @@ import {
     getReceiveDetail,
     getReceiveMessage, getSendDetail,
     getSendMessage,
-    postMessageSuccess, putDeleteSuccess
+    postMessageSuccess, putDeleteSuccess, getMessage
 } from "../modules/MessageModule";
 import {postSuccess, putSuccess} from "../modules/StudentModule";
 import {toast} from "react-toastify";
@@ -165,10 +165,31 @@ export const callReceiveDelete = ({deleteRequest}) => {
         });
         console.log('callReceiveDelete result : ', result);
 
-        if(result.status === 200) {
+        if (result.status === 200) {
             dispatch(putDeleteSuccess());
             toast.info("삭제가 완료되었습니다.");
         }
     }
 
+    /* 메인에서 가져올 진행중인 강의 */
+export const callMainMessageAPI = ({messageCurrentPage}) => {
+
+        return async (dispatch, getState) => {
+
+            const result = await authRequest.get(`/mainMsgs?page=${messageCurrentPage}`,
+                {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).catch(e => {
+                console.log(e);
+            });
+
+            console.log('callMainMessageAPI result : ', result);
+
+            if (result?.status === 200) {
+                dispatch(getMessage(result));
+            }
+        }
+    }
 }
