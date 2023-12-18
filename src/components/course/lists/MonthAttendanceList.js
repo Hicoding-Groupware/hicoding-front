@@ -10,7 +10,7 @@ function MonthAttendanceList() {
     const { monthStudentsInfo } = useSelector(state => state.attendanceReducer);
     const { cosCode } = useParams();
     const location = useLocation();
-    const { cosName, dayStatus, cosSdt } = location.state || {};
+    const { cosName, dayStatus, cosSdt, cosEdt } = location.state || {};
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -38,6 +38,7 @@ function MonthAttendanceList() {
                 monthStudents={monthStudentsInfo || []}
                 dayStatus={dayStatus}
                 cosSdt={cosSdt}
+                cosEdt={cosEdt}
             />
         </>
     )

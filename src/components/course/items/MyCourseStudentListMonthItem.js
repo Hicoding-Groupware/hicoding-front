@@ -2,13 +2,21 @@ import {useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
 import DatePicker from "react-datepicker";
 import styled from "styled-components";
-import {formatDate} from "@fullcalendar/core";
 import {useDispatch} from "react-redux";
 import {callMyCourseStudentMonthListAPI} from "../../../apis/AttendanceAPICalls";
 
+const CustomDatePicker = styled(DatePicker)`
+  border: none;
+  outline: none; /* 선택 시 외곽선 제거 (선택 사항) */
+  font-weight: bolder;
+  font-size: 30px;
+  cursor: pointer;
+  caret-color: transparent;
+  width: 133px;
+  margin-left: 8%;
+`;
 
-
-function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode, cosSdt}) {
+function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode, cosSdt, cosEdt}) {
 
     const location = useLocation();
     const [calendarHeaders, setCalendarHeaders] = useState([]);
@@ -17,6 +25,7 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
     const {students} = location.state || {students: []};
     const [selectedDate, setSelectedDate] = useState(new Date());
     const dispatch = useDispatch();
+
 
 
     useEffect(() => {
@@ -44,21 +53,61 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
 
     /* 데이트 피커 */
     const handleMonthChange = (newDate) => {
-        setSelectedDate(date);
-        const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-        dispatch(callMyCourseStudentMonthListAPI({cosCode, atdDate: formattedDate}));
-    }
+        setSelectedDate(newDate);
+        fetchMonthData(newDate);
+    };
 
     const handlePrevMonth = () => {
-        setCurrentMonth(prev => prev - 1 === 0 ? 12 : prev - 1);
-        setCurrentYear(prev => (currentMonth - 1 === 0 ? prev - 1 : prev));
+        let newYear = currentYear;
+        let newMonth = currentMonth - 1;
+
+        if (newMonth < 1) {
+            newYear--;
+            newMonth = 12;
+        }
+
+        const newDate = new Date(newYear, newMonth - 1, 1);
+        if (newDate >= new Date(cosSdt)) {
+            handleMonthChange(newDate);
+            setCurrentMonth(newMonth);
+            setCurrentYear(newYear);
+        }
     };
 
     const handleNextMonth = () => {
-        setCurrentMonth(prev => prev + 1 === 13 ? 1 : prev + 1);
-        setCurrentYear(prev => (currentMonth + 1 === 13 ? prev + 1 : prev));
+        let newYear = currentYear;
+        let newMonth = currentMonth + 1;
+
+        if (newMonth > 12) {
+            newYear++;
+            newMonth = 1;
+        }
+
+        const newDate = new Date(newYear, newMonth - 1, 1);
+        handleMonthChange(newDate);
+        setCurrentMonth(newMonth);
+        setCurrentYear(newYear);
     };
 
+    const fetchMonthData = (date) => {
+        try {
+            const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-01`; // 날짜를 매달 1일로 설정
+            console.log('Dispatching action:', callMyCourseStudentMonthListAPI({cosCode, atdDate: formattedDate}));
+            dispatch(callMyCourseStudentMonthListAPI({cosCode, atdDate: formattedDate}));
+            console.log('Action dispatched');
+        } catch (error) {
+            console.log('Error in fetchMonthData : ', error);
+        }
+    };
+
+    console.log('Selected Date:', selectedDate);
+    console.log('Current Month:', currentMonth);
+    console.log('Current Year:', currentYear);
+
+    useEffect(() => {
+        console.log('Fetching data for:', selectedDate);
+        fetchMonthData(selectedDate);
+    }, [selectedDate, cosCode]);
 
 
     /* 출석률 계산 */
@@ -90,6 +139,7 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
                 }
             }
         });
+
         // 지각 조퇴 = 3번 = 결석
         const combinedLateEarly = attendanceCounts.tardiness + attendanceCounts.leave_early;
         attendanceCounts.absence += Math.floor(combinedLateEarly / 3);
@@ -97,13 +147,33 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
         attendanceCounts.leave_early %= 3;
 
         return attendanceCounts;
-
     }
 
-    function calculateAttendanceRate(attendanceCounts, totalDaysInMonth) {
+    function calculateWorkingDays(cosSdt, cosEdt, dayStatus) {
+        let count = 0;
+        let date = new Date(cosSdt);
+        let endDate = new Date(cosEdt);
+
+        while (date <= endDate) {
+            if((dayStatus === 'WEEKDAY' && isWeekday(date)) || (dayStatus === 'WEEKEND' && isWeekend(date))) {
+                count++;
+            }
+            date.setDate(date.getDate() + 1);
+        }
+
+        return count;
+    }
+
+    function calculateAttendanceRate(attendanceCounts, cosSdt, cosEdt, dayStatus) {
+        const totalDays = calculateWorkingDays(cosSdt, cosEdt, dayStatus);
+
+        if (totalDays === 0) {
+            return '0.00';
+        }
+
         const presentDays = attendanceCounts.attendance;
-        const attendanceRate = (presentDays / totalDaysInMonth) * 100;
-        return attendanceRate.toFixed(2); // 소수점 둘째 자리 까지 표시
+        const attendanceRate = (presentDays / totalDays) * 100;
+        return attendanceRate.toFixed(2);
     }
 
 
@@ -119,35 +189,29 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
         return day === 0 || day === 6;
     }
 
-    const CustomDatePicker = styled(DatePicker)`
-      border: none;
-      outline: none; /* 선택 시 외곽선 제거 (선택 사항) */
-      font-weight: bolder;
-      font-size: 22px;
-      cursor: pointer;
-      caret-color: transparent;
-      width: 133px;
-    `;
-
-
-
-    console.log("cosSdt : ", cosSdt);
-
 
     return (
         <>
-            <h2>{title}</h2>
-            <button onClick={handlePrevMonth}>◀</button>
-
-            <CustomDatePicker
-                dateFormat="yyyy-MM"
-                showMonthYearPicker
-                selected={selectedDate}
-                onChange={(date) => handleMonthChange(date)}
-                minDate={new Date(cosSdt)}
-                />
-
-            <button onClick={handleNextMonth}>▶</button>
+            <div className="month-header-container">
+                <div className="month-title-container">
+                    <h2 className="month-h2-title">{title}</h2>
+                </div>
+                <div className="month-datepicker-container">
+                    <button onClick={handlePrevMonth}
+                            className="month-button">◀
+                    </button>
+                    <CustomDatePicker
+                        dateFormat="yyyy-MM"
+                        showMonthYearPicker
+                        selected={selectedDate}
+                        onChange={(date) => handleMonthChange(date)}
+                        minDate={new Date(cosSdt)}
+                    />
+                    <button onClick={handleNextMonth}
+                            className="month-button">▶
+                    </button>
+                </div>
+            </div>
             <table className="month-table">
                 <thead className="calendarHeader">
                 <tr>{calendarHeaders}</tr>

@@ -247,7 +247,6 @@ a {
 
 
 /* 일별 출석부 */
-
 .daily-attendance-main-container {
     font-family: 'Pretendard-Regular', serif;
     font-size: 15px;
@@ -263,7 +262,6 @@ a {
 
 .month-attend-select-button {
     margin: 0 0 0 85%;
-
 }
 .attend-regist-button {
     margin: 0 0 0 95%;
@@ -313,19 +311,6 @@ a {
     outline: none;
     box-shadow: 0 0 5px rgba(98, 0, 255, 0.7);
 }
-
-/*ddddddddddddddddddddddddddddddddddddddddddd*/
-/*.react-datepicker-wrapper,*/
-/*.react-datepicker__input-container,*/
-/*.react-datepicker__input-container input {*/
-/*    border: none;*/
-/*    outline: none; !* 선택 시 외곽선 제거 (선택 사항) *!*/
-/*    font-weight: bolder;*/
-/*    font-size: 22px;*/
-/*    cursor: pointer;*/
-/*    caret-color: transparent;*/
-/*    width: 133px;*/
-/*}*/
 
 .left-button {
     z-index: 100;
@@ -466,7 +451,6 @@ a {
     /* 'nth-of-type'를 사용하여 각 날짜에 대한 라벨을 추가 */
 }
 
-
 .grey-out {
     background-color: #e7e7e7;
 }
@@ -474,4 +458,40 @@ a {
 .month-table {
     width: 90%;
     margin-left: 5%;
+}
+
+
+
+.month-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 2%;
+}
+
+.month-title-container {
+    flex: 1;
+    text-align: left;
+}
+
+.month-datepicker-container {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+    margin-right: 25%;
+    font-size: 20px;
+}
+
+.month-h2-title {
+    margin-left: 19%;
+    margin-top: 15%;
+}
+
+.month-button {
+    border: none;
+    background-color: white;
+    font-size: 25px;
 }

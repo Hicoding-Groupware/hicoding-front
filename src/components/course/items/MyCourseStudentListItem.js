@@ -10,10 +10,19 @@ import 'react-toastify/dist/ReactToastify.css';
 import {useNavigate} from "react-router-dom";
 import styled from "styled-components";
 
+const CustomDatePicker = styled(DatePicker)`
+      border: none;
+      outline: none; /* 선택 시 외곽선 제거 (선택 사항) */
+      font-weight: bolder;
+      font-size: 22px;
+      cursor: pointer;
+      caret-color: transparent;
+      width: 133px;
+    `;
 
 
 
-function MyCourseStudentListItem({course, cosCode, students, cosSdt, dayStatus}) {
+function MyCourseStudentListItem({course, cosCode, students, cosSdt, cosEdt, dayStatus}) {
 
     const [status, setStatus] = useState({});
     const dispatch = useDispatch();
@@ -27,7 +36,7 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, dayStatus})
     /* ============== 월별 출석부로 이동 ============= */
     const handleMonthAttendanceSelect = (cosCode) => {
         const cosName = course.cosName;
-        navigate(`/attendance/month/${cosCode}`, { state : {cosCode, cosName, students, dayStatus, cosSdt}});
+        navigate(`/attendance/month/${cosCode}`, { state : {cosCode, cosName, students, dayStatus, cosSdt, cosEdt}});
     }
 
 
@@ -317,16 +326,6 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, dayStatus})
     }, [students]);
 
 
-    const CustomDatePicker = styled(DatePicker)`
-      border: none;
-      outline: none; /* 선택 시 외곽선 제거 (선택 사항) */
-      font-weight: bolder;
-      font-size: 22px;
-      cursor: pointer;
-      caret-color: transparent;
-      width: 133px;
-    `;
-
 
     return (
         <>
@@ -355,7 +354,7 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, dayStatus})
                                 </div>
                                 <div className="buttons-container">
                                     <button className="month-attend-select-button"
-                                    onClick={() => handleMonthAttendanceSelect(cosCode, students, dayStatus, cosSdt)}>월별 출석부 조회</button>
+                                    onClick={() => handleMonthAttendanceSelect(cosCode, students, dayStatus, cosSdt, cosEdt)}>월별 출석부 조회</button>
                                     <button className="attend-regist-button" onClick={buttonOnClick}>{buttonLabel}</button>
                                 </div>
                             </div>
