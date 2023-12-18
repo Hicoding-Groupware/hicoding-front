@@ -1,13 +1,11 @@
 import {authRequest} from "./Api";
 import {
-    getFile,
     getMember,
     getReceiveDetail,
     getReceiveMessage, getSendDetail,
     getSendMessage,
     postMessageSuccess, putDeleteSuccess, getMessage
 } from "../modules/MessageModule";
-import {postSuccess, putSuccess} from "../modules/StudentModule";
 import {toast} from "react-toastify";
 
 /* 받은 쪽지 조회 */
@@ -171,6 +169,7 @@ export const callReceiveDelete = ({deleteRequest}) => {
         }
     }
 
+}
     /* 메인에서 가져올 진행중인 강의 */
 export const callMainMessageAPI = ({messageCurrentPage}) => {
 
@@ -192,4 +191,3 @@ export const callMainMessageAPI = ({messageCurrentPage}) => {
             }
         }
     }
-}
