@@ -5,9 +5,9 @@ import {
     getReceiveDetail,
     getReceiveMessage, getSendDetail,
     getSendMessage,
-    postMessageSuccess
+    postMessageSuccess, putDeleteSuccess
 } from "../modules/MessageModule";
-import {postSuccess} from "../modules/StudentModule";
+import {postSuccess, putSuccess} from "../modules/StudentModule";
 import {toast} from "react-toastify";
 
 /* 받은 쪽지 조회 */
@@ -152,3 +152,23 @@ export const callSendDetailAPI = ({msgNo}) => {
     }
 
 };
+
+/* 받은 쪽지 삭제 */
+export const callReceiveDelete = ({deleteRequest}) => {
+
+    return async (dispatch, getState) => {
+
+        const result = await authRequest.put(`/msgs/receiver`, JSON.stringify(deleteRequest), {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        console.log('callReceiveDelete result : ', result);
+
+        if(result.status === 200) {
+            dispatch(putDeleteSuccess());
+            toast.info("삭제가 완료되었습니다.");
+        }
+    }
+
+}

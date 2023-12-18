@@ -11,7 +11,7 @@ import MessageReceive from "../../components/message/items/MessageReceive";
 import ReceivePagingBar from "../../components/message/pagingBar/ReceivePagingBar";
 import MessageSend from "../../components/message/items/MessageSend";
 import {is} from "date-fns/locale";
-import {postMessageSuccess} from "../../modules/MessageModule";
+import {getReceiveDetail, postMessageSuccess, putDeleteSuccess} from "../../modules/MessageModule";
 import {useNavigate} from "react-router-dom";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -26,7 +26,7 @@ function Message() {
     const [content, setContent] = useState('');
     const [writeOpen, setWriteOpen] = useState(false);
     const [isNow, setIsNow] = useState(true);
-    const {receiveMessages, sendMessages, memberList, postMessageSuccess} = useSelector(state => state.messageReducer);
+    const {receiveMessages, sendMessages, memberList, postMessageSuccess, getReceiveDetail, putDeleteSuccess} = useSelector(state => state.messageReducer);
     const [memberListOpen, setMemberListOpen] = useState(false);
     const fileInput = useRef();
     const [fileUrl, setFileUrl] = useState('');
@@ -43,11 +43,11 @@ function Message() {
 
     useEffect(() => {
         dispatch(callReceiveMessageListAPI({currentPage}));
-    }, [currentPage, postMessageSuccess]);
+    }, [currentPage, postMessageSuccess, getReceiveDetail, putDeleteSuccess]);
 
     useEffect(() => {
         dispatch(callSendMessageListAPI({currentPage}));
-    }, [currentPage, postMessageSuccess]);
+    }, [currentPage, postMessageSuccess, getReceiveDetail, putDeleteSuccess]);
 
     useEffect(() => {
         if(postMessageSuccess === true) {

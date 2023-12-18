@@ -12,11 +12,12 @@ const POST_MESSAGE_SUCCESS = 'message/POST_MESSAGE_SUCCESS';
 const RESET_SUCCESS = 'message/RESET_SUCCESS';
 const GET_RECEIVE_DETAIL = 'message/GET_RECEIVE_DETAIL';
 const GET_SEND_DETAIL = 'message/GET_SEND_DETAIL';
+const PUT_DELETE_SUCCESS = 'message/PUT_DELETE_SUCCESS';
 
 
 
 /* 액션 함수 */
-export const { message : { getReceiveMessage, getSendMessage, getFile, getMember, postMessageSuccess, getReceiveDetail, getSendDetail, resetSuccess } } = createActions({
+export const { message : { getReceiveMessage, getSendMessage, getFile, getMember, postMessageSuccess, getReceiveDetail, getSendDetail, putDeleteSuccess, resetSuccess } } = createActions({
     [GET_RECEIVE_MESSAGE] : result => ({ receiveMessages : result.data }),
     [GET_SEND_MESSAGE] : result => ({ sendMessages : result.data }),
     [GET_FILE] : result => ({ MessageFile : result.data }),
@@ -24,6 +25,7 @@ export const { message : { getReceiveMessage, getSendMessage, getFile, getMember
     [GET_RECEIVE_DETAIL] : result => ({ receiveDetail : result.data }),
     [GET_SEND_DETAIL] : result => ({ sendDetail : result.data }),
     [POST_MESSAGE_SUCCESS] : () => ({ postMessageSuccess : true }),
+    [PUT_DELETE_SUCCESS] : () => ({ putDeleteSuccess : true }),
     [RESET_SUCCESS] : key => ({ key })
 
 });
@@ -37,6 +39,7 @@ const messageReducer = handleActions({
     [GET_RECEIVE_DETAIL] : (state, { payload }) => ({...state, ...payload}),
     [GET_SEND_DETAIL] : (state, { payload }) => ({...state, ...payload}),
     [POST_MESSAGE_SUCCESS] : (state, { payload }) => payload,
+    [PUT_DELETE_SUCCESS] : (state, { payload }) => payload,
     [RESET_SUCCESS] : (state, { payload }) => ({ ...state, [payload.key] : null })
 }, initialState);
 
