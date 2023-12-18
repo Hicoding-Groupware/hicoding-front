@@ -13,7 +13,7 @@ import classroomReducer from "./ClassroomModule";
 const rootReducer = combineReducers({
     lectureReducer, courseReducer, myCourseReducer, classroomReducer,
     loginReducer, memberReducer, boardReducer,
-    commentReducer, studentReducer, attendanceReducer, 
+    commentReducer, studentReducer, attendanceReducer,
     messageReducer
 });
 
