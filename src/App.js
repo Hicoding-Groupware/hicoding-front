@@ -34,6 +34,7 @@ import MainLayout from "./layouts/MainLayout";
 import Login from "./Login";
 import CourseMainProceeding from "./pages/course/CourseMainProceeding";
 import CourseMainExpected from "./pages/course/CourseMainExpected";
+import CourseModify from "./pages/course/CourseModify";
 function App() {
 
     return (
@@ -53,6 +54,7 @@ function App() {
                             <Route path=":cosCode" element={<CourseDetail/>}/>
                         </Route>
                         <Route path="course-regist" element={<CourseRegist/>}/>
+                        <Route path="course-modify/:cosCode" element={<CourseModify/>}/>
                         <Route path="schedule">
                             <Route path="academy" element={<AcademySchedule/>}/>
                             <Route path="classroom" element={<ClassroomSchedule/>}/>
