@@ -39,6 +39,7 @@ function MessageReceive({data}) {
     };
 
     const onClickFileDown = (fileNo) => {
+        console.log(fileNo)
         dispatch(callMessageFileAPI({fileNo}));
     }
 
@@ -199,7 +200,7 @@ function MessageReceive({data}) {
                             {receiveDetail.fileName ? (
                                 <div className="detail-upload-name">
                                     {receiveDetail.fileName}
-                                    <button onClick={() => onClickFileDown(receiveDetail.fileNo)}>다운</button>
+                                    <button  onClick={() => onClickFileDown(receiveDetail.fileNo)}>다운</button>
                                 </div>
                             ) : (
                                 <div className="detail-upload-name">
