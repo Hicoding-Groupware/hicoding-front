@@ -1,5 +1,12 @@
 
-import {creationSuccess, creationFailure, inquirySuccess, inquiryFailure, getProfile} from '../modules/MemberModule'
+import {
+    creationSuccess,
+    creationFailure,
+    inquirySuccess,
+    inquiryFailure,
+    getProfile,
+    getMemberlist
+} from '../modules/MemberModule'
 import {authRequest, request} from "./Api";
 import {toast} from "react-toastify";
 import async from "async";
@@ -111,3 +118,16 @@ export const callMemberProfileRemoveAPI = () => {
         }
     }
 }
+
+//동한
+export const callMemberListAPI = () => {
+
+    return async (dispatch, getState) => {
+
+        const result = await authRequest.get(`/member/memberList`);
+
+        if(result.status === 200){
+            dispatch(getMemberlist(result));
+        }
+    }
+};

@@ -9,13 +9,15 @@ function AcademySchedule(){
     const [currentPage, setCurrentPage] = useState(1);
     const {courses} = useSelector(state => state.courseReducer);
 
-    console.log(courses)
     useEffect(() => {
         dispatch(callCourseListAPI({currentPage}));
     }, [currentPage]);
 
     return(
         <>
+            <div className="menuTitleWrap">
+                <h3>과정일정</h3>
+            </div>
             {courses &&
             <AcademyCalendar data={courses.data}/>
             }

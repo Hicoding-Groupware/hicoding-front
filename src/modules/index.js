@@ -8,9 +8,10 @@ import myCourseReducer from "./MyCourseModule";
 import noticeReducer, {boardReducer, commentReducer} from "./NoticeModule";
 import messageReducer from "./MessageModule";
 import attendanceReducer from "./AttendanceModule";
+import classroomReducer from "./ClassroomModule";
 
 const rootReducer = combineReducers({
-    lectureReducer, courseReducer, myCourseReducer,
+    lectureReducer, courseReducer, myCourseReducer, classroomReducer,
     loginReducer, memberReducer, boardReducer,
     commentReducer, studentReducer, attendanceReducer, 
     messageReducer
