@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="feat/#50/notice-board&#10;&#10;* merge 후 css 작업 파일 사라짐 잠깐 커밋">
-      <change afterPath="$PROJECT_DIR$/src/pages/notice/NoticeWritingPage.js" afterDir="false" />
+    <list default="true" id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="feat/#50/notice-board&#10;&#10;* * 글쓰기 페이지 작성 및 연동 first o&#10;  * 답글 페이지 작성 및 연동 first o&#10;  &#10;쓰러지기전 혹시 모르니까">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/NoticeAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/NoticeAPICalls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/notice/items/BoardPostListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/notice/items/BoardPostListItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/notice/items/CommentListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/notice/items/CommentListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/notice/list/BoardPostList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/notice/list/BoardPostList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/notice.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/notice.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/notice/NoticeBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/notice/NoticeBoard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/notice/NoticeCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/notice/NoticeCategory.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/notice/NoticePost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/notice/NoticePost.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/notice/NoticeProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/notice/NoticeProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/notice/NoticeSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/notice/NoticeSidebar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +113,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702830606551</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat/#50/notice-board&#10;&#10;* * 글쓰기 페이지 작성 및 연동 first o&#10;  * 답글 페이지 작성 및 연동 first o&#10;  &#10;쓰러지기전 혹시 모르니까">
+      <option name="closed" value="true" />
+      <created>1702916395763</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1702916395763</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +142,7 @@
     <MESSAGE value="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째" />
     <MESSAGE value="feat/#50/notice-board&#10;&#10;* merge 후 css 작업 파일 사라짐 잠깐 커밋" />
     <MESSAGE value="feat/#6/원생등록,수정페이지구현중" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat/#6/원생등록,수정페이지구현중" />
+    <MESSAGE value="feat/#50/notice-board&#10;&#10;* * 글쓰기 페이지 작성 및 연동 first o&#10;  * 답글 페이지 작성 및 연동 first o&#10;  &#10;쓰러지기전 혹시 모르니까" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat/#50/notice-board&#10;&#10;* * 글쓰기 페이지 작성 및 연동 first o&#10;  * 답글 페이지 작성 및 연동 first o&#10;  &#10;쓰러지기전 혹시 모르니까" />
   </component>
 </project>

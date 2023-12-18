@@ -42,15 +42,23 @@ function CommentListItem({item}) {
         <>
             {item.status === 'USABLE' && (
                 <>
-                    <div style={{display: "flex", whiteSpace: "nowrap"}}>
-                        <div>작성자: {item.writer.memberName}</div>
-                        <div>등록일: {item.createdAt}</div>
-                        <button onClick={handleClick("reply")}>댓글달기</button>
-                        <button onClick={handleClick("modification")}>수정</button>
-                        <button onClick={handleClick("delete")}>삭제</button>
-                    </div>
-                    <div className="notice-commentTitle" style={renderIndentation(item.depthLevel)}>
-                        내용: {item.content}
+                    <div className="notice-comment">
+
+                        <div className="notice-comment-info">
+                            <div>{item.writer.memberName}</div>
+                            <div className="notice-comment-createdAt">{item.createdAt}</div>
+
+                            <div className="notice-comment-tool">
+                                <button className="notice-comment-tool-btn-id" onClick={handleClick("reply")}>댓글달기</button>
+                                <button className="notice-comment-tool-btn-id" onClick={handleClick("modification")}>수정</button>
+                                <button className="notice-comment-tool-btn-id" onClick={handleClick("delete")}>삭제</button>
+                            </div>
+                        </div>
+
+                        <div className="notice-commentTitle" style={renderIndentation(item.depthLevel)}>
+                            {item.content}
+                        </div>
+
                     </div>
                 </>
             )}
