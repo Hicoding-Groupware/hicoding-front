@@ -1,25 +1,26 @@
 import AcademyCalendar from "../../components/Schedule/AcademyCalendar";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {callCourseListAPI} from "../../apis/CourseAPICalls";
+import {callAllCoursesAPI, callCoursesAPI} from "../../apis/CourseAPICalls";
 
 function AcademySchedule(){
 
     const dispatch = useDispatch();
-    const [currentPage, setCurrentPage] = useState(1);
-    const {courses} = useSelector(state => state.courseReducer);
+    const {courselist} = useSelector(state => state.courseReducer);
 
     useEffect(() => {
-        dispatch(callCourseListAPI({currentPage}));
-    }, [currentPage]);
+        dispatch(callAllCoursesAPI());
+    }, []);
+
+    console.log(courselist)
 
     return(
         <>
             <div className="menuTitleWrap">
                 <h3>과정일정</h3>
             </div>
-            {courses &&
-            <AcademyCalendar data={courses.data}/>
+            {courselist &&
+            <AcademyCalendar data={courselist}/>
             }
         </>
     );

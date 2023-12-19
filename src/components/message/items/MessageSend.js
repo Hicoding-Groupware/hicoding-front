@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {callMessageFileAPI, callSendDetailAPI} from "../../../apis/MessageAPICalls";
+import {callMessageFileAPI, callSendDelete, callSendDetailAPI} from "../../../apis/MessageAPICalls";
 import Modal from "react-modal";
 
 function MessageSend ({data}){
@@ -9,19 +9,17 @@ function MessageSend ({data}){
     const [isOpen, setIsOpen] = useState(false);
     const [msgNo, setMsgNo] = useState(0);
     const {sendDetail} = useSelector(state => state.messageReducer);
+    const [sendCheckedList, setSendCheckedList] = useState([]);
+    const [isChecked, setIsChecked] = useState(false);
 
-    const formatDate = (dateString) => {
-        if (!dateString) return ''; // null 값 처리
+    const formatDate = (date) => {
+        if (!date) return ''; // null 값 처리
         const options = { year: 'numeric', month: '2-digit', day: '2-digit' ,hour: '2-digit', minute: '2-digit', second: '2-digit'};
-        return new Date(dateString.replace('T', ' ')).toLocaleDateString('ko-KR', options).replace(/\.\s?/g, '-').replace(/-$/, '');
+        return new Date(date.replace('T', ' ')).toLocaleDateString('ko-KR', options).replace(/\.\s?/g, '-').replace(/-$/, '');
     };
 
     const onClickFileDown = (fileNo) => {
 
-        //const parsedFileNo = Number(fileNo);
-        console.log(typeof fileNo);
-
-        console.log(fileNo);
         dispatch(callMessageFileAPI({fileNo}));
     }
 
@@ -46,7 +44,60 @@ function MessageSend ({data}){
         },
     };
 
+    /* 체크박스 핸들러 */
+    const checkedItemHandler = (value: string, isChecked: boolean) => {
+        if (isChecked) {
+            setSendCheckedList((prev) => [...prev, value]);
+
+            return;
+        }
+
+        if (!isChecked && sendCheckedList.includes(value)) {
+            setSendCheckedList(sendCheckedList.filter((item) => item !== value));
+
+            return;
+        }
+
+        return;
+    };
+
+    const checkHandler = (e, value: string) => {
+        setIsChecked(!isChecked);
+        checkedItemHandler(value, e.target.checked);
+
+        console.log(value, e.target.checked);
+        console.log(sendCheckedList);
+    }
+
+    /* 체크 박스 전체 체크 */
+    const handleHeaderCheckboxChange = (isChecked)  => {
+        const allMsgNos = data.map((message) => message.msgNo);
+
+        if (isChecked) {
+            setSendCheckedList(allMsgNos);
+        } else {
+            setSendCheckedList([]);
+        }
+
+        console.log(sendCheckedList);
+    };
+
+    /* 체크박스 선택후 삭제 버튼 클릭시 삭제 상태 */
+    const sendDelete = () => {
+
+        dispatch(callSendDelete({deleteRequest : { msgNos : sendCheckedList}}));
+    }
+
+    /* 보낸메세지 모달창에서 삭제 */
+    const sendDetailDelete = () => {
+        dispatch(callSendDelete({deleteRequest : { msgNos : [msgNo]}}));
+    }
+
     const onRequestCloseHandler = () => {
+        setIsOpen(false);
+    }
+
+    const sendList = () => {
         setIsOpen(false);
     }
 
@@ -79,14 +130,21 @@ function MessageSend ({data}){
                             )}
                         </div>
                         <div className="message-buttons">
-                            <div className="message-reset">삭제</div>
-                            <div className="message-send-back">목록으로</div>
+                            <div className="message-reset" onClick={ sendDetailDelete }>삭제</div>
+                            <div className="message-send-back" onClick={ sendList }>목록으로</div>
                         </div>
                     </>
                 )}
             </Modal>
             <div className="message-table-tr">
-                <div className="message-th-no"><input type="checkbox" className="message-checkbox"/><span className="message-th-msgNo">NO.</span> <button className="message-delete">삭제</button></div>
+                <div className="message-th-no">
+                    <input
+                        type="checkbox"
+                        onChange={(e) => handleHeaderCheckboxChange(e.target.checked)}
+                        className="message-checkbox"
+                    />
+                    <span className="message-th-msgNo">NO.</span>
+                    <button className="message-delete" onClick={ sendDelete }>삭제</button></div>
                 <div className="message-th-name">받는 사람</div>
                 <div className="message-th-sendContent">내용</div>
                 <div className="message-th-readStatus">읽은 상태</div>
@@ -95,8 +153,17 @@ function MessageSend ({data}){
             </div>
             {
                 data.map(message => (
-                    <div className="message-item" onDoubleClick={() => sendDetailMessage(message.msgNo)} key={message.msgNo}>
-                        <div className="message-no"><input type="checkbox" className="message-checkbox"/><span className="message-msgNo">{message.msgNo}</span></div>
+                    <label key={message.msgNo}>
+                    <div className="message-item" onDoubleClick={() => sendDetailMessage(message.msgNo)}>
+                        <div className="message-no">
+                            <input type="checkbox"
+                                   id={message.msgNo}
+                                   checked={sendCheckedList.includes(message.msgNo)}
+                                   onChange={(e) => checkHandler(e, message.msgNo)}
+                                   className="message-checkbox"
+                            />
+                            <span className="message-msgNo">{message.msgNo}</span>
+                        </div>
                         <div className="message-sender">{message.receiver}</div>
                         <div className="message-sendContent">{message.msgContent}</div>
                         <div className="message-readStatus">{message.readStatus === 'notRead' ? '' : '읽음'}</div>
@@ -110,6 +177,7 @@ function MessageSend ({data}){
                             </div>
                         )}
                     </div>
+                    </label>
                 ))
             }
         </div>

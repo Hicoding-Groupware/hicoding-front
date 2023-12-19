@@ -28,15 +28,17 @@ import LastCourseList from "./components/course/lists/LastCourseList";
 import ScheduledCourseList from "./components/course/lists/ScheduledCourseList";
 import DailyAttendanceList from "./components/course/lists/DailyAttendanceList";
 import Profile from "./pages/member/Profile";
-import {BOARD_PATH} from "./apis/NoticeAPICalls";
 import NoticeLayout from "./layouts/NoticeLayout";
 import NoticeBoard from "./pages/notice/NoticeBoard";
 import NoticePost from "./pages/notice/NoticePost";
 import MainLayout from "./layouts/MainLayout";
+import NoticeWritingPage from "./pages/notice/NoticeWritingPage";
 import CourseMainProceeding from "./pages/course/CourseMainProceeding";
 import CourseMainExpected from "./pages/course/CourseMainExpected";
 import Message from "./pages/message/Message";
-
+import CourseModify from "./pages/course/CourseModify";
+import MonthAttendanceList from "./components/course/lists/MonthAttendanceList";
+import {BOARD_PATH} from "./apis/NoticeAPICalls";
 function App() {
 
     return (
@@ -56,6 +58,7 @@ function App() {
                             <Route path=":cosCode" element={<CourseDetail/>}/>
                         </Route>
                         <Route path="course-regist" element={<CourseRegist/>}/>
+                        <Route path="course-modify/:cosCode" element={<CourseModify/>}/>
                         <Route path="schedule">
                             <Route path="academy" element={<AcademySchedule/>}/>
                             <Route path="classroom" element={<ClassroomSchedule/>}/>
@@ -68,6 +71,7 @@ function App() {
                         </Route>
                         <Route path="attendance">
                             <Route path="day/:cosCode" element={<DailyAttendanceList/>}/>
+                            <Route path="month/:cosCode" element={<MonthAttendanceList/>}/>
                         </Route>
                         <Route path="students" element={
                             <ProtectedRoute authCheck={true}>
@@ -98,6 +102,7 @@ function App() {
                         <Route path={BOARD_PATH} element={<NoticeLayout/>}>
                             <Route path="board"/>
                             <Route path=":title/:role" element={<NoticeBoard/>}/>
+                            <Route path=":title/:role/:memberNo/:curPostNo" element={<NoticeWritingPage/>}/>
                             <Route path=":title/:role/:postNo/:recordType/:memberNo" element={<NoticePost/>}/>
                         </Route>
 

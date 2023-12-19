@@ -4,16 +4,21 @@ import {
     getReceiveDetail,
     getReceiveMessage, getSendDetail,
     getSendMessage,
-    postMessageSuccess, putDeleteSuccess, getMessage
+    postMessageSuccess, getMessage, putReceiveDeleteSuccess, putSendDeleteSuccess
 } from "../modules/MessageModule";
 import {toast} from "react-toastify";
 
 /* 받은 쪽지 조회 */
-export const callReceiveMessageListAPI = ({currentPage = 1}) => {
+export const callReceiveMessageListAPI = ({currentPage = 1, sender, content, startDate, endDate}) => {
+
+    const memberNameParam = sender ? `&memberName=${sender}` : '';
+    const contentParam = content ? `&content=${content}` : '';
+    const startDateParam = startDate ? `&startDate=${startDate}` : '';
+    const endDateParam = endDate ? `&endDate=${endDate}` : '';
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/msgs/receiver?page=${currentPage}`);
+        const result = await authRequest.get(`/msgs/receiver?page=${currentPage}${memberNameParam}${contentParam}${startDateParam}${endDateParam}`);
         console.log('callReceiveMessageListAPI result : ', result);
 
         if(result.status === 200) {
@@ -24,11 +29,16 @@ export const callReceiveMessageListAPI = ({currentPage = 1}) => {
 };
 
 /* 보낸 쪽지 조회 */
-export const callSendMessageListAPI = ({currentPage = 1}) => {
+export const callSendMessageListAPI = ({sendCurrentPage = 1, receiver, content, startDate, endDate}) => {
+
+    const memberNameParam = receiver ? `&memberName=${receiver}` : '';
+    const contentParam = content ? `&content=${content}` : '';
+    const startDateParam = startDate ? `&startDate=${startDate}` : '';
+    const endDateParam = endDate ? `&endDate=${endDate}` : '';
 
     return async (dispatch, getState) => {
 
-        const result = await authRequest.get(`/msgs/sender?page=${currentPage}`);
+        const result = await authRequest.get(`/msgs/sender?page=${sendCurrentPage}${memberNameParam}${contentParam}${startDateParam}${endDateParam}`);
         console.log('callSendMessageListAPI result : ', result);
 
         if(result.status === 200) {
@@ -112,7 +122,7 @@ export const callMessageSendAPI = ({registRequest}) => {
 
         if(result.status === 200) {
             dispatch(postMessageSuccess());
-            toast.info("쪽지가 전송되었습니다.");
+            toast.success("전송완료");
         }
 
     }
@@ -164,15 +174,33 @@ export const callReceiveDelete = ({deleteRequest}) => {
         console.log('callReceiveDelete result : ', result);
 
         if (result.status === 200) {
-            dispatch(putDeleteSuccess());
-            toast.info("삭제가 완료되었습니다.");
+            dispatch(putReceiveDeleteSuccess());
+            toast.success("삭제가 완료되었습니다.");
         }
     }
 
 }
 
+/* 보낸 쪽지 삭제 */
+export const callSendDelete = ({deleteRequest}) => {
 
-/* 메인에서 가져올 진행중인 강의 */
+    return async (dispatch, getState) => {
+
+        const result = await authRequest.put(`/msgs/sender`, JSON.stringify(deleteRequest), {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        console.log('callSendDelete result : ', result);
+
+        if (result.status === 200) {
+            dispatch(putSendDeleteSuccess());
+            toast.success("삭제가 완료되었습니다.");
+        }
+    }
+
+}
+    /* 메인에서 가져올 진행중인 강의 */
 export const callMainMessageAPI = ({messageCurrentPage}) => {
 
     return async (dispatch, getState) => {

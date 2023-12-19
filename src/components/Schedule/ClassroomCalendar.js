@@ -29,7 +29,7 @@ function ClassroomCalendar({classrooms,data}){
                     events={
                         data&&
                         data.map(course=>({
-                            resourceId: course.roomCode,
+                            resourceId:course.roomCode,
                             title: course.cosName,
                             start: course.cosSdt,
                             end: course.cosEdt,

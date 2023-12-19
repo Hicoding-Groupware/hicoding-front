@@ -2,6 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import LectureList from "../../components/lecture/lists/LectureList";
 import {callLectureListAPI} from "../../apis/LectureAPICalls";
+import {callCoursesAPI} from "../../apis/CourseAPICalls";
 
 function LectureMain(){
 

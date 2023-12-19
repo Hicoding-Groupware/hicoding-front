@@ -2,6 +2,8 @@
 import {createActions, handleActions} from "redux-actions";
 
 const initialState = {
+    setBoardAccessStatus: false,
+
     boardPost: null,
     boardPosts: null,
     isPostAccessGranted: false,
@@ -17,6 +19,8 @@ const initialState = {
 };
 
 // 액션 타입
+const SET_BOARD_ACCESS_STATUS = 'notice/SET_BOARD_ACCESS_STATUS'
+
 const GET_POST = 'notice/GET_POST'
 const GET_POSTS = 'notice/GET_POSTS'
 const SET_POST_ACCESS_STATUS = 'notice/SET_POST_ACCESS_STATUS'
@@ -33,6 +37,8 @@ const SET_COMMENT_DELETION_STATUS = 'notice/SET_COMMENT_DELETION_STATUS'
 // 액션 함수
 export const {
     notice: {
+        setBoardAccessStatus,
+
         getPost,
         getPosts,
         setPostAccessStatus,
@@ -47,6 +53,8 @@ export const {
         setCommentDeletionStatus
     }
 } = createActions({
+    [SET_BOARD_ACCESS_STATUS]: result => ({isBoardAccessGranted: result}),
+
     [GET_POST]: result => ({boardPost: result}),
     [GET_POSTS]: result => ({boardPosts: result}),
     [SET_POST_ACCESS_STATUS]: result => ({isPostAccessGranted: result}),
@@ -63,6 +71,8 @@ export const {
 
 /* 리듀서 함수 */
 export const boardReducer = handleActions({
+    [SET_BOARD_ACCESS_STATUS]: (state, {payload}) => payload,
+
     [GET_POST]: (state, {payload}) => payload,
     [GET_POSTS]: (state, {payload}) => payload,
     [SET_POST_ACCESS_STATUS]: (state, {payload}) => payload,

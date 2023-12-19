@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {callAccessToPostAPI} from "../../../apis/NoticeAPICalls";
 
-function BoardPostListItem({node, role, memberNo, level}) {
+function BoardPostListItem({node, role, memberNo}) {
 
     const dispatch = useDispatch()
     const navigate = useNavigate();
@@ -19,8 +19,8 @@ function BoardPostListItem({node, role, memberNo, level}) {
                 navigate(`${node.no}/${recordType}/${memberNo}`);
                 break;
             case "likes":
-                dispatch(callAccessToPostAPI({role, postNo: node.no, recordType, memberNo}))
-                console.log("CCCCCCCCCCCCCCCCCCCCCCCCCCCCC")
+                // dispatch(callAccessToPostAPI({role, postNo: node.no, recordType, memberNo}))
+                // console.log("CCCCCCCCCCCCCCCCCCCCCCCCCCCCC")
                 break;
         }
     };
@@ -34,13 +34,13 @@ function BoardPostListItem({node, role, memberNo, level}) {
 
     return (
         <>
-            {
+            {node.status === 'USABLE' && (
                 <tr key={node.no}>
-                    <td>[]</td>
+                    <td><input type="checkbox"/></td>
                     <td>{node.no}</td>
                     <td
                         onClick={handleClick("views")}
-                        className="notice-postTitle" style={renderIndentation(level)}
+                        className="notice-postTitle" style={renderIndentation(node.depthLevel)}
                     >
                         {node.title}</td>
                     <td>{node.writer.memberName}</td>
@@ -51,13 +51,12 @@ function BoardPostListItem({node, role, memberNo, level}) {
                     >
                         {node.likesCnt}</td>
                 </tr>
-            }
+            )}
 
-            {node.childrenList &&
-                node.childrenList.map((child) => (
-                    <BoardPostListItem key={child.no} node={child} role={role} memberNo={memberNo}
-                                       level={level + 1}/>
-                ))}
+            {/*{node.childrenList &&*/}
+            {/*    node.childrenList.map((child) => (*/}
+            {/*        <BoardPostListItem key={child.no} node={child} role={role} memberNo={memberNo}/>*/}
+            {/*    ))}*/}
         </>
     )
 }
