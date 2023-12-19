@@ -16,7 +16,7 @@ const GET_PROFILE = 'member/GET_PROFILE';
 const GET_MEMBER_ROLE = 'member/GET_MEMBER_ROLE';
 
 // 액션 함수
-export const { member : {creationSuccess, creationFailure, inquirySuccess, inquiryFailure, getProfile, getMemberRole} } = createActions({
+export const { member : {creationSuccess, creationFailure, inquirySuccess, inquiryFailure, getProfile, getMemberRole,getMemberlist} } = createActions({
     [CREATION_SUCCESS] : (result) => ({ creationInfos : result }),
     [CREATION_FAILURE] : () => ({creationSuccess}),
     [INQUIRY_SUCCESS] : (result) => ({ inquiryInfos : result }),

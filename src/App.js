@@ -28,19 +28,17 @@ import LastCourseList from "./components/course/lists/LastCourseList";
 import ScheduledCourseList from "./components/course/lists/ScheduledCourseList";
 import DailyAttendanceList from "./components/course/lists/DailyAttendanceList";
 import Profile from "./pages/member/Profile";
-import {BOARD_PATH} from "./apis/NoticeAPICalls";
 import NoticeLayout from "./layouts/NoticeLayout";
 import NoticeBoard from "./pages/notice/NoticeBoard";
 import NoticePost from "./pages/notice/NoticePost";
 import MainLayout from "./layouts/MainLayout";
-import Login from "./Login";
 import NoticeWritingPage from "./pages/notice/NoticeWritingPage";
 import CourseMainProceeding from "./pages/course/CourseMainProceeding";
 import CourseMainExpected from "./pages/course/CourseMainExpected";
 import Message from "./pages/message/Message";
-
 import CourseModify from "./pages/course/CourseModify";
-
+import MonthAttendanceList from "./components/course/lists/MonthAttendanceList";
+import {BOARD_PATH} from "./apis/NoticeAPICalls";
 function App() {
 
     return (
@@ -73,6 +71,7 @@ function App() {
                         </Route>
                         <Route path="attendance">
                             <Route path="day/:cosCode" element={<DailyAttendanceList/>}/>
+                            <Route path="month/:cosCode" element={<MonthAttendanceList/>}/>
                         </Route>
                         <Route path="students" element={
                             <ProtectedRoute authCheck={true}>

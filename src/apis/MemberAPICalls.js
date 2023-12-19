@@ -5,8 +5,7 @@ import {
     inquirySuccess,
     inquiryFailure,
     getProfile,
-    getMemberRole
-    getMemberlist
+    getMemberRole, getMemberlist
 } from '../modules/MemberModule'
 import {authRequest, request} from "./Api";
 import {toast} from "react-toastify";

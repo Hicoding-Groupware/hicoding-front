@@ -1,6 +1,5 @@
 import {authRequest} from "./Api";
 import {getCourse, getCourselist, getCourses, postSuccess, putSuccess} from "../modules/CourseModule";
-import {getClassrooms} from "../modules/ClassroomModule";
 
 export const callAllCoursesAPI = () => {
 

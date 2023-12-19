@@ -240,19 +240,15 @@
     margin-top: 4.5%;
 }
 
-a {
-    text-decoration: none;
-    color: #333333;
-}
 
 
 /* 일별 출석부 */
-
 .daily-attendance-main-container {
     font-family: 'Pretendard-Regular', serif;
     font-size: 15px;
     width: 80%;
-    margin: 0 auto;
+    padding-top: 5%;
+
     /* 텍스트 입력 시 깜빡임 제거 */
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -262,7 +258,6 @@ a {
 
 .month-attend-select-button {
     margin: 0 0 0 85%;
-
 }
 .attend-regist-button {
     margin: 0 0 0 95%;
@@ -313,24 +308,11 @@ a {
     box-shadow: 0 0 5px rgba(98, 0, 255, 0.7);
 }
 
-/*.react-datepicker-wrapper,*/
-/*.react-datepicker__input-container,*/
-/*.react-datepicker__input-container input {*/
-/*    border: none;*/
-/*    outline: none; !* 선택 시 외곽선 제거 (선택 사항) *!*/
-/*    font-weight: bolder;*/
-/*    font-size: 22px;*/
-/*    cursor: pointer;*/
-/*    caret-color: transparent;*/
-/*    width: 133px;*/
-/*}*/
-
 .left-button {
     z-index: 100;
     padding-right: 1.5%;
     font-size: 22px;
     cursor: pointer;
-
 }
 
 .right-button {
@@ -338,4 +320,178 @@ a {
     padding-left: 1.5%;
     font-size: 22px;
     cursor: pointer;
+}
+
+.daily-attendance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.daily-attendance-title {
+    flex: 1;
+    text-align: left;
+}
+
+.date-picker-container {
+    flex: 2;
+    text-align: center;
+}
+
+.buttons-container {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+}
+
+.month-attend-select-button,
+.attend-regist-button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #000000;
+    background-color: #ffffff;
+    border: solid 1px #8030ff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+.month-attend-select-button:hover,
+.attend-regist-button:hover {
+    background-color: #ffffff;
+    color: #8030ff;
+}
+
+/* 기존 CSS 스타일링을 유지하면서 클래스 이름 변경 */
+.daily-attendance-main-container {
+    font-family: 'Pretendard-Regular', serif;
+    font-size: 15px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+
+/* 월별 출석부 */
+
+.month-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.month-table th, .month-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.calendarHeader th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.month-td {
+    white-space: nowrap;
+}
+
+/* 출석 상태별 스타일 */
+.status-attendance {
+    color: #000000;
+}
+
+.status-absence {
+    color: #000000;
+}
+
+.status-tardiness {
+    color: #000000;
+}
+
+.status-leave_early {
+    color: #000000;
+}
+
+
+@media screen and (max-width: 600px) {
+    .month-table, .month-table thead, .month-table tbody, .month-table th, .month-table td, .month-table tr {
+        display: block;
+    }
+
+    .calendarHeader th {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .month-td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .month-td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    .month-table td:nth-of-type(1):before { content: "No"; }
+    .month-table td:nth-of-type(2):before { content: "원생명"; }
+    /* 'nth-of-type'를 사용하여 각 날짜에 대한 라벨을 추가 */
+}
+
+.grey-out {
+    background-color: #e7e7e7;
+}
+
+.month-table {
+    width: 90%;
+    margin-left: 5%;
+}
+
+
+.month-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 2%;
+}
+
+.month-title-container {
+    flex: 1;
+    text-align: left;
+}
+
+.month-datepicker-container {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+    margin-right: 25%;
+    font-size: 20px;
+}
+
+.month-h2-title {
+    margin-left: 19%;
+    margin-top: 15%;
+}
+
+.month-button {
+    border: none;
+    background-color: white;
+    font-size: 25px;
+}
+
+.month-description {
+    font-size: 14px;
+    margin : 0 0 0.2% 5%;
 }
