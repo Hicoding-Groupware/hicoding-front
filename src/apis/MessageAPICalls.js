@@ -122,7 +122,7 @@ export const callMessageSendAPI = ({registRequest}) => {
 
         if(result.status === 200) {
             dispatch(postMessageSuccess());
-            toast.info("쪽지가 전송되었습니다.");
+            toast.success("전송완료");
         }
 
     }
@@ -175,7 +175,7 @@ export const callReceiveDelete = ({deleteRequest}) => {
 
         if (result.status === 200) {
             dispatch(putDeleteSuccess());
-            toast.info("삭제가 완료되었습니다.");
+            toast.success("삭제가 완료되었습니다.");
         }
     }
 
@@ -195,7 +195,7 @@ export const callSendDelete = ({deleteRequest}) => {
 
         if (result.status === 200) {
             dispatch(putDeleteSuccess());
-            toast.info("삭제가 완료되었습니다.");
+            toast.success("삭제가 완료되었습니다.");
         }
     }
 

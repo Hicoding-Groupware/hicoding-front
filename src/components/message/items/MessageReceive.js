@@ -23,7 +23,7 @@ function MessageReceive({data}) {
     const [form, setForm] = useState({});
     const [checkedList, setCheckedList] = useState([]);
     const [isChecked, setIsChecked] = useState(false);
-    //const [deleteMsg, setDeleteMsg] = useState([]);
+
 
     const formatDate = (dateString) => {
         if (!dateString) return ''; // null 값 처리
@@ -50,6 +50,17 @@ function MessageReceive({data}) {
         dispatch(callReceiveDetailAPI({msgNo}));
     }
 
+    /* 모달창에서 받은 메세지 삭제 */
+    const receiveDetailDelete = () => {
+        console.log(msgNo);
+        dispatch(callReceiveDelete({deleteRequest : { msgNos : [msgNo]}}));
+    }
+
+    /* 답장하기 모달창에서 받은 메세지 삭제 */
+    const replyReceiveDelete = () => {
+        dispatch(callReceiveDelete({deleteRequest : { msgNos : [msgNo]}}));
+    }
+
     const customStyles = {
         overlay: {
             backgroundColor: "rgba(0,0,0,0.5)",
@@ -67,6 +78,16 @@ function MessageReceive({data}) {
 
     const onRequestCloseHandler = () => {
         setIsOpen(false);
+    }
+
+    const receiveList = () => {
+        setIsOpen(false);
+        setCheckedList([]);
+        setMessage('');
+    }
+
+    const replyList = () => {
+        setReply(false);
     }
 
     /* 답장하기 모달창 띄우기 */
@@ -208,8 +229,8 @@ function MessageReceive({data}) {
                             )}
                         </div>
                         <div className="message-buttons">
-                            <div className="message-reset">삭제</div>
-                            <div className="message-back">목록으로</div>
+                            <div className="message-reset" onClick={ receiveDetailDelete }>삭제</div>
+                            <div className="message-back" onClick={ receiveList }>목록으로</div>
                             <div className="detail-write-button"
                                  onClick={() => onClickReply(receiveDetail.memberNo)}>답장하기
                             </div>
@@ -242,6 +263,7 @@ function MessageReceive({data}) {
                     <textarea
                         className="write-content"
                         placeholder="쪽지를 입력해 주세요."
+                        value={message}
                         name="msgContent"
                         onChange={onChangeHandler}
                     />
@@ -258,13 +280,14 @@ function MessageReceive({data}) {
                             type="file"
                             ref={replyfileInput}
                             name="msgFile"
+                            value={fileName}
                             onChange={onChangeReplyFileUpload}
                         />
-                        <input className="upload-name" value={fileName} placeholder="Sample 명단.pdf"/>
+                        <input readOnly={true} className="upload-name" value={fileName} placeholder="Sample 명단.pdf"/>
                     </div>
                     <div className="message-buttons">
-                        <button className="message-reset">삭제</button>
-                        <button className="message-back">목록으로</button>
+                        <button className="message-reset" onClick={ replyReceiveDelete }>삭제</button>
+                        <button className="message-back" onClick={ replyList }>목록으로</button>
                         <button className="write-button" onClick={onClickMessageRegist}>쪽지쓰기</button>
                     </div>
                 </>

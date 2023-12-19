@@ -85,10 +85,19 @@ function MessageSend ({data}){
     /* 체크박스 선택후 삭제 버튼 클릭시 삭제 상태 */
     const sendDelete = () => {
 
-        dispatch(callSendDelete({deleteRequest : { msgNos : sendCheckedList}}))
+        dispatch(callSendDelete({deleteRequest : { msgNos : sendCheckedList}}));
+    }
+
+    /* 보낸메세지 모달창에서 삭제 */
+    const sendDetailDelete = () => {
+        dispatch(callSendDelete({deleteRequest : { msgNos : [msgNo]}}));
     }
 
     const onRequestCloseHandler = () => {
+        setIsOpen(false);
+    }
+
+    const sendList = () => {
         setIsOpen(false);
     }
 
@@ -121,8 +130,8 @@ function MessageSend ({data}){
                             )}
                         </div>
                         <div className="message-buttons">
-                            <div className="message-reset">삭제</div>
-                            <div className="message-send-back">목록으로</div>
+                            <div className="message-reset" onClick={ sendDetailDelete }>삭제</div>
+                            <div className="message-send-back" onClick={ sendList }>목록으로</div>
                         </div>
                     </>
                 )}

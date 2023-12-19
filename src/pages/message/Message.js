@@ -33,7 +33,6 @@ function Message() {
     const [fileUrl, setFileUrl] = useState('');
     const [fileName, setFileName] = useState('');
     const [memberName, setMemberName] = useState('');
-    const [memberNo, setMemberNo] = useState([]);
     const [form, setForm] = useState({});
     const [message, setMessage] = useState('');
     const [checkedList, setCheckedList] = useState([]);
@@ -361,6 +360,7 @@ function Message() {
                         className="write-content"
                         placeholder="쪽지를 입력해 주세요."
                         name="msgContent"
+                        value={message}
                         onChange={onChangeHandler}
                     />
                 </div>
@@ -378,7 +378,7 @@ function Message() {
                         name="msgFile"
                         onChange={onChangeFileUpload}
                     />
-                    <input className="upload-name" value={fileName} placeholder="Sample 명단.pdf"/>
+                    <input className="upload-name" readOnly={true} value={fileName} placeholder="Sample 명단.pdf"/>
                 </div>
                 <div className="message-buttons">
                     <button className="message-reset" onClick={onClickDeleteContent}>삭제</button>
