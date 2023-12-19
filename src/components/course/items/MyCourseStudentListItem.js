@@ -179,10 +179,6 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, cosEdt, day
         const endDate = new Date(cosEdt);
         const today = new Date();
 
-        nextDay.setHours(0, 0, 0, 0);
-        endDate.setHours(0, 0, 0, 0);
-        today.setHours(0, 0, 0, 0);
-
         nextDay.setDate(nextDay.getDate() + 1);
 
         // cosEdt 이후로 가지 않도록 검사
