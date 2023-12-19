@@ -27,7 +27,7 @@ function Message() {
     const [content, setContent] = useState('');
     const [writeOpen, setWriteOpen] = useState(false);
     const [isNow, setIsNow] = useState(true);
-    const {receiveMessages, sendMessages, memberList, postMessageSuccess, getReceiveDetail, putDeleteSuccess} = useSelector(state => state.messageReducer);
+    const {receiveMessages, sendMessages, memberList, postMessageSuccess, getReceiveDetail, putReceiveDeleteSuccess, putSendDeleteSuccess} = useSelector(state => state.messageReducer);
     const [memberListOpen, setMemberListOpen] = useState(false);
     const fileInput = useRef();
     const [fileUrl, setFileUrl] = useState('');
@@ -45,11 +45,11 @@ function Message() {
 
     useEffect(() => {
         dispatch(callReceiveMessageListAPI({currentPage, sender, content, startDate, endDate}));
-    }, [currentPage, sender, content, startDate, endDate, postMessageSuccess, getReceiveDetail, putDeleteSuccess, isNow]);
+    }, [currentPage, sender, content, startDate, endDate, postMessageSuccess, getReceiveDetail, putReceiveDeleteSuccess, isNow]);
 
     useEffect(() => {
         dispatch(callSendMessageListAPI({sendCurrentPage, receiver, content, startDate, endDate}));
-    }, [sendCurrentPage, receiver, content, startDate, endDate,postMessageSuccess, getReceiveDetail, putDeleteSuccess, isNow]);
+    }, [sendCurrentPage, receiver, content, startDate, endDate,postMessageSuccess, getReceiveDetail, putSendDeleteSuccess, isNow]);
 
     useEffect(() => {
         if(postMessageSuccess === true) {
@@ -167,6 +167,7 @@ function Message() {
 
     const sendBox = () => {
         setIsNow(false);
+        dispatch(callSendMessageListAPI({sendCurrentPage, receiver, content, startDate, endDate}));
     }
 
     const onChangeFileUpload = () => {

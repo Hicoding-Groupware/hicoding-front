@@ -4,7 +4,7 @@ import {
     getReceiveDetail,
     getReceiveMessage, getSendDetail,
     getSendMessage,
-    postMessageSuccess, putDeleteSuccess, getMessage
+    postMessageSuccess, getMessage, putReceiveDeleteSuccess, putSendDeleteSuccess
 } from "../modules/MessageModule";
 import {toast} from "react-toastify";
 
@@ -174,7 +174,7 @@ export const callReceiveDelete = ({deleteRequest}) => {
         console.log('callReceiveDelete result : ', result);
 
         if (result.status === 200) {
-            dispatch(putDeleteSuccess());
+            dispatch(putReceiveDeleteSuccess());
             toast.success("삭제가 완료되었습니다.");
         }
     }
@@ -194,7 +194,7 @@ export const callSendDelete = ({deleteRequest}) => {
         console.log('callSendDelete result : ', result);
 
         if (result.status === 200) {
-            dispatch(putDeleteSuccess());
+            dispatch(putSendDeleteSuccess());
             toast.success("삭제가 완료되었습니다.");
         }
     }
