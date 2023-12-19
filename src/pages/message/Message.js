@@ -19,9 +19,10 @@ import 'react-toastify/dist/ReactToastify.css';
 function Message() {
     const dispatch = useDispatch();
     const [currentPage, setCurrentPage] = useState(1);
+    const [sendCurrentPage, setSendCurrentPage] = useState(1);
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
-    const [selectedValue, setSelectedValue] = useState('');
+    const [selectedValue, setSelectedValue] = useState('sender');
     const [sender, setSender] = useState('');
     const [content, setContent] = useState('');
     const [writeOpen, setWriteOpen] = useState(false);
@@ -32,22 +33,23 @@ function Message() {
     const [fileUrl, setFileUrl] = useState('');
     const [fileName, setFileName] = useState('');
     const [memberName, setMemberName] = useState('');
-    const [memberNo, setMemberNo] = useState([]);
     const [form, setForm] = useState({});
     const [message, setMessage] = useState('');
     const [checkedList, setCheckedList] = useState([]);
     const [isChecked, setIsChecked] = useState(false);
     const [selectedMembersDisplay, setSelectedMembersDisplay] = useState([]);
     const navigate = useNavigate();
+    const [receiver, setReceiver] = useState('');
 
 
-    useEffect(() => {
-        dispatch(callReceiveMessageListAPI({currentPage}));
-    }, [currentPage, postMessageSuccess, getReceiveDetail, putDeleteSuccess]);
 
     useEffect(() => {
-        dispatch(callSendMessageListAPI({currentPage}));
-    }, [currentPage, postMessageSuccess, getReceiveDetail, putDeleteSuccess]);
+        dispatch(callReceiveMessageListAPI({currentPage, sender, content, startDate, endDate}));
+    }, [currentPage, sender, content, startDate, endDate, postMessageSuccess, getReceiveDetail, putDeleteSuccess, isNow]);
+
+    useEffect(() => {
+        dispatch(callSendMessageListAPI({sendCurrentPage, receiver, content, startDate, endDate}));
+    }, [sendCurrentPage, receiver, content, startDate, endDate,postMessageSuccess, getReceiveDetail, putDeleteSuccess, isNow]);
 
     useEffect(() => {
         if(postMessageSuccess === true) {
@@ -68,9 +70,12 @@ function Message() {
     const onSearchChangeHandler = e => {
         if (selectedValue === 'sender') {
             setSender(e.target.value);
-        } else {
+            setReceiver(e.target.value);
+        } else if(selectedValue === 'content'){
             setContent(e.target.value);
         }
+        console.log("sender : ", sender);
+        console.log("content : ", content);
     }
 
     const onSelectChangeHandler = e => {
@@ -139,6 +144,16 @@ function Message() {
         console.log(memberName);
     }
 
+    const onReceiveEnterKeyHandler = e => {
+        if (e.key === 'Enter') {
+            if (selectedValue === 'sender') {
+                setSender(e.target.value);
+            } else if(selectedValue === 'content'){
+                setContent(e.target.value);
+            }
+        }
+    }
+
     /* 받는사람 추가하기 */
     const onClickMemberListAdd = () => {
         setMemberListOpen(true);
@@ -147,6 +162,7 @@ function Message() {
 
     const receiveBox = () => {
         setIsNow(true);
+        dispatch(callReceiveMessageListAPI({currentPage, sender, content, startDate, endDate}));
     }
 
     const sendBox = () => {
@@ -344,6 +360,7 @@ function Message() {
                         className="write-content"
                         placeholder="쪽지를 입력해 주세요."
                         name="msgContent"
+                        value={message}
                         onChange={onChangeHandler}
                     />
                 </div>
@@ -361,7 +378,7 @@ function Message() {
                         name="msgFile"
                         onChange={onChangeFileUpload}
                     />
-                    <input className="upload-name" value={fileName} placeholder="Sample 명단.pdf"/>
+                    <input className="upload-name" readOnly={true} value={fileName} placeholder="Sample 명단.pdf"/>
                 </div>
                 <div className="message-buttons">
                     <button className="message-reset" onClick={onClickDeleteContent}>삭제</button>
@@ -469,6 +486,7 @@ function Message() {
                         type="text"
                         placeholder="검색어를 입력하세요"
                         onChange={onSearchChangeHandler}
+                        onKeyUp={onReceiveEnterKeyHandler}
                     />
                 </div>
                 <div className="message-write-button">
@@ -487,7 +505,7 @@ function Message() {
                 !isNow && sendMessages && (
                     <div className="message-table">
                         <MessageSend data={sendMessages.data}/>
-                        <ReceivePagingBar pageInfo={sendMessages.pageInfo} setCurrentPage={setCurrentPage}/>
+                        <ReceivePagingBar pageInfo={sendMessages.pageInfo} setCurrentPage={setSendCurrentPage}/>
                     </div>
                 )
             }
