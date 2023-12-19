@@ -9,20 +9,21 @@ import {tr} from "date-fns/locale";
 import ImageModify from "../../components/modal/ImageModify";
 import {ko} from "date-fns/esm/locale";
 import DatePicker from "react-datepicker";
+import {creationSuccess} from "../../modules/MemberModule";
 
 function Profile() {
     const [informationUpdateModal, setInformationUpdateModal] = useState(false);
     const [passwordUpdateModal, setPasswordUpdateModal] = useState(false);
     const [openUpload, setOpenUpload] = useState(false);
     const [openModify, setOpenModify] = useState(false);
-    const {profileInfo} = useSelector(state => state.memberReducer);
+    const {profileInfo, creationSuccess} = useSelector(state => state.memberReducer);
     const [isTableVisible, setTableVisible] = useState(false);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(callMemberProfileAPI());
         console.log("여기있써~~~~~~~~~~~~~~~~~", profileInfo);
-    }, []);
+    }, [creationSuccess]);
 
 
 
