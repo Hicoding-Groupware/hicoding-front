@@ -1,5 +1,20 @@
 import {authRequest} from "./Api";
-import {getCourse, getCourses, postSuccess, putSuccess} from "../modules/CourseModule";
+import {getCourse, getCourselist, getCourses, postSuccess, putSuccess} from "../modules/CourseModule";
+import {getClassrooms} from "../modules/ClassroomModule";
+
+export const callAllCoursesAPI = () => {
+
+    return async (dispatch, getState) => {
+
+        const result = await authRequest.get('/courses');
+
+        console.log(result);
+
+        if(result.status === 200) {
+            dispatch(getCourselist(result));
+        }
+    }
+};
 
 export const callCourseListAPI = ({currentPage = 1}) => {
 

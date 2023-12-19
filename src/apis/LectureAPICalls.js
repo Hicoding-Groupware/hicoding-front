@@ -1,5 +1,5 @@
 import {authRequest, request} from "./Api";
-import {getLectures, postSuccess} from "../modules/LectureModule";
+import {getLecture, getLectures, postSuccess, putSuccess} from "../modules/LectureModule";
 
 export const callLectureListAPI = ({currentPage = 1}) => {
 
@@ -15,6 +15,19 @@ export const callLectureListAPI = ({currentPage = 1}) => {
     }
 };
 
+export const callLectureDetailAPI = ({lecCode}) => {
+
+    return async (dispatch, getState) => {
+
+        const result = await authRequest.get(`/lectures/${lecCode}`);
+
+        if(result.status === 200) {
+            dispatch(getLecture(result));
+        }
+
+    }
+};
+
 export const callLectureRegistAPI = ({registRequest}) => {
 
     return async (dispatch, getState) => {
@@ -26,8 +39,25 @@ export const callLectureRegistAPI = ({registRequest}) => {
         });
 
         if (result.status === 201) {
+            window.location.replace("/lecture");
             dispatch(postSuccess());
         }
+    }
+}
+
+export const callLectureModifyAPI = ({lecCode, modifyRequest }) => {
+
+    return async (dispatch, getState) => {
+
+        const result = await authRequest.put(`/lectures/${lecCode}`, modifyRequest);
+        console.log('callAdminProductModifyAPI result : ', result);
+
+        if(result.status === 201) {
+            dispatch(putSuccess())
+            window.location.replace("/lecture");
+            alert("과정이 수정되었습니다.")
+        }
+
     }
 }
 

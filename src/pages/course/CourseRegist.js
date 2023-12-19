@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {callCourseRegistAPI} from "../../apis/CourseAPICalls";
+import {callAllCoursesAPI, callCourseRegistAPI} from "../../apis/CourseAPICalls";
 import {postSuccess} from "../../modules/CourseModule";
 import {useNavigate} from "react-router-dom";
 import {callLectureListAPI} from "../../apis/LectureAPICalls";
@@ -12,7 +12,7 @@ function CourseRegist(){
     const [form, setForm] = useState({});
     const dispatch = useDispatch();
     const navigate = useNavigate()
-    const { postSuccess } = useSelector(state => state.courseReducer);
+    const { postSuccess,courselist } = useSelector(state => state.courseReducer);
     const {lectures} = useSelector(state => state.lectureReducer);
     const [currentPage, setCurrentPage] = useState(1);
     const {classrooms} = useSelector(state => state.classroomReducer);
@@ -30,6 +30,7 @@ function CourseRegist(){
         dispatch(callLectureListAPI({currentPage}));
         dispatch(callClassroomsAPI());
         dispatch(callMemberListAPI());
+        dispatch(callAllCoursesAPI);
         if(postSuccess === true) {
             navigate('/courses/proceeding', { replace : true });
         }
@@ -50,6 +51,7 @@ function CourseRegist(){
             <div className="courseRegistWrap">
                 <div className="titleBox">
                     <p className="courseTitle">
+
                         <input
                             name='cosName'
                             className='courseTitleInput'
@@ -120,7 +122,7 @@ function CourseRegist(){
                             <option>선택</option>
                             {memberlist && memberlist.map(member=>(
                                 member.memberRole == 'TEACHER' &&
-                                <option value={member.memberNo}>{member.memberName}T</option>
+                                <option value={member.memberNo}>{member.memberName}T ({member.memberId})</option>
                             ))}
                         </select></dd>
                     </dl>
@@ -130,7 +132,7 @@ function CourseRegist(){
                             <option>선택</option>
                             {memberlist && memberlist.map(member=>(
                                 member.memberRole != 'TEACHER' &&
-                                <option value={member.memberNo}>{member.memberName}</option>
+                                <option value={member.memberNo}>{member.memberName} ({member.memberId})</option>
                             ))}
                         </select></dd>
                     </dl>

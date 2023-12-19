@@ -51,13 +51,13 @@ function CourseModify(){
     }, [putSuccess]);
 
 
+
     const onClickCourseUpdateHandler = () => {
 
         dispatch(callCourseModifyAPI({cosCode, modifyRequest : form }));
 
     }
 
-    console.log(form)
 
     return(
         course &&
@@ -144,7 +144,7 @@ function CourseModify(){
                         <dt>강사</dt>
                         <dd><select name='teacher' defaultValue={course.teacherCode} onChange={onChangeHandler}>
                             {memberlist && memberlist.map(member=>(
-                                member.memberRole == 'TEACHER' &&
+                                member.memberRole === 'TEACHER' &&
                                 <option value={member.memberNo}>{member.memberName}T ({member.memberId})</option>
                             ))}
                         </select></dd>
@@ -153,7 +153,7 @@ function CourseModify(){
                         <dt>담당자</dt>
                         <dd><select name='staff' defaultValue={course.staffCode} onChange={onChangeHandler}>
                             {memberlist && memberlist.map(member=>(
-                                member.memberRole != 'TEACHER' &&
+                                member.memberRole !== 'TEACHER' &&
                                 <option value={member.memberNo}>{member.memberName} ({member.memberId})</option>
                             ))}
                         </select></dd>
