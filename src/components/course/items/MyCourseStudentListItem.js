@@ -11,15 +11,14 @@ import {useNavigate} from "react-router-dom";
 import styled from "styled-components";
 
 const CustomDatePicker = styled(DatePicker)`
-      border: none;
-      outline: none; /* 선택 시 외곽선 제거 (선택 사항) */
-      font-weight: bolder;
-      font-size: 22px;
-      cursor: pointer;
-      caret-color: transparent;
-      width: 133px;
-    `;
-
+  border: none;
+  outline: none; /* 선택 시 외곽선 제거 (선택 사항) */
+  font-weight: bolder;
+  font-size: 22px;
+  cursor: pointer;
+  caret-color: transparent;
+  width: 133px;
+`;
 
 
 function MyCourseStudentListItem({course, cosCode, students, cosSdt, cosEdt, dayStatus}) {
@@ -32,11 +31,10 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, cosEdt, day
     const navigate = useNavigate();
 
 
-
     /* ============== 월별 출석부로 이동 ============= */
     const handleMonthAttendanceSelect = (cosCode) => {
         const cosName = course.cosName;
-        navigate(`/attendance/month/${cosCode}`, { state : {cosCode, cosName, students, dayStatus, cosSdt, cosEdt}});
+        navigate(`/attendance/month/${cosCode}`, {state: {cosCode, cosName, students, dayStatus, cosSdt, cosEdt}});
     }
 
 
@@ -71,7 +69,6 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, cosEdt, day
         dispatch(callAttendanceRegistAPI({registRequest: attendanceList}));
     };
 
-    console.log("cosSdt!!!!!!!!!!232 : ", cosSdt);
 
     /* 수정 api updateRequest */
     const onClickAttendanceUpdateHandler = () => {
@@ -87,13 +84,12 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, cosEdt, day
     };
 
 
-
     /* ============== 셀렉트 박스 ============= */
 
     /* 셀렉트 박스 - 셀렉트 박스 클릭했을 때 stdCode, selectedValue 잘 나옴 */
     const handleSelectChange = (stdCode, selectedValue) => {
         setStatus(prev => {
-            const updatedStatus = { ...prev, [stdCode]: selectedValue };
+            const updatedStatus = {...prev, [stdCode]: selectedValue};
 
             // 콘솔 로그로 상태 업데이트 확인
             console.log("Updated Status: ", updatedStatus);
@@ -148,35 +144,12 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, cosEdt, day
     }, [students]);
 
 
-
     /* ============== 평일 & 주말 관리 =============  */
 
-    /* 평일 여부 판별 함수 */
-    const isWeekday = (date) => {
-        const day = date.getDay();
-        return day === 0 || day === 6;
-    }
-
-    /* 주말 여부 판별 함수 */
+    // /* 주말 - 평일 여부 판별 함수 */
     const isWeekend = (date) => {
         const day = date.getDay();
-        return day >= 1 && day <= 5;
-    }
-
-    /* 다음 주말 찾기 */
-    const findNextWeekend = (date) => {
-        while (!isWeekend(date)) {
-            date.setDate(date.getDate() + 1);
-        }
-        return date;
-    }
-
-    /* 다음 평일 찾기 */
-    const findNextWeekday = (date) => {
-        while (!isWeekday(date)) {
-            date.setDate(date.getDate() + 1);
-        }
-        return date;
+        return day === 0 || day === 6;
     }
 
     /* 이전 날짜로 이동 */
@@ -185,90 +158,55 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, cosEdt, day
         /* cosSdt 개강일까지만 이동 가능 */
         e.preventDefault();
 
-        const prevDay = new Date(selectedDate);
-        prevDay.setDate(prevDay.getDate() - 1);
-
-        // 이전 날짜가 cosSdt보다 크거나 같은 경우에만 이동 가능
-        if (prevDay >= new Date(cosSdt) || prevDay.getDate() === new Date(cosSdt).getDate()) {
-            if (dayStatus === "WEEKDAY" && isWeekday(prevDay)) {
-                prevDay.setDate(prevDay.getDate() - 1);
-            } else if (dayStatus === "WEEKEND" && isWeekend(prevDay)) {
-                prevDay.setDate(prevDay.getDate() - 1);
+        let prevDay = new Date(selectedDate);
+        do {
+            prevDay.setDate(prevDay.getDate() - 1);
+            if (prevDay < new Date(cosSdt)) {
+                return;
             }
+        } while ((dayStatus === "WEEKDAY" && isWeekend(prevDay)) || (dayStatus === "WEEKEND" && !isWeekend(prevDay)));
 
-            setSelectedDate(prevDay);
-            const formattedDate = formatDate(prevDay); // 날짜 포맷팅 함수 사용
-            dispatch(callMyCourseStudentListAPI({cosCode, atdDate: formattedDate}));
-        }
+        setSelectedDate(prevDay);
+        const formattedDate = formatDate(prevDay);
+        dispatch(callMyCourseStudentListAPI({cosCode, atdDate: formattedDate}));
     };
+
 
     /* 다음 날짜로 이동 */
     const handleNextDayClick = () => {
-        const nextDay = new Date(selectedDate);
+        let nextDay = new Date(selectedDate);
+        const endDate = new Date(cosEdt);
+        const today = new Date();
+
+        nextDay.setHours(0, 0, 0, 0);
+        endDate.setHours(0, 0, 0, 0);
+        today.setHours(0, 0, 0, 0);
+
         nextDay.setDate(nextDay.getDate() + 1);
 
-        let adjustedNextDay = nextDay;
+        // cosEdt 이후로 가지 않도록 검사
+        if (nextDay > endDate) {
+            return;
+        }
+        // 오늘 이후로 가지 않도록 검사
 
-        if (nextDay <= new Date()) {
-            if (dayStatus === "WEEKDAY" && isWeekday(nextDay)) {
-                adjustedNextDay = findNextWeekend(nextDay);
+        if (nextDay > today) {
+            return;
+        }
 
-            } else if (dayStatus === "WEEKEND" && isWeekend(nextDay)) {
-                adjustedNextDay = findNextWeekday(nextDay);
+        while ((dayStatus === "WEEKDAY" && isWeekend(nextDay)) || (dayStatus === "WEEKEND" && !isWeekend(nextDay))) {
+            nextDay.setDate(nextDay.getDate() + 1); // 다음 날짜로 계속 이동
+
+            if (nextDay > endDate || nextDay > today) {
+                return;
             }
-            setSelectedDate(adjustedNextDay);
-            const formattedDate = formatDate(adjustedNextDay);
-            dispatch(callMyCourseStudentListAPI({cosCode, atdDate: formattedDate}));
         }
+
+        setSelectedDate(nextDay);
+
+        const formattedDate = formatDate(nextDay);
+        dispatch(callMyCourseStudentListAPI({cosCode, atdDate: formattedDate}));
     };
-
-
-    // 이전 평일을 찾는 함수
-    const findPrevWeekday = (date) => {
-        let day = date.getDay();
-        if (day === 0) { // 일요일이면 금요일로 이동
-            date.setDate(date.getDate() - 2);
-        } else if (day === 6) { // 토요일이면 금요일로 이동
-            date.setDate(date.getDate() - 1);
-        }
-        return date;
-    }
-
-    // 이전 주말을 찾는 함수
-    const findPrevWeekend = (date) => {
-        let day = date.getDay();
-        if (day >= 1 && day <= 5) { // 평일이면 이전 주 토요일로 이동
-            date.setDate(date.getDate() - (day + 1));
-        }
-        return date;
-    }
-
-    const adjustDate = (date) => {
-        const dayOfWeek = date.getDay();
-
-        if (dayStatus === "WEEKDAY" && (dayOfWeek === 0 || dayOfWeek === 6)) {
-            alert("평일 과정은 평일만 관리 할 수 있습니다. 이전 평일로 이동합니다.");
-            return findPrevWeekday(new Date(date));
-        } else if (dayStatus === "WEEKEND" && (dayOfWeek >= 1 && dayOfWeek <= 5)) {
-            alert("주말 과정은 주말만 관리 할 수 있습니다. 이전 주말로 이동합니다.");
-            return findPrevWeekend(new Date(date));
-        } else {
-            return date;
-        }
-    };
-
-    // useEffect로 컴포넌트 마운트 및 selectedDate 변경 감지 ?????????????
-    // useEffect(() => {
-    //     const adjustedDate = adjustDate(selectedDate);
-    //     if (adjustedDate !== selectedDate) {
-    //         setSelectedDate(adjustedDate);
-    //     }
-    // }, [selectedDate]);
-    // ===================================================
-    // ===================================================
-    // 주말 이전 평일로 돌아가서 수정했을 경우 오늘 날짜로 등록되는 현상 있음 수정해야함
-    // ===================================================
-    // ===================================================
 
 
     /* ============== 데이트 피커 ============== */
@@ -290,7 +228,6 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, cosEdt, day
         } else if (dayStatus === "WEEKEND") {
             return day !== 1 && day !== 2 && day !== 3 && day !== 4 && day !== 5;
         }
-
         return true;
     };
 
@@ -301,7 +238,6 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, cosEdt, day
         const day = String(date.getDate()).padStart(2, '0');
         return `${year}-${month}-${day}`;
     };
-
 
 
     /* ============== 저장하기 & 다시 저장하기 버튼 ============== */
@@ -324,7 +260,6 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, cosEdt, day
             setStatus(initialStatus);
         }
     }, [students]);
-
 
 
     return (
@@ -354,8 +289,11 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, cosEdt, day
                                 </div>
                                 <div className="buttons-container">
                                     <button className="month-attend-select-button"
-                                    onClick={() => handleMonthAttendanceSelect(cosCode, students, dayStatus, cosSdt, cosEdt)}>월별 출석부 조회</button>
-                                    <button className="attend-regist-button" onClick={buttonOnClick}>{buttonLabel}</button>
+                                            onClick={() => handleMonthAttendanceSelect(cosCode, students, dayStatus, cosSdt, cosEdt)}>월별
+                                        출석부 조회
+                                    </button>
+                                    <button className="attend-regist-button"
+                                            onClick={buttonOnClick}>{buttonLabel}</button>
                                 </div>
                             </div>
 
@@ -383,7 +321,10 @@ function MyCourseStudentListItem({course, cosCode, students, cosSdt, cosEdt, day
                                                         {value: "attendance", name: "출석"},
                                                         {value: "absence", name: "결석"},
                                                         {value: "tardiness", name: "지각"},
-                                                        ...(student.attendanceStatus !== null ? [{ value: "leave_early", name: "조퇴" }] : []),
+                                                        ...(student.attendanceStatus !== null ? [{
+                                                            value: "leave_early",
+                                                            name: "조퇴"
+                                                        }] : []),
                                                     ]}
                                                     value={status[student.stdCode]}
                                                     onChange={(status) => handleSelectChange(student.stdCode, status)}

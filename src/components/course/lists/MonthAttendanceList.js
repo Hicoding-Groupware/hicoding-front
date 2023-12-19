@@ -12,23 +12,6 @@ function MonthAttendanceList() {
     const location = useLocation();
     const { cosName, dayStatus, cosSdt, cosEdt } = location.state || {};
 
-    const [isLoading, setIsLoading] = useState(false);
-
-    useEffect(() => {
-        setIsLoading(true);
-        dispatch(callMyCourseStudentMonthListAPI({ cosCode }))
-            .then(() => {
-                setIsLoading(false);
-            })
-            .catch(error => {
-                console.error("에러 페칭 데이타 : ", error);
-                setIsLoading(false);
-            });
-    }, [dispatch, cosCode]);
-
-    if (isLoading) {
-        return <div>loading...</div>
-    }
 
     return(
         <>

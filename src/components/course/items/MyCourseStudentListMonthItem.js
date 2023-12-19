@@ -26,6 +26,7 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
     const [selectedDate, setSelectedDate] = useState(new Date());
     const dispatch = useDispatch();
 
+    console.log("cosEdt value: ", cosEdt);
 
 
     useEffect(() => {
@@ -92,101 +93,73 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
     const fetchMonthData = (date) => {
         try {
             const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-01`; // 날짜를 매달 1일로 설정
-            console.log('Dispatching action:', callMyCourseStudentMonthListAPI({cosCode, atdDate: formattedDate}));
             dispatch(callMyCourseStudentMonthListAPI({cosCode, atdDate: formattedDate}));
-            console.log('Action dispatched');
         } catch (error) {
-            console.log('Error in fetchMonthData : ', error);
         }
     };
 
-    console.log('Selected Date:', selectedDate);
-    console.log('Current Month:', currentMonth);
-    console.log('Current Year:', currentYear);
-
     useEffect(() => {
-        console.log('Fetching data for:', selectedDate);
         fetchMonthData(selectedDate);
     }, [selectedDate, cosCode]);
 
 
+
     /* 출석률 계산 */
     function calculateAttendance(stdCode, monthStudents) {
-        const attendanceCounts = {
+        const statusCounts = {
             attendance: 0,
             absence: 0,
             tardiness: 0,
-            leave_early: 0,
+            leave_early: 0
         };
 
         monthStudents.forEach(record => {
             if (record.stdCode === stdCode) {
-                switch (record.attendanceStatus) {
-                    case 'attendance' :
-                        attendanceCounts.attendance++;
-                        break;
-                    case 'absence' :
-                        attendanceCounts.absence++;
-                        break;
-                    case 'tardiness' :
-                        attendanceCounts.tardiness++;
-                        break;
-                    case 'leave_early' :
-                        attendanceCounts.leave_early++;
-                        break;
-                    default:
-                        break;
+                if (record.attendanceStatus === 'attendance') {
+                    statusCounts.attendance++;
+                } else if (record.attendanceStatus === 'absence') {
+                    statusCounts.absence++;
+                } else if (record.attendanceStatus === 'tardiness') {
+                    statusCounts.tardiness++;
+                } else if (record.attendanceStatus === 'leave_early') {
+                    statusCounts.leave_early++;
                 }
             }
         });
 
-        // 지각 조퇴 = 3번 = 결석
-        const combinedLateEarly = attendanceCounts.tardiness + attendanceCounts.leave_early;
-        attendanceCounts.absence += Math.floor(combinedLateEarly / 3);
-        attendanceCounts.tardiness %= 3;
-        attendanceCounts.leave_early %= 3;
-
-        return attendanceCounts;
+        return statusCounts;
     }
 
-    function calculateWorkingDays(cosSdt, cosEdt, dayStatus) {
-        let count = 0;
-        let date = new Date(cosSdt);
-        let endDate = new Date(cosEdt);
+    function calculateAttendanceRate(cosSdt, cosEdt, attendanceRecords, classType) {
+        let totalDays = 0;
+        let attendedDays = 0;
 
-        while (date <= endDate) {
-            if((dayStatus === 'WEEKDAY' && isWeekday(date)) || (dayStatus === 'WEEKEND' && isWeekend(date))) {
-                count++;
+        // 개강일부터 종강일까지 모든 날짜를 순회
+        for (let date = new Date(cosSdt); date <= new Date(cosEdt); date.setDate(date.getDate() + 1)) {
+            if ((classType === 'WEEKDAY' && isWeekday(date)) || (classType === 'WEEKEND' && isWeekend(date))) {
+                totalDays++;
+                if (attendanceRecords.includes(formatDate(date))) {
+                    attendedDays++;
+                }
             }
-            date.setDate(date.getDate() + 1);
         }
 
-        return count;
+        // 출석률 계산: (출석일수 / 총 수업일수) * 100
+        return (attendedDays / totalDays) * 100;
     }
 
-    function calculateAttendanceRate(attendanceCounts, cosSdt, cosEdt, dayStatus) {
-        const totalDays = calculateWorkingDays(cosSdt, cosEdt, dayStatus);
-
-        if (totalDays === 0) {
-            return '0.00';
-        }
-
-        const presentDays = attendanceCounts.attendance;
-        const attendanceRate = (presentDays / totalDays) * 100;
-        return attendanceRate.toFixed(2);
-    }
-
-
-    /* 평일 여부 판별 함수 */
-    const isWeekday = (date) => {
+    function isWeekday(date) {
         const day = date.getDay();
         return day >= 1 && day <= 5;
     }
 
-    /* 주말 여부 판별 함수 */
-    const isWeekend = (date) => {
+    function isWeekend(date) {
         const day = date.getDay();
         return day === 0 || day === 6;
+    }
+
+    function formatDate(date) {
+        return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
     }
 
 
@@ -212,6 +185,7 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
                     </button>
                 </div>
             </div>
+            <div className="month-description">출석 O, 결석 X, 지각 △, 조퇴 ▼</div>
             <table className="month-table">
                 <thead className="calendarHeader">
                 <tr>{calendarHeaders}</tr>
@@ -220,9 +194,11 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
                 <tbody>
                 {students.map((student, index) => {
                     const attendanceCounts = calculateAttendance(student.stdCode, monthStudents);
-                    const totalDaysInMonth = new Date(currentYear, currentMonth, 0).getDate();
+                    const attendanceRecords = monthStudents
+                        .filter(record => record.stdCode === student.stdCode && record.attendanceStatus === 'attendance')
+                        .map(record => record.atdDate);
 
-                    const attendanceRate = calculateAttendanceRate(attendanceCounts, totalDaysInMonth);
+                    const attendanceRate = calculateAttendanceRate(cosSdt, cosEdt, attendanceRecords, dayStatus);
 
                     return (
                         <>
@@ -244,7 +220,6 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
                                         (dayStatus === 'WEEKEND' && isWeekday(date))) {
                                         dayClass = 'grey-out';
                                     }
-
 
                                     const status = attendanceRecord ? attendanceRecord.attendanceStatus : null;
 
@@ -276,7 +251,7 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
                                 <td className="month-td stats">{attendanceCounts.absence}</td>
                                 <td className="month-td stats">{attendanceCounts.tardiness}</td>
                                 <td className="month-td stats">{attendanceCounts.leave_early}</td>
-                                <td className="month-td stats">{attendanceRate}%</td>
+                                <td className="month-td stats">{attendanceRate.toFixed(2)}%</td>
                             </tr>
                         </>
                     )
