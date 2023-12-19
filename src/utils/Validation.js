@@ -18,3 +18,10 @@ export const removeWhitespace = text => {
     }
     return '';
 }
+
+//비밀번호 형식
+export const validatePassword = memberPwd => {
+    // 최소 8자, 최대 50자
+    const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
+    return regex.test(memberPwd);
+};

@@ -10,6 +10,7 @@ import {useNavigate} from "react-router-dom";
 import {validateEmail, validateName} from "../../utils/Validation";
 import {toast, ToastContainer} from "react-toastify";
 import {resetSuccess} from "../../modules/StudentModule";
+import styled from 'styled-components';
 
 function StudentRegist() {
 
@@ -111,7 +112,19 @@ function StudentRegist() {
 
     }
 
-
+    const CustomDatePicker = styled(DatePicker)`
+      margin-top: 8px;
+      display: flex;
+      width: 416px;
+      height: 40px;
+      padding-left: 16px;
+      align-items: center;
+      gap: 8px;
+      flex: 1 0 0;
+      align-self: stretch;
+      border-radius: 8px;
+      border: 1px solid #CED4DA;
+    `;
 
     return (
         <>
@@ -153,15 +166,13 @@ function StudentRegist() {
                     />
                     <label className="radio-label2" htmlFor="radio2">여성</label>
                     <div className="student-regist-sub">생년월일(필수)</div>
-                    <DatePicker
+                    <CustomDatePicker
                         locale={ko}
-                        selected={ birthDate }
-                        onChange={ date => setBirthDate(date) }
+                        selected={birthDate}
+                        onChange={date => setBirthDate(date)}
                         dateFormat="yyyy-MM-dd"
                         placeholderText="YYYY/MM/DD"
-                        className="student-regist-input-birth"
                         showYearDropdown
-
                     />
                     <div className="student-regist-sub">전화 번호(필수)</div>
                     <input
