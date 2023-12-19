@@ -21,7 +21,7 @@ function Main(){
 
     /* 진행중인 강의 */
 
-    const {courses} = useSelector(state => state.myCourseReducer);
+    const {courses, course} = useSelector(state => state.myCourseReducer);
     const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
@@ -39,7 +39,7 @@ function Main(){
     }, [messageCurrentPage]);
 
     const onCLickMessageHandler = () => {
-        navigate("/", {replace : true});
+        navigate("/message");
     }
 
 
@@ -49,7 +49,8 @@ function Main(){
             <div className="main-back">
                 <div>
                 <MainMyCourseListItem listType="InProfressList"
-                courses={courses} setCurrentPage={setCurrentPage}/>
+                courses={courses} setCurrentPage={setCurrentPage}
+                course={course}/>
                 </div>
                 <div>
                     <MainCalender courses={courses}/>
@@ -134,7 +135,7 @@ function Main(){
                 message &&
                 <div className="main-message-table">
                     <h2 style={{marginBottom : 0, marginTop : 20, cursor : "pointer"} } onClick={onCLickMessageHandler}>message</h2>
-                    <div style={{height : 280, backgroundColor : "rgb(239, 239, 239)", borderRadius : 15}}><MainMessage message={message} setMessageCurrentPage={setMessageCurrentPage}/></div>
+                    <div style={{height : 280, backgroundColor : "rgb(239, 239, 239)", borderRadius : 15, display : "flex"}}><MainMessage message={message} setMessageCurrentPage={setMessageCurrentPage}/></div>
                 </div>
             }
 
