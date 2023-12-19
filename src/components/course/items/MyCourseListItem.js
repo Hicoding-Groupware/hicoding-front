@@ -104,7 +104,6 @@ function MyCourseListItem({title, courses}){
                                     ))}
                             </div>
                         </div>
-                        <PagingBar pageInfo={courses.pageInfo} setCurrentPage={setCurrentPage}/>
                     </div>
                 </>
             }
