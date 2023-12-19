@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {callLastMyCourseListAPI} from "../../../apis/MyCourseAPICalls";
 import MyCourseListItem from "../items/MyCourseListItem";
-import PagingBar from "../pagingbar/PagingBar";
 import MyPagingBar from "../../common/MyPagingBar";
 
 
@@ -23,7 +22,7 @@ function LastCourseList() {
         <>
             <MyCourseListItem title="지난 강의" listType="LastCourseList"
                               courses={courses} setCurrentParge={setCurrentPage}/>
-            <MyPagingBar pageInfo={courses.pageInfo} setCurrentPage={setCurrentPage}/>
+            {courses && <MyPagingBar pageInfo={courses.pageInfo} setCurrentPage={setCurrentPage}/>}
         </>
     );
 }
