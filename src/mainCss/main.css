@@ -215,10 +215,10 @@ body {
     background-color: #efefef;
     margin-top: 58px;
     margin-left: 40px;
-    width: 1400px;
+    width: 1430px;
     height: 730px;
     border-radius: 15px;
-    padding-left: 50px;
+    padding-left: 30px;
 }
 
 /* 프로필 */
@@ -226,6 +226,7 @@ body {
     position: absolute;
     left: 1470px;
     max-width: 100%;
+    top: 83px;
 }
 
 .main-mypage-img {
@@ -275,18 +276,14 @@ body {
 
 .pagingM-btn {
     margin: 5px;
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0);
     cursor: pointer;
-    color: #333333;
+    height: 15px;
     font-size: 20px;
-    border-radius: 100px;
+    border: none;
 }
 
 .main-teacher-table-back {
-    width: 890px;
-    position: relative;
-    left: -20px;
+
 }
 
 .main-teacher-table {
@@ -304,6 +301,7 @@ body {
     padding-left: 15px;
     background-color: #ffffff;
     height: 300px;
+    width: 400px;
 }
 
 .teacher-table-row > table > tbody > tr > td {
@@ -323,7 +321,7 @@ body {
     width: 500px;
     position: absolute;
     right: 20px;
-    top: 50px;
+    top: 40px;
 }
 
 
@@ -376,6 +374,7 @@ button.fc-today-button.fc-button.fc-button-primary {
     position: absolute;
     width: 800px;
     top: 50px;
+    left: 50px;
 }
 
 /* 메세지 */
@@ -400,14 +399,11 @@ button.fc-today-button.fc-button.fc-button-primary {
 }
 
 .main-message-table {
-    width: 358px;
-    height: 280px;
     position: relative;
-    display: inline-block;
-    background-color: rgb(239, 239, 239);
-    top: 475px;
-    left: 1550px;
-    border-radius: 15px;
+    left: 1535px;
+    top: 473px;
+    height: 330px;
+    width: 340px;
 }
 
 .nothing {
@@ -417,7 +413,8 @@ button.fc-today-button.fc-button.fc-button-primary {
 }
 
 .nothing-sub {
-    padding-top: 20px;
+    padding-top: 40px;
+    margin-top: 0;
 }
 
 .nothing-img {
@@ -443,4 +440,139 @@ button.fc-today-button.fc-button.fc-button-primary {
     justify-content: center;
     align-items: center;
     color: rgba(60, 68, 75, 0.4);
+}
+
+/*-------------관리자 페이지 강의 ---------------*/
+.main-manager-table-back {
+    position: relative;
+    left: 900px;
+    width: 500px;
+    top: 15px;
+
+}
+
+.manager-table-name{
+    display: flex;
+    width: 440px;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.manager-table-name-sub{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+/*페이지*/
+.ManagerPagingM-ul {
+    display: flex;
+    list-style-type: none;
+    max-width: 128px;
+    margin: 0px 0px 0px 360px;
+    position: relative;
+    bottom: 10px;
+}
+
+.main-manager-table{
+    display: flex;
+    flex-direction: column;
+}
+
+.ing{
+    border: 1px;
+    background-color: #8d67ff;
+    color: white;
+    border-radius: 10px;
+    font-size: 13px;
+    padding: 5px;
+}
+
+
+.main-manager-title{
+    width: 70px;
+    border: 1px;
+    background-color: white;
+    padding: 15px 10px 25px 10px;
+    border-radius: 10px;
+    position: relative;
+    top: 20px;
+    z-index: 1;
+    display: flex;
+}
+
+.main-title{
+    border: 1px;
+    background-color: #8d67ff;
+    color: white;
+    border-radius: 10px;
+    font-size: 13px;
+    padding: 3px;
+    text-align: center;
+    width: 50px;
+
+}
+
+/*  예정 강의 */
+.main-title2{
+    border: 1px;
+    background-color: #8d67ff;
+    color: white;
+    border-radius: 10px;
+    font-size: 11px;
+    padding: 4px;
+    text-align: center;
+    width: 50px;
+
+}
+
+.ing2{
+    border: 1px;
+    background-color: #8d67ff;
+    color: white;
+    border-radius: 10px;
+    font-size: 11px;
+    padding: 6px;
+}
+
+.main-manager-back{
+    position: relative;
+    background-color: #efefef;
+    width: 1460px;
+    height: 730px;
+    border-radius: 15px;
+    left: 36px;
+    top: 58px;
+}
+
+.main-message-manager-table {
+    width: 358px;
+    position: relative;
+    display: inline-block;
+    left: 60px;
+    bottom: 15px;
+}
+
+/*MpagingBar 페이징 */
+.main-paging-btn {
+    margin: 5px;
+    background-color: white;
+    border: 1px solid rgba(40, 35, 35, 0.15);
+    cursor: pointer;
+    height: 15px;
+    font-size: 20px;
+    border-radius: 100px;
+}
+
+.stop-button{
+    width: 40px;
+    position: absolute;
+    left: 1390px;
+    bottom: 700px;
+    z-index: 300;
+}
+
+.stop-button > button{
+    border: none;
+    cursor: pointer;
 }

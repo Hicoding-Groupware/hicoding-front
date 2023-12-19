@@ -14,11 +14,12 @@ const POST_SUCCESS = 'login/POST_SUCCESS';
 const POST_FAILURE = 'login/POST_FAILURE';
 const PUT_SUCCESS = 'login/PUT_SUCCESS';
 const PUT_FAILURE = 'login/PUT_FAILURE';
+const GET_SUCCESS = 'login/GET_SUCCESS';
 
 
 
 /* 액션 함수 */
-export const { login : {  loginSuccess, loginFailure, postSuccess, postFailure, postInfo, putSuccess , putFailure} } = createActions({
+export const { login : {  loginSuccess, loginFailure,onlyLoginSuccess,onlyLoginFailure, postSuccess, postFailure, postInfo, putSuccess , putFailure, getSuccess} } = createActions({
 
     [LOGIN_SUCCESS] : () => ({ loginSuccess : true }),
     [LOGIN_FAILURE] : () => ({ loginSuccess : false }),
@@ -29,6 +30,7 @@ export const { login : {  loginSuccess, loginFailure, postSuccess, postFailure, 
     [POST_FAILURE] : () => ({ postSuccess : false }),
     [PUT_SUCCESS] : () => ({ putSuccess : true }),
     [PUT_FAILURE] : () => ({ putSuccess : false }),
+    [GET_SUCCESS] : result => ({getAll : result.data}),
 
 
 
@@ -46,6 +48,8 @@ const loginReducer = handleActions({
     [POST_FAILURE] : (state, { payload }) => payload,
     [PUT_SUCCESS] : (state, { payload }) => payload,
     [PUT_FAILURE] : (state, { payload }) => payload,
+    [GET_SUCCESS] : (state, { payload }) => payload,
+
 
 }, initialState);
 

@@ -3,7 +3,9 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import FullCalendar from "@fullcalendar/react";
 
 
-function MainManagerCalender ({courses}){
+function MainManagerProceedingCalender ({mainCourses}){
+
+
 
     return(
         <>
@@ -13,8 +15,8 @@ function MainManagerCalender ({courses}){
                     initialView={'dayGridMonth'}
                     height={"331px"}
                     events={
-                        courses &&
-                        courses.data.map(course => ({
+                        mainCourses &&
+                        mainCourses.data.map(course => ({
                             resourceId: course.cosCode,
                             cosCodetitle: course.cosName,
                             start: course.cosSdt,
@@ -29,4 +31,4 @@ function MainManagerCalender ({courses}){
     );
 }
 
-export default MainManagerCalender;
+export default MainManagerProceedingCalender;

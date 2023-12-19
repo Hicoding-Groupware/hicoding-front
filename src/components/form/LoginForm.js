@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect, useState} from "react";
-import {callLoginAPI} from "../../apis/LoginAPICalls";
+import {callLoginAPI, MemberAllAPI} from "../../apis/LoginAPICalls";
 import FirstLoginModal from "../modal/FirstLoginModal";
 import {toast, ToastContainer} from "react-toastify";
 
@@ -17,13 +17,11 @@ function LoginForm(){
 
     useEffect(() => {
         if(loginReducer?.loginSuccess === true) {
-
             window.location.replace("/");
-        } else if(loginReducer?.loginSuccess === false) {
-            toast.dismiss();
-            toast.warning('로그인에 실패하였습니다. 아이디와 비밀번호를 확인해주세요.');
         }
     }, [loginReducer]);
+
+
 
     const onChangeHandler = e => {
         setForm({
@@ -37,8 +35,9 @@ function LoginForm(){
             toast.warning('아이디와 비밀번호를 모두 입력해주세요.');
             return;
         }
-        dispatch(callLoginAPI({loginRequest : form}));
-    }
+        dispatch(callLoginAPI({ loginRequest: form }))
+
+    };
 
     const handleOnKeyPress = e => {
         if (e.key === 'Enter') {
@@ -50,7 +49,7 @@ function LoginForm(){
         <>
 
             {loginReducer?.logins ? (
-                <FirstLoginModal />
+                <FirstLoginModal/>
             ) : (
                 <>
                     <h1>Sign In</h1>

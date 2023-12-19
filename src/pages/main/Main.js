@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {tr} from "date-fns/locale";
 import {useEffect, useState} from "react";
 import {callMyCourseListAPI, callToMainMyCourseListAPI} from "../../apis/MyCourseAPICalls";
-import MainMyCourseListItem from "./mainCourse/MainMyCourseListItem";
+import MainMyCourseListItem from "./mainMyCourse/MainMyCourseListItem";
 import MainCalender from "./mainCalender/MainCalender";
 import MainMessage from "./mainMessage/MainMessage";
 import {callMainMessageAPI} from "../../apis/MessageAPICalls";
@@ -37,6 +37,10 @@ function Main(){
     useEffect(() => {
         dispatch(callMainMessageAPI({messageCurrentPage}));
     }, [messageCurrentPage]);
+
+    const onCLickMessageHandler = () => {
+        navigate("/", {replace : true});
+    }
 
 
     return (
@@ -128,9 +132,9 @@ function Main(){
 
             {
                 message &&
-                <div>
-                    <h2 style={{position : "relative", paddingBottom: 0, marginBottom : 0, width : 100, left : 1530, top : 470}}>message</h2>
-                    <MainMessage message={message} setMessageCurrentPage={setMessageCurrentPage}/>
+                <div className="main-message-table">
+                    <h2 style={{marginBottom : 0, marginTop : 20, cursor : "pointer"} } onClick={onCLickMessageHandler}>message</h2>
+                    <div style={{height : 280, backgroundColor : "rgb(239, 239, 239)", borderRadius : 15}}><MainMessage message={message} setMessageCurrentPage={setMessageCurrentPage}/></div>
                 </div>
             }
 

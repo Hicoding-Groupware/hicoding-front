@@ -10,7 +10,7 @@ function MainMessage({message, setMessageCurrentPage}) {
 
                     <div className="main-teacher-table-back">
                         <MMpagingBar pageInfo={message.pageInfo} setMessageCurrentPage={setMessageCurrentPage}/>
-                        <div className="main-message-table">
+                        <div>
 
 
                             {

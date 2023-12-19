@@ -57,18 +57,16 @@ export const callMemberInquiryAPI = ( {inquiryRequest: {id, name, gender, role, 
             dispatch(inquiryFailure())
             //toast.warning("직원 생성에 실패하였습니다. 다시 시도해 주세요.");
         }
-    }//
-}//＊↓                            ●↘
-// ＊↓                                ●↘
-//  ＊↘                      ●↗
-/* --    --------------      -------- 민서  ●↘ ------------------------------------------------------*/
-//       ●↘             ●↗                     ●↓
-export const callMemberProfileAPI = () => {//  ●↓
-//         ♨♨   ●↗ ♨♨♨                 ♨♨♨●↓ ♨♨♨
+    }
+}
+
+
+/* --    -------------- -------- 민서  ------------------------------------------------------*/
+
+export const callMemberProfileAPI = () => {
+
     return async (dispatch, getState) => {
-//                                           ◎††††◎
-//                                           ◎†＊††◎
-//                                           ◎††††◎
+
         const result = await authRequest.get("/member/profile");
         console.log('callMemberAPI result : ', result);
 
