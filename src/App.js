@@ -34,11 +34,13 @@ import NoticeBoard from "./pages/notice/NoticeBoard";
 import NoticePost from "./pages/notice/NoticePost";
 import MainLayout from "./layouts/MainLayout";
 import Login from "./Login";
+import NoticeWritingPage from "./pages/notice/NoticeWritingPage";
 import CourseMainProceeding from "./pages/course/CourseMainProceeding";
 import CourseMainExpected from "./pages/course/CourseMainExpected";
 import Message from "./pages/message/Message";
 
 import CourseModify from "./pages/course/CourseModify";
+
 function App() {
 
     return (
@@ -101,6 +103,7 @@ function App() {
                         <Route path={BOARD_PATH} element={<NoticeLayout/>}>
                             <Route path="board"/>
                             <Route path=":title/:role" element={<NoticeBoard/>}/>
+                            <Route path=":title/:role/:memberNo/:curPostNo" element={<NoticeWritingPage/>}/>
                             <Route path=":title/:role/:postNo/:recordType/:memberNo" element={<NoticePost/>}/>
                         </Route>
 

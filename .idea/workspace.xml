@@ -4,28 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e76cb1b-90bc-4f27-8799-76f5dc5ed7a9" name="Changes" comment="feat/#6/원생등록,수정페이지구현중">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Student.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Student.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/StudentAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/StudentAPICalls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/student/items/CourseTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/student/items/CourseTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/student/items/StudentTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/student/items/StudentTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/student/pagingBar/ModalPagingBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/student/pagingBar/ModalPagingBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/student/pagingBar/StudentPagingBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/student/pagingBar/StudentPagingBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/StudentModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/StudentModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/student/Student.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/student/Student.js" afterDir="false" />
-    </list>
+    <list default="true" id="1e76cb1b-90bc-4f27-8799-76f5dc5ed7a9" name="Changes" comment="feat/#50/notice-board&#10;&#10;* 화요일 약속 머지" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "feat/#6/studentsearch",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Lecture/hicoding-front",
     "node.js.selected.package.tslint": "(autodetect)",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external"
@@ -57,6 +50,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat/#6/원생등록,수정페이지구현중" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat/#6/원생등록,수정페이지구현중" />
+    <MESSAGE value="feat/#50/notice-board&#10;&#10;* 화요일 약속 머지" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat/#50/notice-board&#10;&#10;* 화요일 약속 머지" />
   </component>
 </project>

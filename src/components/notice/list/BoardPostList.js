@@ -8,7 +8,7 @@ function BoardPostList({postList, role, memberNo}) {
             <table className="notice-postTable">
                 <thead>
                 <tr>
-                    <th>[]</th>
+                    <th><input type="checkbox"/></th>
                     <th>번호</th>
                     <th>제목</th>
                     <th>작성자</th>
@@ -20,8 +20,7 @@ function BoardPostList({postList, role, memberNo}) {
 
                 <tbody className="notice-postTableBody">
                 {postList.map((postParent) => (
-                    <BoardPostListItem key={postParent.no} node={postParent} role={role} memberNo={memberNo}
-                                       level={0}/>
+                    <BoardPostListItem key={postParent.no} node={postParent} role={role} memberNo={memberNo}/>
                 ))}
                 </tbody>
             </table>
