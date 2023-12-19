@@ -92,6 +92,7 @@
     text-align: center;
     line-height: 40px;
     border-bottom: 1px solid #DEE2E6;
+
 }
 
 .student-th-teacher {
@@ -100,6 +101,7 @@
     text-align: center;
     line-height: 40px;
     border-bottom: 1px solid #DEE2E6;
+
 }
 
 .student-th-cosPeriod {
@@ -170,10 +172,6 @@
     cursor: pointer;
 }
 
-.record-end {
-
-}
-
 .student-modify {
     margin-left: 23px;
     border-radius: var(--4, 4px);
@@ -214,29 +212,32 @@
 /* 페이징바 */
 
 .modal-paging {
-    margin: auto;
+    margin: 0 auto;
 }
 
 .student-paging {
-    margin-left: 1550px;
+    margin: 0 auto;
 }
 
 .paging-ul {
     display: flex;
+    justify-content: center;
     list-style-type : none;
     margin-bottom: 30px;
 }
 
 .paging-btn{
     margin: 5px;
-    border-radius: 25px;
     background-color: white;
-    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    color: #333333;
+    font-size: 14px;
 }
 
 .paging-btn:hover{
     cursor: pointer;
-    background-color: burlywood;
+
 }
 
 .student-createdAt{
@@ -394,20 +395,31 @@
     background: url("../public/img/RadioButtons.svg") no-repeat center;
 }
 
-.student-regist-input-birth {
-    margin-top: 8px;
-    display: flex;
-    width: 416px;
-    height: 40px;
-    padding-left: 16px;
-    align-items: center;
-    gap: 8px;
-    flex: 1 0 0;
-    align-self: stretch;
-    border-radius: 8px;
-    border: 1px solid #CED4DA;
-
+.emailValid {
+    color: red;
+    font-feature-settings: 'clig' off, 'liga' off;
+    /* Body2 */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
 }
+
+/*.student-regist-input-birth {*/
+/*    margin-top: 8px;*/
+/*    display: flex;*/
+/*    width: 416px;*/
+/*    height: 40px;*/
+/*    padding-left: 16px;*/
+/*    align-items: center;*/
+/*    gap: 8px;*/
+/*    flex: 1 0 0;*/
+/*    align-self: stretch;*/
+/*    border-radius: 8px;*/
+/*    border: 1px solid #CED4DA;*/
+
+/*}*/
 
 .student-regist-input-phone {
     margin-top: 8px;
@@ -607,7 +619,7 @@
     cursor: pointer;
 }
 
-.regist:hover {
+. regist:hover {
     height: 40px;
     padding: var(--Spacing8, 8px) var(--Spacing16, 16px);
     justify-content: center;
@@ -641,8 +653,9 @@
     border: 1px solid #CED4DA;
 }
 
+
 .student-courseList {
-    display: flex;
+ display: flex;
 }
 
 .cosName {
@@ -703,12 +716,14 @@
 }
 
 .record-cosName {
+    padding-left: 16px;
     width: 300px;
     height: 40px;
     text-align: center;
     line-height: 40px;
     border-bottom: 1px solid #DEE2E6;
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
 }
 
@@ -754,7 +769,7 @@
     margin-top: 16px;
     margin-left: 32px;
     width: 815px;
-    height: 120px;
+    height: 80px;
     border-radius: var(--borderRadius, 4px);
     border: 1px solid #CED4DA;
     overflow-y: auto;
@@ -762,5 +777,125 @@
 
 .currentCourseList {
     display: flex;
+    margin-top: 16px;
+    margin-left: 32px;
+    color: #333;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Noto Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 120% */
+}
+
+.record-List {
+    color: #333;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Noto Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 120% */
+}
+
+.course-status {
+    margin-left: 550px;
+}
+
+.modal-exit {
+    margin-left: 655px;
+}
+
+.record-List {
+    margin-top: 16px;
+    margin-left: 32px;
+}
+
+.record-withdraw {
+    margin-left: 23px;
+    border-radius: var(--4, 4px);
+    border: 1px solid var(--violet-500, #6260F4);
+    background: var(--default-white, #FFF);
+
+    color: var(--violet-500, #6260F4);
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Caption */
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+
+    cursor: pointer;
+}
+
+.record-withdraw:hover{
+    border-radius: var(--4, 4px);
+    border: 1px solid var(--violet-500, #6260F4);
+    background: var(--violet-500, #6260F4);
+
+    color: var(--default-white, #FFF);
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Caption */
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+
+    cursor: pointer;
+}
+
+.record-modal-cosName {
+    width: 300px;
+    height: 40px;
+    padding-left: 16px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #DEE2E6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.record-modal-teacher {
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #DEE2E6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.record-modal-cosPeriod {
+    width: 240px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #DEE2E6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.record-modal-capacity {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #DEE2E6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.record-modal-manage {
+    width: 192px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #DEE2E6;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 

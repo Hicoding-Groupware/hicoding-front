@@ -1,6 +1,5 @@
 import {
     getStudentCourse,
-    getStudentCourseDetail,
     getStudentDetail,
     getStudents, postRecordSuccess,
     postSuccess, putRecordSuccess,
@@ -113,7 +112,7 @@ export const callRecordRegistAPI = ({registRequest}) => {
 
         if(result.status === 201) {
             dispatch(postRecordSuccess());
-            toast.info("등록이 완료 되었습니다.");
+            toast.info("수강등록이 완료 되었습니다.");
         } else {
             toast.error("수강 등록에 실패 하였습니다.");
         }

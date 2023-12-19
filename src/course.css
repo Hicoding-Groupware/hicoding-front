@@ -313,17 +313,17 @@ a {
     box-shadow: 0 0 5px rgba(98, 0, 255, 0.7);
 }
 
-.react-datepicker-wrapper,
-.react-datepicker__input-container,
-.react-datepicker__input-container input {
-    border: none;
-    outline: none; /* 선택 시 외곽선 제거 (선택 사항) */
-    font-weight: bolder;
-    font-size: 22px;
-    cursor: pointer;
-    caret-color: transparent;
-    width: 133px;
-}
+/*.react-datepicker-wrapper,*/
+/*.react-datepicker__input-container,*/
+/*.react-datepicker__input-container input {*/
+/*    border: none;*/
+/*    outline: none; !* 선택 시 외곽선 제거 (선택 사항) *!*/
+/*    font-weight: bolder;*/
+/*    font-size: 22px;*/
+/*    cursor: pointer;*/
+/*    caret-color: transparent;*/
+/*    width: 133px;*/
+/*}*/
 
 .left-button {
     z-index: 100;

@@ -11,11 +11,12 @@ const POST_SUCCESS = 'student/POST_SUCCESS';
 const POST_RECORD_SUCCESS = 'student/POST_RECORD_SUCCESS';
 const PUT_SUCCESS = 'student/PUT_SUCCESS';
 const PUT_RECORD_SUCCESS = 'student/PUT_RECORD_SUCCESS';
+const RESET_SUCCESS = 'student/RESET_SUCCESS';
 
 
 
 /* 액션 함수 */
-export const { student : { getStudents, getStudentDetail, getStudentCourse, postSuccess, postRecordSuccess, putSuccess, putRecordSuccess } } = createActions({
+export const { student : { getStudents, getStudentDetail, getStudentCourse, postSuccess, postRecordSuccess, putSuccess, putRecordSuccess, resetSuccess } } = createActions({
     [GET_STUDENTS] : result => ({ students : result.data }),
     [GET_STUDENT_DETAIL] : result => ({ studentDetail : result.data }),
     [GET_STUDENT_COURSE] : result => ({ studentCourse : result.data }),
@@ -23,6 +24,7 @@ export const { student : { getStudents, getStudentDetail, getStudentCourse, post
     [POST_RECORD_SUCCESS] : () => ({ postRecordSuccess : true }),
     [PUT_SUCCESS] : () => ({ putSuccess : true }),
     [PUT_RECORD_SUCCESS] : () => ({ putRecordSuccess : true }),
+    [RESET_SUCCESS] : key => ({ key })
 
 });
 
@@ -31,11 +33,11 @@ const studentReducer = handleActions({
     [GET_STUDENTS] : (state, { payload }) => ({...state, ...payload}),
     [GET_STUDENT_COURSE] : (state, { payload }) => ({...state, ...payload}),
     [POST_RECORD_SUCCESS] : (state, { payload }) => ({...state, ...payload}),
+    [PUT_RECORD_SUCCESS] : (state, { payload }) => ({...state, ...payload}),
     [GET_STUDENT_DETAIL] : (state, { payload }) => payload,
     [POST_SUCCESS] : (state, { payload }) => payload,
-    [POST_RECORD_SUCCESS] : (state, { payload }) => payload,
     [PUT_SUCCESS] : (state, { payload }) => payload,
-
+    [RESET_SUCCESS] : (state, { payload }) => ({ ...state, studentCourse : null, [payload.key] : null })
 }, initialState);
 
 export default studentReducer;

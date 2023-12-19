@@ -15,7 +15,7 @@ function Student() {
     const [stdName, setStdName] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
-    const {students} = useSelector(state => state.studentReducer);
+    const {students, postRecordSuccess, putRecordSuccess } = useSelector(state => state.studentReducer);
 
 
     const onSortChangeHandler = e => {
@@ -40,7 +40,7 @@ function Student() {
 
     useEffect(() => {
         dispatch(callStudentListAPI({currentPage, sort, stdName, startDate, endDate}));
-    }, [currentPage, sort, stdName, startDate, endDate]);
+    }, [currentPage, sort, stdName, startDate, endDate, postRecordSuccess, putRecordSuccess]);
 
 
     return (
