@@ -27,9 +27,7 @@ function DetailNavBar(){
                         <li>공지사항</li>
                     </ul>
                     <ul style={{paddingLeft : '34px'}}>
-                        <li>쪽지 쓰기</li>
-                        <li>받은 쪽지함</li>
-                        <li>보낸 쪽지함</li>
+                        <li><NavLink to="/message">쪽지함</NavLink></li>
                     </ul>
                 </li>
             </ul>
