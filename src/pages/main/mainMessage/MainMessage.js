@@ -18,7 +18,7 @@ function MainMessage({message, setMessageCurrentPage}) {
                                     message.data.map((msg, index) => (
                                         <div className="message-table-row" key={msg.msgNo || index}>
                                             <table style={{width: '200px', display: "inline-flex"}}>
-                                                <thead>
+                                                <thead style={{borderTop : 0}}>
                                                 <div style={{
                                                     height: 50, width: 50, borderRadius: 100, position: "relative"
                                                     , display: "inline-flex", border: "1px solid rgba(7, 7, 7, 0.16)",

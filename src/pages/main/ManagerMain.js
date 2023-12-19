@@ -31,7 +31,8 @@ function ManagerMain() {
     const [status, setStatus] = useState(true);
 
     const onCLickMessageHandler = () => {
-        navigate("/", {replace: true});
+        navigate("/message");
+
     }
 
     const startInterval = () => {

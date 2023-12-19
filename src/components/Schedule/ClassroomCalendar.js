@@ -20,7 +20,7 @@ function ClassroomCalendar({classrooms,data}){
 
                     }}
                     resources={
-                    classrooms &&
+                        classrooms &&
                         classrooms.map(classroom=>({
                             id: classroom.roomName,
                             title: classroom.roomName
