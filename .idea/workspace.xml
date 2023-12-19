@@ -4,41 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="feat/#50/notice-board&#10;&#10;* 게시글, 댓글창 작업&#10;&#10;잠은 자자...">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/MemberAPICalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/MemberAPICalls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/notice/items/BoardPostListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/notice/items/BoardPostListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/notice/items/CommentListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/notice/items/CommentListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notice.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/notice.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/notice/NoticePost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/notice/NoticePost.js" afterDir="false" />
-    </list>
+    <list default="true" id="1e76cb1b-90bc-4f27-8799-76f5dc5ed7a9" name="Changes" comment="feat/#50/notice-board&#10;&#10;* 화요일 약속 머지" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
-}</component>
-  <component name="ProjectId" id="2ZULKg7sbK6eydRY4HyWHnB8wxL" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -47,35 +18,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feat/#50/notice-board",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/hyeok/hicoding-back",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Lecture/hicoding-front",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.npmStart.executor": "Run",
-    "npm.run.executor": "Run",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\hyeok\hicoding-front\src\components\notice\pagingBar" />
-      <recent name="C:\hyeok\hicoding-front\src" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\hyeok\hicoding-front\src\components\notice\list" />
-    </key>
-  </component>
   <component name="RunManager">
-    <configuration name="npmStart" type="js.build_tools.npm">
+    <configuration name="npm start" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
@@ -86,75 +36,21 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-18.0.2-corretto-18.0.2-3183f394aec4-38982a12" />
-      </set>
-    </attachedChunks>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="" />
-      <created>1702471648740</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1702471648740</updated>
-      <workItem from="1702471649973" duration="3131000" />
-      <workItem from="1702552572561" duration="41651000" />
-      <workItem from="1702699421307" duration="38106000" />
-      <workItem from="1702788573361" duration="81000" />
-      <workItem from="1702788924201" duration="32967000" />
-      <workItem from="1702943901767" duration="6308000" />
-    </task>
-    <task id="LOCAL-00001" summary="feat/#50/notice-board&#10;&#10;* merge 후 css 작업 파일 사라짐 잠깐 커밋">
+    <task id="LOCAL-00001" summary="feat/#6/원생등록,수정페이지구현중">
       <option name="closed" value="true" />
-      <created>1702830606550</created>
+      <created>1702012765636</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1702830606551</updated>
+      <updated>1702012765636</updated>
     </task>
-    <task id="LOCAL-00002" summary="feat/#50/notice-board&#10;&#10;* * 글쓰기 페이지 작성 및 연동 first o&#10;  * 답글 페이지 작성 및 연동 first o&#10;  &#10;쓰러지기전 혹시 모르니까">
-      <option name="closed" value="true" />
-      <created>1702916395763</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1702916395763</updated>
-    </task>
-    <task id="LOCAL-00003" summary="feat/#50/notice-board&#10;&#10;* 게시글, 댓글창 작업&#10;&#10;잠은 자자...">
-      <option name="closed" value="true" />
-      <created>1702922921791</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1702922921791</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째" />
-    <MESSAGE value="feat/#50/notice-board&#10;&#10;* merge 후 css 작업 파일 사라짐 잠깐 커밋" />
     <MESSAGE value="feat/#6/원생등록,수정페이지구현중" />
-    <MESSAGE value="feat/#50/notice-board&#10;&#10;* * 글쓰기 페이지 작성 및 연동 first o&#10;  * 답글 페이지 작성 및 연동 first o&#10;  &#10;쓰러지기전 혹시 모르니까" />
-    <MESSAGE value="feat/#50/notice-board&#10;&#10;* 게시글, 댓글창 작업&#10;&#10;잠은 자자..." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat/#50/notice-board&#10;&#10;* 게시글, 댓글창 작업&#10;&#10;잠은 자자..." />
+    <MESSAGE value="feat/#50/notice-board&#10;&#10;* 화요일 약속 머지" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat/#50/notice-board&#10;&#10;* 화요일 약속 머지" />
   </component>
 </project>

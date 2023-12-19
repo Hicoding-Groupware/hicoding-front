@@ -32,7 +32,7 @@
 
 /*강의 테이블*/
 .lecture-table{
-    width: 1100px;
+    width: 1166px;
     margin: 0 auto;
     margin-bottom: 100px;
     text-align: center;
@@ -46,16 +46,55 @@
     height: 40px;
 }
 
+.lecture-table>tbody>tr:hover{
+    background: #3a74d614 ;
+}
+
+
+
 .lecture-table>thead{background: #f0f0f2}
 .lecture-table>tbody{border-top: 2px solid #727476;}
 
+.listFilterArea{
+    width: 1100px;
+    height: 50px;
+    margin: 0 auto;
+    display: flex;
+}
+.blankSpace{
+    width: 880px;
+    border-Bottom : 2px solid  #e2e2e4;
+}
+
+.courseListTypeBtn{
+    background: white;
+}
+
+.listBtnArea{
+    display: flex;
+    width: 1000px;
+}
+.listBtnArea>p{
+    padding-right: 20px;
+    cursor: pointer;
+}
+.courseSearch{
+    float: right;
+}
 
 
+.courseListTypeBtn{
+    border: none;
+    padding: 0 30px;
+    min-height: 50px;
+    cursor: pointer;
+}
 .courseListWrap{
-    border-top: 2px solid #e2e2e4;
+    /*border-top: 2px solid #e2e2e4;*/
+    /*margin-top: 20px;*/
     margin: 0 auto;
     width: 1100px;
-    padding: 0;
+    padding: 50px;
 }
 .courseList{
     list-style: none;
@@ -174,7 +213,6 @@ dd{
     width: 1100px;
     border: 3px solid #e2e2e4;
     margin: 0 auto;
-    margin-top: 60px;
     padding: 30px;
 }
 
@@ -229,7 +267,89 @@ dd{
 .calendarContainer{
     margin: 0 auto;
     margin-top: 100px;
-    width: 1100px;
+    margin-bottom: 100px;
+    width: 1200px;
 }
 
 .fc-toolbar-chunk button{border: none;}
+
+
+/*강의모달*/
+.lectureModal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modalBody{
+    position: absolute;
+    width: 600px; height: 500px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    border-radius: 18px;
+    background: #FFF;
+    z-index: 1000;
+
+}
+
+.modalCloseBtn{
+    padding: 5px 10px;
+    border: none;
+    border-radius: 50%;
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.modalContent{
+    display: flex;
+    flex-direction: column;
+    width: 400px; height: 300px;
+    margin: 0 auto;
+    margin-top: 60px;
+    text-align: center;
+}
+.modalContent>input{
+    line-height: 40px;
+    width: 100%;
+    border: 2px solid #86868b;
+    border-radius: 12px;
+    font-size: 20px;
+    margin-top: 14px;
+}
+.modalContent>input:focus{
+    outline: none;
+    border: 2px solid #0071e3;
+}
+.modalRegistBtn{
+    line-height: 40px;
+    width: 100%;
+    border: 1px solid #86868b;
+    border-radius: 12px;
+    font-size: 20px;
+    margin-top: 50px;
+    background: #0071e3;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+
+}
+.modalCancelBtn{
+    line-height: 40px;
+    width: 100%;
+    border: 1px solid #86868b;
+    border-radius: 12px;
+    font-size: 20px;
+    background: #FFFFFF;
+    color: #0071e3;
+    text-decoration: underline;
+    border: none;
+    cursor: pointer;
+}
