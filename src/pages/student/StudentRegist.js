@@ -10,7 +10,21 @@ import {useNavigate} from "react-router-dom";
 import {validateEmail, validateName} from "../../utils/Validation";
 import {toast, ToastContainer} from "react-toastify";
 import {resetSuccess} from "../../modules/StudentModule";
-import styled from 'styled-components';
+import styled from "styled-components";
+const CustomDatePicker = styled(DatePicker)`
+      margin-top: 8px;
+      display: flex;
+      width: 416px;
+      height: 40px;
+      padding-left: 16px;
+      align-items: center;
+      gap: 8px;
+      flex: 1 0 0;
+      align-self: stretch;
+      border-radius: 8px;
+      border: 1px solid #CED4DA;
+    `;
+
 
 function StudentRegist() {
 
@@ -112,19 +126,6 @@ function StudentRegist() {
 
     }
 
-    const CustomDatePicker = styled(DatePicker)`
-      margin-top: 8px;
-      display: flex;
-      width: 416px;
-      height: 40px;
-      padding-left: 16px;
-      align-items: center;
-      gap: 8px;
-      flex: 1 0 0;
-      align-self: stretch;
-      border-radius: 8px;
-      border: 1px solid #CED4DA;
-    `;
 
     return (
         <>
