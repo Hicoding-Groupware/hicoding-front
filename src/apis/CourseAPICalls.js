@@ -1,5 +1,6 @@
 import {authRequest} from "./Api";
 import {getCourse, getCourselist, getCourses, postSuccess, putSuccess} from "../modules/CourseModule";
+import {getMainCourse, getMainCourses} from "../modules/MyCourseModule";
 
 export const callAllCoursesAPI = () => {
 
@@ -100,3 +101,32 @@ export const callCourseRemoveAPI = ({cosCode}) => {
 
     }
 }
+
+/* 민서 - 메인에서 사용할 API */
+
+export const callToMainCourseProceedingListAPI = ({currentPage}) => {
+
+    return async (dispatch, getState) => {
+
+        const result =  await authRequest.get(`/main-courses-proceeding?page=${currentPage}`);
+        console.log("callToMainCourseListAPI : "  , result);
+
+        if(result.status === 200){
+            dispatch(getMainCourses(result));
+        }
+    }
+};
+
+
+export const callToMainCourseExpectedListAPI = ({anotherCurrentPage}) => {
+
+    return async (dispatch, getState) => {
+
+        const result =  await authRequest.get(`/main-courses-expected?page=${anotherCurrentPage}`);
+        console.log("callToMainCourseExpectedListAPI : "  , result);
+
+        if(result.status === 200){
+            dispatch(getMainCourse(result));
+        }
+    }
+};

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import {InfoUpdateAPI} from "../../apis/LoginAPICalls";
+import {InfoFirstLoginUpdateAPI, InfoUpdateAPI} from "../../apis/LoginAPICalls";
 import Modal from "react-modal";
 import DaumPostcode from "react-daum-postcode";
 import {toast, ToastContainer} from "react-toastify";
@@ -9,6 +9,17 @@ import {validateEmail, validatePassword} from "../../utils/Validation";
 import DatePicker from "react-datepicker";
 import { ko } from "date-fns/esm/locale";
 import styled from 'styled-components';
+
+/* date 스타일 */
+const CustomDatePicker = styled(DatePicker)`
+      border-color: rgba(117, 100, 166, 0.18);
+      height: 40px;
+      width: 300px;
+      border-radius: 10px;
+      text-indent: 10px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    `;
 
 
 
@@ -74,7 +85,7 @@ function FirstLoginModal() {
             info.memberBirth = memberBirth;
             info.number = number;
             console.log(info);
-            dispatch(InfoUpdateAPI({InfoUpdateRequest: {...info, memberId: logins.memberId}}));
+            dispatch(InfoFirstLoginUpdateAPI({InfoUpdateRequest: {...info, memberId: logins.memberId}}));
         }
     }
 
@@ -122,16 +133,7 @@ function FirstLoginModal() {
         },
     };
 
-    /* date 스타일 */
-    const CustomDatePicker = styled(DatePicker)`
-      border-color: rgba(117, 100, 166, 0.18);
-      height: 40px;
-      width: 300px;
-      border-radius: 10px;
-      text-indent: 10px;
-      margin-top: 5px;
-      margin-bottom: 5px;
-    `;
+
 
 
     return (

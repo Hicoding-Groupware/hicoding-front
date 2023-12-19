@@ -5,7 +5,6 @@ import MpagingBar from "../paging/MpagingBar";
 
 function MainMyCourseListItem({courses, setCurrentPage}) {
 
-    const [course, setCourse] = useState({});
     const navigate = useNavigate();
 
     const toMylecture = (cosCode, courses) => {
@@ -66,9 +65,12 @@ function MainMyCourseListItem({courses, setCurrentPage}) {
                                                 </tr>
 
                                                 <tr>
-                                                    <td style={{width: 250}}>{course.cosName}</td>
-                                                    <td><button onClick={toMylecture}
-                                                                style={{marginLeft : 60, borderRadius : 10, color : "white", fontWeight : "bolder", backgroundColor : "#5a38a8", cursor: "pointer"}}>출석 관리</button></td>
+                                                    <td style={{width: 270, whiteSpace: "nowrap",
+                                                        textOverflow: "ellipsis",
+                                                        overflow: "hidden",}}>{course.cosName}</td>
+                                                    <td style={{    display: 'flex',
+                                                        justifyContent: 'center'}}><button onClick={toMylecture}
+                                                                style={{ borderRadius : 10, color : "white", fontWeight : "bolder", backgroundColor : "#5a38a8", cursor: "pointer", width : 80}}>출석 관리</button></td>
                                                 </tr>
 
 

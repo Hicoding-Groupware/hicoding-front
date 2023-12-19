@@ -1,5 +1,6 @@
 import axios from "axios";
 import {getAccessTokenHeader, getRefreshTokenHeader, saveToken} from "../utils/TokenUtils";
+import {toast} from "react-toastify";
 
 const SERVER_IP = `${process.env.REACT_APP_RESTAPI_SERVER_IP}`;
 const SERVER_PORT = `${process.env.REACT_APP_RESTAPI_SERVER_PORT}`;
@@ -19,7 +20,13 @@ export const request = async (method, url, headers, data) => {
         data
     })
 
-        .catch(error => console.log(error))
+        .catch(error => {
+            console.log(error)
+            if (error.response && error.response.status === 401) {
+
+                toast.warning('인증에 실패했습니다. 올바른 사용자 이름과 비밀번호를 입력하세요.');
+            }
+        });
 }
 
 /* 인증이 필요한 기능을 요청할 때 사용 하는 객체 */

@@ -2,8 +2,8 @@ import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect, useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
-import {callLoginAPI, InfoUpdateAPI} from "../../apis/LoginAPICalls";
-import {loginFailure, passwordWarn} from "../../modules/LoginModule";
+import {callChangePasswordAPI, callLoginAPI, InfoUpdateAPI} from "../../apis/LoginAPICalls";
+import {loginFailure, onlyLoginSuccess, passwordWarn} from "../../modules/LoginModule";
 
 function PasswordUpdateModal({profile, setPasswordUpdateModal}) {
 
@@ -20,7 +20,9 @@ function PasswordUpdateModal({profile, setPasswordUpdateModal}) {
             memberGender: profile.memberGender
         }
     );
-    const [checkInfo, setCheckInfo] = useState({});
+    const [checkInfo, setCheckInfo] = useState({
+        memberId: profile.memberId
+    });
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -36,9 +38,11 @@ function PasswordUpdateModal({profile, setPasswordUpdateModal}) {
 
     useEffect(() => {
 
-            if (loginReducer?.loginSuccess ===true) {
-                alert("인증이 완료되었습니다. 변경하실 비밀번호를 입력해주세요")
-            }
+        if (loginReducer?.loginSuccess === true) {
+            alert("인증이 완료되었습니다. 변경하실 비밀번호를 입력해주세요")
+        }else if (loginReducer?.onlyLoginSuccess === false){
+            alert("비밀번호가 일치하지 않습니다.");
+        }
 
     }, [loginReducer]);
 
@@ -58,33 +62,17 @@ function PasswordUpdateModal({profile, setPasswordUpdateModal}) {
     }
 
 
-    // const onClickCheckHandler = () => {
-    //     if (profile.memberId === info.memberId) {
-    //         setCheck(true);
-    //     } else {
-    //         toast.warning("아이디가 일치하지 않습니다");
-    //     }
-    // }
+
 
     const onClickCheckHandler = () => {
-        if (!checkInfo.memberId || !checkInfo.memberPwd) {
-            toast.warning('아이디또는 비밀번호를 입력헤주세요');
-        }else {
-
-            dispatch(callLoginAPI({loginRequest : checkInfo}));
-        }
+        dispatch(callLoginAPI({loginRequest : {...checkInfo, memberId : profile.memberId}}));
     }
-
 
 
     const onClickInfoUpdateHandler = () => {
         if (!info.memberPwd) {
             toast.warning("변경하실 비밀번호를 입력해주세요");
-        } else if (profile.memberPwd === info.memberPwd) {
-            toast.warning("현재 사용중이신 비밀번호 입니다. 다른 비밀번호로 변경해주세요");
-        }else if (info.memberPwd && profile.memberPwd !== info.memberPwd){
-            console.log(profile.memberPwd);
-            console.log(info.memberPwd);
+        } else{
             dispatch(InfoUpdateAPI({InfoUpdateRequest: {...info, memberId: profile.memberId}}));
         }
 
@@ -180,18 +168,7 @@ function PasswordUpdateModal({profile, setPasswordUpdateModal}) {
                 <>
                     <table className="password-update-table2">
                         <tbody>
-                        <tr>
-                            <td style={{paddingTop : 10}}>
-                                <input
-                                    type="text"
-                                    style={{borderColor: 'rgba(117, 100, 166, 0.18)', height: '40px'}}
-                                    value={checkInfo.memberId}
-                                    name="memberId"
-                                    placeholder="아이디를 입력해주세요"
-                                    onChange={onCheckHandler}
-                                />
-                            </td>
-                        </tr>
+
                         <tr>
                             <td style={{paddingTop : 10}}>
                                 <input

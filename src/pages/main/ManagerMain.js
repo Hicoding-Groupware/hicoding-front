@@ -1,13 +1,11 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {tr} from "date-fns/locale";
 import {useNavigate} from "react-router-dom";
-import MainMyCourseListItem from "./mainCourse/MainMyCourseListItem";
-import MainCalender from "./mainCalender/MainCalender";
-import MainManagerCalender from "./mainCalender/MainManagerCalender";
 import MainMessage from "./mainMessage/MainMessage";
-import {callToMainMyCourseListAPI} from "../../apis/MyCourseAPICalls";
 import {callMainMessageAPI} from "../../apis/MessageAPICalls";
+import MainCourseProceeding from "./mainCourse/MainCourseProceeding";
+import MainCourseExpected from "./mainCourse/MainCourseExpected";
+
 
 function ManagerMain() {
 
@@ -15,6 +13,8 @@ function ManagerMain() {
     const dispatch = useDispatch();
     /* 프로필 */
     const {profileInfo} = useSelector(state => state.memberReducer);
+    const loginReducer = useSelector(state => state.loginReducer);
+    const {logins} = useSelector(state => state.loginReducer);
     const mypageHandler = () => {
         navigate("/profile", {replace: true});
     }
@@ -26,30 +26,70 @@ function ManagerMain() {
         dispatch(callMainMessageAPI({messageCurrentPage}));
     }, [messageCurrentPage]);
 
+    /* 강의 화살표 */
+    const [intervalId, setIntervalId] = useState(null);
+    const [status, setStatus] = useState(true);
 
-    /* 날짜 */
-    const {courses} = useSelector(state => state.myCourseReducer);
-    const [currentPage, setCurrentPage] = useState(1);
+    const onCLickMessageHandler = () => {
+        navigate("/", {replace: true});
+    }
+
+    const startInterval = () => {
+        const id = setInterval(() => {
+            setStatus((prevStatus) => !prevStatus);
+        }, 5000);
+        setIntervalId(id);
+    };
+
+    const stopInterval = () => {
+        if (intervalId) {
+            clearInterval(intervalId);
+            setIntervalId(null);
+        }
+    };
+
+    const toggleInterval = () => {
+        if (intervalId) {
+            stopInterval();
+        } else {
+            startInterval();
+        }
+    };
+
     useEffect(() => {
-        /* 진행 중인 강의(과정)에 대한 정보 요청 */
-        dispatch(callToMainMyCourseListAPI({currentPage}));
-
-    }, [currentPage]);
-
+        // 컴포넌트가 언마운트되면 clearInterval을 통해 interval 제거
+        return () => stopInterval();
+    }, []);
 
     return (
         <>
-            <div className="main-back">
-                <div>
-                    <MainManagerCalender courses={courses}/>
-                </div>
+
+            <div className="stop-button">
+                {intervalId === null ? <button onClick={toggleInterval}>▷</button>: <button onClick={toggleInterval}>||</button>}
+
             </div>
-            <div style={{width : 100}}>
+
+
+            <div>
+                {
+
+                    status ? (
+                        <MainCourseProceeding setStatus={setStatus}/>
+
+                    ) : (
+                        <MainCourseExpected setStatus={setStatus}/>
+                    )
+
+                }
+            </div>
+
+
+            <div className="main-mypage">
 
                 {
                     profileInfo &&
                     <>
-                        <div className="main-mypage">
+                        <div>
                             <h2 style={{
                                 paddingLeft: 60,
                                 paddingTop: 5,
@@ -127,9 +167,15 @@ function ManagerMain() {
 
                 {
                     message &&
-                    <div>
-                    <h2 style={{position : "relative", paddingBottom: 0, marginBottom : 0, width : 100, left : 1530, top : 470}}>message</h2>
-                    <MainMessage message={message} setMessageCurrentPage={setMessageCurrentPage}/>
+                    <div className="main-message-manager-table">
+                        <h2 style={{marginBottom: 0, marginTop: 20, cursor: "pointer"}}
+                            onClick={onCLickMessageHandler}>message</h2>
+                        <div style={{
+                            height: 280,
+                            backgroundColor: "rgb(239, 239, 239)",
+                            borderRadius: 15,
+                            paddingTop: 10
+                        }}><MainMessage message={message} setMessageCurrentPage={setMessageCurrentPage}/></div>
                     </div>
                 }
 

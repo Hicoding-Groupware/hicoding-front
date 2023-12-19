@@ -24,6 +24,9 @@ function Profile() {
         console.log("여기있써~~~~~~~~~~~~~~~~~", profileInfo);
     }, []);
 
+
+
+
     const onClickInfoUpdateHandler = () => {
         setInformationUpdateModal(true);
 
