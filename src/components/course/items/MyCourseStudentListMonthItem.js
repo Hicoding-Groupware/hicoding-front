@@ -68,7 +68,10 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
         }
 
         const newDate = new Date(newYear, newMonth - 1, 1);
-        if (newDate >= new Date(cosSdt)) {
+        const startDate = new Date(cosSdt);
+
+        if (newDate.getFullYear() > startDate.getFullYear() ||
+           (newDate.getFullYear() === startDate.getFullYear() && newDate.getMonth() >= startDate.getMonth())) {
             handleMonthChange(newDate);
             setCurrentMonth(newMonth);
             setCurrentYear(newYear);
