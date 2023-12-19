@@ -240,10 +240,6 @@
     margin-top: 4.5%;
 }
 
-a {
-    text-decoration: none;
-    color: #333333;
-}
 
 
 /* 일별 출석부 */
@@ -419,7 +415,7 @@ a {
     color: #000000;
 }
 
-/* 반응형 디자인 */
+
 @media screen and (max-width: 600px) {
     .month-table, .month-table thead, .month-table tbody, .month-table th, .month-table td, .month-table tr {
         display: block;
@@ -461,7 +457,6 @@ a {
 }
 
 
-
 .month-header-container {
     display: flex;
     justify-content: space-between;
@@ -494,4 +489,9 @@ a {
     border: none;
     background-color: white;
     font-size: 25px;
+}
+
+.month-description {
+    font-size: 14px;
+    margin : 0 0 0.2% 5%;
 }
