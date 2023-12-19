@@ -1,70 +1,116 @@
-# Getting Started with Create React App
+<div align=center> 
+ <img width="600" alt="Untitled" src="https://github.com/Hicoding-Groupware/hicoding-back/assets/138549261/e0f6b671-1ba7-4952-807f-e7c125e7f5ff">
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br>
+<br>
 
-## Available Scripts
+<div align="center">
+    name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    name &nbsp;&nbsp;&nbsp;
+    <br>
+    <br>
+    <img src="width="130" height="130"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="" width="130" height="130"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="" width="130" height="130"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="" width="130" height="130"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </a>
+</div>
+<br><br>
 
-In the project directory, you can run:
+## :clipboard: 개요
+- 
+      <br>
+- 개발기간 : ~ 12.21(목)
+- 개발인원 : FullStack 5명     
 
-### `npm start`
+## :clipboard: 개발환경
+* IntelliJ
+* MySql
+* Spring
+* GitHub
+<br>
+<div align=left><h2>📚 FRONT-END</h2></div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<div align=left> 
+  <img src="https://img.shields.io/badge/html-E34F26?style=for-the-badge&logo=html5&logoColor=white"> 
+  <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> 
+  <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+  <br>
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<div align=left><h2>📚 BACK-END</h2></div>
 
-### `npm test`
+<div align=left>
+  <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> 
+  <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">
+  <img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"> 
+  <br>
+  <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> 
+  <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white">
+  <img src="https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white"> 
+  <br>
+</div>  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 주요 기능
+- 
+- 
+- 로그인, 회원가입
+- 
+- 
 
-### `npm run build`
+## :link: ERD 설계
+* [학원ERD](https://github.com/didrlgus/springboot-shoppingmall/issues/1)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# 화면
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- #### 메인화면
 
-### `npm run eject`
+ <p align="center"><img src="" width="1000" height="800"/></p>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- #### 1.
+  
+- ** 기능명 **
+ <p align="left">
+   <img src="" width="400" height="250"/>
+ </p>
+   1. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   2. 
 
-## Learn More
+   3.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- ** 기능명 **
+ <p align="left">
+   <img src="" width="400" height="250"/>
+ </p>
+   1. 
 
-### Code Splitting
+   2. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- #### 2.
 
-### Analyzing the Bundle Size
+- ** 기능명 **
+ <p align="left">
+   <img src="" width="400" height="250"/>
+ </p>
+   1. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   2. 
 
-### Making a Progressive Web App
+   3.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+- ** 기능명 **
+ <p align="left">
+   <img src="" width="400" height="250"/>
+ </p>
+   1. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   2. 

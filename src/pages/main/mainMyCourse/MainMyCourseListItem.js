@@ -3,12 +3,12 @@ import {useNavigate} from "react-router-dom";
 import MpagingBar from "../paging/MpagingBar";
 
 
-function MainMyCourseListItem({courses, setCurrentPage}) {
+function MainMyCourseListItem({courses, setCurrentPage,course}) {
 
     const navigate = useNavigate();
 
-    const toMylecture = (cosCode, courses) => {
-        navigate(`/attendance/day/${cosCode}`, {state: {courses}});
+    const toMylecture = (cosCode, course) => {
+        navigate(`/attendance/day/${cosCode}`, {state: {course}});
     }
 
 

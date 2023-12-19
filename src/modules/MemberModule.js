@@ -28,12 +28,12 @@ export const { member : {creationSuccess, creationFailure, inquirySuccess, inqui
 
 /* 리듀서 함수 */
 export const memberReducer = handleActions({
-    [CREATION_SUCCESS] : ( state, { payload } ) => payload,
-    [CREATION_FAILURE] : ( state, { payload } ) => payload,
+    [CREATION_SUCCESS] : ( state, { payload } ) => ({...state, ...payload}),
+    [CREATION_FAILURE] : ( state, { payload } ) => ({...state, ...payload}),
     [INQUIRY_SUCCESS] : ( state, { payload } ) => payload,
     [INQUIRY_FAILURE] : ( state, { payload } ) => payload,
     [GET_MEMBERLIST] : (state, {payload}) => payload,
-    [GET_PROFILE] : (state, { payload }) => payload,
+    [GET_PROFILE] : (state, { payload }) => ({...state, ...payload}),
 }, initialState)
 
 export const memberRoleReducer = handleActions({

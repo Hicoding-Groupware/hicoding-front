@@ -76,13 +76,14 @@ function StudentRegist() {
             );
         }
         if (e.target.name === 'stdPhone') {
-        const input = e.target.value.replace(/[^\d]/g, '');
-        if (input.length <= 11) {
-            setPhoneNumber(
-                input.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3')
-            );
+            const input = e.target.value.replace(/[^\d]/g, '');
+            if (input.length <= 11) {
+                const formattedNumber = input.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+                setPhoneNumber(formattedNumber);
+                // formattedNumber
+                console.log('formattedNumber', formattedNumber);
+            }
         }
-    }
 
 
     }
@@ -122,6 +123,7 @@ function StudentRegist() {
         }
 
         form.stdBirth = birthDate;
+        form.stdPhone = phoneNumber;
         dispatch(callStudentRegistAPI({registRequest : form }));
 
     }
@@ -183,6 +185,7 @@ function StudentRegist() {
                         name='stdPhone'
                         onChange={ onChangeHandler }
                         value={phoneNumber}
+                        maxLength={13}
                     />
                     <div className="student-regist-sub">이메일</div>
                     <input
