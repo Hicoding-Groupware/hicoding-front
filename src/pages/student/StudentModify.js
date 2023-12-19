@@ -6,6 +6,7 @@ import Modal from "react-modal";
 import DaumPostcode from "react-daum-postcode";
 import DatePicker from "react-datepicker";
 import {ko} from "date-fns/esm/locale";
+import {resetSuccess} from "../../modules/StudentModule";
 
 
 function StudentModify() {
@@ -29,7 +30,8 @@ function StudentModify() {
 
     useEffect(() => {
         if(putSuccess === true) {
-            navigate('/students', { replace : true })
+            navigate('/students', { replace : true });
+            dispatch(resetSuccess('putSuccess'));
         }
     }, [putSuccess]);
 
@@ -73,7 +75,6 @@ function StudentModify() {
 
     const onClickStudentUpdate = () => {
         form.stdBirth = birthDate;
-        console.log(form.stdBirth);
         dispatch(callStudentModifyAPI({ stdCode, modifyRequest : form }))
 
     }

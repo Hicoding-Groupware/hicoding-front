@@ -1,15 +1,23 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {callCourseRegistAPI, callMemberListAPI} from "../../apis/CourseAPICalls";
+import {callAllCoursesAPI, callCourseRegistAPI} from "../../apis/CourseAPICalls";
 import {postSuccess} from "../../modules/CourseModule";
 import {useNavigate} from "react-router-dom";
+import {callLectureListAPI} from "../../apis/LectureAPICalls";
+import {callClassroomsAPI} from "../../apis/ClassroomAPICalls";
+import {callMemberListAPI} from "../../apis/MemberAPICalls";
 
 function CourseRegist(){
 
     const [form, setForm] = useState({});
     const dispatch = useDispatch();
     const navigate = useNavigate()
-    const { postSuccess } = useSelector(state => state.courseReducer);
+    const { postSuccess,courselist } = useSelector(state => state.courseReducer);
+    const {lectures} = useSelector(state => state.lectureReducer);
+    const [currentPage, setCurrentPage] = useState(1);
+    const {classrooms} = useSelector(state => state.classroomReducer);
+    const {memberlist} = useSelector(state => state.memberReducer);
+
 
     const onChangeHandler = e => {
         setForm({
@@ -19,8 +27,12 @@ function CourseRegist(){
     }
 
     useEffect(() => {
+        dispatch(callLectureListAPI({currentPage}));
+        dispatch(callClassroomsAPI());
+        dispatch(callMemberListAPI());
+        dispatch(callAllCoursesAPI);
         if(postSuccess === true) {
-            navigate('/courses', { replace : true });
+            navigate('/courses/proceeding', { replace : true });
         }
     }, [postSuccess]);
 
@@ -30,6 +42,7 @@ function CourseRegist(){
 
     }
     console.log(form)
+
     return(
         <>
             <div className="menuTitleWrap">
@@ -38,6 +51,7 @@ function CourseRegist(){
             <div className="courseRegistWrap">
                 <div className="titleBox">
                     <p className="courseTitle">
+
                         <input
                             name='cosName'
                             className='courseTitleInput'
@@ -78,7 +92,9 @@ function CourseRegist(){
                         <dt>강의</dt>
                         <dd><select name='lecCode' onChange={onChangeHandler}>
                             <option>선택</option>
-                            <option value={1}>강의1</option>
+                            {lectures && lectures.data.map(lecture=>(
+                            <option value={lecture.lecCode}>{lecture.lecName}</option>
+                            ))}
 
                         </select></dd>
                     </dl>
@@ -86,11 +102,9 @@ function CourseRegist(){
                         <dt>강의실</dt>
                         <dd><select name='roomCode' onChange={onChangeHandler}>
                             <option>선택</option>
-                            <option value={1}>1강의장</option>
-                            <option value={2}>2강의장</option>
-                            <option value={3}>3강의장</option>
-                            <option value={4}>4강의장</option>
-                            <option value={5}>5강의장</option>
+                            {classrooms && classrooms.map(classroom=>(
+                            <option value={classroom.roomCode}>{classroom.roomName}</option>
+                            ))}
                         </select></dd>
                     </dl>
                     <dl>
@@ -106,14 +120,20 @@ function CourseRegist(){
                         <dt>강사</dt>
                         <dd><select name='teacher' onChange={onChangeHandler}>
                             <option>선택</option>
-                            <option value={1}>박미림</option>
+                            {memberlist && memberlist.map(member=>(
+                                member.memberRole == 'TEACHER' &&
+                                <option value={member.memberNo}>{member.memberName}T ({member.memberId})</option>
+                            ))}
                         </select></dd>
                     </dl>
                     <dl>
                         <dt>담당자</dt>
                         <dd><select name='staff' onChange={onChangeHandler}>
                             <option>선택</option>
-                            <option value={1}>박미림</option>
+                            {memberlist && memberlist.map(member=>(
+                                member.memberRole != 'TEACHER' &&
+                                <option value={member.memberNo}>{member.memberName} ({member.memberId})</option>
+                            ))}
                         </select></dd>
                     </dl>
                 </div>

@@ -2,11 +2,14 @@ import {useNavigate} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import Modal from "react-modal";
 import {useDispatch, useSelector} from "react-redux";
-import {callRecordModifyAPI, callStudentCourseAPI} from "../../../apis/StudentAPICalls";
-import CourseTable from "./CourseTable";
+import {
+    callRecordModifyAPI,
+    callRecordRegistAPI,
+    callStudentCourseAPI,
+} from "../../../apis/StudentAPICalls";
 import ModalPagingBar from "../pagingBar/ModalPagingBar";
-import courseList from "../../course/lists/CourseList";
-import {toast} from "react-toastify";
+import {toast, ToastContainer} from "react-toastify";
+import {resetSuccess} from "../../../modules/StudentModule";
 
 
 function StudentTable({data}) {
@@ -17,15 +20,26 @@ function StudentTable({data}) {
     const [cosName, setCosName] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const dispatch = useDispatch();
-    const {studentCourse} = useSelector(state => state.studentReducer);
+    const {studentCourse, putRecordSuccess, postRecordSuccess} = useSelector(state => state.studentReducer);
     const [currentCourseList, setCurrentCourseList] = useState([]);
     const [pastCourseList, setPastCourseList] = useState([]);
     const [cosList, setCosList] = useState([]);
 
 
+
     useEffect(() => {
-        dispatch(callStudentCourseAPI({currentPage, cosName}));
-    }, [currentPage, cosName]);
+        if (putRecordSuccess === true) {
+            setIsOpen(false);
+            navigate('/students', {replace: true});
+            dispatch(resetSuccess('putRecordSuccess'));
+        }
+        else if (postRecordSuccess === true) {
+            setIsOpen(false);
+            navigate('/students', {replace: true});
+            dispatch(resetSuccess('postRecordSuccess'));
+        }
+    }, [putRecordSuccess, postRecordSuccess]);
+
 
     const formatDate = (dateString) => {
         const options = {year: 'numeric', month: '2-digit', day: '2-digit'};
@@ -64,21 +78,21 @@ function StudentTable({data}) {
         setCosName(null);
     };
 
+    const onSearchChangeHandler = e => {
+        setCosName(e.target.value);
+    }
     const onEnterKeyHandler = e => {
         if (e.key === 'Enter') {
+            console.log(cosName);
+            dispatch(callStudentCourseAPI({currentPage, cosName}))
 
-            const search = e.target.value.trim();
-
-            if (search !== '') {
-                setCosName(search);
-            }
         }
+
     }
 
     const onClickWithDraw = (recCode) => {
-        if(window.confirm("한번 철회하면 번복불가합니다. 정말 수강철회 하시겠습니까?")){
+        if (window.confirm("한번 철회하면 번복불가합니다. 정말 수강철회 하시겠습니까?")) {
             dispatch(callRecordModifyAPI({recCode}));
-            setIsOpen(true);
         } else {
             alert("취소하셨습니다.")
         }
@@ -88,6 +102,31 @@ function StudentTable({data}) {
 
          setIsOpen(false);
      }*/
+
+    const modalExitHandler = () => {
+        setIsOpen(false);
+    }
+
+    const [form, setForm] = useState({});
+
+    const onClickRecordRegist = (cosCode) => {
+
+        const duplicateCourse = cosList.some((cos) => cos.cosCode === cosCode);
+
+        if (duplicateCourse) {
+            toast.error("이미 수강중인 과정 및 수강 했던 과정입니다");
+        } else {
+            form.stdCode = stdCode;
+            form.cosCode = cosCode;
+            dispatch(callRecordRegistAPI({registRequest: form}))
+                /*.then(() => {
+                    // 강좌 등록 후 상태를 갱신하여 UI를 업데이트
+                    dispatch(callStudentCourseAPI({ currentPage, cosName }));
+                });
+*/
+
+        }
+    }
 
     return (
 
@@ -100,48 +139,91 @@ function StudentTable({data}) {
             >
                 <div className="currentCourseList">
                     <div className="currentCourseList-item">수강중인 강의</div>
-                    <div>수강 상태</div>
+                    <div className="modal-exit">
+                        <button className="record" onClick={modalExitHandler}>닫기</button>
+                    </div>
+
                 </div>
                 <div className="record-status">
-                    {currentCourseList.map((course, index) => (
 
+                    {currentCourseList.map((course, index) => (
                         <div key={index} className="record-status-normal">
                             <div className="record-cosName">{course.cosName}</div>
                             <div className="record-teacher">{course.teacher}</div>
                             <div className="record-cosPeriod"> {course.cosSdt} ~ {course.cosEdt}</div>
                             <div className="record-manage">{course.status.replace("normal", "정상")}
-                                <button className="record" onClick={() => onClickWithDraw(course.recCode)}>수강철회</button>
+                                <button className="record-withdraw"
+                                        onClick={() => onClickWithDraw(course.recCode)}>수강철회
+                                </button>
                             </div>
                         </div>
                     ))}
                 </div>
 
-                <div>수강 내역</div>
+                <div className="record-List">수강 내역</div>
                 <div className="record-status">
                     {pastCourseList.map((course, index) => (
                         <div key={index} className="record-status-normal">
                             <div className="record-cosName">{course.cosName}</div>
                             <div className="record-teacher">{course.teacher}</div>
                             <div className="record-cosPeriod">{course.cosSdt} ~ {course.cosEdt}</div>
-                            <div className="record-manage">{course.status.replace("normal", "수료").replace("withdraw", "수강철회")}</div>
+                            <div
+                                className="record-manage">{course.status.replace("normal", "수료").replace("withdraw", "수강철회")}</div>
                         </div>
                     ))}
                 </div>
-
+                <div className="record-List">수강 등록</div>
                 <div className="cosName">
                     <input
                         type="text"
                         placeholder="검색어를 입력하세요"
+                        onChange={onSearchChangeHandler}
                         onKeyUp={onEnterKeyHandler}
                     />
                 </div>
-                {studentCourse &&
+                <div className="course-table">
+                    <div className="student-table-tr">
+                        <div className="record-modal-cosName">코스명</div>
+                        <div className="record-modal-teacher">강사</div>
+                        <div className="record-modal-cosPeriod">코스 기간</div>
+                        <div className="record-modal-capacity">인원</div>
+                        <div className="record-modal-manage">수강신청</div>
+                    </div>
+                            {studentCourse && studentCourse.data && studentCourse.data.length > 0 && (
+                                <div className="record-modal-cosList">
+                                    {studentCourse.data.map(course => (
+                                        <div key={course.cosCode} className="student-courseList">
+                                            <div className="record-cosName">
+                                                {course.cosName}
+                                            </div>
+                                            <div className="record-teacher">
+                                                {course.teacher}
+                                            </div>
+                                            <div className="record-cosPeriod">
+                                                {course.cosSdt} ~ {course.cosEdt}
+                                            </div>
+                                            <div className="record-capacity">
+                                                {course.curCnt}/{course.capacity}
+                                            </div>
+                                            <div className="record-manage">
+                                                {course.curCnt === course.capacity ? (
+                                                    <div className="record-end">모집 마감</div>
+                                                ) : (
+                                                    <button className="record"
+                                                            onClick={() => onClickRecordRegist(course.cosCode)}>수강등록</button>
+                                                )}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                            )}
+                </div>
+                {studentCourse && studentCourse.data && studentCourse.data.length > 0 && (
                     <div>
-                        <CourseTable data={studentCourse.data} stdCode={stdCode} cosList={cosList}/>
                         <ModalPagingBar pageInfo={studentCourse.pageInfo} setCurrentPage={setCurrentPage}/>
                     </div>
-                }
-
+                )}
             </Modal>
             <div className="student-table-tr">
                 <div className="student-th-no">NO.</div>

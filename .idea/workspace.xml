@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="1e76cb1b-90bc-4f27-8799-76f5dc5ed7a9" name="Changes" comment="feat/#50/notice-board&#10;&#10;* 화요일 약속 머지" />
     <list default="true" id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="feat/#57/ 수정">
       <change afterPath="$PROJECT_DIR$/src/components/course/items/MyCourseStudentListMonthItem.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/course/lists/MonthAttendanceList.js" afterDir="false" />
@@ -53,6 +54,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Lecture/hicoding-front",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -63,6 +66,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external"
     "nodejs_package_manager_path": "npm",
     "npm.npmStart.executor": "Run",
     "npm.run.executor": "Run",
@@ -89,13 +93,8 @@
     ]
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\hyeok\hicoding-front\src" />
-    </key>
-  </component>
   <component name="RunManager">
-    <configuration name="npmStart" type="js.build_tools.npm">
+    <configuration name="npm start" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
@@ -106,15 +105,14 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-18.0.2-corretto-18.0.2-3183f394aec4-38982a12" />
-      </set>
-    </attachedChunks>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="feat/#6/원생등록,수정페이지구현중">
+      <option name="closed" value="true" />
+      <created>1702012765636</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702012765636</updated>
     <task active="true" id="Default" summary="Default task">
       <changelist id="567e97de-8b0f-4b10-9ca7-26c739fe8c4b" name="Changes" comment="" />
       <created>1702471648740</created>
@@ -135,6 +133,7 @@
       <updated>1702728018814</updated>
     </task>
     <option name="localTasksCounter" value="2" />
+    <option name="localTasksCounter" value="2" />
     <task id="LOCAL-00001" summary="feat/#41/일별 출석부 구현 완료">
       <option name="closed" value="true" />
       <created>1702637116746</created>
@@ -146,10 +145,10 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat/#6/원생등록,수정페이지구현중" />
+    <MESSAGE value="feat/#50/notice-board&#10;&#10;* 화요일 약속 머지" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat/#50/notice-board&#10;&#10;* 화요일 약속 머지" />
     <MESSAGE value="2023-12-08 #47 마이페이지 구현&#10;마이페이지 틀 구현 1번째" />
     <MESSAGE value="feat/#57/ 수정" />
     <option name="LAST_COMMIT_MESSAGE" value="feat/#57/ 수정" />
