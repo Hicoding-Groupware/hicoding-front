@@ -122,7 +122,6 @@
 
 }
 
-/* 간격이 좀 넓게 나오면 margin 값을 조절하실 수 있습니다. */
 .course-info-cell .table-cell {
     margin: 15px 5px; /* 상하 10px, 좌우 5px */
 }
@@ -148,93 +147,74 @@
 
 
  /* ============= detail info modal ==============*/
-.modal{
+.modal {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 100;
+    justify-content: center;
+    z-index: 1000;
 }
 
 .modal-container {
-    position: absolute;
-    width: 600px;
-    height: 630px;
-    padding: 10px;
-    text-align: center;
+    background-color: #fff;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 5px 0 rgba(34, 36, 38, 0.15);
-    z-index: 1000;
-    background-color: #f8f8f8;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
 }
 
-.course-detail-modal-div{
-    position: absolute;
-    padding-left: 18%;
-    text-align: left;
-}
-.course-detail-modal-cell{
-    padding-left: 50%;
-    text-align: left;
+.modal-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.lecture-detail-modal-div {
-    position: absolute;
-    padding-left: 18%;
+.modal-container th, .modal-container td {
     text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
 }
-.lecture-detail-modal-cell {
-    padding-left: 50%;
-    text-align: left;
+
+.modal-container th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+}
+
+.modal-container td {
+    color: #666;
+}
+
+.modal-container tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.modal-container tr:hover {
+    background-color: #f1f1f1;
 }
 
 .modal-close-button {
-    margin-top: 13%;
-    font-size: 12px;
-    width: 15%;
-    height: 6%;
-    border: none;
-    border-radius: 10px;
-    background-color: #d3d3d3;
+    display: block;
+    margin: 20px auto;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #000000;
+    background-color: #ffffff;
+    border: solid 1px #5929d9;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .modal-close-button:hover {
-    background-color: #eaeaea;
-    color: #3f3f3f;
-    font-weight: bolder;
-    border-bottom: 1px solid;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-
+    background-color: #8030ff;
+    color: white;
 }
-
-.h3-detail{
-    margin: 8% 0% 0% 19%;
-    text-align: left;
-}
-
-.detail-head {
-    font-size: 14px;
-    padding-top: 6.2%;
-}
-
-.detail-cell {
-    font-size: 14px;
-    padding-top: 2%;
-}
-
-.detail-box-color {
-    margin-left: 3.8%;
-    border: 1px solid #a4a4a4;
-    border-radius: 10px;
-    width: 550px;
-    height: 460px;
-}
-
 
 
 /* ================= 내 강의 사이드 바 ================= */
@@ -443,7 +423,12 @@
 
 
 @media screen and (max-width: 600px) {
-    .month-table, .month-table thead, .month-table tbody, .month-table th, .month-table td, .month-table tr {
+    .month-table,
+    .month-table thead,
+    .month-table tbody,
+    .month-table th,
+    .month-table td,
+    .month-table tr {
         display: block;
     }
 
@@ -470,11 +455,10 @@
 
     .month-table td:nth-of-type(1):before { content: "No"; }
     .month-table td:nth-of-type(2):before { content: "원생명"; }
-    /* 'nth-of-type'를 사용하여 각 날짜에 대한 라벨을 추가 */
 }
 
 .grey-out {
-    background-color: #e7e7e7;
+    background-color: #efefef;
 }
 
 .month-table {
@@ -520,4 +504,13 @@
 .month-description {
     font-size: 14px;
     margin : 0 0 0.2% 5%;
+}
+
+.weekend .day-of-week,
+.weekend .day-number {
+    color: #da0000; /* 주말 날짜와 요일의 색상을 빨간색으로 설정 */
+}
+
+tfoot {
+    background-color: #f8f8f8;
 }
