@@ -7,6 +7,20 @@ import DaumPostcode from "react-daum-postcode";
 import DatePicker from "react-datepicker";
 import {ko} from "date-fns/esm/locale";
 import {resetSuccess} from "../../modules/StudentModule";
+import styled from "styled-components";
+const CustomDatePicker = styled(DatePicker)`
+      margin-top: 8px;
+      display: flex;
+      width: 416px;
+      height: 40px;
+      padding-left: 16px;
+      align-items: center;
+      gap: 8px;
+      flex: 1 0 0;
+      align-self: stretch;
+      border-radius: 8px;
+      border: 1px solid #CED4DA;
+    `;
 
 
 function StudentModify() {
@@ -119,13 +133,12 @@ function StudentModify() {
                     />
                     <label className="radio-label2" htmlFor="radio2">여성</label>
                     <div className="student-regist-sub">생년월일(필수)</div>
-                    <DatePicker
+                    <CustomDatePicker
                         locale={ko}
                         selected={ birthDate }
                         onChange={ date => setBirthDate(date) }
                         dateFormat="yyyy-MM-dd"
                         placeholderText="YYYY/MM/DD"
-                        className="student-regist-input-birth"
                         showYearDropdown
 
                     />
