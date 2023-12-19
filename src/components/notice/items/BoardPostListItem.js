@@ -53,10 +53,10 @@ function BoardPostListItem({node, role, memberNo}) {
                 </tr>
             )}
 
-            {node.childrenList &&
-                node.childrenList.map((child) => (
-                    <BoardPostListItem key={child.no} node={child} role={role} memberNo={memberNo}/>
-                ))}
+            {/*{node.childrenList &&*/}
+            {/*    node.childrenList.map((child) => (*/}
+            {/*        <BoardPostListItem key={child.no} node={child} role={role} memberNo={memberNo}/>*/}
+            {/*    ))}*/}
         </>
     )
 }

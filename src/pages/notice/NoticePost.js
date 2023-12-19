@@ -72,11 +72,11 @@ function NoticePost() {
 
     // 게시글 수정 시 갱신
     useEffect(() => {
-        if (isPostEditSuccessfully === true || isPostAccessGranted === true) {
+        if (currPage || isPostEditSuccessfully === true || isPostAccessGranted === true) {
             dispatch(callPostAPI({role, postNo, recordType, memberNo}));
             dispatch(callCommentListAPI({postNo, currPage}));
         }
-    }, [isPostEditSuccessfully, isPostAccessGranted]);
+    }, [currPage, isPostEditSuccessfully, isPostAccessGranted]);
 
     // 게시글 삭제 시 목록으로 이동
     useEffect(() => {
@@ -145,7 +145,7 @@ function NoticePost() {
 
                     <div className="notice-post-main">
                         <div className="notice-post-header">
-                            <div className="notice-post-title"><h3>{boardPost.title}1</h3></div>
+                            <div className="notice-post-title"><h3>{boardPost.title}</h3></div>
                             <button id="notice-post-likesBtnId" onClick={handleClick("likes")}>좋아요</button>
                         </div>
 
@@ -155,7 +155,7 @@ function NoticePost() {
                         </div>
 
                         <div className="notice-post-contents">
-                            <textarea className="notice-post-content" readOnly='true'>{boardPost.content}</textarea>
+                            <textarea className="notice-post-content" value={boardPost.content} readOnly='true'/>
 
                             <div className="notice-post-marks">
                                 <div className="notice-post-mark">댓글 수: {0}</div>
@@ -168,7 +168,7 @@ function NoticePost() {
                     <div className="notice-post-comments">
                         <CommentList commentList={postCommentList.data}/>
 
-                        <textarea className="comment-input" placeholder="댓글을 작성하세요" value={cmtInput} onChange={handleInputChange}></textarea>
+                        <textarea className="comment-input" placeholder="댓글을 작성하세요" value={cmtInput} onChange={handleInputChange}/>
                         <span><button id="notice-post-comment-btnId" onClick={handleClick("cmtWriting")}>댓글 작성</button></span>
 
                         <PagingBar pageInfo={postCommentList.pageInfo} setCurrentPage={setCurrPage}/>
