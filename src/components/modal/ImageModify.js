@@ -18,6 +18,7 @@ function ImageModify ({profile, setOpenModify}) {
         if(loginReducer.putSuccess === true) {
             setOpenModify(false);
             dispatch(callMemberProfileAPI());
+            window.location.replace("/profile");
 
         }
     }, [loginReducer]);
