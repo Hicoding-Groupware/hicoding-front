@@ -36,16 +36,10 @@
     <tr>
         <td colspan="4" rowspan="2">프로젝트 내용</td>
         <td colspan="2" rowspan="2">담당자</td>
-        <td colspan="2">11월</td>
-        <td colspan="2">12월</td>
+        <td colspan="3">11월</td>
+        <td colspan="3">12월</td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
         <td>3</td>
         <td>4</td>
         <td>5</td>
@@ -53,6 +47,18 @@
         <td>2</td>
         <td>3</td>
     </tr>
+    <tr>
+        <th colspan="12" fontWeight="bolder">사전 조사 및 설계 (11월 8일 ~ 11월 17일)</th>
+    </tr>
+    <tr>
+      <td colspan="4">프로젝트 주제 및 기능 분배</td>
+      <td colspan="2" rowspan="3">팀원 전체</td>
+      <td backgroundColor="#9370DB"></td>
+        <td></td>
+        <td></td>
+        <td colspan="3" rowspan="3"></td>
+    </tr>
+    
 </table>  
  
 
