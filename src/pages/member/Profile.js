@@ -117,7 +117,7 @@ function Profile() {
                                                     height: "100%",
                                                     borderRadius: 100
                                                 }}
-                                                src="img/noUser.png"/>
+                                                src="https://github.com/Hicoding-Groupware/hicoding-front/assets/138549251/2f7c2a5e-4710-467e-bd44-e16c4e1764f1"/>
 
                                         ) : (
                                             <img style={{
