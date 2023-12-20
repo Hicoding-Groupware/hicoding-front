@@ -1,4 +1,4 @@
-![header](<img src="https://capsule-render.vercel.app/api?type=waving&color=Mediumpurple&height=200&section=header&text=Hook&fontSize=90" />)
+![header]<img src="https://capsule-render.vercel.app/api?type=waving&color=Mediumpurple&height=200&section=header&text=Hook&fontSize=90" />
 
 # ✋ Hicoding
 
