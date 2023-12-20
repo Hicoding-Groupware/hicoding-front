@@ -53,32 +53,32 @@
     <tr>
       <td colspan="4">프로젝트 주제 및 기능 분배</td>
       <td colspan="2" rowspan="3">팀원 전체</td>
-      <td background-color="#9370DB"></td>
+      <td>·</td>
         <td></td>
         <td></td>
         <td colspan="3" rowspan="3"></td>
     </tr>
     <tr>
       <td colspan="4">프로토타이핑/ 업무 흐름도/ ERD</td>
-      <td background-color="#9370DB"></td>
-        <td background-color="#9370DB"></td>
+      <td>·</td>
+        <td>·</td>
         <td></td>
     </tr>
     <tr>
       <td colspan="4">REST API 설계/ DB 구축 / SPRINGBOOT / REACT 환경 가동</td
         <td></td>
         <td></td>
-        <td background-color="#9370DB"></td>
+        <td>·</td>
     </tr>
     <tr>
         <th colspan="12" fontWeight="bolder">개발 및 단위 테스트 (11월 20일 ~ 12월 15일)</th>
     </tr>
     <tr>
       <td colspan="4">SPRINGBOOT 코드 구현 POSTMAN 테스트</td>
-      <td colspan="2" rowspan="3">팀원 전체</td>
+      <td colspan="2" rowspan="2">팀원 전체</td>
         <td colspan="2"></td>
-        <td background-color="#9370DB"></td>
-        <td background-color="#9370DB"></td>
+        <td>·</td>
+        <td>·</td>
         <td></td>
         <td></td>
     </tr>
@@ -86,8 +86,8 @@
         <td colspan="4">REACT 코드 구현</td>
         <td colspan="3"></td>
         <td></td>
-        <td background-color="#9370DB"></td>
-        <td background-color="purple"></td>
+        <td>·</td>
+        <td>·</td>
     </tr>
     <tr>
         <th colspan="12" fontWeight="bolder">통합 테스트 및 프로젝트 발표 준비 (12월 18일 ~ 12월 21일)</th>
@@ -98,19 +98,19 @@
         <td colspan="3" rowspan="3"></td>
         <td></td>
         <td></td>
-        <td background-color="#9370DB"></td>
+        <td>·</td>
     </tr>
     <tr>
       <td colspan="4">프로젝트 관련 문서 작성</td>
         <td></td>
         <td></td>
-        <td background-color="#9370DB"></td>
+        <td>·</td>
     </tr>
     <tr>
       <td colspan="4">PPT 준비 및 발표 리허설</td>
         <td></td>
         <td></td>
-        <td background-color="#9370DB"></td>
+        <td>·</td>
     </tr>
 </table>  
  
@@ -150,13 +150,6 @@
   <img src="https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white"> 
   <br>
 </div>  
-
-## 주요 기능
-- 
-- 
-- 로그인, 회원가입
-- 
-- 
 
 ## :link: ERD 설계
 * [학원ERD](https://github.com/didrlgus/springboot-shoppingmall/issues/1)
