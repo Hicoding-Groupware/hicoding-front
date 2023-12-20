@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import DatePicker from "react-datepicker";
 import styled from "styled-components";
 import {useDispatch} from "react-redux";
@@ -25,8 +25,14 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
     const {students} = location.state || {students: []};
     const [selectedDate, setSelectedDate] = useState(new Date());
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     console.log("cosEdt value: ", cosEdt);
+
+
+    // const dailyAttendanceSelect = (cosCode) => {
+    //     navigate(`/attendance/day/${cosCode}`)
+    // }
 
 
     useEffect(() => {
@@ -35,11 +41,22 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
 
 
     function generateCalendarHeader(year, month) {
+        const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
         const lastDayOfMonth = new Date(year, month, 0).getDate();
         const headers = [<th>No</th>, <th>원생명</th>]
 
         for (let day = 1; day <= lastDayOfMonth; day++) {
-            headers.push(<th key={day}>{day}</th>);
+            const date = new Date(year, month - 1, day);
+            const dayOfWeek = daysOfWeek[date.getDay()];
+            const isWeekend = date.getDay() === 0 || date.getDay() === 6; // 주말 여부 확인
+            const weekendClass = isWeekend ? "weekend" : ""; // 주말일 경우 적용할 클래스
+
+            headers.push(
+                <th key={day} className={weekendClass}>
+                    <span className="day-number">{day}</span>
+                    <span className="day-of-week">{dayOfWeek}</span>
+                </th>
+            );
         }
         headers.push(<th key="attendance">출석</th>);
         headers.push(<th key="absence">결석</th>);
@@ -50,6 +67,16 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
 
         return headers;
     }
+
+    /* 합계 계산 */
+    const totals = students.reduce((acc, student) => {
+        const attendanceCounts = calculateAttendance(student.stdCode, monthStudents);
+        acc.attendance += attendanceCounts.attendance;
+        acc.absence += attendanceCounts.absence;
+        acc.tardiness += attendanceCounts.tardiness;
+        acc.leave_early += attendanceCounts.leave_early;
+        return acc;
+    }, { attendance: 0, absence: 0, tardiness: 0, leave_early: 0 });
 
 
     /* 데이트 피커 */
@@ -189,6 +216,7 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
                 </div>
             </div>
             <div className="month-description">출석 O 결석 X 지각 △ 조퇴 ▼</div>
+            {/*<button onClick={dailyAttendanceSelect}>돌아가기</button>*/}
             <table className="month-table">
                 <thead className="calendarHeader">
                 <tr>{calendarHeaders}</tr>
@@ -243,7 +271,7 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
                                                 displayChar = '▼';
                                                 break;
                                             default:
-                                                displayChar = ''; // 상태가 없거나 미등록인 경우
+                                                displayChar = '';
                                         }
                                     }
 
@@ -260,9 +288,23 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
                     )
                 })}
                 </tbody>
+                <tfoot>
+                <tr>
+                    <td colSpan="2">합계</td>
+                    <td colSpan={calendarHeaders.length - 7}>{''}</td>
+                    <td>{totals.attendance}</td>
+                    <td>{totals.absence}</td>
+                    <td>{totals.tardiness}</td>
+                    <td>{totals.leave_early}</td>
+                    <td>{''}</td>
+                </tr>
+                </tfoot>
             </table>
         </>
     );
 }
 
 export default MyCourseStudentListMonthItem;
+
+
+
