@@ -45,11 +45,11 @@ function Message() {
 
     useEffect(() => {
         dispatch(callReceiveMessageListAPI({currentPage, sender, content, startDate, endDate}));
-    }, [currentPage, sender, content, startDate, endDate, postMessageSuccess, getReceiveDetail, putReceiveDeleteSuccess, isNow]);
+    }, [currentPage, sender, content, startDate, endDate, postMessageSuccess, getReceiveDetail, putReceiveDeleteSuccess]);
 
     useEffect(() => {
         dispatch(callSendMessageListAPI({sendCurrentPage, receiver, content, startDate, endDate}));
-    }, [sendCurrentPage, receiver, content, startDate, endDate,postMessageSuccess, getReceiveDetail, putSendDeleteSuccess, isNow]);
+    }, [sendCurrentPage, receiver, content, startDate, endDate,postMessageSuccess, getReceiveDetail, putSendDeleteSuccess]);
 
     useEffect(() => {
         if(postMessageSuccess === true) {
@@ -172,6 +172,7 @@ function Message() {
 
     const sendBox = () => {
         setIsNow(false);
+        dispatch(resetSuccess('getReceiveMessage'));
         dispatch(callSendMessageListAPI({sendCurrentPage, receiver, content, startDate, endDate}));
     }
 
