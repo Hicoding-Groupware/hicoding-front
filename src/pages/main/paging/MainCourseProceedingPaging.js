@@ -19,13 +19,13 @@ function MainCourseProceedingPaging({ pageInfo, setCurrentPage }) {
                         className="main-paging-btn"
                         onClick={ () => {setCurrentPage(pageInfo.currentPage - 1); setIsClicked(true);} }
                         disabled={ pageInfo.currentPage <= 1 }
-                        style={{backgroundColor : isClicked ? "rgba(0, 0, 0, 0.26)" : "transparent"}}
+                        style={{backgroundColor : isClicked ? "rgba(0, 0, 0, 0.26)" : "transparent", display : "none"}}
                     >
                     </button>
                 </li>
                 {
                     pageNumber.map(num => (
-                        <li style={{display: 'none'}} key={num}>
+                        <li key={num}>
                             <button
                                 className="pagingM-btn"
                                 style={ pageInfo.currentPage === num ? { borderBottom : '3px solid #6260F4' ,color : '#6260F4'} : null }
@@ -42,7 +42,7 @@ function MainCourseProceedingPaging({ pageInfo, setCurrentPage }) {
                         className="main-paging-btn"
                         onClick={ () => {setCurrentPage(pageInfo.currentPage + 1); setIsClicked(false);} }
                         disabled={ pageInfo.currentPage >= pageInfo.maxPage }
-                        style={{backgroundColor : isClicked ? "transparent" : "rgba(0, 0, 0, 0.26)"}}
+                        style={{backgroundColor : isClicked ? "transparent" : "rgba(0, 0, 0, 0.26)", display : "none"}}
                     >
                     </button>
                 </li>

@@ -49,7 +49,7 @@ function Navbar() {
                             {profileInfo.memberProfile === null ?
                                 (
                                     <div style={{height : 40, width : 40, borderRadius : 100
-                                        , display : "inline-flex", border : "1px solid rgba(7, 7, 7, 0.16)", left : 1710, top : -48
+                                        , display : "inline-flex", border : "1px solid rgba(7, 7, 7, 0.16)", marginRight : 10
                                     }}>
                                         <img onClick={onClickImageHandler} style={{top : 0, left : 0, width : "100%", height : "100%", borderRadius : 100, cursor : "pointer"}}
                                              src="https://github.com/Hicoding-Groupware/hicoding-front/assets/138549261/98298a80-33e9-4918-9e77-09ebd8bfc335"
@@ -57,7 +57,7 @@ function Navbar() {
                                     </div>
                                 ) : (
                                     <div style={{height : 40, width : 40, borderRadius : 100
-                                        , display : "inline-flex", border : "1px solid rgba(7, 7, 7, 0.16)", left : 1710, top : -48
+                                        , display : "inline-flex", border : "1px solid rgba(7, 7, 7, 0.16)", marginRight : 10
                                     }}>
                                         <img onClick={onClickImageHandler} style={{top : 0, left : 0, width : "100%", height : "100%", borderRadius : 100, cursor : "pointer"}} src={profileInfo.memberProfile}/>
                                     </div>

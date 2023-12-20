@@ -5,6 +5,7 @@ import MainMessage from "./mainMessage/MainMessage";
 import {callMainMessageAPI} from "../../apis/MessageAPICalls";
 import MainCourseProceeding from "./mainCourse/MainCourseProceeding";
 import MainCourseExpected from "./mainCourse/MainCourseExpected";
+import MainManagerMessage from "./mainMessage/MainManagerMessage";
 
 
 function ManagerMain() {
@@ -176,7 +177,7 @@ function ManagerMain() {
                             backgroundColor: "rgb(239, 239, 239)",
                             borderRadius: 15,
                             paddingTop: 10
-                        }}><MainMessage message={message} setMessageCurrentPage={setMessageCurrentPage}/></div>
+                        }}><MainManagerMessage message={message} setMessageCurrentPage={setMessageCurrentPage}/></div>
                     </div>
                 }
 

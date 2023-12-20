@@ -7,7 +7,7 @@ function MainCalender ({courses}){
 
     return(
         <>
-        <div className="calendarContainerM">
+        <div>
             <FullCalendar
                 plugins={[dayGridPlugin]}
                 initialView={'dayGridMonth'}
