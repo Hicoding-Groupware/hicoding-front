@@ -1,4 +1,4 @@
-![header](https://github.com/Hicoding-Groupware/hicoding-back/assets/138549261/0c49fd0a-fc57-4619-a922-8bc12dbfa6e8)
+![header](<img src="https://capsule-render.vercel.app/api?type=waving&color=Mediumpurple&height=200&section=header&text=Hook&fontSize=90" />)
 
 # ✋ Hicoding
 
@@ -29,13 +29,32 @@
 - 
       <br>
 - 개발기간 : ~ 12.21(목)
-- 개발인원 : FullStack 5명     
+<table>
+    <tr>
+        <th colspan="12">프로젝트 진행 과정</th>
+    </tr>
+    <tr>
+        <td colspan="4" rowspan="2">프로젝트 내용</td>
+        <td colspan="2" rowspan="2">담당자</td>
+        <td colspan="2">11월</td>
+        <td colspan="2">12월</td>
+    </tr>
+</table>  
+ 
 
 ## :clipboard: 개발환경
-* IntelliJ
-* MySql
-* Spring
-* GitHub
+- ❤️software Tool : intellij / VSCode / Figma / Notion / Slack
+- 🧡TEST : Post Man
+- 💛DBMS : MySQL
+- 💚Server : Apache TOMCAT / Amazon Web Service / Docker
+- 🩵Language : JAVA 11 / javaScript / HTML / CSS
+- 💙형상관리 : Gti / GitHub
+- 💜Database : MySQL
+- 🩷화면구현 : Figma
+- 🤎커뮤니티 : Notion / Slack
+- 🖤API : FullCalender / Date picker / Daum address api
+- 🩶프레임워크 : SpringBoot / React
+
 <br>
 <div align=left><h2>📚 FRONT-END</h2></div>
 
