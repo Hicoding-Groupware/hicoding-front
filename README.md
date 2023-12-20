@@ -29,7 +29,7 @@
 - 
       <br>
 - 개발기간 : ~ 12.21(목)
-<table>
+<table style={{width : 400, height : 200, marginLeft : auto, marginRight : auto}}>
     <tr>
         <th colspan="12">프로젝트 진행 과정</th>
     </tr>
