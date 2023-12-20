@@ -83,7 +83,34 @@
         <td></td>
     </tr>
     <tr>
+        <td colspan="4">REACT 코드 구현</td>
+        <td colspan="3"></td>
+        <td></td>
+        <td background-color="#9370DB"></td>
+        <td background-color="purple"></td>
+    </tr>
+    <tr>
         <th colspan="12" fontWeight="bolder">통합 테스트 및 프로젝트 발표 준비 (12월 18일 ~ 12월 21일)</th>
+    </tr>
+    <tr>
+      <td colspan="4">통합 테스트 및 피드백</td>
+      <td colspan="2" rowspan="3">팀원 전체</td>
+        <td colspan="3" rowspan="3"></td>
+        <td></td>
+        <td></td>
+        <td background-color="#9370DB"></td>
+    </tr>
+    <tr>
+      <td colspan="4">프로젝트 관련 문서 작성</td>
+        <td></td>
+        <td></td>
+        <td background-color="#9370DB"></td>
+    </tr>
+    <tr>
+      <td colspan="4">PPT 준비 및 발표 리허설</td>
+        <td></td>
+        <td></td>
+        <td background-color="#9370DB"></td>
     </tr>
 </table>  
  
