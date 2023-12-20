@@ -250,11 +250,11 @@ function Profile() {
                                     {
                                         profileInfo.memberProfile === null ? (
                                             <tr>
-                                                <td onClick={onClickImageUpload}>프로필 업로드</td>
+                                                <td onClick={onClickImageUpload}>사진 업로드</td>
                                             </tr>
                                         ) : (
                                             <tr>
-                                                <td onClick={onClickImageModify}>프로필 수정</td>
+                                                <td onClick={onClickImageModify}>사진 수정</td>
                                             </tr>
                                         )
 

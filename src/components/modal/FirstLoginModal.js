@@ -146,7 +146,7 @@ function FirstLoginModal() {
             <div className="modal-div">
                 <img
                     src="https://github.com/Hicoding-Groupware/hicoding-front/assets/138549261/d9b5ccf5-fc91-499d-96f3-aba36daead46"
-                    style={{width: '140px', position: 'relative', top: '30px', right: '120px'}}/>
+                    style={{width: '110px', position: 'relative', top: '40px', right: '120px'}}/>
                 <h3>Information</h3>
                 <p>개인정보를 추가로 입력해주세요</p>
                 <table>

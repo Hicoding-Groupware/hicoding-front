@@ -1,5 +1,6 @@
 import {NavLink} from "react-router-dom";
 import React from "react";
+import {BOARD_PATH} from "../../apis/NoticeAPICalls";
 
 function DetailNavBar(){
 
@@ -23,8 +24,7 @@ function DetailNavBar(){
                     </ul>
 
                     <ul style={{paddingLeft : '40px'}}>
-                        <li>자료실</li>
-                        <li>공지사항</li>
+                        <li><NavLink to={BOARD_PATH}>공지사항</NavLink></li>
                     </ul>
                     <ul style={{paddingLeft : '34px'}}>
                         <li><NavLink to="/message">쪽지함</NavLink></li>
