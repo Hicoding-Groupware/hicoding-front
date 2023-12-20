@@ -264,8 +264,11 @@ body {
     list-style-type: none;
     margin-bottom: 5px;
     max-width: 128px;
-    padding-left: 800px;
-    margin-top: 30px;
+    height: 20px;
+    margin-top: 0;
+    position: relative;
+    bottom: 20px;
+    left: 880px;
 }
 
 .pagenationM {
@@ -278,12 +281,14 @@ body {
     margin: 5px;
     cursor: pointer;
     height: 15px;
-    font-size: 20px;
+
     border: none;
 }
 
 .main-teacher-table-back {
-
+    margin-top: 3px;
+    display: flex;
+    justify-content: center;
 }
 
 .main-teacher-table {
@@ -321,7 +326,7 @@ body {
     width: 500px;
     position: absolute;
     right: 20px;
-    top: 40px;
+    top: 30px;
 }
 
 
@@ -387,29 +392,30 @@ button.fc-today-button.fc-button.fc-button-primary {
     width: 100px;
 }
 
-.message-table-row {
-    margin-top: 3.5%;
+.manager-message-table-row {
     border-radius: 10px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
     padding: 0px 10px 0px 15px;
     background-color: #ffffff;
     height: 75px;
-    width: 320px;
-    margin-left: 7px;
+    width: 300px;
+    margin-top: 12px;
 }
 
 .main-message-table {
     position: relative;
-    left: 1535px;
-    top: 473px;
-    height: 330px;
+    left: 65px;
+    bottom: 20px;
     width: 340px;
 }
+
+
 
 .nothing {
     text-align: center;
     font-weight: bolder;
     color: rgba(10, 10, 10, 0.2);
+    height: 280px;
 }
 
 .nothing-sub {
@@ -462,6 +468,7 @@ button.fc-today-button.fc-button.fc-button-primary {
     display: flex;
     justify-content: space-between;
     padding-bottom: 10px;
+    width: 440px;
 }
 
 /*페이지*/
@@ -470,8 +477,9 @@ button.fc-today-button.fc-button.fc-button-primary {
     list-style-type: none;
     max-width: 128px;
     margin: 0px 0px 0px 360px;
-    position: relative;
+    position: absolute;
     bottom: 10px;
+    padding: 0;
 }
 
 .main-manager-table{
@@ -575,4 +583,14 @@ button.fc-today-button.fc-button.fc-button-primary {
 .stop-button > button{
     border: none;
     cursor: pointer;
+}
+
+.message-table-row {
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 0px 10px 0px 15px;
+    background-color: #ffffff;
+    height: 75px;
+    width: 300px;
+    margin-top: 12px;
 }

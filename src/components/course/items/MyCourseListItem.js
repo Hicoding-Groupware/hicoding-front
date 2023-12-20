@@ -2,7 +2,6 @@ import MyCourseSidebar from "../../common/MyCourseSidebar";
 import MyLectureDetailInfoModal from "../../modal/MyLectureDetailInfo";
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import PagingBar from "../pagingbar/PagingBar";
 
 
 function MyCourseListItem({title, courses}){
@@ -16,8 +15,6 @@ function MyCourseListItem({title, courses}){
     const onClickCourseDetailInfoHandler = (course) => {
         setCourse(course);
         setCourseDetailInfoModal(true);
-        console.log("courses : ", course);
-        console.log("cosName :", course.cosName);
     };
 
     /* 일일 출결 관리 페이지로 이동 */

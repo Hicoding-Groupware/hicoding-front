@@ -44,36 +44,39 @@ function Navbar() {
                         </ul>
                     </ul>
                 </ul>
+
+                <div style={{display : "flex", alignItems : "center"}}>
                 {
                     profileInfo &&
-                    <>
+                    <div style={{display : "flex", alignItems : "center"}}>
                         {profileInfo.memberProfile === null ?
                             (
-                                <div style={{height : 40, width : 40, borderRadius : 100, position : "relative"
-                                    , display : "inline-flex", border : "1px solid rgba(7, 7, 7, 0.16)", left : 1710, top : -48
+                                <div style={{height : 40, width : 40, borderRadius : 100
+                                    , display : "inline-flex", border : "1px solid rgba(7, 7, 7, 0.16)",marginRight : 10
                                 }}>
-                                    <img onClick={onClickImageHandler} style={{position : "absolute", top : 0, left : 0, width : "100%", height : "100%", borderRadius : 100, cursor : "pointer"}}
+                                    <img onClick={onClickImageHandler} style={{top : 0, left : 0, width : "100%", height : "100%", borderRadius : 100, cursor : "pointer"}}
                                          src="https://github.com/Hicoding-Groupware/hicoding-front/assets/138549261/98298a80-33e9-4918-9e77-09ebd8bfc335"
                                     />
                                 </div>
                             ) : (
-                                <div style={{height : 40, width : 40, borderRadius : 100, position : "relative"
-                                    , display : "inline-flex", border : "1px solid rgba(7, 7, 7, 0.16)", left : 1710, top : -48
+                                <div style={{height : 40, width : 40, borderRadius : 100
+                                    , display : "inline-flex", border : "1px solid rgba(7, 7, 7, 0.16)",marginRight : 10
                                 }}>
-                                    <img onClick={onClickImageHandler} style={{position : "absolute", top : 0, left : 0, width : "100%", height : "100%", borderRadius : 100, cursor : "pointer"}} src={profileInfo.memberProfile}/>
+                                    <img onClick={onClickImageHandler} style={{top : 0, left : 0, width : "100%", height : "100%", borderRadius : 100, cursor : "pointer"}} src={profileInfo.memberProfile}/>
                                 </div>
                             )
                         }
-
-
-                    <p
-                        style={{display : "flex", maxWidth : "42px", position : "relative", left : 1760, top: -95, color : "white"}}
-                    >{profileInfo.memberName}</p>
-                    </>
+                        <p
+                            style={{display : "flex", maxWidth : "42px",left : 1760, top: -95, color : "white"}}
+                        >{profileInfo.memberName}</p>
+                    </div>
                 }
-                <img className="logout-img" alt="logout" src="/img/logout.png" onClick={onClickLogoutHandler}
-                     style={{display : "flex", position : "relative", }}/>
+                <img className="logout-img" alt="logout" src="/img/logout.png" onClick={onClickLogoutHandler}/>
             </div>
+            </div>
+
+
+
         </>
     );
 }

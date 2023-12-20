@@ -39,7 +39,7 @@ function Main(){
     }, [messageCurrentPage]);
 
     const onCLickMessageHandler = () => {
-        navigate("/", {replace : true});
+        navigate("/message");
     }
 
 
@@ -47,23 +47,23 @@ function Main(){
         <>
 
             <div className="main-back">
-                <div>
+                <div style={{position : "relative", width : 800, top : 50}}>
                 <MainMyCourseListItem listType="InProfressList"
                 courses={courses} setCurrentPage={setCurrentPage}/>
                 </div>
-                <div>
+                <div className="calendarContainerM">
                     <MainCalender courses={courses}/>
                 </div>
 
             </div>
 
-            <div style={{width : 100}}>
+            <div className="main-mypage">
 
 
             {
                 profileInfo &&
                 <>
-                    <div className="main-mypage">
+                    <div >
                         <h2 style={{paddingLeft: 60, paddingTop: 20, paddingBottom: 0, marginBottom : 0}}>Infomation</h2>
 
                         <table className="main-mypage-img">

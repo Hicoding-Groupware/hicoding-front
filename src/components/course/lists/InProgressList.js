@@ -21,7 +21,7 @@ function InProgressList() {
         <>
             <MyCourseListItem title="진행중인 강의" listType="InProgressList"
                               courses={courses} setCurrentPage={setCurrentPage}/>
-            <MyPagingBar pageInfo={courses.pageInfo} setCurrentPage={setCurrentPage}/>
+            {courses && <MyPagingBar pageInfo={courses.pageInfo} setCurrentPage={setCurrentPage}/>}
 
         </>
     );

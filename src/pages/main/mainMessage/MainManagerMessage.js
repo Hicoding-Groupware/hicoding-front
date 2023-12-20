@@ -16,7 +16,7 @@ function MainMessage({message, setMessageCurrentPage}) {
                             {
                                 message.data && message.data.length > 0 ? (
                                     message.data.map((msg, index) => (
-                                        <div className="message-table-row" key={msg.msgNo || index}>
+                                        <div className="manager-message-table-row" key={msg.msgNo || index}>
                                             <table style={{width: '200px', display: "inline-flex"}}>
                                                 <thead style={{borderTop : 0}}>
                                                 <div style={{

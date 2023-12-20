@@ -21,7 +21,7 @@ function ScheduledCourseList() {
         <>
             <MyCourseListItem title="예정 강의" listType="ScheduledCourseList"
                               courses={courses} setCurrentPage={setCurrentPage}/>
-            <MyPagingBar pageInfo={courses.pageInfo} setCurrentPage={setCurrentPage}/>
+            {courses && <MyPagingBar pageInfo={courses.pageInfo} setCurrentPage={setCurrentPage}/>}
 
         </>
     );

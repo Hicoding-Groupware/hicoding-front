@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate, useParams} from "react-router-dom";
 import MpagingBar from "../paging/MpagingBar";
 
 
@@ -7,10 +7,12 @@ function MainMyCourseListItem({courses, setCurrentPage}) {
 
     const navigate = useNavigate();
 
-    const toMylecture = (cosCode, courses) => {
-        navigate(`/attendance/day/${cosCode}`, {state: {courses}});
+
+    const toMylecture = (course) => {
+        navigate(`/attendance/day/${course.cosCode}`, {state:{course}});
     }
 
+    console.log("----------------------------------------", courses);
 
     const getFormattedDayStatus = (status) => {
         if (status === "WEEKDAY") return "평일반";
@@ -69,7 +71,7 @@ function MainMyCourseListItem({courses, setCurrentPage}) {
                                                         textOverflow: "ellipsis",
                                                         overflow: "hidden",}}>{course.cosName}</td>
                                                     <td style={{    display: 'flex',
-                                                        justifyContent: 'center'}}><button onClick={toMylecture}
+                                                        justifyContent: 'center'}}><button onClick={() => toMylecture(course)}
                                                                 style={{ borderRadius : 10, color : "white", fontWeight : "bolder", backgroundColor : "#5a38a8", cursor: "pointer", width : 80}}>출석 관리</button></td>
                                                 </tr>
 

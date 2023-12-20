@@ -11,6 +11,8 @@ body{margin: 0;}  /* 이게 있어야지 모서리에 틈이 없어진다*/
     background-color: #5a38a8;
     height: 80px;
     font-family: 'Pretendard-Regular', serif;
+    display: flex;
+    justify-content: space-between;
 
 
 }
@@ -28,8 +30,7 @@ body{margin: 0;}  /* 이게 있어야지 모서리에 틈이 없어진다*/
     padding-left:0px;
     margin-top: 25px;
     margin-bottom: 10px;
-    position: relative;
-    left: 250px;
+
 }
 
 
@@ -55,10 +56,12 @@ body{margin: 0;}  /* 이게 있어야지 모서리에 틈이 없어진다*/
 
 .logout-img{
     width: 20px;
-    min-width: 0px  !important;
+    min-width: 0px !important;
     cursor: pointer;
-    left: 1850px;
-    top: -131px;
+    height: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+
 }
 
 .li-hover:hover{
@@ -95,7 +98,7 @@ body{margin: 0;}  /* 이게 있어야지 모서리에 틈이 없어진다*/
     .dropDownMenu {
         left: -35px;
         position: absolute;
-        top: 21px;
+        top: 13px;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         justify-content: center;
