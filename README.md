@@ -11,25 +11,18 @@
 <br>
 
 <div align="center">
-    name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    name &nbsp;&nbsp;&nbsp;
-    <br>
-    <br>
-    <img src="width="130" height="130"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="" width="130" height="130"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="" width="130" height="130"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="" width="130" height="130"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </a>
+    |김동한|남궁혁|박미림|박민서|오형민|
+    |:---:|:---:|:---:|:---:|:---:|
+    |<img src=""width="130" height="130"/>||<img src=""width="130" height="130"/>||<img src=""width="130" height="130"/>||<img src=""width="130" height="130"/>||<img src=""width="130" height="130"/>|
+    |강의·과정 관리/일정조회||사원생성/게시판||내강의/출결관리||로그인/메인페이지/마이페이지||학원생 관리/쪽지|
+    |제목|내용|설명|
 </div>
 <br><br>
 
 ## :clipboard: 개요
-- 
-      <br>
 - 개발기간 : ~ 12.21(목)
-<table style={{width : 400, height : 200, marginLeft : auto, marginRight : auto}}>
+<div align=center>
+<table>
     <tr>
         <th colspan="12">프로젝트 진행 과정</th>
     </tr>
@@ -113,6 +106,7 @@
         <td>·</td>
     </tr>
 </table>  
+</div>
  
 
 ## :clipboard: 개발환경
