@@ -11,11 +11,29 @@
 <br>
 
 <div align="center">
-    |김동한|남궁혁|박미림|박민서|오형민|
-    |:---:|:---:|:---:|:---:|:---:|
-    |<img src=""width="130" height="130"/>||<img src=""width="130" height="130"/>||<img src=""width="130" height="130"/>||<img src=""width="130" height="130"/>||<img src=""width="130" height="130"/>|
-    |강의·과정 관리/일정조회||사원생성/게시판||내강의/출결관리||로그인/메인페이지/마이페이지||학원생 관리/쪽지|
-    |제목|내용|설명|
+    <table>
+        <tr align="center">
+            <td>김동한</td>
+            <td>남궁혁</td>
+            <td>박미림</td>
+            <td>박민서</td>
+            <td>오형민</td>
+        </tr>
+        <tr align="center">
+            <td><img src=""width="130" height="130"/></td>
+            <td><img src=""width="130" height="130"/></td>
+            <td><img src=""width="130" height="130"/></td>
+            <td><img src=""width="130" height="130"/></td>
+            <td><img src=""width="130" height="130"/></td>
+        </tr>
+        <tr align="center">
+            <td>강의·과정 관리/일정조회</td>
+            <td>사원생성/게시판</td>
+            <td>내강의/출결관리</td>
+            <td>로그인/메인페이지/마이페이지</td>
+            <td>학원생 관리/쪽지</td>
+        </tr>
+    </table>
 </div>
 <br><br>
 
