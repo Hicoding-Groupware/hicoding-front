@@ -17,6 +17,7 @@ function ImageUpload ({profile, setOpenUpload}) {
     useEffect(() => {
         if(loginReducer.postSuccess === true) {
             setOpenUpload(false);
+            window.location.replace("/Profile");
         }
     }, [loginReducer]);
 
