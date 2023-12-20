@@ -23,15 +23,14 @@ function DailyAttendanceList() { // 이 부분 체크!!
 
     return(
         <>
-            <MyCourseStudentListItem
+            {course && <MyCourseStudentListItem
                 course={course}
                 cosCode={cosCode}
                 cosSdt={course.cosSdt}
                 cosEdt={course.cosEdt}
-                // cosEdt={course.cosEdt}
                 dayStatus={course.dayStatus}
                 attendanceStatus={course.attendanceStatus}
-                students={students} setCurrentPage={setCurrentPage}/>
+                students={students} setCurrentPage={setCurrentPage}/>}
         </>
     );
 }

@@ -39,7 +39,7 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
         setCalendarHeaders(generateCalendarHeader(currentYear, currentMonth))
     }, [currentYear, currentMonth]);
 
-
+    /* 월별 출석부 헤더 */
     function generateCalendarHeader(year, month) {
         const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
         const lastDayOfMonth = new Date(year, month, 0).getDate();
@@ -80,6 +80,19 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
 
 
     /* 데이트 피커 */
+    useEffect(() => {
+        // 현재 날짜와 cosEdt 비교
+        const startDate = new Date(cosSdt);
+        const currentDate = new Date();
+        const initialDate = startDate > currentDate ? currentDate : startDate;
+
+        // 초기 날짜 설정
+        setSelectedDate(initialDate);
+        setCurrentMonth(initialDate.getMonth() + 1);
+        setCurrentYear(initialDate.getFullYear());
+        fetchMonthData(initialDate);
+    }, [cosSdt, cosEdt]);
+
     const handleMonthChange = (newDate) => {
         setSelectedDate(newDate);
         fetchMonthData(newDate);
@@ -97,8 +110,13 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
         const newDate = new Date(newYear, newMonth - 1, 1);
         const startDate = new Date(cosSdt);
 
-        if (newDate.getFullYear() > startDate.getFullYear() ||
-           (newDate.getFullYear() === startDate.getFullYear() && newDate.getMonth() >= startDate.getMonth())) {
+        // if (newDate.getFullYear() > startDate.getFullYear() ||
+        //    (newDate.getFullYear() === startDate.getFullYear() && newDate.getMonth() >= startDate.getMonth())) {
+        //     handleMonthChange(newDate);
+        //     setCurrentMonth(newMonth);
+        //     setCurrentYear(newYear);
+        // }
+        if (newDate >= startDate) {
             handleMonthChange(newDate);
             setCurrentMonth(newMonth);
             setCurrentYear(newYear);
@@ -115,9 +133,13 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
         }
 
         const newDate = new Date(newYear, newMonth - 1, 1);
-        handleMonthChange(newDate);
-        setCurrentMonth(newMonth);
-        setCurrentYear(newYear);
+        const endDate = new Date(cosEdt);
+
+        if(newDate <= endDate) {
+            handleMonthChange(newDate);
+            setCurrentMonth(newMonth);
+            setCurrentYear(newYear);
+        }
     };
 
     const fetchMonthData = (date) => {
@@ -145,18 +167,23 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
 
         monthStudents.forEach(record => {
             if (record.stdCode === stdCode) {
-                if (record.attendanceStatus === 'attendance') {
-                    statusCounts.attendance++;
-                } else if (record.attendanceStatus === 'absence') {
-                    statusCounts.absence++;
-                } else if (record.attendanceStatus === 'tardiness') {
-                    statusCounts.tardiness++;
-                } else if (record.attendanceStatus === 'leave_early') {
-                    statusCounts.leave_early++;
+                // 각 출석 상태별로 카운트
+                switch(record.attendanceStatus) {
+                    case 'attendance':
+                        statusCounts.attendance++;
+                        break;
+                    case 'absence':
+                        statusCounts.absence++;
+                        break;
+                    case 'tardiness':
+                        statusCounts.tardiness++;
+                        break;
+                    case 'leave_early':
+                        statusCounts.leave_early++;
+                        break;
                 }
             }
         });
-
         return statusCounts;
     }
 
