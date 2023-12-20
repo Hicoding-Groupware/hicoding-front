@@ -11,7 +11,7 @@ import MessageReceive from "../../components/message/items/MessageReceive";
 import ReceivePagingBar from "../../components/message/pagingBar/ReceivePagingBar";
 import MessageSend from "../../components/message/items/MessageSend";
 import {is} from "date-fns/locale";
-import {getReceiveDetail, postMessageSuccess, putDeleteSuccess} from "../../modules/MessageModule";
+import {getReceiveDetail, postMessageSuccess, putDeleteSuccess, resetSuccess} from "../../modules/MessageModule";
 import {useNavigate} from "react-router-dom";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -45,16 +45,21 @@ function Message() {
 
     useEffect(() => {
         dispatch(callReceiveMessageListAPI({currentPage, sender, content, startDate, endDate}));
-    }, [currentPage, sender, content, startDate, endDate, postMessageSuccess, getReceiveDetail, putReceiveDeleteSuccess, isNow]);
+    }, [currentPage, sender, content, startDate, endDate, postMessageSuccess, getReceiveDetail, putReceiveDeleteSuccess]);
 
     useEffect(() => {
         dispatch(callSendMessageListAPI({sendCurrentPage, receiver, content, startDate, endDate}));
-    }, [sendCurrentPage, receiver, content, startDate, endDate,postMessageSuccess, getReceiveDetail, putSendDeleteSuccess, isNow]);
+    }, [sendCurrentPage, receiver, content, startDate, endDate,postMessageSuccess, getReceiveDetail, putSendDeleteSuccess]);
 
     useEffect(() => {
         if(postMessageSuccess === true) {
             setWriteOpen(false);
             navigate('/message', {replace: true});
+            dispatch(resetSuccess('postMessageSuccess'));
+            setFileName('');
+            setSelectedMembersDisplay([]);
+            setCheckedList([]);
+            setMessage('');
         }
     }, [postMessageSuccess]);
 
@@ -167,6 +172,7 @@ function Message() {
 
     const sendBox = () => {
         setIsNow(false);
+        dispatch(resetSuccess('getReceiveMessage'));
         dispatch(callSendMessageListAPI({sendCurrentPage, receiver, content, startDate, endDate}));
     }
 
