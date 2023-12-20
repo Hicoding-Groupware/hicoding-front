@@ -7,7 +7,7 @@ import {callMyCourseStudentMonthListAPI} from "../../../apis/AttendanceAPICalls"
 
 const CustomDatePicker = styled(DatePicker)`
   border: none;
-  outline: none; /* 선택 시 외곽선 제거 (선택 사항) */
+  outline: none; 
   font-weight: bolder;
   font-size: 30px;
   cursor: pointer;
@@ -110,13 +110,8 @@ function MyCourseStudentListMonthItem({title, monthStudents, dayStatus, cosCode,
         const newDate = new Date(newYear, newMonth - 1, 1);
         const startDate = new Date(cosSdt);
 
-        // if (newDate.getFullYear() > startDate.getFullYear() ||
-        //    (newDate.getFullYear() === startDate.getFullYear() && newDate.getMonth() >= startDate.getMonth())) {
-        //     handleMonthChange(newDate);
-        //     setCurrentMonth(newMonth);
-        //     setCurrentYear(newYear);
-        // }
-        if (newDate >= startDate) {
+        if ( newDate.getFullYear() > startDate.getFullYear() ||
+            (newDate.getFullYear() === startDate.getFullYear() && newDate.getMonth() >= startDate.getMonth())) {
             handleMonthChange(newDate);
             setCurrentMonth(newMonth);
             setCurrentYear(newYear);

@@ -17,7 +17,7 @@ const CustomDatePicker = styled(DatePicker)`
   font-size: 22px;
   cursor: pointer;
   caret-color: transparent;
-  width: 133px;
+  width: 125px;
   padding-left: 9%;
 `;
 
