@@ -229,38 +229,31 @@
   - #### 5-1.강의 관리
  - ⌨️강의관리
     <p align="center"><img src="https://github.com/Hicoding-Groupware/hicoding-back/assets/138549261/c9577b6b-4dcb-4a82-8d90-e5c81bf6ad47" width="500" height="250"/></p>
-  1️⃣ 
-  2️⃣ 
-  3️⃣ 
+  1️⃣ 강의생성 : 행정직원과 관리자는 등록버튼을 통해 CRUD모달을 띄워 강의 생성 </br>
+  2️⃣ 강의수정,삭제 : 강의목록에서 행선택 후 수정,삭제 버튼을 통해 진행
+
 
    - #### 5-2.과정 관리
  - ⌨️과정관리
     <p align="center"><img src="https://github.com/Hicoding-Groupware/hicoding-back/assets/138549261/34166868-7215-43d8-8d6f-49e91a7fe733" width="500" height="250"/></p>
-  1️⃣ 
-  2️⃣ 
-  3️⃣ 
-     - #### 5-3.과정 등록
- - ⌨️과정등록
-    <p align="center"><img src="https://github.com/Hicoding-Groupware/hicoding-back/assets/138549261/aebc4552-1969-4cba-9dd0-0530a5042d92" width="500" height="250"/></p>
-  1️⃣ 
-  2️⃣ 
-  3️⃣ 
-
+  1️⃣ 과정생성 : 신규과정등록 페이지에서 담당자, 강의, 강의실 등을 선택해 신규 과정 생성</br>
+  2️⃣ 과정상세 : 과정목록에서 과정제목 텍스트 선택을 통해 해당과정의 상세정보를 확인</br>
+  3️⃣ 과정수정,삭제 : 과정상세 페이지에서 버튼을 통해 수정,삭제 
+     
    - ####  6. 일정
 
   - #### 6-1.과정일정
  - 👩‍💼과정일정
     <p align="center"><img src="https://github.com/Hicoding-Groupware/hicoding-back/assets/138549261/abb3754b-1b27-4ee0-8b2c-abbd69a44c31" width="500" height="250"/></p>
-  1️⃣ 
-  2️⃣ 
-  3️⃣ 
+   FullCalender api를 이용한 과정일정 조회
+  
+  
 
    - #### 6-2.강의실일정
  - 👩‍💼강의실일정
     <p align="center"><img src="https://github.com/Hicoding-Groupware/hicoding-back/assets/138549261/38ba0134-c252-4674-afd5-5547a72f5550" width="500" height="250"/></p>
-  1️⃣ 
-  2️⃣ 
-  3️⃣ 
+     FullCalender api를 이용한 강의실일정 조회
+
 
    - ####  7. 내강의
 
