@@ -9,7 +9,6 @@ function MyCourseListItem({title, courses}){
     const [courseDetailInfoModal, setCourseDetailInfoModal] = useState(false) // 모달
     const [course, setCourse] = useState({});
     const navigate = useNavigate();
-    const [currentPage, setCurrentPage] = useState(1)
 
     /* 강의 상세 조회 모달 버튼 이벤트 */
     const onClickCourseDetailInfoHandler = (course) => {
