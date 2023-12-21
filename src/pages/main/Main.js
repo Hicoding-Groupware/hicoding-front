@@ -7,6 +7,7 @@ import MainMyCourseListItem from "./mainMyCourse/MainMyCourseListItem";
 import MainCalender from "./mainCalender/MainCalender";
 import MainMessage from "./mainMessage/MainMessage";
 import {callMainMessageAPI} from "../../apis/MessageAPICalls";
+import MainBoard from "./mainBoard/MainBoard";
 
 function Main(){
 
@@ -53,6 +54,9 @@ function Main(){
                 </div>
                 <div className="calendarContainerM">
                     <MainCalender courses={courses}/>
+                </div>
+                <div style={{position : "relative", top : 100, width : 1400}}>
+                    <MainBoard/>
                 </div>
 
             </div>

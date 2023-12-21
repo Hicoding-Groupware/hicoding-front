@@ -4,10 +4,12 @@ import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import {callChangePasswordAPI, callLoginAPI, InfoUpdateAPI} from "../../apis/LoginAPICalls";
 import {loginFailure, onlyLoginSuccess, passwordWarn} from "../../modules/LoginModule";
+import {validatePassword} from "../../utils/Validation";
 
 function PasswordUpdateModal({profile, setPasswordUpdateModal}) {
 
     const loginReducer = useSelector(state => state.loginReducer);
+    const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
 
     const [info, setInfo] = useState({
             memberPwd: "",
@@ -52,6 +54,12 @@ function PasswordUpdateModal({profile, setPasswordUpdateModal}) {
             ...info,
             [e.target.name]: e.target.value
         })
+
+        if (e.target.name === 'memberPwd') {
+            setPasswordErrorMessage(
+                validatePassword(e.target.value) ? "" : "숫자또는 특수문자가 포함되어 있어야 합니다."
+            );
+        }
     }
 
     const onCheckHandler = e =>{
@@ -109,7 +117,7 @@ function PasswordUpdateModal({profile, setPasswordUpdateModal}) {
                 <table className="password-update-table1">
                     <tbody>
 
-                    <tr>
+                    <tr style={{display : "grid"}}>
                         <td style={{paddingTop : 10}}>
                             <input
                                 type="password"
@@ -120,6 +128,9 @@ function PasswordUpdateModal({profile, setPasswordUpdateModal}) {
                                 onChange={onChangeHandler}
                                 onKeyPress={handleOnKeyPressPassword}
                             />
+                        </td>
+                        <td style={{color: "red", fontSize: 10}}>
+                            {passwordErrorMessage}
                         </td>
                     </tr>
                     <tr>

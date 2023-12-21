@@ -6,6 +6,7 @@ import {callMainMessageAPI} from "../../apis/MessageAPICalls";
 import MainCourseProceeding from "./mainCourse/MainCourseProceeding";
 import MainCourseExpected from "./mainCourse/MainCourseExpected";
 import MainManagerMessage from "./mainMessage/MainManagerMessage";
+import MainBoard from "./mainBoard/MainBoard";
 
 
 function ManagerMain() {
@@ -65,26 +66,26 @@ function ManagerMain() {
 
     return (
         <>
+            <div style={{height : 0}}>
+                <div className="stop-button">
+                    {intervalId === null ? <button onClick={toggleInterval}>▷</button> :
+                        <button onClick={toggleInterval}>||</button>}
+                </div>
+                    {
 
-            <div className="stop-button">
-                {intervalId === null ? <button onClick={toggleInterval}>▷</button>: <button onClick={toggleInterval}>||</button>}
+                        status ? (
+                            <MainCourseProceeding setStatus={setStatus}/>
 
+                        ) : (
+                            <MainCourseExpected setStatus={setStatus}/>
+                        )
+
+                    }
+
+                <div style={{position: "relative", width: 1356, bottom : 250, left : 85}}>
+                    <MainBoard/>
+                </div>
             </div>
-
-
-            <div>
-                {
-
-                    status ? (
-                        <MainCourseProceeding setStatus={setStatus}/>
-
-                    ) : (
-                        <MainCourseExpected setStatus={setStatus}/>
-                    )
-
-                }
-            </div>
-
 
             <div className="main-mypage">
 
