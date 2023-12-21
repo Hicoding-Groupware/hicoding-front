@@ -61,7 +61,7 @@ function MainCourseExpected ({setStatus}) {
                                                     }}>{mainCourses.cosName}</div>
                                                     <div className="ing2">예정강의</div>
                                                     <div>{mainCourses.teacher}</div>
-                                                    <div>{mainCourses.curCnt}/{mainCourses.capacity}</div>
+                                                    <div style={{width : 42}}>{mainCourses.curCnt}/{mainCourses.capacity}</div>
                                                 </div>
 
 

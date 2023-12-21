@@ -69,7 +69,7 @@ function MainCourseProceeding({setStatus}) {
                                                     }}>{mainCourse.cosName}</div>
                                                     <div className="ing">진행중</div>
                                                     <div>{mainCourse.teacher}</div>
-                                                    <div>{mainCourse.curCnt}/{mainCourse.capacity}</div>
+                                                    <div style={{width : 42}}>{mainCourse.curCnt}/{mainCourse.capacity}</div>
                                                 </div>
 
 
