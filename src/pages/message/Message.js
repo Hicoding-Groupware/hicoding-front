@@ -13,7 +13,7 @@ import MessageSend from "../../components/message/items/MessageSend";
 import {is} from "date-fns/locale";
 import {getReceiveDetail, postMessageSuccess, putDeleteSuccess, resetSuccess} from "../../modules/MessageModule";
 import {useNavigate} from "react-router-dom";
-import {ToastContainer} from "react-toastify";
+import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 function Message() {
@@ -305,7 +305,11 @@ function Message() {
     const addMemberList = () => {
         setMemberListOpen(false);
 
-
+    }
+    const exitMemberList = () => {
+        setSelectedMembersDisplay([]);
+        setCheckedList([]);
+        setMemberListOpen(false);
     }
 
     /* 쪽지 내용 */
@@ -317,10 +321,20 @@ function Message() {
     /* 쪽지 보내기 */
     const onClickMessageRegist = () => {
 
+        if (!message) {
+            toast.error("쪽지내용을 확인해주세요");
+            return;
+        }
+
         form.msgContent = message;
 
         const receivers = selectedMembersDisplay.map((selectedMember) => selectedMember.memberNo);
         form.receivers = receivers;
+
+        if (!form.receivers || form.receivers.length === 0) {
+            toast.error("수신자를 확인해주세요");
+            return;
+        }
 
         const formData = new FormData();
         formData.append("msgFile", fileInput.current.files[0]);
@@ -460,7 +474,7 @@ function Message() {
                 </div>
                 <div className="modal-modal-button">
                     <div>
-                        <button className="out-modal-modal">취소</button>
+                        <button className="out-modal-modal" onClick={exitMemberList}>취소</button>
                     </div>
                     <div>
                         <button className="modal-modal-addButton" onClick={addMemberList}>추가하기</button>
