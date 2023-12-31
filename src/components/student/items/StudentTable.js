@@ -84,10 +84,15 @@ function StudentTable({data}) {
     const onEnterKeyHandler = e => {
         if (e.key === 'Enter') {
             console.log(cosName);
-            dispatch(callStudentCourseAPI({currentPage, cosName}))
+            dispatch(callStudentCourseAPI({currentPage, cosName}));
 
         }
 
+    }
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+        dispatch(callStudentCourseAPI({ currentPage: page, cosName }));
     }
 
     const onClickWithDraw = (recCode) => {
@@ -221,7 +226,7 @@ function StudentTable({data}) {
                 </div>
                 {studentCourse && studentCourse.data && studentCourse.data.length > 0 && (
                     <div>
-                        <ModalPagingBar pageInfo={studentCourse.pageInfo} setCurrentPage={setCurrentPage}/>
+                        <ModalPagingBar pageInfo={studentCourse.pageInfo} setCurrentPage={handlePageChange}/>
                     </div>
                 )}
             </Modal>
