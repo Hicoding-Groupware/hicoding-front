@@ -121,8 +121,9 @@ function MessageSend ({data}){
                             <div className="message-detail-file">첨부된 파일</div>
                             {sendDetail.fileName ? (
                                 <div className="detail-upload-name">
+                                    <span className="messageFile" onClick={() => onClickFileDown(sendDetail.fileNo)}>
                                     {sendDetail.fileName}
-                                    <button onClick={() => onClickFileDown(sendDetail.fileNo)}>다운</button>
+                                    </span>
                                 </div>
                             ) : (
                                 <div className="detail-upload-name">
@@ -170,7 +171,9 @@ function MessageSend ({data}){
                         <div className="message-sendedAt">{formatDate(message.readAt)}</div>
                         {message.fileName ? (
                             <div className="message-fileName">
-                                {message.fileName}<button onClick={() => onClickFileDown(message.fileNo)}>다운</button>
+                                <span class="messageFile" onClick={() => onClickFileDown(message.fileNo)}>
+                                {message.fileName}
+                                </span>
                             </div>
                         ) : (
                             <div className="message-fileName">
