@@ -53,12 +53,12 @@ function MessageReceive({data}) {
     /* 모달창에서 받은 메세지 삭제 */
     const receiveDetailDelete = () => {
         console.log(msgNo);
-        dispatch(callReceiveDelete({deleteRequest : { msgNos : [msgNo]}}));
+        dispatch(callReceiveDelete({deleteRequest: {msgNos: [msgNo]}}));
     }
 
     /* 답장하기 모달창에서 받은 메세지 삭제 */
     const replyReceiveDelete = () => {
-        dispatch(callReceiveDelete({deleteRequest : { msgNos : [msgNo]}}));
+        dispatch(callReceiveDelete({deleteRequest: {msgNos: [msgNo]}}));
     }
 
     const customStyles = {
@@ -196,7 +196,7 @@ function MessageReceive({data}) {
 
         //deleteMsg.msgNos = checkedList;
         console.log(checkedList);
-        dispatch(callReceiveDelete({deleteRequest : { msgNos : checkedList}}))
+        dispatch(callReceiveDelete({deleteRequest: {msgNos: checkedList}}))
     }
 
 
@@ -220,8 +220,9 @@ function MessageReceive({data}) {
                             <div className="message-detail-file">첨부된 파일</div>
                             {receiveDetail.fileName ? (
                                 <div className="detail-upload-name">
+                                    <span className="messageFile" onClick={() => onClickFileDown(receiveDetail.fileNo)}>
                                     {receiveDetail.fileName}
-                                    <button  onClick={() => onClickFileDown(receiveDetail.fileNo)}>다운</button>
+                                    </span>
                                 </div>
                             ) : (
                                 <div className="detail-upload-name">
@@ -229,8 +230,8 @@ function MessageReceive({data}) {
                             )}
                         </div>
                         <div className="message-buttons">
-                            <div className="message-reset" onClick={ receiveDetailDelete }>삭제</div>
-                            <div className="message-back" onClick={ receiveList }>목록으로</div>
+                            <div className="message-reset" onClick={receiveDetailDelete}>삭제</div>
+                            <div className="message-back" onClick={receiveList}>목록으로</div>
                             <div className="detail-write-button"
                                  onClick={() => onClickReply(receiveDetail.memberNo)}>답장하기
                             </div>
@@ -286,8 +287,8 @@ function MessageReceive({data}) {
                         <input readOnly={true} className="upload-name" value={fileName} placeholder="Sample 명단.pdf"/>
                     </div>
                     <div className="message-buttons">
-                        <button className="message-reset" onClick={ replyReceiveDelete }>삭제</button>
-                        <button className="message-back" onClick={ replyList }>목록으로</button>
+                        <button className="message-reset" onClick={replyReceiveDelete}>삭제</button>
+                        <button className="message-back" onClick={replyList}>목록으로</button>
                         <button className="write-button" onClick={onClickMessageRegist}>쪽지쓰기</button>
                     </div>
                 </>
@@ -300,7 +301,7 @@ function MessageReceive({data}) {
                         className="message-checkbox"/>
                     <span
                         className="message-th-msgNo">NO.</span>
-                    <button className="message-delete" onClick={ receiveDelete }>삭제</button>
+                    <button className="message-delete" onClick={receiveDelete}>삭제</button>
                 </div>
                 <div className="message-th-name">보낸 사람</div>
                 <div className="message-th-content">내용</div>
@@ -310,30 +311,33 @@ function MessageReceive({data}) {
             {
                 data.map(message => (
                     <label key={message.msgNo}>
-                    <div className="message-item" onDoubleClick={() => receiveDetailMessage(message.msgNo)}
-                         >
-                        <div className="message-no">
-                            <input
-                                type="checkbox"
-                                id={message.msgNo}
-                                checked={checkedList.includes(message.msgNo)}
-                                onChange={(e) => checkHandler(e, message.msgNo)}
-                                className="message-checkbox"/>
-                            <span
-                                className="message-msgNo">{message.msgNo}</span></div>
-                        <div className="message-sender">{message.sender}</div>
-                        <div className="message-content">{message.msgContent}</div>
-                        <div className="message-sendedAt">{formatDate(message.sendedAt)}</div>
-                        {message.fileName ? (
-                            <div className="message-fileName">
-                                {message.fileName}
-                                <button onClick={() => onClickFileDown(message.fileNo)}>다운</button>
-                            </div>
-                        ) : (
-                            <div className="message-fileName">
-                            </div>
-                        )}
-                    </div>
+                        <div className="message-item" onDoubleClick={() => receiveDetailMessage(message.msgNo)}
+                        >
+                            <div className="message-no">
+                                <input
+                                    type="checkbox"
+                                    id={message.msgNo}
+                                    checked={checkedList.includes(message.msgNo)}
+                                    onChange={(e) => checkHandler(e, message.msgNo)}
+                                    className="message-checkbox"/>
+                                <span
+                                    className="message-msgNo">{message.msgNo}</span></div>
+                            <div className="message-sender">{message.sender}</div>
+                            <div className="message-content">{message.msgContent}</div>
+                            <div className="message-sendedAt">{formatDate(message.sendedAt)}</div>
+                            {message.fileName ? (
+                                <div className="message-fileName">
+                                    {message.fileName && (
+                                        <span className="messageFile" onClick={() => onClickFileDown(message.fileNo)}>
+                                             {message.fileName}
+                                        </span>
+                                    )}
+                                </div>
+                            ) : (
+                                <div className="message-fileName">
+                                </div>
+                            )}
+                        </div>
                     </label>
                 ))
             }
