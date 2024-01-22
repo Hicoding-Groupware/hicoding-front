@@ -208,7 +208,7 @@
   
   - #### 3-4.조회, 작성, 삭제 
  - 👩‍💼조회, 작성, 삭제 
-    <p align="center"><img src="https://github.com/Hicoding-Groupware/hicoding-front/assets/63230518/6382a9e1-5cf7-4030-b0a4-c95e9f4159a0" width="500" height="250"/></p>  1️⃣ 
+    <p align="center"><img src="https://github.com/Hicoding-Groupware/hicoding-front/assets/63230518/6382a9e1-5cf7-4030-b0a4-c95e9f4159a0" width="500" height="250"/></p>
 
   - #### 3-5.답글, 수정, 삭제, 목록, 좋아요
  - 👩‍💼답글, 수정, 삭제, 목록, 좋아요
